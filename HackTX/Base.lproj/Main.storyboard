@@ -102,7 +102,7 @@
         <!--Sponsors-->
         <scene sceneID="bI3-1a-nv7">
             <objects>
-                <viewController id="i1h-uD-yRn" sceneMemberID="viewController">
+                <viewController id="i1h-uD-yRn" customClass="SponsorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M63-6j-NFf"/>
                         <viewControllerLayoutGuide type="bottom" id="nO3-xi-Ckw"/>
@@ -147,7 +147,7 @@
         <!--Map-->
         <scene sceneID="GEd-Os-YX7">
             <objects>
-                <viewController id="Bby-VK-l2D" sceneMemberID="viewController">
+                <viewController id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9B-fG-INM"/>
                         <viewControllerLayoutGuide type="bottom" id="fkG-ob-g74"/>
@@ -192,7 +192,7 @@
         <!--Twitter-->
         <scene sceneID="3US-7O-LHK">
             <objects>
-                <viewController id="YUe-FD-kTH" sceneMemberID="viewController">
+                <viewController id="YUe-FD-kTH" customClass="TwitterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yAl-bS-bvn"/>
                         <viewControllerLayoutGuide type="bottom" id="sR2-pS-LOP"/>
