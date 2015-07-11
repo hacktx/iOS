@@ -271,4 +271,5 @@
         <image name="twitter" width="25" height="25"/>
         <image name="twitter-filled" width="25" height="25"/>
     </resources>
+    <color key="tintColor" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
