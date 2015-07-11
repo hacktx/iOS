@@ -42,6 +42,9 @@
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="schedule-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568627450981" green="0.58823529411764708" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -86,6 +89,9 @@
                     <tabBarItem key="tabBarItem" title="Announcements" image="announcements" id="cPa-gy-q4n">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="announcements-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -128,6 +134,9 @@
                     <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="VBH-2v-P8z">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="sponsors-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -170,6 +179,9 @@
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -214,6 +226,9 @@
                     <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="jLC-yx-AQh">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="twitter-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
