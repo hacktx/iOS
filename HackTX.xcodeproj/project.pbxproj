@@ -93,6 +93,7 @@
 		F9E990351B50EBBA00057823 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F9E990591B50EECB00057823 /* Tab Icons */,
 				F9E990361B50EBBA00057823 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +114,13 @@
 				F9E9904E1B50EBBA00057823 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F9E990591B50EECB00057823 /* Tab Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tab Icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
