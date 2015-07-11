@@ -39,7 +39,11 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="schedule-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,7 +83,11 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Announcements" image="announcements" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Announcements" image="announcements" id="cPa-gy-q4n">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="announcements-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +125,11 @@
                             <constraint firstItem="NyY-E0-dRe" firstAttribute="top" secondItem="KAB-3c-Aqi" secondAttribute="bottom" constant="8" symbolic="YES" id="ery-Y1-CDc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsor" id="VBH-2v-P8z"/>
+                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="VBH-2v-P8z">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="sponsors-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qet-xZ-SF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,7 +167,11 @@
                             <constraint firstItem="V3j-Vp-7c6" firstAttribute="top" secondItem="9mI-zV-m0m" secondAttribute="bottom" constant="8" symbolic="YES" id="t93-8x-JVu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-Oh-KYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,7 +211,11 @@
                             <constraint firstAttribute="centerX" secondItem="MvU-HP-zCo" secondAttribute="centerX" constant="-43.5" id="oLI-oO-u9c"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="jLC-yx-AQh"/>
+                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="jLC-yx-AQh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="twitter-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cws-mx-DNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,9 +246,14 @@
     </scenes>
     <resources>
         <image name="announcements" width="25" height="25"/>
+        <image name="announcements-filled" width="25" height="25"/>
         <image name="map" width="25" height="25"/>
+        <image name="map-filled" width="25" height="25"/>
         <image name="schedule" width="25" height="25"/>
-        <image name="sponsor" width="25" height="25"/>
+        <image name="schedule-filled" width="50" height="50"/>
+        <image name="sponsors" width="25" height="25"/>
+        <image name="sponsors-filled" width="25" height="25"/>
         <image name="twitter" width="25" height="25"/>
+        <image name="twitter-filled" width="25" height="25"/>
     </resources>
 </document>
