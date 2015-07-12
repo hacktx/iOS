@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Schedule-->
@@ -52,7 +51,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Announcements-->
+        <!--News-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +85,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Announcements" image="announcements" id="cPa-gy-q4n">
+                    <tabBarItem key="tabBarItem" title="News" image="announcements" id="cPa-gy-q4n">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="announcements-filled"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -100,38 +99,46 @@
             <point key="canvasLocation" x="750" y="378"/>
         </scene>
         <!--Sponsors-->
-        <scene sceneID="bI3-1a-nv7">
+        <scene sceneID="2WW-yV-Smh">
             <objects>
-                <viewController id="i1h-uD-yRn" customClass="SponsorViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="M63-6j-NFf"/>
-                        <viewControllerLayoutGuide type="bottom" id="nO3-xi-Ckw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iWJ-ZV-7fu">
+                <collectionViewController id="T74-pm-WZT" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1r3-AV-kuV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Sponsors" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KAB-3c-Aqi">
-                                <rect key="frame" x="36" y="96" width="153" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Attached to SponsorViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyY-E0-dRe">
-                                <rect key="frame" x="33" y="146" width="227" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NyY-E0-dRe" firstAttribute="centerX" secondItem="KAB-3c-Aqi" secondAttribute="centerX" id="ayd-Re-Cp8"/>
-                            <constraint firstItem="NyY-E0-dRe" firstAttribute="top" secondItem="KAB-3c-Aqi" secondAttribute="bottom" constant="8" symbolic="YES" id="ery-Y1-CDc"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="VBH-2v-P8z">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kM1-1k-cJN">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1yy-Gu-9Ao">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="T74-pm-WZT" id="h7h-84-yd4"/>
+                            <outlet property="delegate" destination="T74-pm-WZT" id="ZDs-3U-cTS"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Sponsors" id="9uz-PZ-dis"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lcj-Lt-rWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1024" y="1284"/>
+        </scene>
+        <!--Sponsors-->
+        <scene sceneID="VBm-e9-fdL">
+            <objects>
+                <navigationController id="L5O-SH-9qk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="OSm-0b-vvy">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="sponsors-filled"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -139,10 +146,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qet-xZ-SF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wyi-7a-7JG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T74-pm-WZT" kind="relationship" relationship="rootViewController" id="Fek-6q-NZs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lEt-2y-HmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="720"/>
+            <point key="canvasLocation" x="-1528" y="590"/>
         </scene>
         <!--Map-->
         <scene sceneID="GEd-Os-YX7">
@@ -155,26 +169,7 @@
                     <view key="view" contentMode="scaleToFill" id="BEL-uL-qG9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Map" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9mI-zV-m0m">
-                                <rect key="frame" x="37" y="143" width="256" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Attached to MapViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3j-Vp-7c6">
-                                <rect key="frame" x="34" y="193" width="216" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="V3j-Vp-7c6" firstAttribute="centerX" secondItem="9mI-zV-m0m" secondAttribute="centerX" id="k9k-HU-HH0"/>
-                            <constraint firstItem="V3j-Vp-7c6" firstAttribute="top" secondItem="9mI-zV-m0m" secondAttribute="bottom" constant="8" symbolic="YES" id="t93-8x-JVu"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
                         <userDefinedRuntimeAttributes>
@@ -200,28 +195,7 @@
                     <view key="view" contentMode="scaleToFill" id="oxa-L5-ypK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Attached to TwitterViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwn-Ce-yVV">
-                                <rect key="frame" x="76" y="207" width="216" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="MvU-HP-zCo">
-                                <rect key="frame" x="16" y="28" width="107" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Hwn-Ce-yVV" firstAttribute="centerX" secondItem="MvU-HP-zCo" secondAttribute="centerX" id="CrQ-mD-eYh"/>
-                            <constraint firstItem="MvU-HP-zCo" firstAttribute="leading" secondItem="oxa-L5-ypK" secondAttribute="leadingMargin" constant="182" id="HqG-DY-8sI"/>
-                            <constraint firstItem="Hwn-Ce-yVV" firstAttribute="top" secondItem="MvU-HP-zCo" secondAttribute="bottom" constant="8" symbolic="YES" id="j2H-5S-Mbb"/>
-                            <constraint firstAttribute="centerX" secondItem="MvU-HP-zCo" secondAttribute="centerX" constant="-43.5" id="oLI-oO-u9c"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="jLC-yx-AQh">
                         <userDefinedRuntimeAttributes>
@@ -251,7 +225,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="YUe-FD-kTH" kind="relationship" relationship="viewControllers" id="16E-Jz-rCj"/>
                         <segue destination="Bby-VK-l2D" kind="relationship" relationship="viewControllers" id="7WF-Af-2WO"/>
-                        <segue destination="i1h-uD-yRn" kind="relationship" relationship="viewControllers" id="4Fg-hF-5CD"/>
+                        <segue destination="L5O-SH-9qk" kind="relationship" relationship="viewControllers" id="ff9-z7-Ro8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
