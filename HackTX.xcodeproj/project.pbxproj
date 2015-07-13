@@ -64,6 +64,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F956D0711B535067001393DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F956D0731B53507D001393DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F956D0741B535081001393DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
+				F9E9903B1B50EBBA00057823 /* NewsViewController.swift */,
+				F9E990661B51001000057823 /* MapViewController.swift */,
+				F9E990681B51001900057823 /* SponsorViewController.swift */,
+				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F9E990291B50EBBA00057823 = {
 			isa = PBXGroup;
 			children = (
@@ -85,13 +111,11 @@
 		F9E990341B50EBBA00057823 /* HackTX */ = {
 			isa = PBXGroup;
 			children = (
+				F956D0711B535067001393DE /* Model */,
+				F956D0741B535081001393DE /* Controller */,
+				F956D0731B53507D001393DE /* View */,
 				F9E990371B50EBBA00057823 /* AppDelegate.swift */,
-				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
-				F9E9903B1B50EBBA00057823 /* NewsViewController.swift */,
 				F9E9903D1B50EBBA00057823 /* Main.storyboard */,
-				F9E990661B51001000057823 /* MapViewController.swift */,
-				F9E990681B51001900057823 /* SponsorViewController.swift */,
-				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
 				F9E990401B50EBBA00057823 /* Images.xcassets */,
 				F9E990421B50EBBA00057823 /* LaunchScreen.xib */,
 				F9E990351B50EBBA00057823 /* Supporting Files */,
