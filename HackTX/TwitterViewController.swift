@@ -8,18 +8,27 @@
 
 import Foundation
 import UIKit
+import TwitterKit
+import Fabric
 
-class TwitterViewController: UIViewController {
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
-	
+class TwitterViewController: TWTRTimelineViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        Twitter.sharedInstance().logInGuestWithCompletion { session, error in
+            if let validSession = session {
+                let client = Twitter.sharedInstance().APIClient
+                self.dataSource = TWTRUserTimelineDataSource(screenName: "HackTX", APIClient: client)
+            } else {
+                let alert = UIAlertView()
+                alert.title = "Error!"
+                alert.message = "Uh Oh! There's an error trying to view the tweets. Sorry about that..."
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                println("error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
 }
