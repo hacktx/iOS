@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -16,26 +16,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Schedule" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="225" y="279" width="151" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="203" y="329" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kaw-8h-E9i">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" id="4H1-fW-8uX">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4H1-fW-8uX" id="PoO-Zf-1Yo">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="m88-XP-b91"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="NbL-wh-ezq"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cGf-oT-giv">
+                                <rect key="frame" x="148" y="28" width="305" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="Vcs-y1-rol"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First Day"/>
+                                    <segment title="Second Day"/>
+                                </segments>
+                                <connections>
+                                    <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="zqz-31-AGM"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1Lc-Qw-Svy"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="cGf-oT-giv" secondAttribute="bottom" constant="8" symbolic="YES" id="I7X-eF-cHD"/>
+                            <constraint firstItem="cGf-oT-giv" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="NQ3-W6-o58"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="centerX" secondItem="cGf-oT-giv" secondAttribute="centerX" id="PY4-UC-ydI"/>
+                            <constraint firstAttribute="trailing" secondItem="kaw-8h-E9i" secondAttribute="trailing" id="Pcd-Ot-PF9"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="i8Z-s9-FJx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf">
@@ -46,6 +64,10 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="chooseDaySegmentControl" destination="cGf-oT-giv" id="bhV-KB-Nio"/>
+                        <outlet property="tableView" destination="kaw-8h-E9i" id="m6l-w7-a4k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +170,7 @@
         <!--Map-->
         <scene sceneID="GEd-Os-YX7">
             <objects>
-                <viewController id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController id="Bby-VK-l2D" customClass="MapViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9B-fG-INM"/>
                         <viewControllerLayoutGuide type="bottom" id="fkG-ob-g74"/>
@@ -174,7 +196,7 @@
         <!--Twitter-->
         <scene sceneID="3US-7O-LHK">
             <objects>
-                <viewController id="YUe-FD-kTH" customClass="TwitterViewController" sceneMemberID="viewController">
+                <viewController id="YUe-FD-kTH" customClass="TwitterViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yAl-bS-bvn"/>
                         <viewControllerLayoutGuide type="bottom" id="sR2-pS-LOP"/>
