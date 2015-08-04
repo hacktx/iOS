@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class MapViewController: UIViewController {
+    @IBAction func btn_clicked_SAC(sender: AnyObject) {
+        
+    }
+    @IBAction func btn_clicked_CLA(sender: AnyObject) {
+    }
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,6 +25,5 @@ class MapViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	
+    
 }
