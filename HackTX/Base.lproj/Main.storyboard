@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Schedule-->
         <scene sceneID="hNz-n2-bh7">
@@ -61,8 +69,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xCf-kN-IEh">
+                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCf-kN-IEh" id="T2M-GW-0py">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -101,7 +111,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1yy-Gu-9Ao">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -145,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="-1528" y="590"/>
         </scene>
-        <!--Map-->
+        <!--Title-->
         <scene sceneID="GEd-Os-YX7">
             <objects>
                 <viewController id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
@@ -156,7 +166,38 @@
                     <view key="view" contentMode="scaleToFill" id="BEL-uL-qG9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTn-ZF-FjU">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.17647059261798859" green="0.92156869173049927" blue="0.96078437566757202" alpha="1" colorSpace="deviceRGB"/>
+                                <items>
+                                    <navigationItem id="UWX-Yp-TFT">
+                                        <leftBarButtonItems>
+                                            <barButtonItem style="plain" id="7he-aH-2JK">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vFJ-rH-SFO">
+                                                    <rect key="frame" x="0.0" y="7" width="60" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="SAC"/>
+                                                </button>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" id="otg-0h-FJW">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YLq-YT-iya">
+                                                    <rect key="frame" x="68" y="7" width="48" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="CLA"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xTn-ZF-FjU" firstAttribute="leading" secondItem="BEL-uL-qG9" secondAttribute="leadingMargin" constant="-20" id="C9G-QY-hU5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xTn-ZF-FjU" secondAttribute="trailing" constant="-20" id="Gsm-zl-6wc"/>
+                            <constraint firstItem="xTn-ZF-FjU" firstAttribute="top" secondItem="X9B-fG-INM" secondAttribute="bottom" id="ZAM-I1-Hqo"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
                         <userDefinedRuntimeAttributes>
@@ -166,6 +207,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="xZY-kY-6M9"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-Oh-KYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
