@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="-1528" y="590"/>
         </scene>
-        <!--Title-->
+        <!--Maps-->
         <scene sceneID="GEd-Os-YX7">
             <objects>
-                <viewController id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController title="Maps" id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9B-fG-INM"/>
                         <viewControllerLayoutGuide type="bottom" id="fkG-ob-g74"/>
@@ -175,12 +175,19 @@
                                         <leftBarButtonItems>
                                             <barButtonItem style="plain" id="7he-aH-2JK">
                                                 <inset key="imageInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vFJ-rH-SFO">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="vFJ-rH-SFO">
                                                     <rect key="frame" x="0.0" y="7" width="60" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <state key="normal" title="SAC">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="SAC">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="20" name="Helvetica"/>
+                                                                    <integer key="NSUnderline" value="1"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                     </state>
                                                 </button>
                                                 <connections>
@@ -188,12 +195,19 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" id="otg-0h-FJW">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YLq-YT-iya">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="YLq-YT-iya">
                                                     <rect key="frame" x="68" y="7" width="48" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <state key="normal" title="CLA">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="CLA">
+                                                                <attributes>
+                                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                                    <integer key="NSUnderline" value="1"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                     </state>
                                                 </button>
                                                 <connections>
@@ -214,12 +228,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fkG-ob-g74" firstAttribute="top" secondItem="ehJ-wa-MsB" secondAttribute="bottom" id="BRi-cC-gT0"/>
+                            <constraint firstItem="ehJ-wa-MsB" firstAttribute="leading" secondItem="BEL-uL-qG9" secondAttribute="leadingMargin" constant="-20" id="9fu-ai-1zB"/>
                             <constraint firstItem="xTn-ZF-FjU" firstAttribute="leading" secondItem="BEL-uL-qG9" secondAttribute="leadingMargin" constant="-20" id="C9G-QY-hU5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xTn-ZF-FjU" secondAttribute="trailing" constant="-20" id="Gsm-zl-6wc"/>
-                            <constraint firstItem="ehJ-wa-MsB" firstAttribute="leading" secondItem="BEL-uL-qG9" secondAttribute="leadingMargin" constant="-20" id="HWg-2v-Yl0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ehJ-wa-MsB" secondAttribute="trailing" constant="-20" id="YlZ-mZ-dU1"/>
                             <constraint firstItem="xTn-ZF-FjU" firstAttribute="top" secondItem="X9B-fG-INM" secondAttribute="bottom" id="ZAM-I1-Hqo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ehJ-wa-MsB" secondAttribute="trailing" constant="-20" id="v06-Eb-jzB"/>
+                            <constraint firstItem="fkG-ob-g74" firstAttribute="top" secondItem="ehJ-wa-MsB" secondAttribute="bottom" id="cGT-Ag-V5h"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
