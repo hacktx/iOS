@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -145,32 +145,6 @@
             </objects>
             <point key="canvasLocation" x="-1528" y="590"/>
         </scene>
-        <!--Map-->
-        <scene sceneID="GEd-Os-YX7">
-            <objects>
-                <viewController id="Bby-VK-l2D" customClass="MapViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X9B-fG-INM"/>
-                        <viewControllerLayoutGuide type="bottom" id="fkG-ob-g74"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BEL-uL-qG9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-Oh-KYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="20" y="1118"/>
-        </scene>
         <!--Twitter-->
         <scene sceneID="3US-7O-LHK">
             <objects>
@@ -210,14 +184,40 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="1BI-BX-nEc" kind="relationship" relationship="viewControllers" id="M4g-NE-XaM"/>
+                        <segue destination="MnB-Q2-evW" kind="relationship" relationship="viewControllers" id="1lz-bc-dmO"/>
                         <segue destination="YUe-FD-kTH" kind="relationship" relationship="viewControllers" id="16E-Jz-rCj"/>
-                        <segue destination="Bby-VK-l2D" kind="relationship" relationship="viewControllers" id="7WF-Af-2WO"/>
                         <segue destination="L5O-SH-9qk" kind="relationship" relationship="viewControllers" id="ff9-z7-Ro8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-48" y="0.0"/>
+        </scene>
+        <!--Maps-->
+        <scene sceneID="DEH-2D-NW8">
+            <objects>
+                <viewController id="MnB-Q2-evW" customClass="MapViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zdx-96-t66"/>
+                        <viewControllerLayoutGuide type="bottom" id="NMr-HB-vag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Skp-TG-yjA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Maps" image="map" id="qEt-sJ-7d5">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmF-JW-Hhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97" y="843"/>
         </scene>
     </scenes>
     <resources>

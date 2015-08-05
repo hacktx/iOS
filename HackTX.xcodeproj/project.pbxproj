@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F96903741B71B694004A80D4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96903731B71B694004A80D4 /* MapViewController.swift */; };
 		F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990371B50EBBA00057823 /* AppDelegate.swift */; };
 		F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990391B50EBBA00057823 /* ScheduleViewController.swift */; };
 		F9E9903C1B50EBBA00057823 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9903B1B50EBBA00057823 /* NewsViewController.swift */; };
@@ -15,7 +16,6 @@
 		F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E990421B50EBBA00057823 /* LaunchScreen.xib */; };
 		F9E990501B50EBBA00057823 /* HackTXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9904F1B50EBBA00057823 /* HackTXTests.swift */; };
 		F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990641B50FFFF00057823 /* TwitterViewController.swift */; };
-		F9E990671B51001000057823 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990661B51001000057823 /* MapViewController.swift */; };
 		F9E990691B51001900057823 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990681B51001900057823 /* SponsorViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F96903731B71B694004A80D4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F9E990321B50EBBA00057823 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E990361B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E990371B50EBBA00057823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		F9E9904E1B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E9904F1B50EBBA00057823 /* HackTXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTXTests.swift; sourceTree = "<group>"; };
 		F9E990641B50FFFF00057823 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
-		F9E990661B51001000057823 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F9E990681B51001900057823 /* SponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +83,9 @@
 			children = (
 				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
 				F9E9903B1B50EBBA00057823 /* NewsViewController.swift */,
-				F9E990661B51001000057823 /* MapViewController.swift */,
 				F9E990681B51001900057823 /* SponsorViewController.swift */,
 				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
+				F96903731B71B694004A80D4 /* MapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -257,10 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */,
+				F96903741B71B694004A80D4 /* MapViewController.swift in Sources */,
 				F9E9903C1B50EBBA00057823 /* NewsViewController.swift in Sources */,
 				F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */,
 				F9E990691B51001900057823 /* SponsorViewController.swift in Sources */,
-				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
