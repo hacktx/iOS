@@ -1,0 +1,5 @@
+# OSX files
+.DS_Store
+
+# Shell files
+*.sh

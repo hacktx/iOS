@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kaw-8h-E9i">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" id="4H1-fW-8uX">
@@ -33,13 +33,13 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cGf-oT-giv">
-                                <rect key="frame" x="148" y="28" width="305" height="29"/>
+                                <rect key="frame" x="148" y="8" width="304" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="305" id="Vcs-y1-rol"/>
+                                    <constraint firstAttribute="width" constant="304" id="Vcs-y1-rol"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First Day"/>
-                                    <segment title="Second Day"/>
+                                    <segment title="Sept 26"/>
+                                    <segment title="Sept 27"/>
                                 </segments>
                                 <connections>
                                     <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="zqz-31-AGM"/>
@@ -50,20 +50,23 @@
                         <constraints>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1Lc-Qw-Svy"/>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="cGf-oT-giv" secondAttribute="bottom" constant="8" symbolic="YES" id="I7X-eF-cHD"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="cGf-oT-giv" secondAttribute="bottom" constant="8" id="KFU-KS-C05"/>
+                            <constraint firstItem="cGf-oT-giv" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="NE5-RO-AdL"/>
                             <constraint firstItem="cGf-oT-giv" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="NQ3-W6-o58"/>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="centerX" secondItem="cGf-oT-giv" secondAttribute="centerX" id="PY4-UC-ydI"/>
                             <constraint firstAttribute="trailing" secondItem="kaw-8h-E9i" secondAttribute="trailing" id="Pcd-Ot-PF9"/>
+                            <constraint firstAttribute="centerX" secondItem="cGf-oT-giv" secondAttribute="centerX" id="fYy-Yt-NAt"/>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="i8Z-s9-FJx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NQ3-W6-o58"/>
+                                <exclude reference="I7X-eF-cHD"/>
+                                <exclude reference="PY4-UC-ydI"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="schedule-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568627450981" green="0.58823529411764708" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Schedule" id="WAr-tm-CJo"/>
                     <connections>
                         <outlet property="chooseDaySegmentControl" destination="cGf-oT-giv" id="bhV-KB-Nio"/>
                         <outlet property="tableView" destination="kaw-8h-E9i" id="m6l-w7-a4k"/>
@@ -71,21 +74,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1598" y="-2238"/>
         </scene>
-        <!--News-->
+        <!--Announcements-->
         <scene sceneID="XNR-Wh-qVA">
             <objects>
-                <tableViewController id="1BI-BX-nEc" sceneMemberID="viewController">
+                <tableViewController id="1BI-BX-nEc" customClass="AnnouncementsViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ame-47-yJK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xCf-kN-IEh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnouncementCell" textLabel="JNL-JF-Xq3" detailTextLabel="I7G-4c-ZL5" style="IBUITableViewCellStyleSubtitle" id="xCf-kN-IEh">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCf-kN-IEh" id="T2M-GW-0py">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JNL-JF-Xq3">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I7G-4c-ZL5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -94,25 +111,18 @@
                             <outlet property="delegate" destination="1BI-BX-nEc" id="4Wt-Cy-wsL"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="News" image="announcements" id="M8m-d7-3WH">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="announcements-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Announcements" id="Fqv-9U-8x2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBx-jj-CGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="315"/>
+            <point key="canvasLocation" x="1576" y="-1469"/>
         </scene>
         <!--Sponsors-->
         <scene sceneID="2WW-yV-Smh">
             <objects>
                 <collectionViewController id="T74-pm-WZT" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1r3-AV-kuV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kM1-1k-cJN">
@@ -141,21 +151,14 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcj-Lt-rWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1024" y="1284"/>
+            <point key="canvasLocation" x="1816" y="944"/>
         </scene>
         <!--Sponsors-->
         <scene sceneID="VBm-e9-fdL">
             <objects>
                 <navigationController id="L5O-SH-9qk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="OSm-0b-vvy">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="sponsors-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wyi-7a-7JG">
+                    <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="OSm-0b-vvy"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="wyi-7a-7JG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -165,7 +168,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEt-2y-HmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1528" y="590"/>
+            <point key="canvasLocation" x="820" y="954"/>
         </scene>
         <!--Map-->
         <scene sceneID="GEd-Os-YX7">
@@ -176,48 +179,15 @@
                         <viewControllerLayoutGuide type="bottom" id="fkG-ob-g74"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BEL-uL-qG9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Map" id="aoC-JQ-wsv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-Oh-KYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="1118"/>
-        </scene>
-        <!--Twitter-->
-        <scene sceneID="3US-7O-LHK">
-            <objects>
-                <viewController id="YUe-FD-kTH" customClass="TwitterViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yAl-bS-bvn"/>
-                        <viewControllerLayoutGuide type="bottom" id="sR2-pS-LOP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oxa-L5-ypK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="jLC-yx-AQh">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="twitter-filled"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cws-mx-DNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="1218"/>
+            <point key="canvasLocation" x="1576" y="98"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -230,10 +200,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="1BI-BX-nEc" kind="relationship" relationship="viewControllers" id="M4g-NE-XaM"/>
-                        <segue destination="YUe-FD-kTH" kind="relationship" relationship="viewControllers" id="16E-Jz-rCj"/>
-                        <segue destination="Bby-VK-l2D" kind="relationship" relationship="viewControllers" id="7WF-Af-2WO"/>
+                        <segue destination="dO5-nX-mkn" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="qe0-oc-7vC" kind="relationship" relationship="viewControllers" id="M4g-NE-XaM"/>
+                        <segue destination="IJf-0V-21f" kind="relationship" relationship="viewControllers" id="SPs-8v-Jac"/>
+                        <segue destination="Vco-MN-QvU" kind="relationship" relationship="viewControllers" id="7WF-Af-2WO"/>
                         <segue destination="L5O-SH-9qk" kind="relationship" relationship="viewControllers" id="ff9-z7-Ro8"/>
                     </connections>
                 </tabBarController>
@@ -241,18 +211,117 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Schedule-->
+        <scene sceneID="zyC-hf-ujC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dO5-nX-mkn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="yXj-0e-1gy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="aFd-Ns-9YW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XnQ-2b-hKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="-2238"/>
+        </scene>
+        <!--Announcements-->
+        <scene sceneID="CIe-dk-a1X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qe0-oc-7vC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Announcements" image="announcement" id="M8m-d7-3WH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="D9C-Wg-2oD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1BI-BX-nEc" kind="relationship" relationship="rootViewController" id="WIo-Q1-C2c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHF-gV-BJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-1469"/>
+        </scene>
+        <!--Twitter-->
+        <scene sceneID="hMr-bI-6KG">
+            <objects>
+                <tableViewController id="ogd-ck-M14" customClass="TwitterViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9CZ-dR-pXy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gN2-8m-Upi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gN2-8m-Upi" id="uD5-ZR-AYm">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ogd-ck-M14" id="Y5T-uh-8fW"/>
+                            <outlet property="delegate" destination="ogd-ck-M14" id="0cO-Xd-jLn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Twitter" id="FPj-bE-C3t"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlH-bf-vGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582" y="-678"/>
+        </scene>
+        <!--Twitter-->
+        <scene sceneID="xbZ-cE-kXl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJf-0V-21f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="aSn-fx-sG3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="IGn-GA-X7L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ogd-ck-M14" kind="relationship" relationship="rootViewController" id="cZK-PX-O6y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Y1-3n-TTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="-678"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="ABz-70-hJ3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vco-MN-QvU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="zqW-ty-4Ua">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bby-VK-l2D" kind="relationship" relationship="rootViewController" id="IZF-2i-QVF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zIm-oq-Jul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="98"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="announcements" width="25" height="25"/>
-        <image name="announcements-filled" width="25" height="25"/>
-        <image name="map" width="25" height="25"/>
-        <image name="map-filled" width="25" height="25"/>
-        <image name="schedule" width="25" height="25"/>
-        <image name="schedule-filled" width="50" height="50"/>
-        <image name="sponsors" width="25" height="25"/>
-        <image name="sponsors-filled" width="25" height="25"/>
-        <image name="twitter" width="25" height="25"/>
-        <image name="twitter-filled" width="25" height="25"/>
+        <image name="announcement" width="36" height="36"/>
+        <image name="map" width="36" height="36"/>
+        <image name="schedule" width="36" height="36"/>
+        <image name="sponsors" width="36" height="36"/>
+        <image name="twitter" width="36" height="36"/>
     </resources>
     <color key="tintColor" red="0.23921568630000001" green="0.58823529409999997" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
