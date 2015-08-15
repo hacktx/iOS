@@ -25,6 +25,7 @@
 		3AEB82371B7F107F00224BC3 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82331B7F107F00224BC3 /* TwitterCore.framework */; };
 		3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */; };
 		3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB823A1B7F14F400224BC3 /* Announcement.swift */; };
+		3AEB823E1B7F2BCB00224BC3 /* apiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB823D1B7F2BCB00224BC3 /* apiKeys.plist */; };
 		F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990371B50EBBA00057823 /* AppDelegate.swift */; };
 		F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990391B50EBBA00057823 /* ScheduleViewController.swift */; };
 		F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E9903D1B50EBBA00057823 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		3AEB823A1B7F14F400224BC3 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		3AEB823C1B7F210B00224BC3 /* TwitterKey.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = TwitterKey.sh; sourceTree = "<group>"; };
+		3AEB823D1B7F2BCB00224BC3 /* apiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apiKeys.plist; sourceTree = "<group>"; };
 		F9E990321B50EBBA00057823 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E990361B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E990371B50EBBA00057823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,8 +194,8 @@
 		F9E990351B50EBBA00057823 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F9E990591B50EECB00057823 /* Tab Icons */,
 				F9E990361B50EBBA00057823 /* Info.plist */,
+				3AEB823D1B7F2BCB00224BC3 /* apiKeys.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,13 +215,6 @@
 				F9E9904E1B50EBBA00057823 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F9E990591B50EECB00057823 /* Tab Icons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Tab Icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEB82231B7F0C2D00224BC3 /* Info.plist in Resources */,
+				3AEB823E1B7F2BCB00224BC3 /* apiKeys.plist in Resources */,
 				F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */,
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
