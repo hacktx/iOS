@@ -1,5 +1,6 @@
 # OSX files
 .DS_Store
 
-# Shell files
+# API & Secret files
 *.sh
+HackTX/apiKeys.plist

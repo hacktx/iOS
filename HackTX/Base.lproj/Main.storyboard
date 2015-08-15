@@ -60,9 +60,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="NQ3-W6-o58"/>
                                 <exclude reference="I7X-eF-cHD"/>
                                 <exclude reference="PY4-UC-ydI"/>
+                                <exclude reference="NQ3-W6-o58"/>
                             </mask>
                         </variation>
                     </view>
