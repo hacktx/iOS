@@ -8,18 +8,24 @@
 
 import Foundation
 import UIKit
+import TwitterKit
 
-class TwitterViewController: UIViewController {
+class TwitterViewController: TWTRTimelineViewController {
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-	}
-	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        let topLayoutGuide = CGFloat(60)
+//        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide, 0, 0, 0)
+        
+        Twitter.sharedInstance().logInGuestWithCompletion { session, error in
+            if let validSession = session {
+                let client = Twitter.sharedInstance().APIClient
+                self.dataSource = TWTRUserTimelineDataSource(screenName: "hacktx", APIClient: client)
+            } else {
+                println("error: \(error.localizedDescription)")
+            }
+        }
+    }
 	
 }
