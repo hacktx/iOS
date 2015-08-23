@@ -11,6 +11,11 @@
 		3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156711B8A436100BCA241 /* SponsorViewCell.swift */; };
 		3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2156721B8A436100BCA241 /* SponsorViewCell.xib */; };
 		3A2156761B8A44CC00BCA241 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156751B8A44CC00BCA241 /* Sponsor.swift */; };
+		3A21567A1B8A577100BCA241 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */; };
+		3A21567C1B8A5D3D00BCA241 /* ScheduleCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */; };
+		3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567D1B8A5D5400BCA241 /* Day.swift */; };
+		3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567F1B8A5D6A00BCA241 /* Event.swift */; };
+		3A2156821B8A5D8900BCA241 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156811B8A5D8900BCA241 /* Speaker.swift */; };
 		3AEB82211B7F0C2D00224BC3 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82161B7F0C2D00224BC3 /* Alamofire.swift */; };
 		3AEB82221B7F0C2D00224BC3 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82171B7F0C2D00224BC3 /* Download.swift */; };
 		3AEB82231B7F0C2D00224BC3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB82181B7F0C2D00224BC3 /* Info.plist */; };
@@ -54,6 +59,11 @@
 		3A2156711B8A436100BCA241 /* SponsorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewCell.swift; sourceTree = "<group>"; };
 		3A2156721B8A436100BCA241 /* SponsorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorViewCell.xib; sourceTree = "<group>"; };
 		3A2156751B8A44CC00BCA241 /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCluster.swift; sourceTree = "<group>"; };
+		3A21567D1B8A5D5400BCA241 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		3A21567F1B8A5D6A00BCA241 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		3A2156811B8A5D8900BCA241 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		3AEB82151B7F0C2D00224BC3 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		3AEB82161B7F0C2D00224BC3 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		3AEB82171B7F0C2D00224BC3 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
@@ -133,6 +143,10 @@
 			children = (
 				3AEB823A1B7F14F400224BC3 /* Announcement.swift */,
 				3A2156751B8A44CC00BCA241 /* Sponsor.swift */,
+				3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */,
+				3A21567D1B8A5D5400BCA241 /* Day.swift */,
+				3A21567F1B8A5D6A00BCA241 /* Event.swift */,
+				3A2156811B8A5D8900BCA241 /* Speaker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
+				3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */,
 				3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */,
 				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
 				F9E990661B51001000057823 /* MapViewController.swift */,
@@ -348,20 +363,25 @@
 				3AEB82271B7F0C2D00224BC3 /* Request.swift in Sources */,
 				3AEB82221B7F0C2D00224BC3 /* Download.swift in Sources */,
 				F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */,
+				3A21567A1B8A577100BCA241 /* ScheduleDetailViewController.swift in Sources */,
+				3A2156821B8A5D8900BCA241 /* Speaker.swift in Sources */,
 				3AEB82291B7F0C2D00224BC3 /* ServerTrustPolicy.swift in Sources */,
 				3AEB822B1B7F0C2D00224BC3 /* Validation.swift in Sources */,
+				3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */,
 				3AEB822A1B7F0C2D00224BC3 /* Upload.swift in Sources */,
 				3AEB82251B7F0C2D00224BC3 /* MultipartFormData.swift in Sources */,
 				3AEB82261B7F0C2D00224BC3 /* ParameterEncoding.swift in Sources */,
 				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
 				3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */,
 				3A21566E1B8A430C00BCA241 /* SponsorViewController.swift in Sources */,
+				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
 				3AEB82241B7F0C2D00224BC3 /* Manager.swift in Sources */,
 				3AEB822D1B7F0CCA00224BC3 /* SwiftyJSON.swift in Sources */,
 				3AEB82281B7F0C2D00224BC3 /* ResponseSerialization.swift in Sources */,
 				3AEB82211B7F0C2D00224BC3 /* Alamofire.swift in Sources */,
+				3A21567C1B8A5D3D00BCA241 /* ScheduleCluster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

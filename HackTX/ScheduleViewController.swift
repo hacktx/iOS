@@ -23,7 +23,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         dayList.removeAll(keepCapacity: true)
         
         for i in 0..<numberOfDays {
-            dayList.removeAll(keepCapacity: true)
             
             request(.GET, "http://hacktx.getsandbox.com/schedule/\(i+1)")
                 .responseJSON { (request, response, data, error) in
@@ -77,6 +76,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                         
                         curDay.clusterList = clusterList
                         self.dayList.append(curDay)
+                        self.dayList.sort({ $0.clusterList[0].id < $1.clusterList[0].id })
                         self.tableView.reloadData()
                     }
             }
@@ -115,43 +115,24 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[indexPath.section]
+        let event = scheduleCluster.eventsList![indexPath.row]
+        performSegueWithIdentifier("ShowEvent", sender: event)
+    }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {
         tableView.reloadData()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowEvent" {
+            let navController = segue.destinationViewController as! UINavigationController
+            let controller = navController.topViewController as! ScheduleDetailViewController
+            controller.scheduleEvent = sender as! Event
+        }
+    }
 
-}
-
-class Day {
-    var clusterList = [ScheduleCluster]()
-}
-
-
-class ScheduleCluster {
-    var id : Int? = 0
-    var name: String? = ""
-    var eventsList: [Event]?
-}
-
-class Event {
-    var id : Int? = 0
-    var name: String? = ""
-    var type: String? = ""
-    var imageUrl: String? = ""
-    var startDate: NSDate? = NSDate()
-    var endDate: NSDate? = NSDate()
-    var startDateStr: String? = ""
-    var endDateStr: String? = ""
-    var location: String? = ""
-    var description: String? = ""
-    var speakerList: [Speaker]?
-}
-
-class Speaker {
-    var id: Int? = 0
-    var name: String = ""
-    var organization: String = ""
-    var description: String = ""
-    var imageUrl: String = ""
 }
 
