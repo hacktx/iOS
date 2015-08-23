@@ -27,13 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
     
     func setNavTabBarLayout() {
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        UINavigationBar.appearance().barTintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0)
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
-        UITabBar.appearance().barTintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0)
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+//        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+//        UINavigationBar.appearance().barTintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0)
+//        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+//        
+//        UITabBar.appearance().barTintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0) //UIColor.whiteColor()
         
         
     }

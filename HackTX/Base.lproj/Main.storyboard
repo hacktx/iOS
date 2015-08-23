@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Schedule-->
+        <!--Schedule View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="ScheduleViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kaw-8h-E9i">
-                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" id="4H1-fW-8uX">
@@ -32,41 +32,29 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="NbL-wh-ezq"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cGf-oT-giv">
-                                <rect key="frame" x="148" y="8" width="304" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="304" id="Vcs-y1-rol"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Sept 26"/>
-                                    <segment title="Sept 27"/>
-                                </segments>
-                                <connections>
-                                    <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="zqz-31-AGM"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1Lc-Qw-Svy"/>
-                            <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="cGf-oT-giv" secondAttribute="bottom" constant="8" symbolic="YES" id="I7X-eF-cHD"/>
-                            <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="cGf-oT-giv" secondAttribute="bottom" constant="8" id="KFU-KS-C05"/>
-                            <constraint firstItem="cGf-oT-giv" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="NE5-RO-AdL"/>
-                            <constraint firstItem="cGf-oT-giv" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="NQ3-W6-o58"/>
-                            <constraint firstItem="kaw-8h-E9i" firstAttribute="centerX" secondItem="cGf-oT-giv" secondAttribute="centerX" id="PY4-UC-ydI"/>
                             <constraint firstAttribute="trailing" secondItem="kaw-8h-E9i" secondAttribute="trailing" id="Pcd-Ot-PF9"/>
-                            <constraint firstAttribute="centerX" secondItem="cGf-oT-giv" secondAttribute="centerX" id="fYy-Yt-NAt"/>
+                            <constraint firstItem="kaw-8h-E9i" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="YvZ-TA-jLg"/>
                             <constraint firstItem="kaw-8h-E9i" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="i8Z-s9-FJx"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="I7X-eF-cHD"/>
-                                <exclude reference="PY4-UC-ydI"/>
-                                <exclude reference="NQ3-W6-o58"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Schedule" id="WAr-tm-CJo"/>
+                    <navigationItem key="navigationItem" id="WAr-tm-CJo">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="cGf-oT-giv">
+                            <rect key="frame" x="148" y="7.5" width="304" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Sept 26"/>
+                                <segment title="Sept 27"/>
+                            </segments>
+                            <connections>
+                                <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="zqz-31-AGM"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="chooseDaySegmentControl" destination="cGf-oT-giv" id="bhV-KB-Nio"/>
                         <outlet property="tableView" destination="kaw-8h-E9i" id="m6l-w7-a4k"/>
@@ -120,28 +108,18 @@
         <!--Sponsors-->
         <scene sceneID="2WW-yV-Smh">
             <objects>
-                <collectionViewController id="T74-pm-WZT" sceneMemberID="viewController">
+                <collectionViewController id="T74-pm-WZT" customClass="SponsorViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1r3-AV-kuV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kM1-1k-cJN">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="90" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1yy-Gu-9Ao">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="T74-pm-WZT" id="h7h-84-yd4"/>
                             <outlet property="delegate" destination="T74-pm-WZT" id="ZDs-3U-cTS"/>
@@ -151,14 +129,14 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcj-Lt-rWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816" y="944"/>
+            <point key="canvasLocation" x="1582" y="1350"/>
         </scene>
         <!--Sponsors-->
         <scene sceneID="VBm-e9-fdL">
             <objects>
                 <navigationController id="L5O-SH-9qk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sponsors" image="sponsors" id="OSm-0b-vvy"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="wyi-7a-7JG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wyi-7a-7JG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -168,9 +146,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEt-2y-HmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="954"/>
+            <point key="canvasLocation" x="764" y="1350"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="GEd-Os-YX7">
             <objects>
                 <viewController id="Bby-VK-l2D" customClass="MapViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +161,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="aoC-JQ-wsv"/>
+                    <navigationItem key="navigationItem" id="aoC-JQ-wsv">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IV0-F2-t3T">
+                            <rect key="frame" x="148" y="7.5" width="304" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="SAC"/>
+                                <segment title="CLA"/>
+                            </segments>
+                            <connections>
+                                <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="ir5-Ol-sq3"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-Oh-KYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,7 +209,7 @@
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="yXj-0e-1gy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yXj-0e-1gy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -237,7 +228,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qe0-oc-7vC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Announcements" image="announcement" id="M8m-d7-3WH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="D9C-Wg-2oD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="D9C-Wg-2oD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -283,7 +274,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJf-0V-21f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="aSn-fx-sG3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="IGn-GA-X7L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IGn-GA-X7L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -302,7 +293,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vco-MN-QvU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="zqW-ty-4Ua">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zqW-ty-4Ua">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
