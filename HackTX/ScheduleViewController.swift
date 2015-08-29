@@ -139,6 +139,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {
