@@ -42,6 +42,7 @@
 		F9E990501B50EBBA00057823 /* HackTXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9904F1B50EBBA00057823 /* HackTXTests.swift */; };
 		F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990641B50FFFF00057823 /* TwitterViewController.swift */; };
 		F9E990671B51001000057823 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990661B51001000057823 /* MapViewController.swift */; };
+		F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE70211B912EE300B493A8 /* PageItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F9E9904F1B50EBBA00057823 /* HackTXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTXTests.swift; sourceTree = "<group>"; };
 		F9E990641B50FFFF00057823 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
 		F9E990661B51001000057823 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F9EE70211B912EE300B493A8 /* PageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		F956D0741B535081001393DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F9EE70211B912EE300B493A8 /* PageItemViewController.swift */,
 				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
 				3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */,
 				3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */,
@@ -377,6 +380,7 @@
 				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
+				F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */,
 				3AEB82241B7F0C2D00224BC3 /* Manager.swift in Sources */,
 				3AEB822D1B7F0CCA00224BC3 /* SwiftyJSON.swift in Sources */,
 				3AEB82281B7F0C2D00224BC3 /* ResponseSerialization.swift in Sources */,
