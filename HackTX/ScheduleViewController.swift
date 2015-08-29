@@ -118,7 +118,20 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 		let endTime = dateFormatter.stringFromDate(event.endDate!)
 		
         cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!)"
-		
+		switch event.type! {
+		case "talk":
+			cell.imageView?.image = UIImage(named: "talk.png")
+		case "education":
+			cell.imageView?.image = UIImage(named: "education.png")
+		case "bus":
+			cell.imageView?.image = UIImage(named: "bus.png")
+		case "food":
+			cell.imageView?.image = UIImage(named: "food.png")
+		case "dev":
+			cell.imageView?.image = UIImage(named: "dev.png")
+		default:
+			cell.imageView?.image = UIImage(named: "event.png")
+		}
         return cell
     }
     
