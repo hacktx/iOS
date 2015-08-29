@@ -77,9 +77,14 @@ class ScheduleDetailViewController: UITableViewController {
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
             let eventDesc = cell.viewWithTag(1002) as! UILabel
-            
+			
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "hh:mm a"
+			let startTime = dateFormatter.stringFromDate(scheduleEvent.startDate!)
+			let endTime = dateFormatter.stringFromDate(scheduleEvent.endDate!)
+			
             eventLocation.text = scheduleEvent.location
-            eventTime.text = "\(scheduleEvent.startDate!) - \(scheduleEvent.endDate!)"
+            eventTime.text = "\(startTime) - \(endTime)"
             eventDesc.text = scheduleEvent.description
             
             
