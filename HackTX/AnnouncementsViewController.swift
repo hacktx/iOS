@@ -74,7 +74,7 @@ class AnnouncementsViewController: UITableViewController {
 
         cell.textLabel!.text = announcement.text
         cell.detailTextLabel!.text = announcement.ts
-
+		cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     
