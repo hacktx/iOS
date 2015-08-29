@@ -111,8 +111,14 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let event = scheduleCluster.eventsList![indexPath.row] as Event
         
         cell.textLabel!.text = event.name
-        cell.detailTextLabel!.text = "\(event.startDate!) | \(event.location!)"
-        
+		
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "hh:mm"
+		let startTime = dateFormatter.stringFromDate(event.startDate!)
+		let endTime = dateFormatter.stringFromDate(event.endDate!)
+		
+        cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!)"
+		
         return cell
     }
     
