@@ -77,7 +77,14 @@ class ScheduleDetailViewController: UITableViewController {
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
             let eventDesc = cell.viewWithTag(1002) as! UILabel
-			let eventSpeaker = cell.viewWithTag(1003) as! UILabel
+			if let eventSpeaker = cell.viewWithTag(1003) as? UILabel {
+				var speakerString = ""
+				for speaker in scheduleEvent.speakerList! {
+					speakerString += speaker.name + ", "
+				}
+				
+				eventSpeaker.text = speakerString.substringToIndex(advance(speakerString.startIndex, count(speakerString)-2))
+			} 
 			
 			
 			let dateFormatter = NSDateFormatter()
@@ -88,17 +95,11 @@ class ScheduleDetailViewController: UITableViewController {
             eventLocation.text = scheduleEvent.location
             eventTime.text = "\(startTime) - \(endTime)"
             eventDesc.text = scheduleEvent.description
-			if scheduleEvent.speakerList?.count != 0 {
-				var speakerString = ""
-				for speaker in scheduleEvent.speakerList! {
-					speakerString += speaker.name + ", "
-				}
-				
-				eventSpeaker.text = speakerString.substringToIndex(advance(speakerString.startIndex, count(speakerString)-2))
-			} else {
-				eventSpeaker.text = nil
-			}
-            
+//			if scheduleEvent.speakerList?.count != 0 {
+//				
+//			} else {
+//			}
+			
         default:
             cell = UITableViewCell()
         }
