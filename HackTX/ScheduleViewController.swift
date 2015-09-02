@@ -46,7 +46,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                             
                             for (key: String, subJson: JSON) in subJson["eventsList"] {
                                 var event: Event = Event()
-                                event.location = subJson["location"].stringValue
+								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+								
                                 event.endDateStr = subJson["endDate"].stringValue
                                 event.id = subJson["id"].intValue
                                 event.startDateStr = subJson["startData"].stringValue
@@ -117,7 +118,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 		let startTime = dateFormatter.stringFromDate(event.startDate!)
 		let endTime = dateFormatter.stringFromDate(event.endDate!)
 		
-        cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!)"
+        cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!.description())"
 		switch event.type! {
 		case "talk":
 			cell.imageView?.image = UIImage(named: "talk.png")

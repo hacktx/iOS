@@ -101,7 +101,7 @@ class ScheduleDetailViewController: UITableViewController {
 			let startTime = dateFormatter.stringFromDate(scheduleEvent.startDate!)
 			let endTime = dateFormatter.stringFromDate(scheduleEvent.endDate!)
 			
-            eventLocation.text = scheduleEvent.location
+            eventLocation.text = scheduleEvent.location!.description()
             eventTime.text = "\(startTime) - \(endTime)"
             eventDesc.text = scheduleEvent.description
 //			if scheduleEvent.speakerList?.count != 0 {

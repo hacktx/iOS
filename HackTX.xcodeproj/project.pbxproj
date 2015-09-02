@@ -41,6 +41,7 @@
 		F95161101B920EDD0004FCF0 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = F951610B1B920EDD0004FCF0 /* food.png */; };
 		F95161131B920F230004FCF0 /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161121B920F230004FCF0 /* talk.png */; };
 		F95161151B92101E0004FCF0 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161141B92101E0004FCF0 /* chat.png */; };
+		F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C42AC91B979B7200A21CF8 /* Location.swift */; };
 		F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990371B50EBBA00057823 /* AppDelegate.swift */; };
 		F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990391B50EBBA00057823 /* ScheduleViewController.swift */; };
 		F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E9903D1B50EBBA00057823 /* Main.storyboard */; };
@@ -98,6 +99,7 @@
 		F951610B1B920EDD0004FCF0 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		F95161121B920F230004FCF0 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		F95161141B92101E0004FCF0 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		F9C42AC91B979B7200A21CF8 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F9E990321B50EBBA00057823 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E990361B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E990371B50EBBA00057823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */,
 				3A21567D1B8A5D5400BCA241 /* Day.swift */,
 				3A21567F1B8A5D6A00BCA241 /* Event.swift */,
+				F9C42AC91B979B7200A21CF8 /* Location.swift */,
 				3A2156811B8A5D8900BCA241 /* Speaker.swift */,
 			);
 			name = Model;
@@ -402,6 +405,7 @@
 				3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */,
 				3AEB822A1B7F0C2D00224BC3 /* Upload.swift in Sources */,
 				3AEB82251B7F0C2D00224BC3 /* MultipartFormData.swift in Sources */,
+				F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */,
 				3AEB82261B7F0C2D00224BC3 /* ParameterEncoding.swift in Sources */,
 				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
 				3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */,
