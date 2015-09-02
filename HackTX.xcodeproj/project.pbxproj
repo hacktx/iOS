@@ -34,6 +34,14 @@
 		3AEB82371B7F107F00224BC3 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82331B7F107F00224BC3 /* TwitterCore.framework */; };
 		3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */; };
 		3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB823A1B7F14F400224BC3 /* Announcement.swift */; };
+		F95161071B920C010004FCF0 /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161061B920C010004FCF0 /* bus.png */; };
+		F951610D1B920EDD0004FCF0 /* event.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161081B920EDD0004FCF0 /* event.png */; };
+		F951610E1B920EDD0004FCF0 /* education.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161091B920EDD0004FCF0 /* education.png */; };
+		F951610F1B920EDD0004FCF0 /* dev.png in Resources */ = {isa = PBXBuildFile; fileRef = F951610A1B920EDD0004FCF0 /* dev.png */; };
+		F95161101B920EDD0004FCF0 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = F951610B1B920EDD0004FCF0 /* food.png */; };
+		F95161131B920F230004FCF0 /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161121B920F230004FCF0 /* talk.png */; };
+		F95161151B92101E0004FCF0 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F95161141B92101E0004FCF0 /* chat.png */; };
+		F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C42AC91B979B7200A21CF8 /* Location.swift */; };
 		F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990371B50EBBA00057823 /* AppDelegate.swift */; };
 		F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990391B50EBBA00057823 /* ScheduleViewController.swift */; };
 		F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E9903D1B50EBBA00057823 /* Main.storyboard */; };
@@ -42,6 +50,7 @@
 		F9E990501B50EBBA00057823 /* HackTXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9904F1B50EBBA00057823 /* HackTXTests.swift */; };
 		F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990641B50FFFF00057823 /* TwitterViewController.swift */; };
 		F9E990671B51001000057823 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990661B51001000057823 /* MapViewController.swift */; };
+		F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE70211B912EE300B493A8 /* PageItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +92,14 @@
 		3AEB82331B7F107F00224BC3 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		3AEB823A1B7F14F400224BC3 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		F95161061B920C010004FCF0 /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
+		F95161081B920EDD0004FCF0 /* event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event.png; sourceTree = "<group>"; };
+		F95161091B920EDD0004FCF0 /* education.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = education.png; sourceTree = "<group>"; };
+		F951610A1B920EDD0004FCF0 /* dev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dev.png; sourceTree = "<group>"; };
+		F951610B1B920EDD0004FCF0 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		F95161121B920F230004FCF0 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
+		F95161141B92101E0004FCF0 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
+		F9C42AC91B979B7200A21CF8 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F9E990321B50EBBA00057823 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E990361B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E990371B50EBBA00057823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +112,7 @@
 		F9E9904F1B50EBBA00057823 /* HackTXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTXTests.swift; sourceTree = "<group>"; };
 		F9E990641B50FFFF00057823 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
 		F9E990661B51001000057823 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F9EE70211B912EE300B493A8 /* PageItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +164,7 @@
 				3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */,
 				3A21567D1B8A5D5400BCA241 /* Day.swift */,
 				3A21567F1B8A5D6A00BCA241 /* Event.swift */,
+				F9C42AC91B979B7200A21CF8 /* Location.swift */,
 				3A2156811B8A5D8900BCA241 /* Speaker.swift */,
 			);
 			name = Model;
@@ -163,6 +182,7 @@
 		F956D0741B535081001393DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F9EE70211B912EE300B493A8 /* PageItemViewController.swift */,
 				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
 				3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */,
 				3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */,
@@ -203,6 +223,13 @@
 				F956D0741B535081001393DE /* Controller */,
 				F956D0731B53507D001393DE /* View */,
 				F9E990371B50EBBA00057823 /* AppDelegate.swift */,
+				F95161061B920C010004FCF0 /* bus.png */,
+				F95161141B92101E0004FCF0 /* chat.png */,
+				F95161081B920EDD0004FCF0 /* event.png */,
+				F95161091B920EDD0004FCF0 /* education.png */,
+				F95161121B920F230004FCF0 /* talk.png */,
+				F951610A1B920EDD0004FCF0 /* dev.png */,
+				F951610B1B920EDD0004FCF0 /* food.png */,
 				F9E9903D1B50EBBA00057823 /* Main.storyboard */,
 				F9E990401B50EBBA00057823 /* Images.xcassets */,
 				F9E990421B50EBBA00057823 /* LaunchScreen.xib */,
@@ -286,6 +313,7 @@
 				TargetAttributes = {
 					F9E990311B50EBBA00057823 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = W2F3CF3EX5;
 					};
 					F9E990481B50EBBA00057823 = {
 						CreatedOnToolsVersion = 6.4;
@@ -317,12 +345,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95161071B920C010004FCF0 /* bus.png in Resources */,
+				F95161151B92101E0004FCF0 /* chat.png in Resources */,
+				F951610F1B920EDD0004FCF0 /* dev.png in Resources */,
+				F95161101B920EDD0004FCF0 /* food.png in Resources */,
 				3AEB82231B7F0C2D00224BC3 /* Info.plist in Resources */,
 				F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */,
 				3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */,
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
+				F951610E1B920EDD0004FCF0 /* education.png in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
+				F951610D1B920EDD0004FCF0 /* event.png in Resources */,
 				3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */,
+				F95161131B920F230004FCF0 /* talk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +405,7 @@
 				3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */,
 				3AEB822A1B7F0C2D00224BC3 /* Upload.swift in Sources */,
 				3AEB82251B7F0C2D00224BC3 /* MultipartFormData.swift in Sources */,
+				F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */,
 				3AEB82261B7F0C2D00224BC3 /* ParameterEncoding.swift in Sources */,
 				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
 				3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */,
@@ -377,6 +413,7 @@
 				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
+				F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */,
 				3AEB82241B7F0C2D00224BC3 /* Manager.swift in Sources */,
 				3AEB822D1B7F0CCA00224BC3 /* SwiftyJSON.swift in Sources */,
 				3AEB82281B7F0C2D00224BC3 /* ResponseSerialization.swift in Sources */,
@@ -510,6 +547,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -517,6 +556,7 @@
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -524,6 +564,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -531,6 +573,7 @@
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

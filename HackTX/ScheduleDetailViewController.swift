@@ -19,6 +19,7 @@ class ScheduleDetailViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         title = scheduleEvent.name
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,12 +78,59 @@ class ScheduleDetailViewController: UITableViewController {
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
             let eventDesc = cell.viewWithTag(1002) as! UILabel
-            
-            eventLocation.text = scheduleEvent.location
-            eventTime.text = "\(scheduleEvent.startDate!) - \(scheduleEvent.endDate!)"
+			let speakerTagName = cell.viewWithTag(999) as! UILabel
+			
+			let eventSpeaker = scheduleEvent.speakerList!.first
+			if eventSpeaker == nil {
+				speakerTagName.text = ""
+			}
+			if let speakerNameCell = cell.viewWithTag(1005) as? UILabel {
+				let speakerDescriptionCell = cell.viewWithTag(1007) as! UILabel
+				let speakerImageCell = cell.viewWithTag(1008) as! UIImageView
+				speakerNameCell.text = eventSpeaker?.name
+				speakerDescriptionCell.text = eventSpeaker?.description
+				if eventSpeaker != nil {
+					let url = NSURL(string: eventSpeaker!.imageUrl)
+					let data = NSData(contentsOfURL: url!)
+					speakerImageCell.image = UIImage(data: data!)
+					speakerImageCell.layer.cornerRadius = speakerImageCell.frame.size.width / 2
+					speakerImageCell.clipsToBounds = true
+				}
+			}
+			
+//			if scheduleEvent.speakerList?.count > 0 {
+////				if let eventSpeaker = cell.viewWithTag(1005) as? UILabel {
+////				eventSpeaker.text = scheduleEvent.speakerList!.first?.name
+////				}
+//				let eventSpeaker = scheduleEvent.speakerList!.first
+//				let speakerNameCell = cell.viewWithTag(1005) as! UILabel
+////				let speakerCompanyCell = cell.viewWithTag(1006) as! UILabel
+////				let speakerDescriptionCell = cell.viewWithTag(1007) as! UILabel
+////				let speakerImageCell = cell.viewWithTag(1008) as! UIImageView
+////				speakerNameCell.text = eventSpeaker?.name
+////				speakerCompanyCell.text = eventSpeaker?.organization
+////				speakerDescriptionCell.text = eventSpeaker?.description
+////				let url = NSURL(string: eventSpeaker!.imageUrl)
+////				let data = NSData(contentsOfURL: url!)
+////				speakerImageCell.image = UIImage(data: data!)
+////				speakerImageCell.layer.cornerRadius = speakerImageCell.frame.size.width / 2
+////				speakerImageCell.clipsToBounds = true
+//			}
+			
+			
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "hh:mm a"
+			let startTime = dateFormatter.stringFromDate(scheduleEvent.startDate!)
+			let endTime = dateFormatter.stringFromDate(scheduleEvent.endDate!)
+			
+            eventLocation.text = scheduleEvent.location!.description()
+            eventTime.text = "\(startTime) - \(endTime)"
             eventDesc.text = scheduleEvent.description
-            
-            
+//			if scheduleEvent.speakerList?.count != 0 {
+//				
+//			} else {
+//			}
+			
         default:
             cell = UITableViewCell()
         }

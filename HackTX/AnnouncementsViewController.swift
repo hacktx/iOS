@@ -35,7 +35,12 @@ class AnnouncementsViewController: UITableViewController {
                     self.announcementList.removeAll(keepCapacity: true)
                     
                     for (index: String, subJson: JSON) in json {
-                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
+						let dateFormatter = NSDateFormatter()
+						dateFormatter.dateFormat = "YYYY-MM-DD hh:mm:ss"
+						let jsonDate = dateFormatter.dateFromString(subJson["ts"].stringValue)
+						dateFormatter.dateFormat = "MMMM DD hh:mm a"
+						let dateString = dateFormatter.stringFromDate(jsonDate!)
+                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: dateString))
                     }
                     
                     self.tableView.reloadData()
@@ -69,7 +74,7 @@ class AnnouncementsViewController: UITableViewController {
 
         cell.textLabel!.text = announcement.text
         cell.detailTextLabel!.text = announcement.ts
-
+		cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     

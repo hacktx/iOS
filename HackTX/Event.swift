@@ -17,7 +17,7 @@ class Event {
     var endDate: NSDate? = NSDate()
     var startDateStr: String? = ""
     var endDateStr: String? = ""
-    var location: String? = ""
+    var location: Location?
     var description: String? = ""
     var speakerList: [Speaker]?
 }
