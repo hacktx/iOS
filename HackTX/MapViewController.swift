@@ -28,8 +28,10 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
         
         pageViewController = pageController
         addChildViewController(pageViewController!)
+        pageViewController!.view.frame = CGRectMake(15, -50, pageViewController!.view.frame.size.width-30, pageViewController!.view.frame.size.height)
         self.view.addSubview(pageViewController!.view)
         pageViewController!.didMoveToParentViewController(self)
+        
     }
     
     func updatePageView() {
@@ -40,9 +42,8 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
     }
 	
     private func getItemController(itemIndex: Int) -> PageItemViewController? {
-        
-        if itemIndex < mapImages[mapIndex].count {
-            let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemViewController
+        if itemIndex < mapImages[mapIndex].count && mapImages[mapIndex].count > 0 {
+            let pageItemController = self.storyboard?.instantiateViewControllerWithIdentifier("ItemController") as! PageItemViewController
             pageItemController.itemIndex = itemIndex
             pageItemController.imageName = mapImages[mapIndex][itemIndex]
             return pageItemController
@@ -66,7 +67,7 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
         
         let itemController = viewController as! PageItemViewController
         
-        if itemController.itemIndex+1 < mapImages[mapIndex].count {
+        if itemController.itemIndex + 1 < mapImages[mapIndex].count {
             return getItemController(itemController.itemIndex+1)
         }
         
