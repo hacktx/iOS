@@ -46,7 +46,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                             
                             for (key: String, subJson: JSON) in subJson["eventsList"] {
                                 var event: Event = Event()
-                                event.location = subJson["location"].stringValue
+								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+								
                                 event.endDateStr = subJson["endDate"].stringValue
                                 event.id = subJson["id"].intValue
                                 event.startDateStr = subJson["startData"].stringValue
@@ -111,8 +112,27 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let event = scheduleCluster.eventsList![indexPath.row] as Event
         
         cell.textLabel!.text = event.name
-        cell.detailTextLabel!.text = "\(event.startDate!) | \(event.location!)"
-        
+		
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "hh:mm"
+		let startTime = dateFormatter.stringFromDate(event.startDate!)
+		let endTime = dateFormatter.stringFromDate(event.endDate!)
+		
+        cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!.description())"
+		switch event.type! {
+		case "talk":
+			cell.imageView?.image = UIImage(named: "talk.png")
+		case "education":
+			cell.imageView?.image = UIImage(named: "education.png")
+		case "bus":
+			cell.imageView?.image = UIImage(named: "bus.png")
+		case "food":
+			cell.imageView?.image = UIImage(named: "food.png")
+		case "dev":
+			cell.imageView?.image = UIImage(named: "dev.png")
+		default:
+			cell.imageView?.image = UIImage(named: "event.png")
+		}
         return cell
     }
     
@@ -120,6 +140,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {
