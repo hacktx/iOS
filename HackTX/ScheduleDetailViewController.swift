@@ -77,14 +77,23 @@ class ScheduleDetailViewController: UITableViewController {
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
             let eventDesc = cell.viewWithTag(1002) as! UILabel
-			if let eventSpeaker = cell.viewWithTag(1003) as? UILabel {
-				var speakerString = ""
-				for speaker in scheduleEvent.speakerList! {
-					speakerString += speaker.name + ", "
-				}
-				
-				eventSpeaker.text = speakerString.substringToIndex(advance(speakerString.startIndex, count(speakerString)-2))
-			} 
+			
+			if scheduleEvent.speakerList?.count > 0 {
+//				if let eventSpeaker = cell.viewWithTag(1005) as? UILabel {
+//				eventSpeaker.text = scheduleEvent.speakerList!.first?.name
+//				}
+				let eventSpeaker = scheduleEvent.speakerList!.first
+				let speakerNameCell = cell.viewWithTag(1005) as! UILabel
+				let speakerCompanyCell = cell.viewWithTag(1006) as! UILabel
+				let speakerDescriptionCell = cell.viewWithTag(1007) as! UILabel
+				let speakerImageCell = cell.viewWithTag(1008) as! UIImageView
+				speakerNameCell.text = eventSpeaker?.name
+				speakerCompanyCell.text = eventSpeaker?.organization
+				speakerDescriptionCell.text = eventSpeaker?.description
+				let url = NSURL(string: eventSpeaker!.imageUrl)
+				let data = NSData(contentsOfURL: url!)
+				speakerImageCell.image = UIImage(data: data!)
+			}
 			
 			
 			let dateFormatter = NSDateFormatter()
