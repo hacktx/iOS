@@ -84,11 +84,11 @@ class ScheduleDetailViewController: UITableViewController {
 //				}
 				let eventSpeaker = scheduleEvent.speakerList!.first
 				let speakerNameCell = cell.viewWithTag(1005) as! UILabel
-				let speakerCompanyCell = cell.viewWithTag(1006) as! UILabel
+//				let speakerCompanyCell = cell.viewWithTag(1006) as! UILabel
 				let speakerDescriptionCell = cell.viewWithTag(1007) as! UILabel
 				let speakerImageCell = cell.viewWithTag(1008) as! UIImageView
 				speakerNameCell.text = eventSpeaker?.name
-				speakerCompanyCell.text = eventSpeaker?.organization
+//				speakerCompanyCell.text = eventSpeaker?.organization
 				speakerDescriptionCell.text = eventSpeaker?.description
 				let url = NSURL(string: eventSpeaker!.imageUrl)
 				let data = NSData(contentsOfURL: url!)
