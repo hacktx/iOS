@@ -60,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
 			application.registerForRemoteNotificationTypes(types)
 		}
+		
+		let currentInstallation = PFInstallation.currentInstallation()
+		currentInstallation.addUniqueObject("announcements", forKey: "channels")
+		currentInstallation.saveInBackground()
 	}
 	
 	func getParseKeyDict() -> NSDictionary {
