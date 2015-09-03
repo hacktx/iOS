@@ -3,4 +3,4 @@
 
 # API & Secret files
 *.sh
-HackTX/apiKeys.plist
+HackTX/ApiKeys.plist

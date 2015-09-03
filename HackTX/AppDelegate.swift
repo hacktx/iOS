@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import TwitterKit
+import Parse
 
 
 @UIApplicationMain
@@ -21,9 +22,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Fabric.with([Twitter()])
         setNavTabBarLayout()
-        
-        
+		
+		initParse(application, launchOptions: launchOptions)
+		
 		return true
+	}
+	
+	func initParse(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+		
+		
+		let parseAppID = getParseAppID()
+		let parseClientID = getParseClientID()
+		Parse.setApplicationId(parseAppID,
+			clientKey: parseClientID)
+		
+		if application.applicationState != UIApplicationState.Background {
+			// Track an app open here if we launch with a push, unless
+			// "content_available" was used to trigger a background push (introduced in iOS 7).
+			// In that case, we skip tracking here to avoid double counting the app-open.
+			
+			let preBackgroundPush = !application.respondsToSelector("backgroundRefreshStatus")
+			let oldPushHandlerOnly = !self.respondsToSelector("application:didReceiveRemoteNotification:fetchCompletionHandler:")
+			var pushPayload = false
+			if let options = launchOptions {
+				pushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil
+			}
+			if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
+				PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+			}
+		}
+		if application.respondsToSelector("registerUserNotificationSettings:") {
+			let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+			let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+			application.registerUserNotificationSettings(settings)
+			application.registerForRemoteNotifications()
+		} else {
+			let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
+			application.registerForRemoteNotificationTypes(types)
+		}
+		
+		let currentInstallation = PFInstallation.currentInstallation()
+		currentInstallation.addUniqueObject("announcements", forKey: "channels")
+		currentInstallation.saveInBackground()
+	}
+	
+	func getParseKeyDict() -> NSDictionary {
+		var parseDict : NSDictionary?
+		if let path = NSBundle.mainBundle().pathForResource("ApiKeys", ofType: "plist") {
+			parseDict = NSDictionary(contentsOfFile: path)
+		}
+		return parseDict!
+	}
+	
+	func getParseAppID() -> String {
+		let parseDict = getParseKeyDict()
+		return parseDict["ApplicationID"] as! String
+	}
+	
+	func getParseClientID() -> String {
+		let parseDict = getParseKeyDict()
+		return parseDict["ClientID"] as! String
 	}
     
     func setNavTabBarLayout() {
@@ -37,6 +95,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+	
+	func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+		let installation = PFInstallation.currentInstallation()
+		installation.setDeviceTokenFromData(deviceToken)
+		installation.saveInBackground()
+	}
+ 
+	func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+		if error.code == 3010 {
+			println("Push notifications are not supported in the iOS Simulator.")
+		} else {
+			println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+		}
+	}
+ 
+	func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+		PFPush.handlePush(userInfo)
+		if application.applicationState == UIApplicationState.Inactive {
+			PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
+		}
+		
+		self.window?.makeKeyAndVisible()
+		let rootController = window?.rootViewController as! UITabBarController
+		rootController.selectedIndex = 1;
+		
+	}
 
 	func applicationWillResignActive(application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
