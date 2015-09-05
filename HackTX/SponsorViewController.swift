@@ -20,7 +20,7 @@ class SponsorViewController: UICollectionViewController {
         
         collectionView?.registerNib(UINib(nibName: "SponsorViewCell", bundle: nil), forCellWithReuseIdentifier: "SponsorCell")
         
-        let endpoint = "http://hacktx.getsandbox.com/sponsors"
+        let endpoint = "https://my.hacktx.com/api/sponsors"
         request(.GET, endpoint)
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
@@ -38,11 +38,21 @@ class SponsorViewController: UICollectionViewController {
                         self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
                     }
                     
-                    println(self.sponsorList.count)
                     self.collectionView!.reloadData()
                 }
         }
 
+    }
+    
+    // Setup Google Analytics for the controller
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Sponsors")
+        
+        var builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
     override func didReceiveMemoryWarning() {

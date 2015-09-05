@@ -16,4 +16,13 @@ class Announcement: NSObject {
         self.text = text
         self.ts = ts
     }
+    
+    func getEnglishTs() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let jsonDate = dateFormatter.dateFromString(self.ts)
+        dateFormatter.dateFormat = "MM-dd hh:mm a"
+        return dateFormatter.stringFromDate(jsonDate!)
+    }
 }

@@ -27,5 +27,16 @@ class TwitterViewController: TWTRTimelineViewController {
             }
         }
     }
+    
+    // Setup Google Analytics for the controller
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Twitter")
+        
+        var builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
 	
 }

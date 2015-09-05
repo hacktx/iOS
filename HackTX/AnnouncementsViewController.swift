@@ -20,7 +20,7 @@ class AnnouncementsViewController: UITableViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        let endpoint = "http://hacktx.getsandbox.com/announcements"
+        let endpoint = "https://my.hacktx.com/api/announcements"
         request(.GET, endpoint)
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
@@ -36,16 +36,37 @@ class AnnouncementsViewController: UITableViewController {
                     
                     for (index: String, subJson: JSON) in json {
 						let dateFormatter = NSDateFormatter()
-						dateFormatter.dateFormat = "YYYY-MM-DD hh:mm:ss"
+						dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 						let jsonDate = dateFormatter.dateFromString(subJson["ts"].stringValue)
-						dateFormatter.dateFormat = "MMMM DD hh:mm a"
+						dateFormatter.dateFormat = "MM-dd hh:mm a"
 						let dateString = dateFormatter.stringFromDate(jsonDate!)
-                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: dateString))
+                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
                     }
-                    
+                    self.announcementList.sort(self.sortAnnouncements)
                     self.tableView.reloadData()
                 }
         }
+    }
+    
+    func sortAnnouncements(this: Announcement, that: Announcement) -> Bool {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let date1 = dateFormatter.dateFromString(this.ts)
+        let date2 = dateFormatter.dateFromString(that.ts)
+        
+        return date1!.compare(date2!) == NSComparisonResult.OrderedDescending
+    }
+    
+    // Setup Google Analytics for the controller
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Announcements")
+        
+        var builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,7 +94,7 @@ class AnnouncementsViewController: UITableViewController {
         let announcement = announcementList[indexPath.row]
 
         cell.textLabel!.text = announcement.text
-        cell.detailTextLabel!.text = announcement.ts
+        cell.detailTextLabel!.text = announcement.getEnglishTs()
 		cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }

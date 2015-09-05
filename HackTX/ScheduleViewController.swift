@@ -24,7 +24,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         for i in 0..<numberOfDays {
             
-            request(.GET, "http://hacktx.getsandbox.com/schedule/\(i+1)")
+            request(.GET, "https://my.hacktx.com/api/schedule/\(i+1)")
                 .responseJSON { (request, response, data, error) in
                     if let anError = error {
                         if errorAlert.title == "" {
@@ -48,9 +48,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                                 var event: Event = Event()
 								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
 								
-                                event.endDateStr = subJson["endDate"].stringValue
                                 event.id = subJson["id"].intValue
-                                event.startDateStr = subJson["startData"].stringValue
+                                event.startDateStr = subJson["startDate"].stringValue
+                                event.endDateStr = subJson["endDate"].stringValue
+                                event.convertDateStrToDates()
                                 event.imageUrl = subJson["imageUrl"].stringValue
                                 event.type = subJson["type"].stringValue
                                 event.description = subJson["description"].stringValue
@@ -77,11 +78,32 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                         
                         curDay.clusterList = clusterList
                         self.dayList.append(curDay)
-                        self.dayList.sort({ $0.clusterList[0].id < $1.clusterList[0].id })
+                        self.dayList.sort(self.sorterForDays)
                         self.tableView.reloadData()
                     }
             }
         }
+    }
+    
+    func sorterForDays(this: Day, that: Day) -> Bool {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let date1 = dateFormatter.dateFromString(this.clusterList[0].eventsList![0].startDateStr!)
+        let date2 = dateFormatter.dateFromString(that.clusterList[0].eventsList![0].startDateStr!)
+        
+        return date1!.compare(date2!) == NSComparisonResult.OrderedAscending
+    }
+    
+    // Setup Google Analytics for the controller
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Schedule")
+        
+        var builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -114,24 +136,24 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.textLabel!.text = event.name
 		
 		let dateFormatter = NSDateFormatter()
-		dateFormatter.dateFormat = "hh:mm"
+		dateFormatter.dateFormat = "hh:mm a"
 		let startTime = dateFormatter.stringFromDate(event.startDate!)
 		let endTime = dateFormatter.stringFromDate(event.endDate!)
 		
         cell.detailTextLabel!.text = "\(startTime) - \(endTime) | \(event.location!.description())"
 		switch event.type! {
 		case "talk":
-			cell.imageView?.image = UIImage(named: "talk.png")
+			cell.imageView?.image = UIImage(named: "event_talk")
 		case "education":
-			cell.imageView?.image = UIImage(named: "education.png")
+			cell.imageView?.image = UIImage(named: "event_school")
 		case "bus":
-			cell.imageView?.image = UIImage(named: "bus.png")
+			cell.imageView?.image = UIImage(named: "event_bus")
 		case "food":
-			cell.imageView?.image = UIImage(named: "food.png")
+			cell.imageView?.image = UIImage(named: "event_food")
 		case "dev":
-			cell.imageView?.image = UIImage(named: "dev.png")
+			cell.imageView?.image = UIImage(named: "event_dev")
 		default:
-			cell.imageView?.image = UIImage(named: "event.png")
+			cell.imageView?.image = UIImage(named: "event_default")
 		}
         return cell
     }

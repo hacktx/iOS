@@ -6,20 +6,20 @@
 	<dict>
 		<key>Kits</key>
 		<array>
-            <dict>
-                <key>KitInfo</key>
-                <dict>
-                    <key>consumerKey</key>
-                    <string>xxxxxxxxxxxxxxxxxxxxxxx</string>
-                    <key>consumerSecret</key>
-                    <string>xxxxxxxxxxxxxxxxxxxxxxxx</string>
-                </dict>
-                <key>KitName</key>
-                <string>Twitter</string>
-            </dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>XXX</string>
+					<key>consumerSecret</key>
+					<string>XXX</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
 		</array>
 		<key>APIKey</key>
-		<string>xxxxxxxxxxxxxxxxxxxxxx</string>
+		<string>XXX</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

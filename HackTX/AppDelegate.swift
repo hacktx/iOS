@@ -20,14 +20,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        UserPrefs.shared().registerDefaults()
         Fabric.with([Twitter()])
         setNavTabBarLayout()
 		
+        setupGoogleAnalytics()
 		initParse(application, launchOptions: launchOptions)
 		UIApplication.sharedApplication().applicationIconBadgeNumber = 0
 
 		return true
 	}
+    
+    func setupGoogleAnalytics() {
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        var gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+    }
 	
 	func initParse(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
 		
@@ -92,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
 //        
 //        UITabBar.appearance().barTintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0)
-        UITabBar.appearance().tintColor = UIColor(red: 10/255.0, green: 166/255.0, blue: 182/255.0, alpha: 1.0) //UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0) //UIColor.whiteColor()
         
         
     }

@@ -11,7 +11,7 @@ import UIKit
 
 class MapViewController: UIViewController, UIPageViewControllerDataSource {
 	
-    let mapImages = [["sac1.gif", "sac2.gif", "sac3.gif"], ["cla1.gif"]];
+    let mapImages = [["sac1", "sac2", "sac3"], ["cla1"]];
     var mapIndex = 0
     var pageViewController: UIPageViewController?
     
@@ -32,6 +32,17 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
         self.view.addSubview(pageViewController!.view)
         pageViewController!.didMoveToParentViewController(self)
         
+    }
+    
+    // Setup Google Analytics for the controller
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Maps")
+        
+        var builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     func updatePageView() {

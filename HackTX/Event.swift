@@ -9,6 +9,8 @@
 import Foundation
 
 class Event {
+    let dateFormatStr = "yyyy-MM-dd HH:mm:ss"
+    
     var id : Int? = 0
     var name: String? = ""
     var type: String? = ""
@@ -20,4 +22,12 @@ class Event {
     var location: Location?
     var description: String? = ""
     var speakerList: [Speaker]?
+    
+    func convertDateStrToDates() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = dateFormatStr
+        
+        self.startDate = dateFormatter.dateFromString(startDateStr!)
+        self.endDate = dateFormatter.dateFromString(endDateStr!)
+    }
 }

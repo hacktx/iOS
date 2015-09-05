@@ -20,7 +20,7 @@ class Location {
 	}
 	
 	func description() -> String{
-		return building! + " Level " + level! + " - " + room!
+		return building! + " " + level! + " - " + room!
 	}
 	
 }

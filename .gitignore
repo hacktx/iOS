@@ -4,3 +4,4 @@
 # API & Secret files
 *.sh
 HackTX/ApiKeys.plist
+GoogleService-Info.plist
