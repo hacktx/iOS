@@ -14,23 +14,28 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chooseDaySegmentControl: UISegmentedControl!
-    
+	
     let numberOfDays = 2
     var dayList = [Day]()
+	var refreshControl: UIRefreshControl!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
+		self.refreshControl = UIRefreshControl()
+		self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+		self.tableView.addSubview(refreshControl)
         getScheduleData()
     }
     
-    @IBAction func refresh() {
+	func refresh(sender: AnyObject) {
         getScheduleData()
+		self.refreshControl.endRefreshing()
     }
     
     func getScheduleData() {
         dayList.removeAll(keepCapacity: true)
-        
+		
         for i in 0..<numberOfDays {
             
             Alamofire.request(Router.Schedule(String(i + 1)))
