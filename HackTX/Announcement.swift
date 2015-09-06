@@ -22,7 +22,14 @@ class Announcement: NSObject {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let jsonDate = dateFormatter.dateFromString(self.ts)
-        dateFormatter.dateFormat = "MM-dd hh:mm a"
+        dateFormatter.dateFormat = "MMM d, hh:mm a"
         return dateFormatter.stringFromDate(jsonDate!)
+    }
+    
+    func getTsDate() -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return dateFormatter.dateFromString(self.ts)!
     }
 }

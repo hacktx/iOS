@@ -17,15 +17,21 @@ class AnnouncementsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let errorAlert = UIAlertView()
         
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
-
-        let endpoint = "https://my.hacktx.com/api/announcements"
-        Alamofire.request(.GET, endpoint)
+        
+        getAnnouncementData()
+    }
+    
+    
+    
+    // Collect announcement data from the api
+    func getAnnouncementData() {
+        Alamofire.request(Router.Announcements())
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
+                    let errorAlert = UIAlertView()
                     if errorAlert.title == "" {
                         errorAlert.title = "Error"
                         errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
@@ -37,11 +43,6 @@ class AnnouncementsViewController: UITableViewController {
                     self.announcementList.removeAll(keepCapacity: true)
                     
                     for (index: String, subJson: JSON) in json {
-						let dateFormatter = NSDateFormatter()
-						dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-						let jsonDate = dateFormatter.dateFromString(subJson["ts"].stringValue)
-						dateFormatter.dateFormat = "MM-dd hh:mm a"
-						let dateString = dateFormatter.stringFromDate(jsonDate!)
                         self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
                     }
                     self.announcementList.sort(self.sortAnnouncements)
@@ -50,14 +51,9 @@ class AnnouncementsViewController: UITableViewController {
         }
     }
     
+    // Sort announcement messages by newest to oldest
     func sortAnnouncements(this: Announcement, that: Announcement) -> Bool {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let date1 = dateFormatter.dateFromString(this.ts)
-        let date2 = dateFormatter.dateFromString(that.ts)
-        
-        return date1!.compare(date2!) == NSComparisonResult.OrderedDescending
+        return this.getTsDate().compare(that.getTsDate()) == NSComparisonResult.OrderedDescending
     }
     
     // Setup Google Analytics for the controller
@@ -73,20 +69,23 @@ class AnnouncementsViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    /*
+     * TABLE VIEW METHODS
+     */
+    
+    // Refresh the tableview data
+    @IBAction func refresh(sender: UIRefreshControl) {
+        getAnnouncementData()
+        sender.endRefreshing()
+    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return announcementList.count
     }
 
@@ -100,51 +99,4 @@ class AnnouncementsViewController: UITableViewController {
 		cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

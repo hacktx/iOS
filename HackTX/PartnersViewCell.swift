@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SponsorViewCell: UICollectionViewCell {
+class PartnersViewCell: UICollectionViewCell {
 
     @IBOutlet weak var sponsorImage: UIImageView!
     

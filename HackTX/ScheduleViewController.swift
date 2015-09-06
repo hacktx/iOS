@@ -20,15 +20,23 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        let errorAlert = UIAlertView()
         
+        getScheduleData()
+    }
+    
+    @IBAction func refresh() {
+        getScheduleData()
+    }
+    
+    func getScheduleData() {
         dayList.removeAll(keepCapacity: true)
         
         for i in 0..<numberOfDays {
             
-            Alamofire.request(.GET, "https://my.hacktx.com/api/schedule/\(i+1)")
+            Alamofire.request(Router.Schedule(String(i + 1)))
                 .responseJSON { (request, response, data, error) in
                     if let anError = error {
+                        let errorAlert = UIAlertView()
                         if errorAlert.title == "" {
                             errorAlert.title = "Error"
                             errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
@@ -48,8 +56,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                             
                             for (key: String, subJson: JSON) in subJson["eventsList"] {
                                 var event: Event = Event()
-								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
-								
+                                event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+                                
                                 event.id = subJson["id"].intValue
                                 event.startDateStr = subJson["startDate"].stringValue
                                 event.endDateStr = subJson["endDate"].stringValue
@@ -138,7 +146,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.textLabel!.text = event.name
 		
 		let dateFormatter = NSDateFormatter()
-		dateFormatter.dateFormat = "hh:mm a"
+		dateFormatter.dateFormat = "h:mm a"
 		let startTime = dateFormatter.stringFromDate(event.startDate!)
 		let endTime = dateFormatter.stringFromDate(event.endDate!)
 		

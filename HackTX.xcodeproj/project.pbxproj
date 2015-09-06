@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0EEBD4D4183683D7099C95B8 /* Pods_HackTX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715158D3DB02FD4CF82662A4 /* Pods_HackTX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3A21566E1B8A430C00BCA241 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */; };
-		3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156711B8A436100BCA241 /* SponsorViewCell.swift */; };
-		3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2156721B8A436100BCA241 /* SponsorViewCell.xib */; };
+		3A21566E1B8A430C00BCA241 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21566D1B8A430C00BCA241 /* PartnersViewController.swift */; };
+		3A2156731B8A436100BCA241 /* PartnersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156711B8A436100BCA241 /* PartnersViewCell.swift */; };
+		3A2156741B8A436100BCA241 /* PartnersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2156721B8A436100BCA241 /* PartnersViewCell.xib */; };
 		3A2156761B8A44CC00BCA241 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156751B8A44CC00BCA241 /* Sponsor.swift */; };
 		3A21567A1B8A577100BCA241 /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */; };
 		3A21567C1B8A5D3D00BCA241 /* ScheduleCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */; };
 		3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567D1B8A5D5400BCA241 /* Day.swift */; };
 		3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567F1B8A5D6A00BCA241 /* Event.swift */; };
 		3A2156821B8A5D8900BCA241 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156811B8A5D8900BCA241 /* Speaker.swift */; };
+		3A3666581B9CD8350028BA91 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3666571B9CD8350028BA91 /* Router.swift */; };
 		3A806E291B9A895D00E29A0F /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E281B9A895D00E29A0F /* CheckInViewController.swift */; };
 		3A806E511B9A9E4B00E29A0F /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */; };
 		3A806E5F1B9ACDE100E29A0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A806E5E1B9ACDE100E29A0F /* CoreData.framework */; };
@@ -106,15 +107,16 @@
 
 /* Begin PBXFileReference section */
 		163274BAD693C35C1B0222A5 /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
-		3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
-		3A2156711B8A436100BCA241 /* SponsorViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorViewCell.swift; sourceTree = "<group>"; };
-		3A2156721B8A436100BCA241 /* SponsorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorViewCell.xib; sourceTree = "<group>"; };
+		3A21566D1B8A430C00BCA241 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
+		3A2156711B8A436100BCA241 /* PartnersViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewCell.swift; sourceTree = "<group>"; };
+		3A2156721B8A436100BCA241 /* PartnersViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnersViewCell.xib; sourceTree = "<group>"; };
 		3A2156751B8A44CC00BCA241 /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCluster.swift; sourceTree = "<group>"; };
 		3A21567D1B8A5D5400BCA241 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3A21567F1B8A5D6A00BCA241 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3A2156811B8A5D8900BCA241 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		3A3666571B9CD8350028BA91 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		3A806E281B9A895D00E29A0F /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
 		3A806E5E1B9ACDE100E29A0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -310,7 +312,7 @@
 		3A3666501B9CCD800028BA91 /* Partners */ = {
 			isa = PBXGroup;
 			children = (
-				3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */,
+				3A21566D1B8A430C00BCA241 /* PartnersViewController.swift */,
 			);
 			name = Partners;
 			sourceTree = "<group>";
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */,
+				3A3666571B9CD8350028BA91 /* Router.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -712,8 +715,8 @@
 		F956D0731B53507D001393DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3A2156711B8A436100BCA241 /* SponsorViewCell.swift */,
-				3A2156721B8A436100BCA241 /* SponsorViewCell.xib */,
+				3A2156711B8A436100BCA241 /* PartnersViewCell.swift */,
+				3A2156721B8A436100BCA241 /* PartnersViewCell.xib */,
 				F9E990421B50EBBA00057823 /* LaunchScreen.xib */,
 			);
 			name = View;
@@ -918,7 +921,7 @@
 			files = (
 				F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */,
 				3A806E611B9ACEB100E29A0F /* GoogleService-Info.plist in Resources */,
-				3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */,
+				3A2156741B8A436100BCA241 /* PartnersViewCell.xib in Resources */,
 				F96AB7AB1B97D40600394217 /* ApiKeys.plist in Resources */,
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
@@ -1012,10 +1015,11 @@
 				3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */,
 				3A806E511B9A9E4B00E29A0F /* UserPrefs.swift in Sources */,
 				F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */,
+				3A3666581B9CD8350028BA91 /* Router.swift in Sources */,
 				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
-				3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */,
+				3A2156731B8A436100BCA241 /* PartnersViewCell.swift in Sources */,
 				3A806E291B9A895D00E29A0F /* CheckInViewController.swift in Sources */,
-				3A21566E1B8A430C00BCA241 /* SponsorViewController.swift in Sources */,
+				3A21566E1B8A430C00BCA241 /* PartnersViewController.swift in Sources */,
 				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
@@ -1163,7 +1167,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Source/**",
 					"$(PROJECT_DIR)/**",
 					"$(inherited)/**",
 				);
@@ -1188,7 +1191,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Source/**",
 					"$(PROJECT_DIR)/**",
 					"$(inherited)/**",
 				);

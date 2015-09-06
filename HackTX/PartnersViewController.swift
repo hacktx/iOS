@@ -10,9 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SponsorViewController: UICollectionViewController {
+class PartnersViewController: UICollectionViewController {
     
-    let reuseIdentifier = "Cell"
+    let reuseIdCell = "PartnersCell"
     
     var sponsorList = [Sponsor]()
     var imageCache = [String:UIImage]()
@@ -20,18 +20,25 @@ class SponsorViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.registerNib(UINib(nibName: "SponsorViewCell", bundle: nil), forCellWithReuseIdentifier: "SponsorCell")
+        collectionView?.registerNib(UINib(nibName: "PartnersViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdCell)
         
-        let endpoint = "https://my.hacktx.com/api/sponsors"
-        Alamofire.request(.GET, endpoint)
+        getPartnersData()
+    }
+    
+    @IBAction func refresh() {
+        getPartnersData()
+    }
+    
+    func getPartnersData() {
+        Alamofire.request(Router.Partners())
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
-//                    if errorAlert.title == "" {
-//                        errorAlert.title = "Error"
-//                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-//                        errorAlert.addButtonWithTitle("Ok")
-//                        errorAlert.show()
-//                    }
+                    //                    if errorAlert.title == "" {
+                    //                        errorAlert.title = "Error"
+                    //                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+                    //                        errorAlert.addButtonWithTitle("Ok")
+                    //                        errorAlert.show()
+                    //                    }
                 } else {
                     let json = JSON(data!)
                     self.sponsorList.removeAll(keepCapacity: true)
@@ -43,7 +50,6 @@ class SponsorViewController: UICollectionViewController {
                     self.collectionView!.reloadData()
                 }
         }
-
     }
     
     // Setup Google Analytics for the controller
@@ -86,7 +92,7 @@ class SponsorViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SponsorCell", forIndexPath: indexPath) as! SponsorViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdCell, forIndexPath: indexPath) as! PartnersViewCell
         let sponsor = sponsorList[indexPath.row]
         
 //        cell.backgroundImage.image = UIImage(named: "transparent")
