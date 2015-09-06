@@ -56,7 +56,8 @@ class CheckInViewController: UITableViewController {
         case 1:
             if(!UserPrefs.shared().isCheckedIn()){
                 cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath) as! UITableViewCell
-                emailField = cell.viewWithTag(1000) as? UITextField
+                emailField = cell.viewWithTag(1000) as! UITextField
+				emailField?.keyboardType = UIKeyboardType.EmailAddress
                 let enterButton = cell.viewWithTag(1001) as! UIButton
                 enterButton.addTarget(self, action: "enterEmailToQr:", forControlEvents: UIControlEvents.TouchUpInside)
             } else {
