@@ -16,19 +16,27 @@ class PartnersViewController: UICollectionViewController {
     
     var sponsorList = [Sponsor]()
     var imageCache = [String:UIImage]()
+	var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.registerNib(UINib(nibName: "PartnersViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdCell)
-        
+		
+		
+		self.refreshControl = UIRefreshControl()
+		self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+		self.collectionView!.addSubview(refreshControl)
+		
         getPartnersData()
     }
     
-    @IBAction func refresh() {
-        getPartnersData()
-    }
-    
+	func refresh(sender: AnyObject) {
+		getPartnersData()
+		self.refreshControl.endRefreshing()
+	}
+	
     func getPartnersData() {
         Alamofire.request(Router.Partners())
             .responseJSON { (request, response, data, error) in
