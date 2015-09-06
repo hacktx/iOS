@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EEBD4D4183683D7099C95B8 /* Pods_HackTX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715158D3DB02FD4CF82662A4 /* Pods_HackTX.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3A21566E1B8A430C00BCA241 /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */; };
 		3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156711B8A436100BCA241 /* SponsorViewCell.swift */; };
 		3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2156721B8A436100BCA241 /* SponsorViewCell.xib */; };
@@ -16,48 +17,17 @@
 		3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567D1B8A5D5400BCA241 /* Day.swift */; };
 		3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A21567F1B8A5D6A00BCA241 /* Event.swift */; };
 		3A2156821B8A5D8900BCA241 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2156811B8A5D8900BCA241 /* Speaker.swift */; };
-		3A806E1D1B99894400E29A0F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A806E1C1B99894400E29A0F /* ApiKeys.plist */; };
 		3A806E291B9A895D00E29A0F /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E281B9A895D00E29A0F /* CheckInViewController.swift */; };
-		3A806E3E1B9A8F1A00E29A0F /* RSCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E2D1B9A8F1A00E29A0F /* RSCode39Generator.swift */; };
-		3A806E3F1B9A8F1A00E29A0F /* RSCode39Mod43Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E2E1B9A8F1A00E29A0F /* RSCode39Mod43Generator.swift */; };
-		3A806E401B9A8F1A00E29A0F /* RSCode93Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E2F1B9A8F1A00E29A0F /* RSCode93Generator.swift */; };
-		3A806E411B9A8F1A00E29A0F /* RSCode128Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E301B9A8F1A00E29A0F /* RSCode128Generator.swift */; };
-		3A806E421B9A8F1A00E29A0F /* RSCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E311B9A8F1A00E29A0F /* RSCodeGenerator.swift */; };
-		3A806E431B9A8F1A00E29A0F /* RSCodeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E321B9A8F1A00E29A0F /* RSCodeLayer.swift */; };
-		3A806E441B9A8F1A00E29A0F /* RSCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E331B9A8F1A00E29A0F /* RSCodeReaderViewController.swift */; };
-		3A806E451B9A8F1A00E29A0F /* RSCornersLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E341B9A8F1A00E29A0F /* RSCornersLayer.swift */; };
-		3A806E461B9A8F1A00E29A0F /* RSEANGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E351B9A8F1A00E29A0F /* RSEANGenerator.swift */; };
-		3A806E471B9A8F1A00E29A0F /* RSExtendedCode39Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E361B9A8F1A00E29A0F /* RSExtendedCode39Generator.swift */; };
-		3A806E481B9A8F1A00E29A0F /* RSFocusMarkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E371B9A8F1A00E29A0F /* RSFocusMarkLayer.swift */; };
-		3A806E491B9A8F1A00E29A0F /* RSITF14Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E381B9A8F1A00E29A0F /* RSITF14Generator.swift */; };
-		3A806E4A1B9A8F1A00E29A0F /* RSITFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E391B9A8F1A00E29A0F /* RSITFGenerator.swift */; };
-		3A806E4B1B9A8F1A00E29A0F /* RSUnifiedCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E3A1B9A8F1A00E29A0F /* RSUnifiedCodeGenerator.swift */; };
-		3A806E4C1B9A8F1A00E29A0F /* RSUPCEGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E3B1B9A8F1A00E29A0F /* RSUPCEGenerator.swift */; };
-		3A806E4D1B9A8F1A00E29A0F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E3C1B9A8F1A00E29A0F /* StringExtension.swift */; };
-		3A806E4E1B9A8F1A00E29A0F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E3D1B9A8F1A00E29A0F /* UIColorExtension.swift */; };
 		3A806E511B9A9E4B00E29A0F /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */; };
 		3A806E5F1B9ACDE100E29A0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A806E5E1B9ACDE100E29A0F /* CoreData.framework */; };
 		3A806E611B9ACEB100E29A0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */; };
 		3A806E621B9ACED300E29A0F /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */; };
-		3AEB82211B7F0C2D00224BC3 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82161B7F0C2D00224BC3 /* Alamofire.swift */; };
-		3AEB82221B7F0C2D00224BC3 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82171B7F0C2D00224BC3 /* Download.swift */; };
-		3AEB82231B7F0C2D00224BC3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB82181B7F0C2D00224BC3 /* Info.plist */; };
-		3AEB82241B7F0C2D00224BC3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82191B7F0C2D00224BC3 /* Manager.swift */; };
-		3AEB82251B7F0C2D00224BC3 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821A1B7F0C2D00224BC3 /* MultipartFormData.swift */; };
-		3AEB82261B7F0C2D00224BC3 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821B1B7F0C2D00224BC3 /* ParameterEncoding.swift */; };
-		3AEB82271B7F0C2D00224BC3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821C1B7F0C2D00224BC3 /* Request.swift */; };
-		3AEB82281B7F0C2D00224BC3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821D1B7F0C2D00224BC3 /* ResponseSerialization.swift */; };
-		3AEB82291B7F0C2D00224BC3 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821E1B7F0C2D00224BC3 /* ServerTrustPolicy.swift */; };
-		3AEB822A1B7F0C2D00224BC3 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB821F1B7F0C2D00224BC3 /* Upload.swift */; };
-		3AEB822B1B7F0C2D00224BC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82201B7F0C2D00224BC3 /* Validation.swift */; };
-		3AEB822D1B7F0CCA00224BC3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB822C1B7F0CCA00224BC3 /* SwiftyJSON.swift */; };
 		3AEB82341B7F107F00224BC3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82301B7F107F00224BC3 /* Fabric.framework */; };
 		3AEB82351B7F107F00224BC3 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82311B7F107F00224BC3 /* TwitterKit.framework */; };
 		3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB82321B7F107F00224BC3 /* TwitterKitResources.bundle */; };
 		3AEB82371B7F107F00224BC3 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82331B7F107F00224BC3 /* TwitterCore.framework */; };
 		3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */; };
 		3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB823A1B7F14F400224BC3 /* Announcement.swift */; };
-		728E1CFB1B83A17149DAAC80 /* libPods-HackTX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 830267036940E1B507FECE03 /* libPods-HackTX.a */; };
 		F96AB7931B97D14B00394217 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7921B97D14B00394217 /* Parse.framework */; };
 		F96AB7951B97D18F00394217 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7941B97D18F00394217 /* Bolts.framework */; };
 		F96AB7A01B97D25C00394217 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7961B97D25C00394217 /* AudioToolbox.framework */; };
@@ -92,6 +62,27 @@
 			remoteGlobalIDString = C08F031FB69E7F1318E303AE8858C9AA;
 			remoteInfo = "Pods-HackTX";
 		};
+		3ADDC0601B9CC2A500D0ECD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 354BEE9D235DF8157E8AB34827ECD658;
+			remoteInfo = Alamofire;
+		};
+		3ADDC0621B9CC2A500D0ECD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1A677D45179CEC1F17E608D4F6CC0821;
+			remoteInfo = RSBarcodes_Swift;
+		};
+		3ADDC0641B9CC2A500D0ECD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB4CB50B42FA0112BD3CB968CB68AC93;
+			remoteInfo = SwiftyJSON;
+		};
 		F9E9904A1B50EBBA00057823 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F9E9902A1B50EBBA00057823 /* Project object */;
@@ -124,29 +115,11 @@
 		3A21567D1B8A5D5400BCA241 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3A21567F1B8A5D6A00BCA241 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3A2156811B8A5D8900BCA241 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
-		3A806E1C1B99894400E29A0F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		3A806E281B9A895D00E29A0F /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
-		3A806E2D1B9A8F1A00E29A0F /* RSCode39Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode39Generator.swift; sourceTree = "<group>"; };
-		3A806E2E1B9A8F1A00E29A0F /* RSCode39Mod43Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode39Mod43Generator.swift; sourceTree = "<group>"; };
-		3A806E2F1B9A8F1A00E29A0F /* RSCode93Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode93Generator.swift; sourceTree = "<group>"; };
-		3A806E301B9A8F1A00E29A0F /* RSCode128Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCode128Generator.swift; sourceTree = "<group>"; };
-		3A806E311B9A8F1A00E29A0F /* RSCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeGenerator.swift; sourceTree = "<group>"; };
-		3A806E321B9A8F1A00E29A0F /* RSCodeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeLayer.swift; sourceTree = "<group>"; };
-		3A806E331B9A8F1A00E29A0F /* RSCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeReaderViewController.swift; sourceTree = "<group>"; };
-		3A806E341B9A8F1A00E29A0F /* RSCornersLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCornersLayer.swift; sourceTree = "<group>"; };
-		3A806E351B9A8F1A00E29A0F /* RSEANGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSEANGenerator.swift; sourceTree = "<group>"; };
-		3A806E361B9A8F1A00E29A0F /* RSExtendedCode39Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSExtendedCode39Generator.swift; sourceTree = "<group>"; };
-		3A806E371B9A8F1A00E29A0F /* RSFocusMarkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSFocusMarkLayer.swift; sourceTree = "<group>"; };
-		3A806E381B9A8F1A00E29A0F /* RSITF14Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSITF14Generator.swift; sourceTree = "<group>"; };
-		3A806E391B9A8F1A00E29A0F /* RSITFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSITFGenerator.swift; sourceTree = "<group>"; };
-		3A806E3A1B9A8F1A00E29A0F /* RSUnifiedCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUnifiedCodeGenerator.swift; sourceTree = "<group>"; };
-		3A806E3B1B9A8F1A00E29A0F /* RSUPCEGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSUPCEGenerator.swift; sourceTree = "<group>"; };
-		3A806E3C1B9A8F1A00E29A0F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		3A806E3D1B9A8F1A00E29A0F /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
 		3A806E5E1B9ACDE100E29A0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3A806E801B9AD62800E29A0F /* HackTX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackTX-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A806E801B9AD62800E29A0F /* HackTX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackTX-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		3A806E861B9AD92E00E29A0F /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		3A806E871B9AD92E00E29A0F /* GGLContext+Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GGLContext+Analytics.h"; sourceTree = "<group>"; };
 		3A806E8A1B9AD92E00E29A0F /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -225,26 +198,13 @@
 		3A806EEC1B9AD92E00E29A0F /* Pods-HackTX-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-HackTX-resources.sh"; sourceTree = "<group>"; };
 		3A806EED1B9AD92E00E29A0F /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 		3A806EEE1B9AD92E00E29A0F /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
-		3AEB82151B7F0C2D00224BC3 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
-		3AEB82161B7F0C2D00224BC3 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
-		3AEB82171B7F0C2D00224BC3 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
-		3AEB82181B7F0C2D00224BC3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AEB82191B7F0C2D00224BC3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
-		3AEB821A1B7F0C2D00224BC3 /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
-		3AEB821B1B7F0C2D00224BC3 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		3AEB821C1B7F0C2D00224BC3 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		3AEB821D1B7F0C2D00224BC3 /* ResponseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
-		3AEB821E1B7F0C2D00224BC3 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
-		3AEB821F1B7F0C2D00224BC3 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
-		3AEB82201B7F0C2D00224BC3 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		3AEB822C1B7F0CCA00224BC3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		3AEB82301B7F107F00224BC3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		3AEB82311B7F107F00224BC3 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		3AEB82321B7F107F00224BC3 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		3AEB82331B7F107F00224BC3 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
 		3AEB823A1B7F14F400224BC3 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
-		830267036940E1B507FECE03 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		715158D3DB02FD4CF82662A4 /* Pods_HackTX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E240E75C09DEDD03EA913F /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 		F96AB7921B97D14B00394217 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F96AB7941B97D18F00394217 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -297,7 +257,7 @@
 				3AEB82371B7F107F00224BC3 /* TwitterCore.framework in Frameworks */,
 				F96AB7931B97D14B00394217 /* Parse.framework in Frameworks */,
 				3AEB82351B7F107F00224BC3 /* TwitterKit.framework in Frameworks */,
-				728E1CFB1B83A17149DAAC80 /* libPods-HackTX.a in Frameworks */,
+				0EEBD4D4183683D7099C95B8 /* Pods_HackTX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +271,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A36664C1B9CCD3B0028BA91 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
+				3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */,
+				3A806E281B9A895D00E29A0F /* CheckInViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		3A36664D1B9CCD480028BA91 /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */,
+			);
+			name = Announcements;
+			sourceTree = "<group>";
+		};
+		3A36664E1B9CCD5C0028BA91 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				F9E990661B51001000057823 /* MapViewController.swift */,
+				F96AB7AC1B97E01200394217 /* MapsPageViewController.swift */,
+				F9EE70211B912EE300B493A8 /* PageItemViewController.swift */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		3A36664F1B9CCD720028BA91 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
+		3A3666501B9CCD800028BA91 /* Partners */ = {
+			isa = PBXGroup;
+			children = (
+				3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */,
+			);
+			name = Partners;
+			sourceTree = "<group>";
+		};
+		3A3666511B9CCDAE0028BA91 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				3A21567D1B8A5D5400BCA241 /* Day.swift */,
+				3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */,
+				3A21567F1B8A5D6A00BCA241 /* Event.swift */,
+				F9C42AC91B979B7200A21CF8 /* Location.swift */,
+				3A2156811B8A5D8900BCA241 /* Speaker.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		3A806E4F1B9A9E3100E29A0F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,7 +634,10 @@
 		3A806EE51B9AD92E00E29A0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A806EF11B9AD92E00E29A0F /* libPods-HackTX.a */,
+				3ADDC0611B9CC2A500D0ECD2 /* Alamofire.framework */,
+				3A806EF11B9AD92E00E29A0F /* Pods_HackTX.framework */,
+				3ADDC0631B9CC2A500D0ECD2 /* RSBarcodes_Swift.framework */,
+				3ADDC0651B9CC2A500D0ECD2 /* SwiftyJSON.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -644,104 +663,9 @@
 			path = "Pods-HackTX";
 			sourceTree = "<group>";
 		};
-		3AEB82141B7F0C2D00224BC3 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				3A806E2D1B9A8F1A00E29A0F /* RSCode39Generator.swift */,
-				3A806E2E1B9A8F1A00E29A0F /* RSCode39Mod43Generator.swift */,
-				3A806E2F1B9A8F1A00E29A0F /* RSCode93Generator.swift */,
-				3A806E301B9A8F1A00E29A0F /* RSCode128Generator.swift */,
-				3A806E311B9A8F1A00E29A0F /* RSCodeGenerator.swift */,
-				3A806E321B9A8F1A00E29A0F /* RSCodeLayer.swift */,
-				3A806E331B9A8F1A00E29A0F /* RSCodeReaderViewController.swift */,
-				3A806E341B9A8F1A00E29A0F /* RSCornersLayer.swift */,
-				3A806E351B9A8F1A00E29A0F /* RSEANGenerator.swift */,
-				3A806E361B9A8F1A00E29A0F /* RSExtendedCode39Generator.swift */,
-				3A806E371B9A8F1A00E29A0F /* RSFocusMarkLayer.swift */,
-				3A806E381B9A8F1A00E29A0F /* RSITF14Generator.swift */,
-				3A806E391B9A8F1A00E29A0F /* RSITFGenerator.swift */,
-				3A806E3A1B9A8F1A00E29A0F /* RSUnifiedCodeGenerator.swift */,
-				3A806E3B1B9A8F1A00E29A0F /* RSUPCEGenerator.swift */,
-				3A806E3C1B9A8F1A00E29A0F /* StringExtension.swift */,
-				3A806E3D1B9A8F1A00E29A0F /* UIColorExtension.swift */,
-				3AEB82151B7F0C2D00224BC3 /* Alamofire.h */,
-				3AEB82161B7F0C2D00224BC3 /* Alamofire.swift */,
-				3AEB82171B7F0C2D00224BC3 /* Download.swift */,
-				3AEB82181B7F0C2D00224BC3 /* Info.plist */,
-				3AEB82191B7F0C2D00224BC3 /* Manager.swift */,
-				3AEB821A1B7F0C2D00224BC3 /* MultipartFormData.swift */,
-				3AEB821B1B7F0C2D00224BC3 /* ParameterEncoding.swift */,
-				3AEB821C1B7F0C2D00224BC3 /* Request.swift */,
-				3AEB821D1B7F0C2D00224BC3 /* ResponseSerialization.swift */,
-				3AEB821E1B7F0C2D00224BC3 /* ServerTrustPolicy.swift */,
-				3AEB821F1B7F0C2D00224BC3 /* Upload.swift */,
-				3AEB82201B7F0C2D00224BC3 /* Validation.swift */,
-				3AEB822C1B7F0CCA00224BC3 /* SwiftyJSON.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		59EAB6531DF07EF91F85AACE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A806E811B9AD92E00E29A0F /* Pods */,
-				830267036940E1B507FECE03 /* libPods-HackTX.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5FC63154830407E9274D0DC2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				94E240E75C09DEDD03EA913F /* Pods-HackTX.debug.xcconfig */,
-				163274BAD693C35C1B0222A5 /* Pods-HackTX.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F956D0711B535067001393DE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3AEB823A1B7F14F400224BC3 /* Announcement.swift */,
-				3A2156751B8A44CC00BCA241 /* Sponsor.swift */,
-				3A21567B1B8A5D3D00BCA241 /* ScheduleCluster.swift */,
-				3A21567D1B8A5D5400BCA241 /* Day.swift */,
-				3A21567F1B8A5D6A00BCA241 /* Event.swift */,
-				F9C42AC91B979B7200A21CF8 /* Location.swift */,
-				3A2156811B8A5D8900BCA241 /* Speaker.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		F956D0731B53507D001393DE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3A2156711B8A436100BCA241 /* SponsorViewCell.swift */,
-				3A2156721B8A436100BCA241 /* SponsorViewCell.xib */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		F956D0741B535081001393DE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F96AB7AC1B97E01200394217 /* MapsPageViewController.swift */,
-				F9EE70211B912EE300B493A8 /* PageItemViewController.swift */,
-				F9E990391B50EBBA00057823 /* ScheduleViewController.swift */,
-				3A2156791B8A577100BCA241 /* ScheduleDetailViewController.swift */,
-				3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */,
-				F9E990641B50FFFF00057823 /* TwitterViewController.swift */,
-				F9E990661B51001000057823 /* MapViewController.swift */,
-				3A21566D1B8A430C00BCA241 /* SponsorViewController.swift */,
-				3A806E281B9A895D00E29A0F /* CheckInViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
-		F9E990291B50EBBA00057823 = {
-			isa = PBXGroup;
-			children = (
-				3A806E801B9AD62800E29A0F /* HackTX-Bridging-Header.h */,
 				3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */,
 				3A806E5E1B9ACDE100E29A0F /* CoreData.framework */,
 				F96AB7961B97D25C00394217 /* AudioToolbox.framework */,
@@ -760,7 +684,56 @@
 				3AEB82311B7F107F00224BC3 /* TwitterKit.framework */,
 				3AEB82321B7F107F00224BC3 /* TwitterKitResources.bundle */,
 				3AEB82331B7F107F00224BC3 /* TwitterCore.framework */,
-				3AEB82141B7F0C2D00224BC3 /* Source */,
+				3A806E811B9AD92E00E29A0F /* Pods */,
+				715158D3DB02FD4CF82662A4 /* Pods_HackTX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FC63154830407E9274D0DC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94E240E75C09DEDD03EA913F /* Pods-HackTX.debug.xcconfig */,
+				163274BAD693C35C1B0222A5 /* Pods-HackTX.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F956D0711B535067001393DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A3666511B9CCDAE0028BA91 /* Schedule */,
+				3AEB823A1B7F14F400224BC3 /* Announcement.swift */,
+				3A2156751B8A44CC00BCA241 /* Sponsor.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F956D0731B53507D001393DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A2156711B8A436100BCA241 /* SponsorViewCell.swift */,
+				3A2156721B8A436100BCA241 /* SponsorViewCell.xib */,
+				F9E990421B50EBBA00057823 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F956D0741B535081001393DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A36664C1B9CCD3B0028BA91 /* Schedule */,
+				3A36664D1B9CCD480028BA91 /* Announcements */,
+				3A36664F1B9CCD720028BA91 /* Twitter */,
+				3A36664E1B9CCD5C0028BA91 /* Maps */,
+				3A3666501B9CCD800028BA91 /* Partners */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F9E990291B50EBBA00057823 = {
+			isa = PBXGroup;
+			children = (
 				F9E990341B50EBBA00057823 /* HackTX */,
 				F9E9904C1B50EBBA00057823 /* HackTXTests */,
 				F9E990331B50EBBA00057823 /* Products */,
@@ -788,7 +761,6 @@
 				F9E990371B50EBBA00057823 /* AppDelegate.swift */,
 				F9E9903D1B50EBBA00057823 /* Main.storyboard */,
 				F9E990401B50EBBA00057823 /* Images.xcassets */,
-				F9E990421B50EBBA00057823 /* LaunchScreen.xib */,
 				F9E990351B50EBBA00057823 /* Supporting Files */,
 			);
 			path = HackTX;
@@ -797,8 +769,8 @@
 		F9E990351B50EBBA00057823 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A806E801B9AD62800E29A0F /* HackTX-Bridging-Header.h */,
 				F9E990361B50EBBA00057823 /* Info.plist */,
-				3A806E1C1B99894400E29A0F /* ApiKeys.plist */,
 				F96AB7AA1B97D40600394217 /* ApiKeys.plist */,
 			);
 			name = "Supporting Files";
@@ -835,6 +807,7 @@
 				3AEB822F1B7F104A00224BC3 /* Run Script */,
 				3A806E2C1B9A8E6500E29A0F /* CopyFiles */,
 				67D896DC6BB7CCEDB6AA1407 /* Copy Pods Resources */,
+				4C6724898F618A996523C194 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -908,11 +881,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3A806EF11B9AD92E00E29A0F /* libPods-HackTX.a */ = {
+		3A806EF11B9AD92E00E29A0F /* Pods_HackTX.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-HackTX.a";
+			fileType = wrapper.framework;
+			path = Pods_HackTX.framework;
 			remoteRef = 3A806EF01B9AD92E00E29A0F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3ADDC0611B9CC2A500D0ECD2 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 3ADDC0601B9CC2A500D0ECD2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3ADDC0631B9CC2A500D0ECD2 /* RSBarcodes_Swift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RSBarcodes_Swift.framework;
+			remoteRef = 3ADDC0621B9CC2A500D0ECD2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3ADDC0651B9CC2A500D0ECD2 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 3ADDC0641B9CC2A500D0ECD2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -922,7 +916,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AEB82231B7F0C2D00224BC3 /* Info.plist in Resources */,
 				F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */,
 				3A806E611B9ACEB100E29A0F /* GoogleService-Info.plist in Resources */,
 				3A2156741B8A436100BCA241 /* SponsorViewCell.xib in Resources */,
@@ -930,7 +923,6 @@
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
 				3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */,
-				3A806E1D1B99894400E29A0F /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,6 +949,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
+		};
+		4C6724898F618A996523C194 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTX/Pods-HackTX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		67D896DC6BB7CCEDB6AA1407 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -999,49 +1006,21 @@
 				3A2156761B8A44CC00BCA241 /* Sponsor.swift in Sources */,
 				3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */,
 				F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */,
-				3A806E3E1B9A8F1A00E29A0F /* RSCode39Generator.swift in Sources */,
-				3AEB82271B7F0C2D00224BC3 /* Request.swift in Sources */,
-				3A806E401B9A8F1A00E29A0F /* RSCode93Generator.swift in Sources */,
-				3A806E471B9A8F1A00E29A0F /* RSExtendedCode39Generator.swift in Sources */,
-				3AEB82221B7F0C2D00224BC3 /* Download.swift in Sources */,
 				F9E990381B50EBBA00057823 /* AppDelegate.swift in Sources */,
 				3A21567A1B8A577100BCA241 /* ScheduleDetailViewController.swift in Sources */,
-				3A806E461B9A8F1A00E29A0F /* RSEANGenerator.swift in Sources */,
-				3A806E491B9A8F1A00E29A0F /* RSITF14Generator.swift in Sources */,
 				3A2156821B8A5D8900BCA241 /* Speaker.swift in Sources */,
-				3A806E451B9A8F1A00E29A0F /* RSCornersLayer.swift in Sources */,
-				3A806E441B9A8F1A00E29A0F /* RSCodeReaderViewController.swift in Sources */,
-				3AEB82291B7F0C2D00224BC3 /* ServerTrustPolicy.swift in Sources */,
-				3AEB822B1B7F0C2D00224BC3 /* Validation.swift in Sources */,
-				3A806E411B9A8F1A00E29A0F /* RSCode128Generator.swift in Sources */,
-				3A806E4A1B9A8F1A00E29A0F /* RSITFGenerator.swift in Sources */,
 				3A21567E1B8A5D5400BCA241 /* Day.swift in Sources */,
 				3A806E511B9A9E4B00E29A0F /* UserPrefs.swift in Sources */,
-				3AEB822A1B7F0C2D00224BC3 /* Upload.swift in Sources */,
-				3A806E3F1B9A8F1A00E29A0F /* RSCode39Mod43Generator.swift in Sources */,
-				3AEB82251B7F0C2D00224BC3 /* MultipartFormData.swift in Sources */,
 				F9C42ACA1B979B7200A21CF8 /* Location.swift in Sources */,
-				3A806E481B9A8F1A00E29A0F /* RSFocusMarkLayer.swift in Sources */,
-				3AEB82261B7F0C2D00224BC3 /* ParameterEncoding.swift in Sources */,
-				3A806E431B9A8F1A00E29A0F /* RSCodeLayer.swift in Sources */,
-				3A806E4E1B9A8F1A00E29A0F /* UIColorExtension.swift in Sources */,
 				F9E990671B51001000057823 /* MapViewController.swift in Sources */,
 				3A2156731B8A436100BCA241 /* SponsorViewCell.swift in Sources */,
-				3A806E4C1B9A8F1A00E29A0F /* RSUPCEGenerator.swift in Sources */,
-				3A806E421B9A8F1A00E29A0F /* RSCodeGenerator.swift in Sources */,
 				3A806E291B9A895D00E29A0F /* CheckInViewController.swift in Sources */,
-				3A806E4D1B9A8F1A00E29A0F /* StringExtension.swift in Sources */,
 				3A21566E1B8A430C00BCA241 /* SponsorViewController.swift in Sources */,
 				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
-				3A806E4B1B9A8F1A00E29A0F /* RSUnifiedCodeGenerator.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
 				F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */,
-				3AEB82241B7F0C2D00224BC3 /* Manager.swift in Sources */,
-				3AEB822D1B7F0CCA00224BC3 /* SwiftyJSON.swift in Sources */,
 				F96AB7AD1B97E01200394217 /* MapsPageViewController.swift in Sources */,
-				3AEB82281B7F0C2D00224BC3 /* ResponseSerialization.swift in Sources */,
-				3AEB82211B7F0C2D00224BC3 /* Alamofire.swift in Sources */,
 				3A21567C1B8A5D3D00BCA241 /* ScheduleCluster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1181,6 +1160,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HackTX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Source/**",
@@ -1205,6 +1185,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HackTX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Source/**",

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ScheduleViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -24,7 +26,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         
         for i in 0..<numberOfDays {
             
-            request(.GET, "https://my.hacktx.com/api/schedule/\(i+1)")
+            Alamofire.request(.GET, "https://my.hacktx.com/api/schedule/\(i+1)")
                 .responseJSON { (request, response, data, error) in
                     if let anError = error {
                         if errorAlert.title == "" {

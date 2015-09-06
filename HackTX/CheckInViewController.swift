@@ -2,12 +2,13 @@
 //  CheckInViewController.swift
 //  HackTX
 //
-//  Created by Andrew Romanyk on 9/4/15.
+//  Created by Drew Romanyk on 9/4/15.
 //  Copyright (c) 2015 HackTX. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
+import RSBarcodes_Swift
 
 class CheckInViewController: UITableViewController {
     
@@ -18,12 +19,6 @@ class CheckInViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 215
         tableView.rowHeight = UITableViewAutomaticDimension
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     // Setup Google Analytics for the controller
@@ -39,20 +34,13 @@ class CheckInViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return 2
     }
 
@@ -83,8 +71,10 @@ class CheckInViewController: UITableViewController {
                 
                 // Setup QR Image
                 let qrImageView = cell.viewWithTag(1002) as! UIImageView
-                let qrr = RSUnifiedCodeGenerator().generateCode(UserPrefs.shared().getCheckedEmail(), machineReadableCodeObjectType: AVMetadataObjectTypeQRCode)
-                let qrScale = RSAbstractCodeGenerator.resizeImage(qrr!, scale: 10)
+                // RSAbstractCodeGenerator.generateCode(contents, filterName: RSAbstractCodeGenerator.filterName(machineReadableCodeObjectType))
+                //let qrr = RSUnifiedCodeGenerator().generateCode(UserPrefs.shared().getCheckedEmail(), machineReadableCodeObjectType: AVMetadataObjectTypeQRCode)
+                let qrr = RSAbstractCodeGenerator.generateCode(UserPrefs.shared().getCheckedEmail(), filterName: RSAbstractCodeGenerator.filterName(AVMetadataObjectTypeQRCode))
+                let qrScale = RSAbstractCodeGenerator.resizeImage(qrr, scale: 10)
                 qrImageView.image = qrScale
                 
                 // Setup reset button
@@ -101,7 +91,7 @@ class CheckInViewController: UITableViewController {
     func enterEmailToQr(sender: UIButton!) {
         if (emailField != nil) {
             let emailStr = emailField?.text
-            if (emailStr!.length() != 0 && emailStr!.contains("@")) {
+            if (count(emailStr!) != 0 && emailStr!.rangeOfString("@") != nil) {
                 UserPrefs.shared().setIsCheckedIn(true)
                 UserPrefs.shared().setCheckedEmail(emailStr!)
                 tableView.reloadData()
@@ -114,51 +104,5 @@ class CheckInViewController: UITableViewController {
         UserPrefs.shared().setCheckedEmail("")
         tableView.reloadData()
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

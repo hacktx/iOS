@@ -2,11 +2,13 @@
 //  AnnouncementsViewController.swift
 //  HackTX
 //
-//  Created by Andrew Romanyk on 8/15/15.
+//  Created by Drew Romanyk on 8/15/15.
 //  Copyright (c) 2015 HackTX. All rights reserved.
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AnnouncementsViewController: UITableViewController {
     
@@ -21,7 +23,7 @@ class AnnouncementsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
 
         let endpoint = "https://my.hacktx.com/api/announcements"
-        request(.GET, endpoint)
+        Alamofire.request(.GET, endpoint)
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
                     if errorAlert.title == "" {

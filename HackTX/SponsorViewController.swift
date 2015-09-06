@@ -2,15 +2,17 @@
 //  CollectionViewController.swift
 //  HackTX
 //
-//  Created by Andrew Romanyk on 8/23/15.
+//  Created by Drew Romanyk on 8/23/15.
 //  Copyright (c) 2015 HackTX. All rights reserved.
 //
 
 import UIKit
-
-let reuseIdentifier = "Cell"
+import Alamofire
+import SwiftyJSON
 
 class SponsorViewController: UICollectionViewController {
+    
+    let reuseIdentifier = "Cell"
     
     var sponsorList = [Sponsor]()
     var imageCache = [String:UIImage]()
@@ -21,7 +23,7 @@ class SponsorViewController: UICollectionViewController {
         collectionView?.registerNib(UINib(nibName: "SponsorViewCell", bundle: nil), forCellWithReuseIdentifier: "SponsorCell")
         
         let endpoint = "https://my.hacktx.com/api/sponsors"
-        request(.GET, endpoint)
+        Alamofire.request(.GET, endpoint)
             .responseJSON { (request, response, data, error) in
                 if let anError = error {
 //                    if errorAlert.title == "" {
@@ -157,36 +159,5 @@ class SponsorViewController: UICollectionViewController {
         UIApplication.sharedApplication().openURL(NSURL(string:
             "googlechrome-x-callback://x-callback-url/open/?x-source=HackTX&x-success=hacktx%3A%2F%2F&url=" + urlString + "&create-new-tab")!)
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
 
 }
