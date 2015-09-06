@@ -16,13 +16,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var chooseDaySegmentControl: UISegmentedControl!
 	
     let numberOfDays = 2
-    var dayList = [Day]()
+    var dayDict = [Int:Day]()
 	var refreshControl: UIRefreshControl!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.refreshControl = UIRefreshControl()
-		self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
         getScheduleData()
@@ -34,8 +34,6 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func getScheduleData() {
-        dayList.removeAll(keepCapacity: true)
-		
         for i in 0..<numberOfDays {
             
             Alamofire.request(Router.Schedule(String(i + 1)))
@@ -92,8 +90,8 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                         }
                         
                         curDay.clusterList = clusterList
-                        self.dayList.append(curDay)
-                        self.dayList.sort(self.sorterForDays)
+                        //self.dayList.append(curDay)
+                        self.dayDict.updateValue(curDay, forKey: i)
                         self.tableView.reloadData()
                     }
             }
@@ -124,28 +122,28 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        if(dayList.count == 0) {
+        if(dayDict.count == 0) {
             return 0
         }
         
-        return dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList.count
+        return dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[section]
+        let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[section]
         
         return scheduleCluster.eventsList!.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[section]
+        let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[section]
         
         return scheduleCluster.name
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "ScheduleCell")
-        let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[indexPath.section] as ScheduleCluster
+        let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section] as ScheduleCluster
         let event = scheduleCluster.eventsList![indexPath.row] as Event
         
         cell.textLabel!.text = event.name
@@ -174,7 +172,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let scheduleCluster = dayList[chooseDaySegmentControl.selectedSegmentIndex].clusterList[indexPath.section]
+        let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
 		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)

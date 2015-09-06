@@ -25,7 +25,7 @@ class PartnersViewController: UICollectionViewController {
 		
 		
 		self.refreshControl = UIRefreshControl()
-		self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.collectionView!.addSubview(refreshControl)
 		

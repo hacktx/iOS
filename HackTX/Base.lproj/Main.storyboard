@@ -284,11 +284,6 @@
                                 <action selector="choseDifferentDay:" destination="9pv-A4-QxB" eventType="valueChanged" id="zqz-31-AGM"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="aCw-hO-cD5">
-                            <connections>
-                                <action selector="refresh" destination="9pv-A4-QxB" id="3rO-fb-N2T"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chooseDaySegmentControl" destination="cGf-oT-giv" id="bhV-KB-Nio"/>
@@ -497,13 +492,7 @@
                             <outlet property="delegate" destination="T74-pm-WZT" id="ZDs-3U-cTS"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Partners" id="9uz-PZ-dis">
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="CzP-hJ-btc">
-                            <connections>
-                                <action selector="refresh" destination="T74-pm-WZT" id="Cxl-nC-iUj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Partners" id="9uz-PZ-dis"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcj-Lt-rWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
