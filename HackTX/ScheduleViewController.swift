@@ -122,7 +122,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        if(dayDict.count == 0) {
+        if(dayDict.indexForKey(chooseDaySegmentControl.selectedSegmentIndex) == nil) {
             return 0
         }
         

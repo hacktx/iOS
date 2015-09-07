@@ -48,6 +48,7 @@ class PartnersViewController: UICollectionViewController {
                     //                        errorAlert.show()
                     //                    }
                 } else {
+                    println("\n\nJSON HERE:\n\(data)")
                     let json = JSON(data!)
                     self.sponsorList.removeAll(keepCapacity: true)
                     
@@ -142,13 +143,13 @@ class PartnersViewController: UICollectionViewController {
         
         switch level{
         case 0:
-            size = CGSize(width: view.frame.width - 20, height: 150)
+            size = CGSize(width: view.frame.width, height: 100)
         case 1:
-            size = CGSize(width: view.frame.width - 20, height: 150)
+            size = CGSize(width: view.frame.width, height: 100)
         case 2:
-            size = CGSize(width: (view.frame.width/2.3)-10, height: 100)
+            size = CGSize(width: (view.frame.width/2)-10, height: 100)
         default:
-            size = CGSize(width: (view.frame.width/2.3)-10, height: 100)
+            size = CGSize(width: (view.frame.width/2)-10, height: 100)
             
         }
         return size

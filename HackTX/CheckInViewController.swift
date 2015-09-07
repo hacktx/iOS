@@ -17,8 +17,13 @@ class CheckInViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.estimatedRowHeight = 215
+        tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     // Setup Google Analytics for the controller
@@ -52,6 +57,8 @@ class CheckInViewController: UITableViewController {
         case 0:
             cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) as! UITableViewCell
             let desc = cell.viewWithTag(1001) as! UILabel
+            desc.text = ""
+            desc.text = "Lets get through the line quick."
             desc.preferredMaxLayoutWidth = CGRectGetWidth(desc.frame)
         case 1:
             if(!UserPrefs.shared().isCheckedIn()){
@@ -66,6 +73,7 @@ class CheckInViewController: UITableViewController {
                 // Setup email text
                 let desc = cell.viewWithTag(1000) as! UILabel
                 let emailLabel = cell.viewWithTag(1001) as! UILabel
+                emailLabel.text = ""
                 emailLabel.text = "Your email is \(UserPrefs.shared().getCheckedEmail())"
                 desc.preferredMaxLayoutWidth = CGRectGetWidth(desc.frame)
                 emailLabel.preferredMaxLayoutWidth = CGRectGetWidth(emailLabel.frame)
