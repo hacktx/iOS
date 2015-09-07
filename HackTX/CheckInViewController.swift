@@ -73,8 +73,15 @@ class CheckInViewController: UITableViewController {
                 // Setup email text
                 let desc = cell.viewWithTag(1000) as! UILabel
                 let emailLabel = cell.viewWithTag(1001) as! UILabel
-                emailLabel.text = ""
-                emailLabel.text = "Your email is \(UserPrefs.shared().getCheckedEmail())"
+				let emailPrefix = "Your email is "
+				let email = "\(UserPrefs.shared().getCheckedEmail())"
+				var attributedString = NSMutableAttributedString(string:emailPrefix)
+				
+				var attrs = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
+				var boldString = NSMutableAttributedString(string:email, attributes:attrs)
+				
+				attributedString.appendAttributedString(boldString)
+				emailLabel.attributedText = attributedString
                 desc.preferredMaxLayoutWidth = CGRectGetWidth(desc.frame)
                 emailLabel.preferredMaxLayoutWidth = CGRectGetWidth(emailLabel.frame)
                 
@@ -100,14 +107,28 @@ class CheckInViewController: UITableViewController {
     func enterEmailToQr(sender: UIButton!) {
         if (emailField != nil) {
             let emailStr = emailField?.text
-            if (count(emailStr!) != 0 && emailStr!.rangeOfString("@") != nil) {
+            if (count(emailStr!) != 0 && isValidEmail(emailStr!)) {
                 UserPrefs.shared().setIsCheckedIn(true)
                 UserPrefs.shared().setCheckedEmail(emailStr!)
                 tableView.reloadData()
-            }
+			} else {
+				let error = UIAlertView()
+				error.title = "Cannot Validate Email"
+				error.message = "\(emailStr!) does seem to be a valid email. Perhaps you should try again?"
+				error.addButtonWithTitle("OK")
+				error.show()
+			}
         }
     }
-    
+	
+	func isValidEmail(testStr:String) -> Bool {
+		// println("validate calendar: \(testStr)")
+		let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+		
+		let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+		return emailTest.evaluateWithObject(testStr)
+	}
+	
     func resetQrAccount(sender: UIButton!) {
         UserPrefs.shared().setIsCheckedIn(false)
         UserPrefs.shared().setCheckedEmail("")
