@@ -502,7 +502,11 @@
         <scene sceneID="VBm-e9-fdL">
             <objects>
                 <navigationController id="L5O-SH-9qk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Partners" image="sponsors" id="OSm-0b-vvy"/>
+                    <tabBarItem key="tabBarItem" title="Partners" image="partners" id="OSm-0b-vvy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="partners-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="wyi-7a-7JG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -623,7 +627,11 @@
         <scene sceneID="zyC-hf-ujC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dO5-nX-mkn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="acW-dT-cKf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="schedule-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yXj-0e-1gy">
@@ -643,7 +651,11 @@
         <scene sceneID="CIe-dk-a1X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qe0-oc-7vC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Announcements" image="announcement" id="M8m-d7-3WH"/>
+                    <tabBarItem key="tabBarItem" title="Announcements" image="announcements" id="M8m-d7-3WH">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="announcements-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="D9C-Wg-2oD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -681,7 +693,11 @@
         <scene sceneID="xbZ-cE-kXl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IJf-0V-21f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="aSn-fx-sG3"/>
+                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" selectedImage="twitter-filled" id="aSn-fx-sG3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="twitter-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IGn-GA-X7L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -700,7 +716,11 @@
         <scene sceneID="ABz-70-hJ3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vco-MN-QvU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="jcz-KD-glh">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="map-filled"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zqW-ty-4Ua">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -753,11 +773,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="announcement" width="36" height="36"/>
-        <image name="map" width="36" height="36"/>
-        <image name="schedule" width="36" height="36"/>
-        <image name="sponsors" width="36" height="36"/>
-        <image name="twitter" width="36" height="36"/>
+        <image name="announcements" width="64" height="64"/>
+        <image name="announcements-filled" width="64" height="64"/>
+        <image name="map" width="64" height="64"/>
+        <image name="map-filled" width="64" height="64"/>
+        <image name="partners" width="64" height="64"/>
+        <image name="partners-filled" width="64" height="64"/>
+        <image name="schedule" width="64" height="64"/>
+        <image name="schedule-filled" width="64" height="64"/>
+        <image name="twitter" width="64" height="64"/>
+        <image name="twitter-filled" width="64" height="64"/>
     </resources>
     <color key="tintColor" red="0.49019607843137253" green="0.82745098039215681" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

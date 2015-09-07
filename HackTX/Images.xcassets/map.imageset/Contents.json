@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ic_map_white_36pt.png"
+      "filename" : "Map-64-2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ic_map_white_36pt_2x.png"
+      "filename" : "Map-64.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "ic_map_white_36pt_3x.png"
+      "filename" : "Map-64-1.png"
     }
   ],
   "info" : {
