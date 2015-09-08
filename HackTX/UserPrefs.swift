@@ -45,4 +45,12 @@ class UserPrefs {
     func setCheckedEmail(checkedEmail: String) {
         getUserDefaults().setValue(checkedEmail, forKey: "checkInEmail")
     }
+    
+    func isFeedbackEventDone(id: Int) -> Bool {
+        return getUserDefaults().boolForKey("feedbackEvent=\(id)")
+    }
+    
+    func setFeedbackEventDone(id: Int) {
+        getUserDefaults().setBool(true, forKey: "feedbackEvent=\(id)")
+    }
 }

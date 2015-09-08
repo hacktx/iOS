@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -295,6 +295,132 @@
             </objects>
             <point key="canvasLocation" x="1598" y="-2238"/>
         </scene>
+        <!--Event Feedback-->
+        <scene sceneID="B4S-pR-vcJ">
+            <objects>
+                <viewController id="vUq-HA-mhL" customClass="EventFeedbackViewController" customModule="HackTX" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lgp-mD-8ed"/>
+                        <viewControllerLayoutGuide type="bottom" id="HKf-FP-EMz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xP2-Ec-WlC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5q6-cU-d5r">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2fM-3U-aad"/>
+                                    <constraint firstAttribute="height" constant="50" id="eQm-ih-HtX"/>
+                                </constraints>
+                                <state key="normal" title="star3B" image="partners-filled">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="star3Clicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="N3a-CT-RYl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwB-Tf-HN7">
+                                <rect key="frame" x="217" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="grX-Kj-iQP"/>
+                                    <constraint firstAttribute="height" constant="50" id="sez-ju-lYR"/>
+                                </constraints>
+                                <state key="normal" title="star2B" image="partners-filled">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="star2Clicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="p43-gk-HSR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PE7-jR-Ckc">
+                                <rect key="frame" x="333" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="jHN-0a-Nh4"/>
+                                    <constraint firstAttribute="height" constant="50" id="qt5-dX-0i5"/>
+                                </constraints>
+                                <state key="normal" title="star4B" image="partners-filled">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="star4Clicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="VcK-2S-0fQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTl-sM-ybC">
+                                <rect key="frame" x="159" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5Q6-az-SeP"/>
+                                    <constraint firstAttribute="height" constant="50" id="YI8-a5-q5O"/>
+                                </constraints>
+                                <state key="normal" title="star1B" image="partners-filled">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="star1Clicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="9yy-t5-xEo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CyN-2l-Voc">
+                                <rect key="frame" x="271" y="359" width="58" height="30"/>
+                                <state key="normal" title="SUBMIT">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitClicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="lzE-lA-9Ad"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-UU-hew">
+                                <rect key="frame" x="391" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5Hg-F5-j8Q"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ypx-TO-Uhb"/>
+                                </constraints>
+                                <state key="normal" title="star5B" image="partners-filled">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="star5Clicked:" destination="vUq-HA-mhL" eventType="touchUpInside" id="9LB-eu-8Bp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PE7-jR-Ckc" firstAttribute="leading" secondItem="5q6-cU-d5r" secondAttribute="trailing" constant="8" id="2GH-fM-2x7"/>
+                            <constraint firstAttribute="centerY" secondItem="b2q-UU-hew" secondAttribute="centerY" id="2OD-Hg-Jvm"/>
+                            <constraint firstAttribute="centerY" secondItem="PE7-jR-Ckc" secondAttribute="centerY" id="4R5-4m-TId"/>
+                            <constraint firstItem="CyN-2l-Voc" firstAttribute="top" secondItem="5q6-cU-d5r" secondAttribute="bottom" constant="34" id="5bs-ci-ZEg"/>
+                            <constraint firstItem="UwB-Tf-HN7" firstAttribute="leading" secondItem="NTl-sM-ybC" secondAttribute="trailing" constant="8" id="9d4-4L-dGe"/>
+                            <constraint firstAttribute="centerY" secondItem="5q6-cU-d5r" secondAttribute="centerY" id="BCB-wt-ULW"/>
+                            <constraint firstAttribute="centerY" secondItem="5q6-cU-d5r" secondAttribute="centerY" id="KkW-YD-leH"/>
+                            <constraint firstAttribute="centerX" secondItem="CyN-2l-Voc" secondAttribute="centerX" id="Qoi-DH-M4h"/>
+                            <constraint firstItem="UwB-Tf-HN7" firstAttribute="leading" secondItem="NTl-sM-ybC" secondAttribute="trailing" constant="8" id="RuY-Pv-jRt"/>
+                            <constraint firstAttribute="centerX" secondItem="5q6-cU-d5r" secondAttribute="centerX" id="Si1-CR-4oc"/>
+                            <constraint firstItem="b2q-UU-hew" firstAttribute="leading" secondItem="PE7-jR-Ckc" secondAttribute="trailing" constant="8" id="Ze6-DU-vld"/>
+                            <constraint firstItem="5q6-cU-d5r" firstAttribute="leading" secondItem="UwB-Tf-HN7" secondAttribute="trailing" constant="8" id="aAp-Cf-xSC"/>
+                            <constraint firstAttribute="centerY" secondItem="UwB-Tf-HN7" secondAttribute="centerY" id="asf-g0-kVO"/>
+                            <constraint firstAttribute="centerY" secondItem="NTl-sM-ybC" secondAttribute="centerY" id="avD-84-7sL"/>
+                            <constraint firstItem="b2q-UU-hew" firstAttribute="leading" secondItem="PE7-jR-Ckc" secondAttribute="trailing" constant="8" id="lOZ-eq-KWl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Event Feedback" id="dvg-PB-0Lq">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="iwl-X6-fuo">
+                            <connections>
+                                <action selector="cancel:" destination="vUq-HA-mhL" id="sge-WH-Cwg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="star1" destination="NTl-sM-ybC" id="XJ2-vL-Rc0"/>
+                        <outlet property="star2" destination="UwB-Tf-HN7" id="7Pv-3H-8PU"/>
+                        <outlet property="star3" destination="5q6-cU-d5r" id="Pmy-Rv-3bR"/>
+                        <outlet property="star4" destination="PE7-jR-Ckc" id="t8L-AF-cx4"/>
+                        <outlet property="star5" destination="b2q-UU-hew" id="gGI-TZ-NOX"/>
+                        <outlet property="submit" destination="CyN-2l-Voc" id="5qn-Sm-O7r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78A-Si-RQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4086" y="-3006"/>
+        </scene>
         <!--( Name of schedule event )-->
         <scene sceneID="92I-DX-Hqh">
             <objects>
@@ -419,7 +545,17 @@
                             <outlet property="delegate" destination="oWV-e8-nQQ" id="hVQ-j8-7MI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="( Name of schedule event )" id="5vm-gP-G9D"/>
+                    <navigationItem key="navigationItem" title="( Name of schedule event )" id="5vm-gP-G9D">
+                        <barButtonItem key="rightBarButtonItem" title="Feedback" id="giG-zh-xcf">
+                            <connections>
+                                <action selector="showFeedback:" destination="oWV-e8-nQQ" id="nv0-Ea-xlV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="feedbackButton" destination="giG-zh-xcf" id="PaE-KW-fXg"/>
+                        <segue destination="K6l-2f-fmF" kind="showDetail" identifier="showFeedback" id="n93-OY-02s"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbY-Yv-Edv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -770,6 +906,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TI8-pX-FRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1598" y="-2998"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YCY-Gy-WLe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRn-N4-hSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K6l-2f-fmF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gz-3E-Wso">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vUq-HA-mhL" kind="relationship" relationship="rootViewController" id="tMZ-I7-sWx"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="3274" y="-3006"/>
         </scene>
     </scenes>
     <resources>

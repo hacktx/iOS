@@ -15,6 +15,7 @@ enum Router: URLRequestConvertible {
     case Schedule(String)
     case Announcements()
     case Partners()
+    case Feedback([String: Int])
     
     var method: Alamofire.Method {
         switch self {
@@ -24,6 +25,8 @@ enum Router: URLRequestConvertible {
             return .GET
         case .Partners:
             return .GET
+        case .Feedback:
+            return .POST
         }
     }
 
@@ -35,6 +38,8 @@ enum Router: URLRequestConvertible {
             return "/announcements"
         case .Partners():
             return "/sponsors"
+        case .Feedback:
+            return "/feedback"
         }
     }
     
@@ -46,6 +51,8 @@ enum Router: URLRequestConvertible {
         mutableURLRequest.HTTPMethod = method.rawValue
         
         switch self {
+        case .Feedback(let parameters):
+            return ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         default:
             return mutableURLRequest
         }

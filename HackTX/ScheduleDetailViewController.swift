@@ -10,6 +10,8 @@ import UIKit
 
 class ScheduleDetailViewController: UITableViewController {
     
+    @IBOutlet weak var feedbackButton: UIBarButtonItem!
+    
     var scheduleEvent = Event()
 
     override func viewDidLoad() {
@@ -22,6 +24,11 @@ class ScheduleDetailViewController: UITableViewController {
 		
     }
     
+    func enableFeedback() {
+        var todaysDate = NSDate()
+        feedbackButton.enabled = true && !UserPrefs.shared().isFeedbackEventDone(scheduleEvent.id!) && todaysDate.compare(scheduleEvent.endDate!) == .OrderedDescending
+    }
+    
     // Setup Google Analytics for the controller
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +38,8 @@ class ScheduleDetailViewController: UITableViewController {
         
         var builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        enableFeedback()
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,6 +153,18 @@ class ScheduleDetailViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    @IBAction func showFeedback(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("showFeedback", sender: scheduleEvent)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showFeedback" {
+            let navController = segue.destinationViewController as! UINavigationController
+            let controller = navController.topViewController as! EventFeedbackViewController
+            controller.scheduleEvent = sender as! Event
+        }
     }
 
 }
