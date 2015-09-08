@@ -133,6 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.window?.makeKeyAndVisible()
 		let rootController = window?.rootViewController as! UITabBarController
 		rootController.selectedIndex = 1;
+		NSNotificationCenter.defaultCenter().postNotificationName("reloadTheTable", object: nil)
 		
 	}
 

@@ -20,9 +20,13 @@ class AnnouncementsViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "reloadTheTable", object: nil)
         getAnnouncementData()
     }
+	
+	func reloadTable(notification: NSNotification) {
+		getAnnouncementData()
+	}
     
     
     

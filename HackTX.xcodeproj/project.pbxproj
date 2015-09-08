@@ -50,34 +50,12 @@
 		F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E9903D1B50EBBA00057823 /* Main.storyboard */; };
 		F9E990411B50EBBA00057823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E990401B50EBBA00057823 /* Images.xcassets */; };
 		F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E990421B50EBBA00057823 /* LaunchScreen.xib */; };
-		F9E990501B50EBBA00057823 /* HackTXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9904F1B50EBBA00057823 /* HackTXTests.swift */; };
 		F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990641B50FFFF00057823 /* TwitterViewController.swift */; };
 		F9E990671B51001000057823 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E990661B51001000057823 /* MapViewController.swift */; };
 		F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE70211B912EE300B493A8 /* PageItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A192B971B9EBDEA008AA3BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0E0593B9CE44ACD034BC52F99ACFB777;
-			remoteInfo = CAAnimationBlocks;
-		};
-		3A192B991B9EBDEA008AA3BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B60FCB1F40EEE6BB0C4CF7FEB64DFB4;
-			remoteInfo = LMAlertView;
-		};
-		3A192B9B1B9EBDEA008AA3BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A0A82031855C92A0FD12C9C937B25005;
-			remoteInfo = RBBAnimation;
-		};
 		3A806EF01B9AD92E00E29A0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3A806EE41B9AD92E00E29A0F /* Pods.xcodeproj */;
@@ -105,13 +83,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = EB4CB50B42FA0112BD3CB968CB68AC93;
 			remoteInfo = SwiftyJSON;
-		};
-		F9E9904A1B50EBBA00057823 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F9E9902A1B50EBBA00057823 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F9E990311B50EBBA00057823;
-			remoteInfo = HackTX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -253,7 +224,6 @@
 		F9E9903E1B50EBBA00057823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9E990401B50EBBA00057823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F9E990431B50EBBA00057823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F9E990491B50EBBA00057823 /* HackTXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackTXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E9904E1B50EBBA00057823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9E9904F1B50EBBA00057823 /* HackTXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackTXTests.swift; sourceTree = "<group>"; };
 		F9E990641B50FFFF00057823 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
@@ -283,13 +253,6 @@
 				F96AB7931B97D14B00394217 /* Parse.framework in Frameworks */,
 				3AEB82351B7F107F00224BC3 /* TwitterKit.framework in Frameworks */,
 				0EEBD4D4183683D7099C95B8 /* Pods_HackTX.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9E990461B50EBBA00057823 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,10 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADDC0611B9CC2A500D0ECD2 /* Alamofire.framework */,
-				3A192B981B9EBDEA008AA3BA /* CAAnimationBlocks.framework */,
-				3A192B9A1B9EBDEA008AA3BA /* LMAlertView.framework */,
 				3A806EF11B9AD92E00E29A0F /* Pods_HackTX.framework */,
-				3A192B9C1B9EBDEA008AA3BA /* RBBAnimation.framework */,
 				3ADDC0631B9CC2A500D0ECD2 /* RSBarcodes_Swift.framework */,
 				3ADDC0651B9CC2A500D0ECD2 /* SwiftyJSON.framework */,
 			);
@@ -776,7 +736,6 @@
 			isa = PBXGroup;
 			children = (
 				F9E990321B50EBBA00057823 /* HackTX.app */,
-				F9E990491B50EBBA00057823 /* HackTXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -848,24 +807,6 @@
 			productReference = F9E990321B50EBBA00057823 /* HackTX.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F9E990481B50EBBA00057823 /* HackTXTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F9E990561B50EBBA00057823 /* Build configuration list for PBXNativeTarget "HackTXTests" */;
-			buildPhases = (
-				F9E990451B50EBBA00057823 /* Sources */,
-				F9E990461B50EBBA00057823 /* Frameworks */,
-				F9E990471B50EBBA00057823 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F9E9904B1B50EBBA00057823 /* PBXTargetDependency */,
-			);
-			name = HackTXTests;
-			productName = HackTXTests;
-			productReference = F9E990491B50EBBA00057823 /* HackTXTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -877,12 +818,7 @@
 				TargetAttributes = {
 					F9E990311B50EBBA00057823 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = Y7S445GDLA;
-					};
-					F9E990481B50EBBA00057823 = {
-						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = Y7S445GDLA;
-						TestTargetID = F9E990311B50EBBA00057823;
+						DevelopmentTeam = W2F3CF3EX5;
 					};
 				};
 			};
@@ -906,33 +842,11 @@
 			projectRoot = "";
 			targets = (
 				F9E990311B50EBBA00057823 /* HackTX */,
-				F9E990481B50EBBA00057823 /* HackTXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3A192B981B9EBDEA008AA3BA /* CAAnimationBlocks.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CAAnimationBlocks.framework;
-			remoteRef = 3A192B971B9EBDEA008AA3BA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3A192B9A1B9EBDEA008AA3BA /* LMAlertView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LMAlertView.framework;
-			remoteRef = 3A192B991B9EBDEA008AA3BA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3A192B9C1B9EBDEA008AA3BA /* RBBAnimation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RBBAnimation.framework;
-			remoteRef = 3A192B9B1B9EBDEA008AA3BA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		3A806EF11B9AD92E00E29A0F /* Pods_HackTX.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -975,13 +889,6 @@
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
 				3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9E990471B50EBBA00057823 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,23 +986,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9E990451B50EBBA00057823 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9E990501B50EBBA00057823 /* HackTXTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F9E9904B1B50EBBA00057823 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F9E990311B50EBBA00057823 /* HackTX */;
-			targetProxy = F9E9904A1B50EBBA00057823 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F9E9903D1B50EBBA00057823 /* Main.storyboard */ = {
@@ -1250,46 +1141,6 @@
 			};
 			name = Release;
 		};
-		F9E990571B50EBBA00057823 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackTXTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackTX.app/HackTX";
-			};
-			name = Debug;
-		};
-		F9E990581B50EBBA00057823 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HackTXTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackTX.app/HackTX";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1307,15 +1158,6 @@
 			buildConfigurations = (
 				F9E990541B50EBBA00057823 /* Debug */,
 				F9E990551B50EBBA00057823 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F9E990561B50EBBA00057823 /* Build configuration list for PBXNativeTarget "HackTXTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F9E990571B50EBBA00057823 /* Debug */,
-				F9E990581B50EBBA00057823 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
