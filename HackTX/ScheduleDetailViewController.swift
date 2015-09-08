@@ -97,7 +97,7 @@ class ScheduleDetailViewController: UITableViewController {
             
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
-            let eventDesc = cell.viewWithTag(1002) as! UILabel
+            let eventDesc = cell.viewWithTag(1002) as! UITextView
 			let speakerTagName = cell.viewWithTag(999) as! UILabel
 			
 			let eventSpeaker = scheduleEvent.speakerList!.first
