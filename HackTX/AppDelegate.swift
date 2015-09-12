@@ -78,6 +78,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let currentInstallation = PFInstallation.currentInstallation()
 		currentInstallation.addUniqueObject("announcements", forKey: "channels")
 		currentInstallation.saveInBackground()
+		
+		
+		//Remind attendees to check in to the event
+		var notification = UILocalNotification()
+		notification.alertBody = "Remember to check in for HackTX in the app!"
+		notification.alertAction = "check in"
+		notification.fireDate = NSDate(timeIntervalSince1970: 1443274200)
+		notification.soundName = UILocalNotificationDefaultSoundName
+		UIApplication.sharedApplication().scheduleLocalNotification(notification)
 	}
 	
 	func getParseKeyDict() -> NSDictionary {
