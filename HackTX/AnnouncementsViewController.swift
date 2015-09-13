@@ -21,11 +21,25 @@ class AnnouncementsViewController: UITableViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "reloadTheTable", object: nil)
-        getAnnouncementData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getAnnouncementData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
     }
 	
 	func reloadTable(notification: NSNotification) {
-		getAnnouncementData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getAnnouncementData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
 	}
     
     

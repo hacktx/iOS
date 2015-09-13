@@ -29,11 +29,26 @@ class PartnersViewController: UICollectionViewController {
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.collectionView!.addSubview(refreshControl)
 		
-        getPartnersData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getPartnersData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
+		
     }
     
 	func refresh(sender: AnyObject) {
-		getPartnersData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getPartnersData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
 		self.refreshControl.endRefreshing()
 	}
 	

@@ -25,11 +25,26 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
-        getScheduleData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getScheduleData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
+		
     }
     
 	func refresh(sender: AnyObject) {
-        getScheduleData()
+		if Reachability.isConnectedToNetwork() == true {
+			println("Internet connection OK")
+			getScheduleData()
+		} else {
+			println("Internet connection FAILED")
+			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
+		}
 		self.refreshControl.endRefreshing()
     }
     
