@@ -813,6 +813,7 @@
 		F9E9902A1B50EBBA00057823 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = HackTX;
 				TargetAttributes = {
