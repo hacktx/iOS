@@ -5,12 +5,11 @@ use_frameworks!
 
 target 'HackTX' do
 	pod 'Google/Analytics', '~> 1.0.0'
-	pod 'Alamofire', '~> 1.3'
-	pod 'SwiftyJSON', '~> 2.2.1'
-	pod 'RSBarcodes_Swift', '~> 0.0.8'
-end
-
-target 'HackTXTests' do
+	pod 'Alamofire', '~> 2.0'
+	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+	pod 'RSBarcodes_Swift', :git => 'https://github.com/yeahdongcn/RSBarcodes_Swift.git', :branch => 'Swift2.0'
 
 end
+
+
 
