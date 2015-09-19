@@ -11,6 +11,10 @@ import Alamofire
 
 class EventFeedbackViewController: UIViewController {
     
+	@IBAction func cancelButton(sender: UIBarButtonItem) {
+		
+		dismissViewControllerAnimated(true, completion: nil)
+	}
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!
     @IBOutlet weak var star3: UIButton!
@@ -101,9 +105,5 @@ class EventFeedbackViewController: UIViewController {
 //                }
 //        }
     }
-    
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
+}
 }
