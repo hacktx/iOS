@@ -13,6 +13,7 @@ import SwiftyJSON
 class AnnouncementsViewController: UITableViewController {
     
     var announcementList = [Announcement]()
+	let reachability = Reachability.reachabilityForInternetConnection()
     
 
     override func viewDidLoad() {
@@ -21,18 +22,18 @@ class AnnouncementsViewController: UITableViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableViewAutomaticDimension
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "reloadTheTable", object: nil)
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getAnnouncementData()
 		} else {
 			print("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
     }
 	
 	func reloadTable(notification: NSNotification) {
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getAnnouncementData()
 		} else {
@@ -49,9 +50,7 @@ class AnnouncementsViewController: UITableViewController {
 		
 		Alamofire.request(Router.Announcements())
 			.responseJSON{ (request, response, data) in
-				self.firstLoad = false;
 				if data.isFailure {
-					GeneralUtils.sharedInstance().showEmptyListMessage(self.tableView, firstLoad: self.firstLoad, view: self.view)
 					let errorAlert = UIAlertView()
 					if errorAlert.title == "" {
 						errorAlert.title = "Error"

@@ -18,6 +18,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     let numberOfDays = 2
     var dayDict = [Int:Day]()
 	var refreshControl: UIRefreshControl!
+	let reachability = Reachability.reachabilityForInternetConnection()
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,7 +26,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getScheduleData()
 		} else {
@@ -37,7 +38,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 	func refresh(sender: AnyObject) {
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getScheduleData()
 		} else {

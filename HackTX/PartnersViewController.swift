@@ -17,6 +17,8 @@ class PartnersViewController: UICollectionViewController {
     var sponsorList = [Sponsor]()
     var imageCache = [String:UIImage]()
 	var refreshControl: UIRefreshControl!
+	let reachability = Reachability.reachabilityForInternetConnection()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class PartnersViewController: UICollectionViewController {
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.collectionView!.addSubview(refreshControl)
 		
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getPartnersData()
 		} else {
@@ -41,7 +43,7 @@ class PartnersViewController: UICollectionViewController {
     }
     
 	func refresh(sender: AnyObject) {
-		if Reachability.isConnectedToNetwork() == true {
+		if (reachability?.whenReachable != nil) {
 			print("Internet connection OK")
 			getPartnersData()
 		} else {

@@ -90,7 +90,7 @@ class CheckInViewController: UITableViewController {
                 // RSAbstractCodeGenerator.generateCode(contents, filterName: RSAbstractCodeGenerator.filterName(machineReadableCodeObjectType))
                 //let qrr = RSUnifiedCodeGenerator().generateCode(UserPrefs.shared().getCheckedEmail(), machineReadableCodeObjectType: AVMetadataObjectTypeQRCode)
                 let qrr = RSAbstractCodeGenerator.generateCode(UserPrefs.shared().getCheckedEmail(), filterName: RSAbstractCodeGenerator.filterName(AVMetadataObjectTypeQRCode))
-                let qrScale = RSAbstractCodeGenerator.resizeImage(qrr, scale: 10)
+                let qrScale = RSAbstractCodeGenerator.resizeImage(qrr!, scale: 10)
                 qrImageView.image = qrScale
                 
                 // Setup reset button

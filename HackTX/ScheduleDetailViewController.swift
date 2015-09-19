@@ -79,7 +79,7 @@ class ScheduleDetailViewController: UITableViewController {
             NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                 if error == nil {
                     // Convert the downloaded data in to a UIImage object
-                    let image = UIImage(data: data)
+                    let image = UIImage(data: data!)
                     // Store the image in to our cache
                     let loadedImage = image
                     // Update the cell
@@ -88,7 +88,7 @@ class ScheduleDetailViewController: UITableViewController {
                     })
                 }
                 else {
-                    print("Error: \(error.localizedDescription)")
+                    print("Error: \(error!.localizedDescription)")
                 }
             })
             
@@ -120,7 +120,7 @@ class ScheduleDetailViewController: UITableViewController {
                     NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                         if error == nil {
                             // Convert the downloaded data in to a UIImage object
-                            let image = UIImage(data: data)
+                            let image = UIImage(data: data!)
                             // Store the image in to our cache
                             let loadedImage = image
                             // Update the cell
@@ -129,7 +129,7 @@ class ScheduleDetailViewController: UITableViewController {
                             })
                         }
                         else {
-                            print("Error: \(error.localizedDescription)")
+                            print("Error: \(error!.localizedDescription)")
                         }
                     })
                     
