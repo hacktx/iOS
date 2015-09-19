@@ -18,7 +18,7 @@ class TwitterViewController: TWTRTimelineViewController {
 //        let topLayoutGuide = CGFloat(60)
 //        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide, 0, 0, 0)
 		if Reachability.isConnectedToNetwork() == false {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -27,7 +27,7 @@ class TwitterViewController: TWTRTimelineViewController {
                 let client = Twitter.sharedInstance().APIClient
                 self.dataSource = TWTRUserTimelineDataSource(screenName: "hacktx", APIClient: client)
             } else {
-                println("error: \(error.localizedDescription)")
+                print("error: \(error.localizedDescription)")
             }
         }
     }
@@ -36,10 +36,10 @@ class TwitterViewController: TWTRTimelineViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Twitter")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
 	

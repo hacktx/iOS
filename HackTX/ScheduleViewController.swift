@@ -26,10 +26,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getScheduleData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -38,10 +38,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
 	func refresh(sender: AnyObject) {
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getScheduleData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -66,13 +66,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                         var curDay = Day()
                         var clusterList = [ScheduleCluster]()
                         
-                        for (index: String, subJson: JSON) in json {
+                        for (index, subJson): (String, JSON) in json {
                             var curCluster = ScheduleCluster()
                             curCluster.id = subJson["id"].intValue
                             curCluster.name = subJson["name"].stringValue
                             var eventList = [Event]()
                             
-                            for (key: String, subJson: JSON) in subJson["eventsList"] {
+                            for (key, subJson): (String, JSON) in subJson["eventsList"] {
                                 var event: Event = Event()
                                 event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
                                 
@@ -86,7 +86,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                                 event.name = subJson["name"].stringValue
                                 
                                 var speakers = [Speaker]()
-                                for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
+                                for (speakerKey, speakerJson): (String, JSON) in subJson["speakerList"] {
                                     var speaker:Speaker = Speaker()
                                     speaker.id = speakerJson["id"].intValue
                                     speaker.organization = speakerJson["organization"].stringValue
@@ -127,10 +127,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Schedule")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
@@ -190,7 +190,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
-		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {

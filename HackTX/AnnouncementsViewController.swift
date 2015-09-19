@@ -22,10 +22,10 @@ class AnnouncementsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTable:", name: "reloadTheTable", object: nil)
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getAnnouncementData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -33,10 +33,10 @@ class AnnouncementsViewController: UITableViewController {
 	
 	func reloadTable(notification: NSNotification) {
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getAnnouncementData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -60,7 +60,7 @@ class AnnouncementsViewController: UITableViewController {
                     let json = JSON(data!)
                     self.announcementList.removeAll(keepCapacity: true)
                     
-                    for (index: String, subJson: JSON) in json {
+                    for (index, subJson): (String, JSON) in json {
                         self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
                     }
                     self.announcementList.sort(self.sortAnnouncements)
@@ -78,10 +78,10 @@ class AnnouncementsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Announcements")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
@@ -109,7 +109,7 @@ class AnnouncementsViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AnnouncementCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("AnnouncementCell", forIndexPath: indexPath) 
         let announcement = announcementList[indexPath.row]
 
         cell.textLabel!.text = announcement.text

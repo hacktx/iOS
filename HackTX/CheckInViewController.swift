@@ -30,10 +30,10 @@ class CheckInViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "CheckIn")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
@@ -51,24 +51,24 @@ class CheckInViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) 
 
         switch (indexPath.row) {
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) as! UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) 
             let desc = cell.viewWithTag(1001) as! UILabel
             desc.text = ""
             desc.text = "Lets get through the line quick."
             desc.preferredMaxLayoutWidth = CGRectGetWidth(desc.frame)
         case 1:
             if(!UserPrefs.shared().isCheckedIn()){
-                cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath) as! UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("AboutCell", forIndexPath: indexPath) 
                 emailField = cell.viewWithTag(1000) as? UITextField
 				emailField?.keyboardType = UIKeyboardType.EmailAddress
                 let enterButton = cell.viewWithTag(1001) as! UIButton
                 enterButton.addTarget(self, action: "enterEmailToQr:", forControlEvents: UIControlEvents.TouchUpInside)
             } else {
-                cell = tableView.dequeueReusableCellWithIdentifier("CheckInCell", forIndexPath: indexPath) as! UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("CheckInCell", forIndexPath: indexPath) 
                 
                 // Setup email text
                 let desc = cell.viewWithTag(1000) as! UILabel
@@ -98,7 +98,7 @@ class CheckInViewController: UITableViewController {
                 resetButton.addTarget(self, action: "resetQrAccount:", forControlEvents: UIControlEvents.TouchUpInside)
             }
         default:
-            cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) as! UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("TitleCell", forIndexPath: indexPath) 
         }
 
         return cell
@@ -107,7 +107,7 @@ class CheckInViewController: UITableViewController {
     func enterEmailToQr(sender: UIButton!) {
         if (emailField != nil) {
             let emailStr = emailField?.text
-            if (count(emailStr!) != 0 && isValidEmail(emailStr!)) {
+            if ((emailStr!).characters.count != 0 && isValidEmail(emailStr!)) {
                 UserPrefs.shared().setIsCheckedIn(true)
                 UserPrefs.shared().setCheckedEmail(emailStr!)
                 tableView.reloadData()

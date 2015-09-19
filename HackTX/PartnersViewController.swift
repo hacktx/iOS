@@ -30,10 +30,10 @@ class PartnersViewController: UICollectionViewController {
 		self.collectionView!.addSubview(refreshControl)
 		
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getPartnersData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -42,10 +42,10 @@ class PartnersViewController: UICollectionViewController {
     
 	func refresh(sender: AnyObject) {
 		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+			print("Internet connection OK")
 			getPartnersData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -67,7 +67,7 @@ class PartnersViewController: UICollectionViewController {
                     let json = JSON(data!)
                     self.sponsorList.removeAll(keepCapacity: true)
                     
-                    for (index: String, subJson: JSON) in json {
+                    for (index, subJson): (String, JSON) in json {
                         self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
                     }
                     
@@ -80,10 +80,10 @@ class PartnersViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Sponsors")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
@@ -142,7 +142,7 @@ class PartnersViewController: UICollectionViewController {
                     })
                 }
                 else {
-                    println("Error: \(error.localizedDescription)")
+                    print("Error: \(error.localizedDescription)")
                 }
             })
         }

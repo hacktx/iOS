@@ -22,14 +22,16 @@
 		3A806E291B9A895D00E29A0F /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E281B9A895D00E29A0F /* CheckInViewController.swift */; };
 		3A806E511B9A9E4B00E29A0F /* UserPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */; };
 		3A806E5F1B9ACDE100E29A0F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A806E5E1B9ACDE100E29A0F /* CoreData.framework */; };
-		3A806E611B9ACEB100E29A0F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */; };
-		3A806E621B9ACED300E29A0F /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */; };
 		3AEB82341B7F107F00224BC3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82301B7F107F00224BC3 /* Fabric.framework */; };
 		3AEB82351B7F107F00224BC3 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82311B7F107F00224BC3 /* TwitterKit.framework */; };
 		3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3AEB82321B7F107F00224BC3 /* TwitterKitResources.bundle */; };
 		3AEB82371B7F107F00224BC3 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEB82331B7F107F00224BC3 /* TwitterCore.framework */; };
 		3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB82381B7F14E300224BC3 /* AnnouncementsViewController.swift */; };
 		3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEB823A1B7F14F400224BC3 /* Announcement.swift */; };
+		F91C84341BAD2A57006E2D8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F91C84331BAD2A57006E2D8F /* GoogleService-Info.plist */; settings = {ASSET_TAGS = (); }; };
+		F91C84381BAD2A74006E2D8F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F91C84371BAD2A74006E2D8F /* ApiKeys.plist */; settings = {ASSET_TAGS = (); }; };
+		F91C843A1BAD2A81006E2D8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F91C84391BAD2A81006E2D8F /* GoogleService-Info.plist */; settings = {ASSET_TAGS = (); }; };
+		F91C843C1BAD2AED006E2D8F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91C843B1BAD2AED006E2D8F /* Reachability.swift */; settings = {ASSET_TAGS = (); }; };
 		F96AB7931B97D14B00394217 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7921B97D14B00394217 /* Parse.framework */; };
 		F96AB7951B97D18F00394217 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7941B97D18F00394217 /* Bolts.framework */; };
 		F96AB7A01B97D25C00394217 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96AB7961B97D25C00394217 /* AudioToolbox.framework */; };
@@ -114,7 +116,6 @@
 		3A806E281B9A895D00E29A0F /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		3A806E501B9A9E4B00E29A0F /* UserPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPrefs.swift; sourceTree = "<group>"; };
 		3A806E5E1B9ACDE100E29A0F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A806E801B9AD62800E29A0F /* HackTX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackTX-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		3A806E861B9AD92E00E29A0F /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		3A806E871B9AD92E00E29A0F /* GGLContext+Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GGLContext+Analytics.h"; sourceTree = "<group>"; };
@@ -202,6 +203,10 @@
 		3AEB823A1B7F14F400224BC3 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		715158D3DB02FD4CF82662A4 /* Pods_HackTX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackTX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E240E75C09DEDD03EA913F /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
+		F91C84331BAD2A57006E2D8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F91C84371BAD2A74006E2D8F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		F91C84391BAD2A81006E2D8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F91C843B1BAD2AED006E2D8F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F96AB7921B97D14B00394217 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		F96AB7941B97D18F00394217 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		F96AB7961B97D25C00394217 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -656,7 +661,7 @@
 		59EAB6531DF07EF91F85AACE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A806E601B9ACEB100E29A0F /* GoogleService-Info.plist */,
+				F91C84331BAD2A57006E2D8F /* GoogleService-Info.plist */,
 				3A806E5E1B9ACDE100E29A0F /* CoreData.framework */,
 				F96AB7961B97D25C00394217 /* AudioToolbox.framework */,
 				F96AB7971B97D25C00394217 /* CFNetwork.framework */,
@@ -692,6 +697,7 @@
 		F956D0711B535067001393DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F91C843B1BAD2AED006E2D8F /* Reachability.swift */,
 				3A3666511B9CCDAE0028BA91 /* Schedule */,
 				3AEB823A1B7F14F400224BC3 /* Announcement.swift */,
 				3A2156751B8A44CC00BCA241 /* Sponsor.swift */,
@@ -749,6 +755,8 @@
 				F956D0731B53507D001393DE /* View */,
 				F9E990371B50EBBA00057823 /* AppDelegate.swift */,
 				F9E9903D1B50EBBA00057823 /* Main.storyboard */,
+				F91C84391BAD2A81006E2D8F /* GoogleService-Info.plist */,
+				F91C84371BAD2A74006E2D8F /* ApiKeys.plist */,
 				F9E990401B50EBBA00057823 /* Images.xcassets */,
 				F9E990351B50EBBA00057823 /* Supporting Files */,
 			);
@@ -813,6 +821,8 @@
 		F9E9902A1B50EBBA00057823 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = HackTX;
 				TargetAttributes = {
@@ -883,12 +893,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E9903F1B50EBBA00057823 /* Main.storyboard in Resources */,
-				3A806E611B9ACEB100E29A0F /* GoogleService-Info.plist in Resources */,
 				3A2156741B8A436100BCA241 /* PartnersViewCell.xib in Resources */,
+				F91C843A1BAD2A81006E2D8F /* GoogleService-Info.plist in Resources */,
 				F96AB7AB1B97D40600394217 /* ApiKeys.plist in Resources */,
 				F9E990441B50EBBA00057823 /* LaunchScreen.xib in Resources */,
+				F91C84381BAD2A74006E2D8F /* ApiKeys.plist in Resources */,
 				F9E990411B50EBBA00057823 /* Images.xcassets in Resources */,
 				3AEB82361B7F107F00224BC3 /* TwitterKitResources.bundle in Resources */,
+				F91C84341BAD2A57006E2D8F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,7 +973,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A806E621B9ACED300E29A0F /* GoogleService-Info.plist in Sources */,
 				3A2156761B8A44CC00BCA241 /* Sponsor.swift in Sources */,
 				3AEB82391B7F14E300224BC3 /* AnnouncementsViewController.swift in Sources */,
 				F9E990651B50FFFF00057823 /* TwitterViewController.swift in Sources */,
@@ -980,6 +991,7 @@
 				3A2156801B8A5D6A00BCA241 /* Event.swift in Sources */,
 				3AEB823B1B7F14F400224BC3 /* Announcement.swift in Sources */,
 				F9E9903A1B50EBBA00057823 /* ScheduleViewController.swift in Sources */,
+				F91C843C1BAD2AED006E2D8F /* Reachability.swift in Sources */,
 				F9EE70221B912EE300B493A8 /* PageItemViewController.swift in Sources */,
 				F96AB7AD1B97E01200394217 /* MapsPageViewController.swift in Sources */,
 				3A21567C1B8A5D3D00BCA241 /* ScheduleCluster.swift in Sources */,

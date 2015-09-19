@@ -13,7 +13,7 @@ class MapsPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var pageControl = UIPageControl.appearance()
+        let pageControl = UIPageControl.appearance()
         pageControl.pageIndicatorTintColor = UIColor.grayColor()
         pageControl.currentPageIndicatorTintColor = UIColor.blackColor()
     }
