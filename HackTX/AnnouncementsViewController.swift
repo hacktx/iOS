@@ -59,7 +59,7 @@ class AnnouncementsViewController: UITableViewController {
 						errorAlert.show()
 					}
 				} else if let data: AnyObject = data.value {
-					let json = JSON(data!)
+					let json = JSON(data)
 					self.announcementList.removeAll(keepCapacity: true)
 					
 					for (index, subJson): (String, JSON) in json {

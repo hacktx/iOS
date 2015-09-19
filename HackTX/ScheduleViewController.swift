@@ -31,7 +31,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 			getScheduleData()
 		} else {
 			print("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 		
@@ -43,7 +43,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 			getScheduleData()
 		} else {
 			print("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 		self.refreshControl.endRefreshing()
@@ -51,65 +51,128 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getScheduleData() {
         for i in 0..<numberOfDays {
-            
-            Alamofire.request(Router.Schedule(String(i + 1)))
-                .responseJSON { (request, response, data, error) in
-                    if let anError = error {
-                        let errorAlert = UIAlertView()
-                        if errorAlert.title == "" {
-                            errorAlert.title = "Error"
-                            errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-                            errorAlert.addButtonWithTitle("Ok")
-                            errorAlert.show()
-                        }
-                    } else {
-                        let json = JSON(data!)
-                        var curDay = Day()
-                        var clusterList = [ScheduleCluster]()
-                        
-                        for (index: String, subJson: JSON) in json {
-                            var curCluster = ScheduleCluster()
-                            curCluster.id = subJson["id"].intValue
-                            curCluster.name = subJson["name"].stringValue
-                            var eventList = [Event]()
-                            
-                            for (key: String, subJson: JSON) in subJson["eventsList"] {
-                                var event: Event = Event()
-                                event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
-                                
-                                event.id = subJson["id"].intValue
-                                event.startDateStr = subJson["startDate"].stringValue
-                                event.endDateStr = subJson["endDate"].stringValue
-                                event.convertDateStrToDates()
-                                event.imageUrl = subJson["imageUrl"].stringValue
-                                event.type = subJson["type"].stringValue
-                                event.description = subJson["description"].stringValue
-                                event.name = subJson["name"].stringValue
-                                
-                                var speakers = [Speaker]()
-                                for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
-                                    var speaker:Speaker = Speaker()
-                                    speaker.id = speakerJson["id"].intValue
-                                    speaker.organization = speakerJson["organization"].stringValue
-                                    speaker.imageUrl = speakerJson["imageUrl"].stringValue
-                                    speaker.name = speakerJson["name"].stringValue
-                                    speaker.description = speakerJson["description"].stringValue
-                                    speakers.append(speaker)
-                                }
-                                
-                                event.speakerList = speakers
-                                eventList.append(event)
-                            }
-                            
-                            curCluster.eventsList = eventList
-                            clusterList.append(curCluster)
-                        }
-                        
-                        curDay.clusterList = clusterList
-                        //self.dayList.append(curDay)
-                        self.dayDict.updateValue(curDay, forKey: i)
-                        self.tableView.reloadData()
-                    }
+			
+			
+			Alamofire.request(Router.Schedule(String(i + 1)))
+				.responseJSON{ (request, response, data) in
+					if data.isFailure {
+						let errorAlert = UIAlertView()
+						if errorAlert.title == "" {
+							errorAlert.title = "Error"
+							errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+							errorAlert.addButtonWithTitle("Ok")
+							errorAlert.show()
+						}
+
+					} else if let data: AnyObject = data.value {
+						let json = JSON(data)
+						var curDay = Day()
+						var clusterList = [ScheduleCluster]()
+						
+						for (index: String, subJson: JSON) in json {
+							var curCluster = ScheduleCluster()
+							curCluster.id = subJson["id"].intValue
+							curCluster.name = subJson["name"].stringValue
+							var eventList = [Event]()
+							
+							for (key: String, subJson: JSON) in subJson["eventsList"] {
+								var event: Event = Event()
+								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+								
+								event.id = subJson["id"].intValue
+								event.startDateStr = subJson["startDate"].stringValue
+								event.endDateStr = subJson["endDate"].stringValue
+								event.convertDateStrToDates()
+								event.imageUrl = subJson["imageUrl"].stringValue
+								event.type = subJson["type"].stringValue
+								event.description = subJson["description"].stringValue
+								event.name = subJson["name"].stringValue
+								
+								var speakers = [Speaker]()
+								for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
+									var speaker:Speaker = Speaker()
+									speaker.id = speakerJson["id"].intValue
+									speaker.organization = speakerJson["organization"].stringValue
+									speaker.imageUrl = speakerJson["imageUrl"].stringValue
+									speaker.name = speakerJson["name"].stringValue
+									speaker.description = speakerJson["description"].stringValue
+									speakers.append(speaker)
+								}
+								
+								event.speakerList = speakers
+								eventList.append(event)
+							}
+							
+							curCluster.eventsList = eventList
+							clusterList.append(curCluster)
+						}
+						
+						curDay.clusterList = clusterList
+						//self.dayList.append(curDay)
+						self.dayDict.updateValue(curDay, forKey: i)
+						self.tableView.reloadData()
+					}
+			
+//			
+//					
+//            Alamofire.request(Router.Schedule(String(i + 1)))
+//                .responseJSON { (request, response, data, error) in
+//                    if let anError = error {
+//                        let errorAlert = UIAlertView()
+//                        if errorAlert.title == "" {
+//                            errorAlert.title = "Error"
+//                            errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+//                            errorAlert.addButtonWithTitle("Ok")
+//                            errorAlert.show()
+//                        }
+//                    } else {
+//                        let json = JSON(data!)
+//                        var curDay = Day()
+//                        var clusterList = [ScheduleCluster]()
+//						
+//                        for (index: String, subJson: JSON) in json {
+//                            var curCluster = ScheduleCluster()
+//                            curCluster.id = subJson["id"].intValue
+//                            curCluster.name = subJson["name"].stringValue
+//                            var eventList = [Event]()
+//                            
+//                            for (key: String, subJson: JSON) in subJson["eventsList"] {
+//                                var event: Event = Event()
+//                                event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+//                                
+//                                event.id = subJson["id"].intValue
+//                                event.startDateStr = subJson["startDate"].stringValue
+//                                event.endDateStr = subJson["endDate"].stringValue
+//                                event.convertDateStrToDates()
+//                                event.imageUrl = subJson["imageUrl"].stringValue
+//                                event.type = subJson["type"].stringValue
+//                                event.description = subJson["description"].stringValue
+//                                event.name = subJson["name"].stringValue
+//                                
+//                                var speakers = [Speaker]()
+//                                for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
+//                                    var speaker:Speaker = Speaker()
+//                                    speaker.id = speakerJson["id"].intValue
+//                                    speaker.organization = speakerJson["organization"].stringValue
+//                                    speaker.imageUrl = speakerJson["imageUrl"].stringValue
+//                                    speaker.name = speakerJson["name"].stringValue
+//                                    speaker.description = speakerJson["description"].stringValue
+//                                    speakers.append(speaker)
+//                                }
+//                                
+//                                event.speakerList = speakers
+//                                eventList.append(event)
+//                            }
+//                            
+//                            curCluster.eventsList = eventList
+//                            clusterList.append(curCluster)
+//                        }
+//                        
+//                        curDay.clusterList = clusterList
+//                        //self.dayList.append(curDay)
+//                        self.dayDict.updateValue(curDay, forKey: i)
+//                        self.tableView.reloadData()
+//                    }
             }
         }
     }
