@@ -66,13 +66,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                         var curDay = Day()
                         var clusterList = [ScheduleCluster]()
                         
-                        for (index, subJson): (String, JSON) in json {
+                        for (index: String, subJson: JSON) in json {
                             var curCluster = ScheduleCluster()
                             curCluster.id = subJson["id"].intValue
                             curCluster.name = subJson["name"].stringValue
                             var eventList = [Event]()
                             
-                            for (key, subJson): (String, JSON) in subJson["eventsList"] {
+                            for (key: String, subJson: JSON) in subJson["eventsList"] {
                                 var event: Event = Event()
                                 event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
                                 
@@ -86,7 +86,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
                                 event.name = subJson["name"].stringValue
                                 
                                 var speakers = [Speaker]()
-                                for (speakerKey, speakerJson): (String, JSON) in subJson["speakerList"] {
+                                for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
                                     var speaker:Speaker = Speaker()
                                     speaker.id = speakerJson["id"].intValue
                                     speaker.organization = speakerJson["organization"].stringValue
@@ -127,10 +127,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let tracker = GAI.sharedInstance().defaultTracker
+        var tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Schedule")
         
-        let builder = GAIDictionaryBuilder.createScreenView()
+        var builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
@@ -190,7 +190,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
-		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {

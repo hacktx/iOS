@@ -46,27 +46,54 @@ class AnnouncementsViewController: UITableViewController {
     
     // Collect announcement data from the api
     func getAnnouncementData() {
-        Alamofire.request(Router.Announcements())
-            .responseJSON { (request, response, data, error) in
-                if let anError = error {
-                    let errorAlert = UIAlertView()
-                    if errorAlert.title == "" {
-                        errorAlert.title = "Error"
-                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-                        errorAlert.addButtonWithTitle("Ok")
-                        errorAlert.show()
-                    }
-                } else {
-                    let json = JSON(data!)
-                    self.announcementList.removeAll(keepCapacity: true)
-                    
-                    for (index, subJson): (String, JSON) in json {
-                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
-                    }
-                    self.announcementList.sort(self.sortAnnouncements)
-                    self.tableView.reloadData()
-                }
-        }
+		
+		Alamofire.request(Router.Announcements())
+			.responseJSON{ (request, response, data) in
+				self.firstLoad = false;
+				if data.isFailure {
+					GeneralUtils.sharedInstance().showEmptyListMessage(self.tableView, firstLoad: self.firstLoad, view: self.view)
+					let errorAlert = UIAlertView()
+					if errorAlert.title == "" {
+						errorAlert.title = "Error"
+						errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+						errorAlert.addButtonWithTitle("Ok")
+						errorAlert.show()
+					}
+				} else if let data: AnyObject = data.value {
+					let json = JSON(data!)
+					self.announcementList.removeAll(keepCapacity: true)
+					
+					for (index, subJson): (String, JSON) in json {
+						self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
+					}
+					self.announcementList.sort(self.sortAnnouncements)
+					self.tableView.reloadData()
+				}
+				
+		}
+		
+		
+//        Alamofire.request(Router.Announcements())
+//            .responseJSON { (request, response, data, error) in
+//                if let anError = error {
+//                    let errorAlert = UIAlertView()
+//                    if errorAlert.title == "" {
+//                        errorAlert.title = "Error"
+//                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+//                        errorAlert.addButtonWithTitle("Ok")
+//                        errorAlert.show()
+//                    }
+//                } else {
+//                    let json = JSON(data!)
+//                    self.announcementList.removeAll(keepCapacity: true)
+//                    
+//                    for (index, subJson): (String, JSON) in json {
+//                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
+//                    }
+//                    self.announcementList.sort(self.sortAnnouncements)
+//                    self.tableView.reloadData()
+//                }
+//        }
     }
     
     // Sort announcement messages by newest to oldest
