@@ -55,27 +55,55 @@ class PartnersViewController: UICollectionViewController {
 	}
 	
     func getPartnersData() {
-        Alamofire.request(Router.Partners())
-            .responseJSON { (request, response, data, error) in
-                if let anError = error {
-                    //                    if errorAlert.title == "" {
-                    //                        errorAlert.title = "Error"
-                    //                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-                    //                        errorAlert.addButtonWithTitle("Ok")
-                    //                        errorAlert.show()
-                    //                    }
-                } else {
-                    println("\n\nJSON HERE:\n\(data)")
-                    let json = JSON(data!)
-                    self.sponsorList.removeAll(keepCapacity: true)
-                    
-                    for (index, subJson): (String, JSON) in json {
-                        self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
-                    }
-                    
-                    self.collectionView!.reloadData()
-                }
-        }
+		Alamofire.request(Router.Partners())
+			.responseJSON{ (request, response, data) in
+				if data.isFailure {
+					let errorAlert = UIAlertView()
+					if errorAlert.title == "" {
+						errorAlert.title = "Error"
+						errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+						errorAlert.addButtonWithTitle("Ok")
+						errorAlert.show()
+					}
+				} else if let data: AnyObject = data.value {
+					print("\n\nJSON HERE:\n\(data)")
+					let json = JSON(data)
+					self.sponsorList.removeAll(keepCapacity: true)
+					
+					for (index, subJson): (String, JSON) in json {
+						self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
+					}
+					
+					self.collectionView!.reloadData()
+				}
+				
+		}
+		
+		
+		
+//		
+//		
+//        Alamofire.request(Router.Partners())
+//            .responseJSON { (request, response, data, error) in
+//                if let anError = error {
+//                    //                    if errorAlert.title == "" {
+//                    //                        errorAlert.title = "Error"
+//                    //                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+//                    //                        errorAlert.addButtonWithTitle("Ok")
+//                    //                        errorAlert.show()
+//                    //                    }
+//                } else {
+//                    println("\n\nJSON HERE:\n\(data)")
+//                    let json = JSON(data!)
+//                    self.sponsorList.removeAll(keepCapacity: true)
+//                    
+//                    for (index, subJson): (String, JSON) in json {
+//                        self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
+//                    }
+//                    
+//                    self.collectionView!.reloadData()
+//                }
+//        }
     }
     
     // Setup Google Analytics for the controller
@@ -133,7 +161,7 @@ class PartnersViewController: UICollectionViewController {
             NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                 if error == nil {
                     // Convert the downloaded data in to a UIImage object
-                    let image = UIImage(data: data)
+                    let image = UIImage(data: data!)
                     // Store the image in to our cache
                     self.imageCache[sponsor.logoImage] = image
                     // Update the cell
@@ -144,7 +172,7 @@ class PartnersViewController: UICollectionViewController {
                     })
                 }
                 else {
-                    print("Error: \(error.localizedDescription)")
+                    print("Error: \(error!.localizedDescription)")
                 }
             })
         }

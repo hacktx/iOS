@@ -23,7 +23,7 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
         
         if mapImages[mapIndex].count > 0 {
             let startingViewControllers: NSArray = [getItemController(0)!]
-            pageController.setViewControllers(startingViewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            pageController.setViewControllers(startingViewControllers as! [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
         
         pageViewController = pageController
@@ -48,7 +48,7 @@ class MapViewController: UIViewController, UIPageViewControllerDataSource {
     func updatePageView() {
         if mapImages[mapIndex].count > 0 {
             let startingViewControllers: NSArray = [getItemController(0)!]
-            self.pageViewController?.setViewControllers(startingViewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            self.pageViewController?.setViewControllers(startingViewControllers as! [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
     }
 	

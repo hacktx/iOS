@@ -69,33 +69,35 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 						var curDay = Day()
 						var clusterList = [ScheduleCluster]()
 						
+						
+						
 						for (index: String, subJson: JSON) in json {
 							var curCluster = ScheduleCluster()
-							curCluster.id = subJson["id"].intValue
-							curCluster.name = subJson["name"].stringValue
+							curCluster.id = JSON["id"].intValue
+							curCluster.name = JSON["name"].stringValue
 							var eventList = [Event]()
 							
-							for (key: String, subJson: JSON) in subJson["eventsList"] {
+							for (key: String, subJson: JSON) in JSON["eventsList"] {
 								var event: Event = Event()
-								event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
+								event.location = Location(building: JSON["location"]["building"].stringValue, level: JSON["location"]["level"].stringValue, room: JSON["location"]["room"].stringValue)
 								
-								event.id = subJson["id"].intValue
-								event.startDateStr = subJson["startDate"].stringValue
-								event.endDateStr = subJson["endDate"].stringValue
+								event.id = JSON["id"].intValue
+								event.startDateStr = JSON["startDate"].stringValue
+								event.endDateStr = JSON["endDate"].stringValue
 								event.convertDateStrToDates()
-								event.imageUrl = subJson["imageUrl"].stringValue
-								event.type = subJson["type"].stringValue
-								event.description = subJson["description"].stringValue
-								event.name = subJson["name"].stringValue
+								event.imageUrl = JSON["imageUrl"].stringValue
+								event.type = JSON["type"].stringValue
+								event.description = JSON["description"].stringValue
+								event.name = JSON["name"].stringValue
 								
 								var speakers = [Speaker]()
-								for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
+								for (speakerKey: String, speakerJson: JSONspeaker) in JSON["speakerList"] {
 									var speaker:Speaker = Speaker()
-									speaker.id = speakerJson["id"].intValue
-									speaker.organization = speakerJson["organization"].stringValue
-									speaker.imageUrl = speakerJson["imageUrl"].stringValue
-									speaker.name = speakerJson["name"].stringValue
-									speaker.description = speakerJson["description"].stringValue
+									speaker.id = JSONspeaker["id"].intValue
+									speaker.organization = JSONspeaker["organization"].stringValue
+									speaker.imageUrl = JSONspeaker["imageUrl"].stringValue
+									speaker.name = JSONspeaker["name"].stringValue
+									speaker.description = JSONspeaker["description"].stringValue
 									speakers.append(speaker)
 								}
 								
@@ -254,7 +256,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
-		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {
