@@ -1110,8 +1110,9 @@
 			baseConfigurationReference = 94E240E75C09DEDD03EA913F /* Pods-HackTX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rohit Datta (7LU2FJSKBU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Datta (7LU2FJSKBU)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1124,7 +1125,7 @@
 					"$(inherited)/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8cf0982d-0702-413c-a1c7-755a4ddf84a9";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackTX-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1134,8 +1135,9 @@
 			baseConfigurationReference = 163274BAD693C35C1B0222A5 /* Pods-HackTX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rohit Datta (7LU2FJSKBU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Datta (7LU2FJSKBU)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1148,7 +1150,7 @@
 					"$(inherited)/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8cf0982d-0702-413c-a1c7-755a4ddf84a9";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackTX-Bridging-Header.h";
 			};
 			name = Release;
