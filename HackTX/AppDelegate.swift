@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         // Optional: configure GAI options.
-        var gai = GAI.sharedInstance()
+        let gai = GAI.sharedInstance()
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
     }
 	
@@ -66,12 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 		if application.respondsToSelector("registerUserNotificationSettings:") {
-			let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+			let userNotificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
 			let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
 			application.registerUserNotificationSettings(settings)
 			application.registerForRemoteNotifications()
 		} else {
-			let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
+			let types: UIRemoteNotificationType = [UIRemoteNotificationType.Badge, UIRemoteNotificationType.Alert, UIRemoteNotificationType.Sound]
 			application.registerForRemoteNotificationTypes(types)
 		}
 		
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		//Remind attendees to check in to the event
-		var notification = UILocalNotification()
+		let notification = UILocalNotification()
 		notification.alertBody = "Remember to check in for HackTX in the app!"
 		notification.alertAction = "check in"
 		notification.fireDate = NSDate(timeIntervalSince1970: 1443274200)
@@ -127,9 +127,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
 	func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
 		if error.code == 3010 {
-			println("Push notifications are not supported in the iOS Simulator.")
+			print("Push notifications are not supported in the iOS Simulator.")
 		} else {
-			println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+			print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
 		}
 	}
  

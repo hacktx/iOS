@@ -18,31 +18,31 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     let numberOfDays = 2
     var dayDict = [Int:Day]()
 	var refreshControl: UIRefreshControl!
-    
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.refreshControl = UIRefreshControl()
         self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
-		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+		if Reachability.isConnectedToNetwork() {
+			print("Internet connection OK")
 			getScheduleData()
 		} else {
-			println("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			print("Internet connection FAILED")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 		
     }
     
 	func refresh(sender: AnyObject) {
-		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+		if Reachability.isConnectedToNetwork() {
+			print("Internet connection OK")
 			getScheduleData()
 		} else {
-			println("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			print("Internet connection FAILED")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 		self.refreshControl.endRefreshing()
@@ -50,65 +50,69 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getScheduleData() {
         for i in 0..<numberOfDays {
-            
-            Alamofire.request(Router.Schedule(String(i + 1)))
-                .responseJSON { (request, response, data, error) in
-                    if let anError = error {
-                        let errorAlert = UIAlertView()
-                        if errorAlert.title == "" {
-                            errorAlert.title = "Error"
-                            errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-                            errorAlert.addButtonWithTitle("Ok")
-                            errorAlert.show()
-                        }
-                    } else {
-                        let json = JSON(data!)
-                        var curDay = Day()
-                        var clusterList = [ScheduleCluster]()
-                        
-                        for (index: String, subJson: JSON) in json {
-                            var curCluster = ScheduleCluster()
-                            curCluster.id = subJson["id"].intValue
-                            curCluster.name = subJson["name"].stringValue
-                            var eventList = [Event]()
-                            
-                            for (key: String, subJson: JSON) in subJson["eventsList"] {
-                                var event: Event = Event()
-                                event.location = Location(building: subJson["location"]["building"].stringValue, level: subJson["location"]["level"].stringValue, room: subJson["location"]["room"].stringValue)
-                                
-                                event.id = subJson["id"].intValue
-                                event.startDateStr = subJson["startDate"].stringValue
-                                event.endDateStr = subJson["endDate"].stringValue
-                                event.convertDateStrToDates()
-                                event.imageUrl = subJson["imageUrl"].stringValue
-                                event.type = subJson["type"].stringValue
-                                event.description = subJson["description"].stringValue
-                                event.name = subJson["name"].stringValue
-                                
-                                var speakers = [Speaker]()
-                                for (speakerKey: String, speakerJson: JSON) in subJson["speakerList"] {
-                                    var speaker:Speaker = Speaker()
-                                    speaker.id = speakerJson["id"].intValue
-                                    speaker.organization = speakerJson["organization"].stringValue
-                                    speaker.imageUrl = speakerJson["imageUrl"].stringValue
-                                    speaker.name = speakerJson["name"].stringValue
-                                    speaker.description = speakerJson["description"].stringValue
-                                    speakers.append(speaker)
-                                }
-                                
-                                event.speakerList = speakers
-                                eventList.append(event)
-                            }
-                            
-                            curCluster.eventsList = eventList
-                            clusterList.append(curCluster)
-                        }
-                        
-                        curDay.clusterList = clusterList
-                        //self.dayList.append(curDay)
-                        self.dayDict.updateValue(curDay, forKey: i)
-                        self.tableView.reloadData()
-                    }
+			
+			
+			Alamofire.request(Router.Schedule(String(i + 1)))
+				.responseJSON{ (request, response, data) in
+					if data.isFailure {
+						let errorAlert = UIAlertView()
+						if errorAlert.title == "" {
+							errorAlert.title = "Error"
+							errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+							errorAlert.addButtonWithTitle("Ok")
+							errorAlert.show()
+						}
+
+					} else if let data: AnyObject = data.value {
+						let json = JSON(data)
+						var curDay = Day()
+						var clusterList = [ScheduleCluster]()
+						
+						
+						
+						for (index: String, subJson: JSON) in json {
+							var curCluster = ScheduleCluster()
+							curCluster.id = JSON["id"].intValue
+							curCluster.name = JSON["name"].stringValue
+							var eventList = [Event]()
+							
+							for (key: String, subJson: JSON) in JSON["eventsList"] {
+								var event: Event = Event()
+								event.location = Location(building: JSON["location"]["building"].stringValue, level: JSON["location"]["level"].stringValue, room: JSON["location"]["room"].stringValue)
+								
+								event.id = JSON["id"].intValue
+								event.startDateStr = JSON["startDate"].stringValue
+								event.endDateStr = JSON["endDate"].stringValue
+								event.convertDateStrToDates()
+								event.imageUrl = JSON["imageUrl"].stringValue
+								event.type = JSON["type"].stringValue
+								event.description = JSON["description"].stringValue
+								event.name = JSON["name"].stringValue
+								
+								var speakers = [Speaker]()
+								for (speakerKey: String, speakerJson: JSONspeaker) in JSON["speakerList"] {
+									var speaker:Speaker = Speaker()
+									speaker.id = JSONspeaker["id"].intValue
+									speaker.organization = JSONspeaker["organization"].stringValue
+									speaker.imageUrl = JSONspeaker["imageUrl"].stringValue
+									speaker.name = JSONspeaker["name"].stringValue
+									speaker.description = JSONspeaker["description"].stringValue
+									speakers.append(speaker)
+								}
+								
+								event.speakerList = speakers
+								eventList.append(event)
+							}
+							
+							curCluster.eventsList = eventList
+							clusterList.append(curCluster)
+						}
+						
+						curDay.clusterList = clusterList
+						//self.dayList.append(curDay)
+						self.dayDict.updateValue(curDay, forKey: i)
+						self.tableView.reloadData()
+					}
             }
         }
     }
@@ -190,7 +194,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
         let scheduleCluster = dayDict[chooseDaySegmentControl.selectedSegmentIndex]!.clusterList[indexPath.section]
         let event = scheduleCluster.eventsList![indexPath.row]
         performSegueWithIdentifier("ShowEvent", sender: event)
-		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: false)
+		tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
     }
 
     @IBAction func choseDifferentDay(sender: AnyObject) {
@@ -199,8 +203,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowEvent" {
-            let navController = segue.destinationViewController as! UINavigationController
-            let controller = navController.topViewController as! ScheduleDetailViewController
+            let controller = segue.destinationViewController as! ScheduleDetailViewController
             controller.scheduleEvent = sender as! Event
         }
     }

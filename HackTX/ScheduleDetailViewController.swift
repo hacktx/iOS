@@ -25,7 +25,7 @@ class ScheduleDetailViewController: UITableViewController {
     }
     
     func enableFeedback() {
-        var todaysDate = NSDate()
+        let todaysDate = NSDate()
         feedbackButton.enabled = true && !UserPrefs.shared().isFeedbackEventDone(scheduleEvent.id!) && todaysDate.compare(scheduleEvent.endDate!) == .OrderedDescending
     }
     
@@ -33,10 +33,10 @@ class ScheduleDetailViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "ScheduleDetails-\(scheduleEvent.id)")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         enableFeedback()
@@ -67,7 +67,7 @@ class ScheduleDetailViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) as! UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) 
             
             let imageUI = cell.viewWithTag(1000) as! UIImageView
             
@@ -79,7 +79,7 @@ class ScheduleDetailViewController: UITableViewController {
             NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                 if error == nil {
                     // Convert the downloaded data in to a UIImage object
-                    let image = UIImage(data: data)
+                    let image = UIImage(data: data!)
                     // Store the image in to our cache
                     let loadedImage = image
                     // Update the cell
@@ -88,12 +88,12 @@ class ScheduleDetailViewController: UITableViewController {
                     })
                 }
                 else {
-                    println("Error: \(error.localizedDescription)")
+                    print("Error: \(error!.localizedDescription)")
                 }
             })
-            
+			
         case 1:
-            cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! UITableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) 
             
             let eventLocation = cell.viewWithTag(1000) as! UILabel
             let eventTime = cell.viewWithTag(1001) as! UILabel
@@ -120,7 +120,7 @@ class ScheduleDetailViewController: UITableViewController {
                     NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                         if error == nil {
                             // Convert the downloaded data in to a UIImage object
-                            let image = UIImage(data: data)
+                            let image = UIImage(data: data!)
                             // Store the image in to our cache
                             let loadedImage = image
                             // Update the cell
@@ -129,7 +129,7 @@ class ScheduleDetailViewController: UITableViewController {
                             })
                         }
                         else {
-                            println("Error: \(error.localizedDescription)")
+                            print("Error: \(error!.localizedDescription)")
                         }
                     })
                     

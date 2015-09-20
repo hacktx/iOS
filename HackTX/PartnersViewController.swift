@@ -29,11 +29,11 @@ class PartnersViewController: UICollectionViewController {
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.collectionView!.addSubview(refreshControl)
 		
-		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+		if Reachability.isConnectedToNetwork() {
+			print("Internet connection OK")
 			getPartnersData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -41,11 +41,11 @@ class PartnersViewController: UICollectionViewController {
     }
     
 	func refresh(sender: AnyObject) {
-		if Reachability.isConnectedToNetwork() == true {
-			println("Internet connection OK")
+		if Reachability.isConnectedToNetwork() {
+			print("Internet connection OK")
 			getPartnersData()
 		} else {
-			println("Internet connection FAILED")
+			print("Internet connection FAILED")
 			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
@@ -53,37 +53,39 @@ class PartnersViewController: UICollectionViewController {
 	}
 	
     func getPartnersData() {
-        Alamofire.request(Router.Partners())
-            .responseJSON { (request, response, data, error) in
-                if let anError = error {
-                    //                    if errorAlert.title == "" {
-                    //                        errorAlert.title = "Error"
-                    //                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-                    //                        errorAlert.addButtonWithTitle("Ok")
-                    //                        errorAlert.show()
-                    //                    }
-                } else {
-                    println("\n\nJSON HERE:\n\(data)")
-                    let json = JSON(data!)
-                    self.sponsorList.removeAll(keepCapacity: true)
-                    
-                    for (index: String, subJson: JSON) in json {
-                        self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
-                    }
-                    
-                    self.collectionView!.reloadData()
-                }
-        }
+		Alamofire.request(Router.Partners())
+			.responseJSON{ (request, response, data) in
+				if data.isFailure {
+					let errorAlert = UIAlertView()
+					if errorAlert.title == "" {
+						errorAlert.title = "Error"
+						errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
+						errorAlert.addButtonWithTitle("Ok")
+						errorAlert.show()
+					}
+				} else if let data: AnyObject = data.value {
+					print("\n\nJSON HERE:\n\(data)")
+					let json = JSON(data)
+					self.sponsorList.removeAll(keepCapacity: true)
+					
+					for (index, subJson): (String, JSON) in json {
+						self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
+					}
+					
+					self.collectionView!.reloadData()
+				}
+				
+		}
     }
     
     // Setup Google Analytics for the controller
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Sponsors")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
 
@@ -131,7 +133,7 @@ class PartnersViewController: UICollectionViewController {
             NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in
                 if error == nil {
                     // Convert the downloaded data in to a UIImage object
-                    let image = UIImage(data: data)
+                    let image = UIImage(data: data!)
                     // Store the image in to our cache
                     self.imageCache[sponsor.logoImage] = image
                     // Update the cell
@@ -142,7 +144,7 @@ class PartnersViewController: UICollectionViewController {
                     })
                 }
                 else {
-                    println("Error: \(error.localizedDescription)")
+                    print("Error: \(error!.localizedDescription)")
                 }
             })
         }

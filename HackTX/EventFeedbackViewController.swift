@@ -11,6 +11,10 @@ import Alamofire
 
 class EventFeedbackViewController: UIViewController {
     
+	@IBAction func cancelButton(sender: UIBarButtonItem) {
+		
+		dismissViewControllerAnimated(true, completion: nil)
+	}
     @IBOutlet weak var star1: UIButton!
     @IBOutlet weak var star2: UIButton!
     @IBOutlet weak var star3: UIButton!
@@ -69,26 +73,21 @@ class EventFeedbackViewController: UIViewController {
     @IBAction func submitClicked(sender: UIButton) {
         let parameters = ["id": scheduleEvent.id!,
                             "rating": ratingScore]
-        
-        Alamofire.request(Router.Feedback(parameters))
-            .responseJSON { (request, response, data, error) in
-                if let anError = error {
-                    let errorAlert = UIAlertView()
-                    if errorAlert.title == "" {
-                        errorAlert.title = "Error"
-                        errorAlert.message = "Oops! Looks like there was a problem trying to send your feedback."
-                        errorAlert.addButtonWithTitle("Ok")
-                        errorAlert.show()
-                    }
-                } else {
-                    UserPrefs.shared().setFeedbackEventDone(self.scheduleEvent.id!)
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-        }
-    }
-    
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
+		
+		Alamofire.request(Router.Feedback((parameters)))
+			.responseJSON{ (request, response, data) in
+				if data.isFailure {
+					let errorAlert = UIAlertView()
+					if errorAlert.title == "" {
+						errorAlert.title = "Error"
+						errorAlert.message = "Oops! Looks like there was a problem trying to send your feedback."
+						errorAlert.addButtonWithTitle("Ok")
+						errorAlert.show()
+					}
+				} else if let data: AnyObject = data.value {
+					UserPrefs.shared().setFeedbackEventDone(self.scheduleEvent.id!)
+					self.dismissViewControllerAnimated(true, completion: nil)
+				}
+			}
+	}
 }
