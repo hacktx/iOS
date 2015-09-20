@@ -12,14 +12,14 @@ import TwitterKit
 
 class TwitterViewController: TWTRTimelineViewController {
 	
-	let reachability = Reachability.reachabilityForInternetConnection()
+//	let reachability = Reachability.reachabilityForInternetConnection()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        let topLayoutGuide = CGFloat(60)
 //        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide, 0, 0, 0)
-		if (reachability?.whenReachable != nil) {
+		if !Reachability.isConnectedToNetwork() {
 			print("Internet connection FAILED")
 			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()

@@ -18,15 +18,15 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     let numberOfDays = 2
     var dayDict = [Int:Day]()
 	var refreshControl: UIRefreshControl!
-	let reachability = Reachability.reachabilityForInternetConnection()
-    
+//	let reachability = Reachability.reachabilityForInternetConnection()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.refreshControl = UIRefreshControl()
         self.refreshControl.tintColor = UIColor(red: 125/255.0, green: 211/255.0, blue: 244/255.0, alpha: 1.0)
 		self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
 		self.tableView.addSubview(refreshControl)
-		if (reachability?.whenReachable != nil) {
+		if Reachability.isConnectedToNetwork() {
 			print("Internet connection OK")
 			getScheduleData()
 		} else {
@@ -38,7 +38,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 	func refresh(sender: AnyObject) {
-		if (reachability?.whenReachable != nil) {
+		if Reachability.isConnectedToNetwork() {
 			print("Internet connection OK")
 			getScheduleData()
 		} else {
@@ -265,8 +265,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowEvent" {
-            let navController = segue.destinationViewController as! UINavigationController
-            let controller = navController.topViewController as! ScheduleDetailViewController
+            let controller = segue.destinationViewController as! ScheduleDetailViewController
             controller.scheduleEvent = sender as! Event
         }
     }
