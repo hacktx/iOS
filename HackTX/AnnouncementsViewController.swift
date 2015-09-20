@@ -12,9 +12,7 @@ import SwiftyJSON
 
 class AnnouncementsViewController: UITableViewController {
     
-    var announcementList = [Announcement]()
-//	let reachability = Reachability.reachabilityForInternetConnection()
-	
+    var announcementList = [Announcement]()	
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,37 +62,11 @@ class AnnouncementsViewController: UITableViewController {
 					
 					for (index, subJson): (String, JSON) in json {
 						self.announcementList.insert(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue), atIndex: 0)
-						
-//						self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
 					}
-//					self.announcementList.sort(self.sortAnnouncements)
 					self.tableView.reloadData()
 				}
 				
 		}
-		
-		
-//        Alamofire.request(Router.Announcements())
-//            .responseJSON { (request, response, data, error) in
-//                if let anError = error {
-//                    let errorAlert = UIAlertView()
-//                    if errorAlert.title == "" {
-//                        errorAlert.title = "Error"
-//                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-//                        errorAlert.addButtonWithTitle("Ok")
-//                        errorAlert.show()
-//                    }
-//                } else {
-//                    let json = JSON(data!)
-//                    self.announcementList.removeAll(keepCapacity: true)
-//                    
-//                    for (index, subJson): (String, JSON) in json {
-//                        self.announcementList.append(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue))
-//                    }
-//                    self.announcementList.sort(self.sortAnnouncements)
-//                    self.tableView.reloadData()
-//                }
-//        }
     }
     
     // Sort announcement messages by newest to oldest

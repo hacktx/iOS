@@ -74,12 +74,6 @@ class ScheduleDetailViewController: UITableViewController {
             let image_link_url = NSURL(string: scheduleEvent.imageUrl!)
             // The image isn't cached, download the img data
             // We should perform this in a background thread
-//			if let data = NSData(contentsOfURL: image_link_url!){
-//				imageUI.contentMode = UIViewContentMode.ScaleAspectFit
-//				imageUI.image = UIImage(data: data)
-//			}
-			
-//			
             let request: NSURLRequest = NSURLRequest(URL: image_link_url!)
             let mainQueue = NSOperationQueue.mainQueue()
             NSURLConnection.sendAsynchronousRequest(request, queue: mainQueue, completionHandler: { (response, data, error) -> Void in

@@ -17,8 +17,6 @@ class PartnersViewController: UICollectionViewController {
     var sponsorList = [Sponsor]()
     var imageCache = [String:UIImage]()
 	var refreshControl: UIRefreshControl!
-//	let reachability = Reachability.reachabilityForInternetConnection()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,32 +76,6 @@ class PartnersViewController: UICollectionViewController {
 				}
 				
 		}
-		
-		
-		
-//		
-//		
-//        Alamofire.request(Router.Partners())
-//            .responseJSON { (request, response, data, error) in
-//                if let anError = error {
-//                    //                    if errorAlert.title == "" {
-//                    //                        errorAlert.title = "Error"
-//                    //                        errorAlert.message = "Oops! Looks like there was a problem trying to get the announcements"
-//                    //                        errorAlert.addButtonWithTitle("Ok")
-//                    //                        errorAlert.show()
-//                    //                    }
-//                } else {
-//                    println("\n\nJSON HERE:\n\(data)")
-//                    let json = JSON(data!)
-//                    self.sponsorList.removeAll(keepCapacity: true)
-//                    
-//                    for (index, subJson): (String, JSON) in json {
-//                        self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
-//                    }
-//                    
-//                    self.collectionView!.reloadData()
-//                }
-//        }
     }
     
     // Setup Google Analytics for the controller

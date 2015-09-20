@@ -88,22 +88,6 @@ class EventFeedbackViewController: UIViewController {
 					UserPrefs.shared().setFeedbackEventDone(self.scheduleEvent.id!)
 					self.dismissViewControllerAnimated(true, completion: nil)
 				}
-				
-//        Alamofire.request(Router.Feedback(parameters))
-//            .responseJSON { (request, response, data, error) in
-//                if let anError = error {
-//                    let errorAlert = UIAlertView()
-//                    if errorAlert.title == "" {
-//                        errorAlert.title = "Error"
-//                        errorAlert.message = "Oops! Looks like there was a problem trying to send your feedback."
-//                        errorAlert.addButtonWithTitle("Ok")
-//                        errorAlert.show()
-//                    }
-//                } else {
-//                    UserPrefs.shared().setFeedbackEventDone(self.scheduleEvent.id!)
-//                    self.dismissViewControllerAnimated(true, completion: nil)
-//                }
-//        }
-    }
-}
+			}
+	}
 }
