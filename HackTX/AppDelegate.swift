@@ -80,12 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		//Remind attendees to check in to the event
-		let notification = UILocalNotification()
-		notification.alertBody = "Remember to check in for HackTX in the app!"
-		notification.alertAction = "check in"
-		notification.fireDate = NSDate(timeIntervalSince1970: 1443274200)
-		notification.soundName = UILocalNotificationDefaultSoundName
-		UIApplication.sharedApplication().scheduleLocalNotification(notification)
+		if (!UserPrefs.shared().isRegisteredForCheckInNotif()) {
+			let notification = UILocalNotification()
+			notification.alertBody = "Remember to check in for HackTX in the app!"
+			notification.alertAction = "check in"
+			notification.fireDate = NSDate(timeIntervalSince1970: 1443274200)
+			notification.soundName = UILocalNotificationDefaultSoundName
+			UIApplication.sharedApplication().scheduleLocalNotification(notification)
+			UserPrefs.shared().setIsCheckedIn(true)
+		}
 	}
 	
 	func getParseKeyDict() -> NSDictionary {

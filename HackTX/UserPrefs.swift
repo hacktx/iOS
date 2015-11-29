@@ -26,7 +26,7 @@ class UserPrefs {
     
     func registerDefaults() {
         let dictionary = ["checkedIn": false,
-            "checkInEmail": ""]
+            "checkInEmail": "", "registeredCheckIn": false]
         getUserDefaults().registerDefaults(dictionary)
     }
     
@@ -45,6 +45,14 @@ class UserPrefs {
     func setCheckedEmail(checkedEmail: String) {
         getUserDefaults().setValue(checkedEmail, forKey: "checkInEmail")
     }
+	
+	func isRegisteredForCheckInNotif() -> Bool {
+		return getUserDefaults().boolForKey("registeredCheckIn")
+	}
+	
+	func setRegisterForCheckInNotif(registered: Bool) {
+		getUserDefaults().setBool(registered, forKey: "registeredCheckIn")
+	}
     
     func isFeedbackEventDone(id: Int) -> Bool {
         return getUserDefaults().boolForKey("feedbackEvent=\(id)")
