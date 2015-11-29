@@ -36,7 +36,7 @@ class AnnouncementsViewController: UITableViewController {
 			getAnnouncementData()
 		} else {
 			print("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 	}

@@ -75,12 +75,14 @@ class CheckInViewController: UITableViewController {
                 let emailLabel = cell.viewWithTag(1001) as! UILabel
 				let emailPrefix = "Your email is "
 				let email = "\(UserPrefs.shared().getCheckedEmail())"
-				var attributedString = NSMutableAttributedString(string:emailPrefix)
 				
-				var attrs = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
-				var boldString = NSMutableAttributedString(string:email, attributes:attrs)
-				
+				//bold the email
+				let attributedString = NSMutableAttributedString(string:emailPrefix)
+				let attrs = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
+				let boldString = NSMutableAttributedString(string:email, attributes:attrs)
 				attributedString.appendAttributedString(boldString)
+				
+				
 				emailLabel.attributedText = attributedString
                 desc.preferredMaxLayoutWidth = CGRectGetWidth(desc.frame)
                 emailLabel.preferredMaxLayoutWidth = CGRectGetWidth(emailLabel.frame)

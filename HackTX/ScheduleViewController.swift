@@ -65,19 +65,19 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 
 					} else if let data: AnyObject = data.value {
 						let json = JSON(data)
-						var curDay = Day()
+						let curDay = Day()
 						var clusterList = [ScheduleCluster]()
 						
 						
 						
 						for (index: String, subJson: JSON) in json {
-							var curCluster = ScheduleCluster()
+							let curCluster = ScheduleCluster()
 							curCluster.id = JSON["id"].intValue
 							curCluster.name = JSON["name"].stringValue
 							var eventList = [Event]()
 							
 							for (key: String, subJson: JSON) in JSON["eventsList"] {
-								var event: Event = Event()
+								let event: Event = Event()
 								event.location = Location(building: JSON["location"]["building"].stringValue, level: JSON["location"]["level"].stringValue, room: JSON["location"]["room"].stringValue)
 								
 								event.id = JSON["id"].intValue
@@ -91,7 +91,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 								
 								var speakers = [Speaker]()
 								for (speakerKey: String, speakerJson: JSONspeaker) in JSON["speakerList"] {
-									var speaker:Speaker = Speaker()
+									let speaker:Speaker = Speaker()
 									speaker.id = JSONspeaker["id"].intValue
 									speaker.organization = JSONspeaker["organization"].stringValue
 									speaker.imageUrl = JSONspeaker["imageUrl"].stringValue
@@ -131,10 +131,10 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Schedule")
         
-        var builder = GAIDictionaryBuilder.createScreenView()
+        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
