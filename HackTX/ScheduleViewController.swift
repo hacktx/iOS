@@ -70,13 +70,13 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 						
 						
 						
-						for (index: String, subJson: JSON) in json {
+						for (index: _, subJson: JSON) in json {
 							let curCluster = ScheduleCluster()
 							curCluster.id = JSON["id"].intValue
 							curCluster.name = JSON["name"].stringValue
 							var eventList = [Event]()
 							
-							for (key: String, subJson: JSON) in JSON["eventsList"] {
+							for (key: _, subJson: JSON) in JSON["eventsList"] {
 								let event: Event = Event()
 								event.location = Location(building: JSON["location"]["building"].stringValue, level: JSON["location"]["level"].stringValue, room: JSON["location"]["room"].stringValue)
 								
@@ -90,7 +90,7 @@ class ScheduleViewController: UIViewController, UITableViewDataSource, UITableVi
 								event.name = JSON["name"].stringValue
 								
 								var speakers = [Speaker]()
-								for (speakerKey: String, speakerJson: JSONspeaker) in JSON["speakerList"] {
+								for (speakerKey: _, speakerJson: JSONspeaker) in JSON["speakerList"] {
 									let speaker:Speaker = Speaker()
 									speaker.id = JSONspeaker["id"].intValue
 									speaker.organization = JSONspeaker["organization"].stringValue

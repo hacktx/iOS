@@ -60,7 +60,7 @@ class AnnouncementsViewController: UITableViewController {
 					let json = JSON(data)
 					self.announcementList.removeAll(keepCapacity: true)
 					
-					for (index, subJson): (String, JSON) in json {
+					for (_, subJson): (String, JSON) in json {
 						self.announcementList.insert(Announcement(text: subJson["text"].stringValue, ts: subJson["ts"].stringValue), atIndex: 0)
 					}
 					self.tableView.reloadData()

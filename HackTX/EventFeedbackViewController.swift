@@ -84,7 +84,7 @@ class EventFeedbackViewController: UIViewController {
 						errorAlert.addButtonWithTitle("Ok")
 						errorAlert.show()
 					}
-				} else if let data: AnyObject = data.value {
+				} else if let _: AnyObject = data.value {
 					UserPrefs.shared().setFeedbackEventDone(self.scheduleEvent.id!)
 					self.dismissViewControllerAnimated(true, completion: nil)
 				}

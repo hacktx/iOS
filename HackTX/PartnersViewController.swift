@@ -46,7 +46,7 @@ class PartnersViewController: UICollectionViewController {
 			getPartnersData()
 		} else {
 			print("Internet connection FAILED")
-			var alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
+			let alert = UIAlertView(title: "No Internet Connection", message: "The HackTX app requires an internet connection to work. Talk to a volunteer about getting Internet access.", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 		}
 		self.refreshControl.endRefreshing()
@@ -68,7 +68,7 @@ class PartnersViewController: UICollectionViewController {
 					let json = JSON(data)
 					self.sponsorList.removeAll(keepCapacity: true)
 					
-					for (index, subJson): (String, JSON) in json {
+					for (_, subJson): (String, JSON) in json {
 						self.sponsorList.append(Sponsor(name: subJson["name"].stringValue, logoImage: subJson["logoImage"].stringValue, website: subJson["website"].stringValue, level: subJson["level"].intValue))
 					}
 					
@@ -138,7 +138,7 @@ class PartnersViewController: UICollectionViewController {
                     self.imageCache[sponsor.logoImage] = image
                     // Update the cell
                     dispatch_async(dispatch_get_main_queue(), {
-                        if let cellToUpdate = self.collectionView!.cellForItemAtIndexPath(indexPath) {
+                        if let _ = self.collectionView!.cellForItemAtIndexPath(indexPath) {
                             cell.sponsorImage.image = self.imageCache[sponsor.logoImage]
                         }
                     })

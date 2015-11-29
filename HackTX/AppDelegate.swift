@@ -71,8 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			application.registerUserNotificationSettings(settings)
 			application.registerForRemoteNotifications()
 		} else {
-			let types: UIRemoteNotificationType = [UIRemoteNotificationType.Badge, UIRemoteNotificationType.Alert, UIRemoteNotificationType.Sound]
-			application.registerForRemoteNotificationTypes(types)
+			application.registerForRemoteNotifications()
 		}
 		
 		let currentInstallation = PFInstallation.currentInstallation()
