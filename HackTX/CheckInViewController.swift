@@ -117,10 +117,10 @@ class CheckInViewController: UITableViewController {
 				//delete the check in reminder notification
 				let app = UIApplication.sharedApplication()
 				let uidOfCheckIn = "check-in-reminder"
-				for event in app.scheduledLocalNotifications {
+				for event in app.scheduledLocalNotifications! {
 					let notification = event as UILocalNotification
-					let notificationInfo = notification.userInfo! as [String:AnyObject]
-					let uid = notificationInfo["uid"]! as String
+					let notificationInfo = notification.userInfo! as! [String:String]
+					let uid = notificationInfo["uid"]!
 					if uid == uidOfCheckIn {
 						app.cancelLocalNotification(notification)
 						break;
