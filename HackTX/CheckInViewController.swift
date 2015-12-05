@@ -113,6 +113,20 @@ class CheckInViewController: UITableViewController {
                 UserPrefs.shared().setIsCheckedIn(true)
                 UserPrefs.shared().setCheckedEmail(emailStr!)
                 tableView.reloadData()
+				
+				//delete the check in reminder notification
+				let app = UIApplication.sharedApplication()
+				let uidOfCheckIn = "check-in-reminder"
+				for event in app.scheduledLocalNotifications {
+					let notification = event as UILocalNotification
+					let notificationInfo = notification.userInfo! as [String:AnyObject]
+					let uid = notificationInfo["uid"]! as String
+					if uid == uidOfCheckIn {
+						app.cancelLocalNotification(notification)
+						break;
+					}
+				}
+				
 			} else {
 				let error = UIAlertView()
 				error.title = "Cannot Validate Email"
@@ -134,6 +148,11 @@ class CheckInViewController: UITableViewController {
     func resetQrAccount(sender: UIButton!) {
         UserPrefs.shared().setIsCheckedIn(false)
         UserPrefs.shared().setCheckedEmail("")
+		
+		//re-register the check in reminder
+		UserPrefs.shared().setRegisterForCheckInNotif(false)
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		appDelegate.registerCheckInReminder()
         tableView.reloadData()
     }
 

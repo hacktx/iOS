@@ -78,17 +78,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		currentInstallation.addUniqueObject("announcements", forKey: "channels")
 		currentInstallation.saveInBackground()
 		
+		registerCheckInReminder()
+	}
+	
+	func registerCheckInReminder() {
+		let fireDate = NSDate(timeIntervalSince1970: 1443274200)
 		
 		//Remind attendees to check in to the event
-		if (!UserPrefs.shared().isRegisteredForCheckInNotif()) {
+		if (!UserPrefs.shared().isRegisteredForCheckInNotif() && !eventPassed(fireDate)) {
 			let notification = UILocalNotification()
 			notification.alertBody = "Remember to check in for HackTX in the app!"
 			notification.alertAction = "check in"
-			notification.fireDate = NSDate(timeIntervalSince1970: 1443274200)
+			notification.fireDate = fireDate
 			notification.soundName = UILocalNotificationDefaultSoundName
+			notification.userInfo = ["uid": "check-in-reminder"]
 			UIApplication.sharedApplication().scheduleLocalNotification(notification)
-			UserPrefs.shared().setIsCheckedIn(true)
+			UserPrefs.shared().setRegisterForCheckInNotif(true)
+			//			let val = UserPrefs.shared().isRegisteredForCheckInNotif()
 		}
+	}
+	
+	func eventPassed(eventDate: NSDate) -> Bool {
+		let currentDate = NSDate()
+		return currentDate.timeIntervalSince1970 > eventDate.timeIntervalSince1970
 	}
 	
 	func getParseKeyDict() -> NSDictionary {
