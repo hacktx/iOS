@@ -147,6 +147,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		NSNotificationCenter.defaultCenter().postNotificationName("reloadTheTable", object: nil)
 		
 	}
+	
+	@available(iOS 9.0, *)
+	func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+		print("Application performActionForShortcutItem")
+		completionHandler(handleShortcut(shortcutItem))
+	}
+	
+	@available(iOS 9.0, *)
+	func handleShortcut(shortcutItem: UIApplicationShortcutItem) -> Bool {
+		print("handling shortcut")
+		var succeeded = false
+		
+		self.window?.makeKeyAndVisible()
+		let rootController = window?.rootViewController as! UITabBarController
+		if (shortcutItem.type == "schedule") {
+			//Debugging code
+			print("- Handling \(shortcutItem.type)")
+			
+			rootController.selectedIndex = 0
+			succeeded = true
+			
+		} else if (shortcutItem.type == "announcements") {
+			print("- Handling \(shortcutItem.type)")
+			
+			rootController.selectedIndex = 1;
+			succeeded = true
+			
+		} else if (shortcutItem.type == "maps") {
+			print("- Handling \(shortcutItem.type)")
+			
+			rootController.selectedIndex = 3
+			succeeded = true
+		}
+		
+		return succeeded
+	}
 
 	func applicationWillResignActive(application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
