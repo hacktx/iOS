@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  CountdownViewController.h
 //  HackTX
 //
 //  Created by Jose Bethancourt on 8/31/16.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface CountdownViewController : UIViewController
 
 @end
-

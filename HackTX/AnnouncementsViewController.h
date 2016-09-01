@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  AnnouncementsViewController.h
 //  HackTX
 //
 //  Created by Jose Bethancourt on 8/31/16.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface AnnouncementsViewController : UIViewController
 
 @end
-

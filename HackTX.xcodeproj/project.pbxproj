@@ -7,118 +7,138 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A783C594AF82195DA4B4B90 /* libPods-HackTX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5022EBD17113AEEA10C9953B /* libPods-HackTX.a */; };
-		82BDEBD71D72CBEC000E5AC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82BDEBD61D72CBEC000E5AC0 /* GoogleService-Info.plist */; };
-		82E1FFA71D72C32900FCAA4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E1FFA61D72C32900FCAA4A /* main.m */; };
-		82E1FFAA1D72C32900FCAA4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E1FFA91D72C32900FCAA4A /* AppDelegate.m */; };
-		82E1FFAD1D72C32900FCAA4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E1FFAC1D72C32900FCAA4A /* ViewController.m */; };
-		82E1FFB01D72C32900FCAA4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E1FFAE1D72C32900FCAA4A /* Main.storyboard */; };
-		82E1FFB21D72C32900FCAA4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82E1FFB11D72C32900FCAA4A /* Assets.xcassets */; };
-		82E1FFB51D72C32900FCAA4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E1FFB31D72C32900FCAA4A /* LaunchScreen.storyboard */; };
+		4E5410941E35FEC803EA8E2D /* libPods-HackTX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B67A442663439B9AD415E5F6 /* libPods-HackTX.a */; };
+		822A4D981D779BCD00C65761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D971D779BCD00C65761 /* main.m */; };
+		822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D9A1D779BCD00C65761 /* AppDelegate.m */; };
+		822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA21D779BCD00C65761 /* Main.storyboard */; };
+		822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA51D779BCD00C65761 /* Assets.xcassets */; };
+		822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */; };
+		822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DB01D779D8800C65761 /* GoogleService-Info.plist */; };
+		822A4DB41D779DBD00C65761 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB31D779DBD00C65761 /* ScheduleViewController.m */; };
+		822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */; };
+		822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB91D779DDA00C65761 /* ProfileViewController.m */; };
+		822A4DBD1D779DE800C65761 /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBC1D779DE800C65761 /* CountdownViewController.m */; };
+		822A4DC01D779DF100C65761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBF1D779DF100C65761 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5022EBD17113AEEA10C9953B /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		71BA7283576EDD47DE0C380E /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
-		82BDEBD61D72CBEC000E5AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		82E1FFA21D72C32900FCAA4A /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		82E1FFA61D72C32900FCAA4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		82E1FFA81D72C32900FCAA4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		82E1FFA91D72C32900FCAA4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		82E1FFAB1D72C32900FCAA4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		82E1FFAC1D72C32900FCAA4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		82E1FFAF1D72C32900FCAA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		82E1FFB11D72C32900FCAA4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82E1FFB41D72C32900FCAA4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		82E1FFB61D72C32900FCAA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4B69DB1550C01C9712C86A1 /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
+		099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
+		822A4D931D779BCD00C65761 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		822A4D971D779BCD00C65761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		822A4D991D779BCD00C65761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		822A4D9A1D779BCD00C65761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		822A4DA31D779BCD00C65761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		822A4DA51D779BCD00C65761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		822A4DA81D779BCD00C65761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		822A4DAA1D779BCD00C65761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		822A4DB01D779D8800C65761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		822A4DB21D779DBD00C65761 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		822A4DB31D779DBD00C65761 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		822A4DB51D779DD100C65761 /* AnnouncementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementsViewController.h; sourceTree = "<group>"; };
+		822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementsViewController.m; sourceTree = "<group>"; };
+		822A4DB81D779DDA00C65761 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		822A4DB91D779DDA00C65761 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		822A4DBB1D779DE800C65761 /* CountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownViewController.h; sourceTree = "<group>"; };
+		822A4DBC1D779DE800C65761 /* CountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownViewController.m; sourceTree = "<group>"; };
+		822A4DBE1D779DF100C65761 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		822A4DBF1D779DF100C65761 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		82E1FF9F1D72C32800FCAA4A /* Frameworks */ = {
+		822A4D901D779BCD00C65761 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A783C594AF82195DA4B4B90 /* libPods-HackTX.a in Frameworks */,
+				4E5410941E35FEC803EA8E2D /* libPods-HackTX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		64F220069AB9A633F4DD1CAB /* Pods */ = {
+		4213B7E075F5C7663EDD6D3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4B69DB1550C01C9712C86A1 /* Pods-HackTX.debug.xcconfig */,
-				71BA7283576EDD47DE0C380E /* Pods-HackTX.release.xcconfig */,
+				DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */,
+				099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		82E1FF991D72C32800FCAA4A = {
+		71DC8291476C31865A92A66B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82E1FFA41D72C32900FCAA4A /* HackTX */,
-				82E1FFA31D72C32900FCAA4A /* Products */,
-				64F220069AB9A633F4DD1CAB /* Pods */,
-				ABC75F5712722D004AC3118B /* Frameworks */,
+				B67A442663439B9AD415E5F6 /* libPods-HackTX.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		822A4D8A1D779BCD00C65761 = {
+			isa = PBXGroup;
+			children = (
+				822A4D951D779BCD00C65761 /* HackTX */,
+				822A4D941D779BCD00C65761 /* Products */,
+				4213B7E075F5C7663EDD6D3D /* Pods */,
+				71DC8291476C31865A92A66B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		82E1FFA31D72C32900FCAA4A /* Products */ = {
+		822A4D941D779BCD00C65761 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82E1FFA21D72C32900FCAA4A /* HackTX.app */,
+				822A4D931D779BCD00C65761 /* HackTX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		82E1FFA41D72C32900FCAA4A /* HackTX */ = {
+		822A4D951D779BCD00C65761 /* HackTX */ = {
 			isa = PBXGroup;
 			children = (
-				82E1FFA81D72C32900FCAA4A /* AppDelegate.h */,
-				82E1FFA91D72C32900FCAA4A /* AppDelegate.m */,
-				82E1FFAB1D72C32900FCAA4A /* ViewController.h */,
-				82E1FFAC1D72C32900FCAA4A /* ViewController.m */,
-				82E1FFAE1D72C32900FCAA4A /* Main.storyboard */,
-				82E1FFB11D72C32900FCAA4A /* Assets.xcassets */,
-				82E1FFB31D72C32900FCAA4A /* LaunchScreen.storyboard */,
-				82E1FFB61D72C32900FCAA4A /* Info.plist */,
-				82BDEBD61D72CBEC000E5AC0 /* GoogleService-Info.plist */,
-				82E1FFA51D72C32900FCAA4A /* Supporting Files */,
+				822A4D991D779BCD00C65761 /* AppDelegate.h */,
+				822A4D9A1D779BCD00C65761 /* AppDelegate.m */,
+				822A4DB51D779DD100C65761 /* AnnouncementsViewController.h */,
+				822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */,
+				822A4DB81D779DDA00C65761 /* ProfileViewController.h */,
+				822A4DB91D779DDA00C65761 /* ProfileViewController.m */,
+				822A4DBB1D779DE800C65761 /* CountdownViewController.h */,
+				822A4DBC1D779DE800C65761 /* CountdownViewController.m */,
+				822A4DBE1D779DF100C65761 /* MapViewController.h */,
+				822A4DBF1D779DF100C65761 /* MapViewController.m */,
+				822A4DB21D779DBD00C65761 /* ScheduleViewController.h */,
+				822A4DB31D779DBD00C65761 /* ScheduleViewController.m */,
+				822A4DA21D779BCD00C65761 /* Main.storyboard */,
+				822A4DA51D779BCD00C65761 /* Assets.xcassets */,
+				822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */,
+				822A4DAA1D779BCD00C65761 /* Info.plist */,
+				822A4DB01D779D8800C65761 /* GoogleService-Info.plist */,
+				822A4D961D779BCD00C65761 /* Supporting Files */,
 			);
 			path = HackTX;
 			sourceTree = "<group>";
 		};
-		82E1FFA51D72C32900FCAA4A /* Supporting Files */ = {
+		822A4D961D779BCD00C65761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				82E1FFA61D72C32900FCAA4A /* main.m */,
+				822A4D971D779BCD00C65761 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ABC75F5712722D004AC3118B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5022EBD17113AEEA10C9953B /* libPods-HackTX.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		82E1FFA11D72C32800FCAA4A /* HackTX */ = {
+		822A4D921D779BCD00C65761 /* HackTX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82E1FFB91D72C32900FCAA4A /* Build configuration list for PBXNativeTarget "HackTX" */;
+			buildConfigurationList = 822A4DAD1D779BCD00C65761 /* Build configuration list for PBXNativeTarget "HackTX" */;
 			buildPhases = (
-				B633ED1E0117989DCB037067 /* [CP] Check Pods Manifest.lock */,
-				82E1FF9E1D72C32800FCAA4A /* Sources */,
-				82E1FF9F1D72C32800FCAA4A /* Frameworks */,
-				82E1FFA01D72C32800FCAA4A /* Resources */,
-				D1CD3EB203B26AEEE9B4F4F7 /* [CP] Embed Pods Frameworks */,
-				2291A25BEA14515DE7D8C9E9 /* [CP] Copy Pods Resources */,
+				548772046E64AF676BEB4EBB /* [CP] Check Pods Manifest.lock */,
+				822A4D8F1D779BCD00C65761 /* Sources */,
+				822A4D901D779BCD00C65761 /* Frameworks */,
+				822A4D911D779BCD00C65761 /* Resources */,
+				78E6BCED18D9A22BCA539775 /* [CP] Embed Pods Frameworks */,
+				C7B6E33EEDB5E5FFC7EE5294 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,27 +146,26 @@
 			);
 			name = HackTX;
 			productName = HackTX;
-			productReference = 82E1FFA21D72C32900FCAA4A /* HackTX.app */;
+			productReference = 822A4D931D779BCD00C65761 /* HackTX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		82E1FF9A1D72C32800FCAA4A /* Project object */ = {
+		822A4D8B1D779BCD00C65761 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = HackTX;
 				TargetAttributes = {
-					82E1FFA11D72C32800FCAA4A = {
+					822A4D921D779BCD00C65761 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 245X4K2U9R;
-						DevelopmentTeamName = "Jose Bethancourt";
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 82E1FF9D1D72C32800FCAA4A /* Build configuration list for PBXProject "HackTX" */;
+			buildConfigurationList = 822A4D8E1D779BCD00C65761 /* Build configuration list for PBXProject "HackTX" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -154,47 +173,32 @@
 				en,
 				Base,
 			);
-			mainGroup = 82E1FF991D72C32800FCAA4A;
-			productRefGroup = 82E1FFA31D72C32900FCAA4A /* Products */;
+			mainGroup = 822A4D8A1D779BCD00C65761;
+			productRefGroup = 822A4D941D779BCD00C65761 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				82E1FFA11D72C32800FCAA4A /* HackTX */,
+				822A4D921D779BCD00C65761 /* HackTX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		82E1FFA01D72C32800FCAA4A /* Resources */ = {
+		822A4D911D779BCD00C65761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E1FFB51D72C32900FCAA4A /* LaunchScreen.storyboard in Resources */,
-				82BDEBD71D72CBEC000E5AC0 /* GoogleService-Info.plist in Resources */,
-				82E1FFB21D72C32900FCAA4A /* Assets.xcassets in Resources */,
-				82E1FFB01D72C32900FCAA4A /* Main.storyboard in Resources */,
+				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
+				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
+				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
+				822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2291A25BEA14515DE7D8C9E9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTX/Pods-HackTX-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B633ED1E0117989DCB037067 /* [CP] Check Pods Manifest.lock */ = {
+		548772046E64AF676BEB4EBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,7 +213,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D1CD3EB203B26AEEE9B4F4F7 /* [CP] Embed Pods Frameworks */ = {
+		78E6BCED18D9A22BCA539775 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -224,34 +228,53 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTX/Pods-HackTX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C7B6E33EEDB5E5FFC7EE5294 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTX/Pods-HackTX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		82E1FF9E1D72C32800FCAA4A /* Sources */ = {
+		822A4D8F1D779BCD00C65761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E1FFAD1D72C32900FCAA4A /* ViewController.m in Sources */,
-				82E1FFAA1D72C32900FCAA4A /* AppDelegate.m in Sources */,
-				82E1FFA71D72C32900FCAA4A /* main.m in Sources */,
+				822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */,
+				822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */,
+				822A4DB41D779DBD00C65761 /* ScheduleViewController.m in Sources */,
+				822A4D981D779BCD00C65761 /* main.m in Sources */,
+				822A4DBD1D779DE800C65761 /* CountdownViewController.m in Sources */,
+				822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */,
+				822A4DC01D779DF100C65761 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		82E1FFAE1D72C32900FCAA4A /* Main.storyboard */ = {
+		822A4DA21D779BCD00C65761 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				82E1FFAF1D72C32900FCAA4A /* Base */,
+				822A4DA31D779BCD00C65761 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		82E1FFB31D72C32900FCAA4A /* LaunchScreen.storyboard */ = {
+		822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				82E1FFB41D72C32900FCAA4A /* Base */,
+				822A4DA81D779BCD00C65761 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -259,7 +282,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		82E1FFB71D72C32900FCAA4A /* Debug */ = {
+		822A4DAB1D779BCD00C65761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,8 +297,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -305,7 +330,7 @@
 			};
 			name = Debug;
 		};
-		82E1FFB81D72C32900FCAA4A /* Release */ = {
+		822A4DAC1D779BCD00C65761 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -320,8 +345,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -345,28 +372,28 @@
 			};
 			name = Release;
 		};
-		82E1FFBA1D72C32900FCAA4A /* Debug */ = {
+		822A4DAE1D779BCD00C65761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4B69DB1550C01C9712C86A1 /* Pods-HackTX.debug.xcconfig */;
+			baseConfigurationReference = DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.HackTXApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		82E1FFBB1D72C32900FCAA4A /* Release */ = {
+		822A4DAF1D779BCD00C65761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71BA7283576EDD47DE0C380E /* Pods-HackTX.release.xcconfig */;
+			baseConfigurationReference = 099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.HackTXApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -374,25 +401,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		82E1FF9D1D72C32800FCAA4A /* Build configuration list for PBXProject "HackTX" */ = {
+		822A4D8E1D779BCD00C65761 /* Build configuration list for PBXProject "HackTX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82E1FFB71D72C32900FCAA4A /* Debug */,
-				82E1FFB81D72C32900FCAA4A /* Release */,
+				822A4DAB1D779BCD00C65761 /* Debug */,
+				822A4DAC1D779BCD00C65761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82E1FFB91D72C32900FCAA4A /* Build configuration list for PBXNativeTarget "HackTX" */ = {
+		822A4DAD1D779BCD00C65761 /* Build configuration list for PBXNativeTarget "HackTX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82E1FFBA1D72C32900FCAA4A /* Debug */,
-				82E1FFBB1D72C32900FCAA4A /* Release */,
+				822A4DAE1D779BCD00C65761 /* Debug */,
+				822A4DAF1D779BCD00C65761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 82E1FF9A1D72C32800FCAA4A /* Project object */;
+	rootObject = 822A4D8B1D779BCD00C65761 /* Project object */;
 }
