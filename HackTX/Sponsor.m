@@ -11,7 +11,7 @@
 @implementation Sponsor
 
 + (NSString *)primaryKey {
-    return @"id";
+    return @"serverID";
 }
 
 

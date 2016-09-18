@@ -48,7 +48,7 @@
         
         for (id object in json) {
             Sponsor *newSponsor = [[Sponsor alloc] init];
-            newSponsor.id = [object[@"website"] MD5];
+            newSponsor.serverID = [object[@"website"] MD5];
             newSponsor.name = object[@"name"];
             newSponsor.logoImage = object[@"logoImage"];
             newSponsor.website = object[@"website"];
@@ -66,7 +66,7 @@
 - (void)refreshEvents:(void(^)(NSDictionary *response))completion {
     [self sendRequest:nil toEndpoint:@"events.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"{\"id\": 1, \"name\": \"Jose\", \"desc\": \"swag bucks\", \"imageURL\": \"https://gogole.com\", \"startDate\": \"today\", \"endDate\": \"tomorrow\", \"location\":{\"building\": \"RLM\", \"level\": \"3\", \"room\": \"3.124\"}, \"speakers\":[{\"id\":32131, \"name\":\"Jason\",\"organization\":\"entefy\",\"desc\": \"10-year old\", \"imageURL\": \"https://facebook.com\"}]}" dataUsingEncoding: NSUTF8StringEncoding];
+        NSData *data = [@"{\"serverID\": 1, \"name\": \"Jose\", \"desc\": \"swag bucks\", \"imageURL\": \"https://gogole.com\", \"startDate\": \"today\", \"endDate\": \"tomorrow\", \"location\":{\"building\": \"RLM\", \"level\": \"3\", \"room\": \"3.124\"}, \"speakers\":[{\"serverID\":32131, \"name\":\"Jason\",\"organization\":\"entefy\",\"desc\": \"10-year old\", \"imageURL\": \"https://facebook.com\"}]}" dataUsingEncoding: NSUTF8StringEncoding];
         
         [realm transactionWithBlock:^{
             id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];

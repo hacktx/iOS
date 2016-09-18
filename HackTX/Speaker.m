@@ -11,7 +11,7 @@
 @implementation Speaker
 
 + (NSString *)primaryKey {
-    return @"id";
+    return @"serverID";
 }
 
 // Specify default values for properties

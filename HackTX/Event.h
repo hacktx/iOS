@@ -12,7 +12,7 @@
 
 @interface Event : RLMObject
 
-@property NSInteger id;
+@property NSString *serverID;
 @property NSString *name;
 @property NSString *desc;
 @property NSString *imageURL;

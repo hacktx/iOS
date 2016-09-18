@@ -10,7 +10,7 @@
 
 @interface Speaker : RLMObject
 
-@property NSInteger id;
+@property NSString *serverID;
 @property NSString *name;
 @property NSString *organization;
 @property NSString *desc;

@@ -10,7 +10,7 @@
 
 @interface Sponsor : RLMObject
 
-@property NSString *id;
+@property NSString *serverID;
 @property NSString *name;
 @property NSString *logoImage;
 @property NSString *website;
