@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "HTXAPI.h"
 
 @interface MapViewController ()
 

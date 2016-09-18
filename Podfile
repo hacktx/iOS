@@ -7,4 +7,8 @@ target 'HackTX' do
 
   # Pods for HackTX
   pod 'Firebase'
+  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'Realm'
+  pod 'AFNetworking'
+  pod 'FCAlertView'
 end

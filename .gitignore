@@ -61,3 +61,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 HackTX/GoogleService-Info.plist
+HackTX/HTXConstants.h
+HackTX/HTXConstants.m

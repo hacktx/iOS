@@ -12,9 +12,9 @@
 
 #import "AnnouncementsViewController.h"
 #import "ProfileViewController.h"
-#import "CountdownViewController.h"
 #import "MapViewController.h"
 #import "ScheduleViewController.h"
+#import "SponsorViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,30 +33,29 @@
     ScheduleViewController *vc1 = [[ScheduleViewController alloc] init];
     AnnouncementsViewController *vc2 = [[AnnouncementsViewController alloc] init];
     ProfileViewController *vc3 = [[ProfileViewController alloc] init];
-    CountdownViewController *vc4 = [[CountdownViewController alloc] init];
-    MapViewController *vc5 = [[MapViewController alloc] init];
+    MapViewController *vc4 = [[MapViewController alloc] init];
+    SponsorViewController *vc5 = [[SponsorViewController alloc] init];
     
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.tabBar.translucent = NO;
-    
+
     _tabBarController.viewControllers =  @[vc1, vc2, vc3, vc4, vc5];
     
-    vc1.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Schedule" image:nil selectedImage:nil];
-    vc2.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Announcements" image:nil selectedImage:nil];;
-    vc3.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Profile" image:nil selectedImage:nil];;
-    vc4.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Countdown" image:nil selectedImage:nil];;
-    vc5.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Map" image:nil selectedImage:nil];;
+    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:nil selectedImage:nil];
+    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:nil selectedImage:nil];;
+    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:nil selectedImage:nil];;
+    vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:nil selectedImage:nil];;
+    vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:nil selectedImage:nil];;
     
     [[UITabBar appearance] setTintColor:[UIColor blueColor]];
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController* navController = [[UINavigationController alloc]initWithRootViewController:_tabBarController];
     navController.navigationBar.tintColor = [UIColor greenColor];
-//    navController.navigationBar.topItem.titleView = [[UIImageView alloc]initWithImage:
-//                                                     [UIImage imageNamed:@"menlo_hacks_logo_blue_nav"]];
     navController.navigationBar.translucent = NO;
     _window.rootViewController = navController;
     [_window makeKeyAndVisible];
+    
     
     return YES;
 }
