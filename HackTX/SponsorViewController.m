@@ -9,6 +9,7 @@
 #import "SponsorViewController.h"
 
 #import "HTXTableViewCell.h"
+#import "AutolayoutHelper.h"
 #import "FCAlertView.h"
 #import "Sponsor.h"
 #import "HTXAPI.h"
@@ -37,6 +38,11 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 40;
     self.tableView.allowsSelection = NO;
+    
+    [AutolayoutHelper configureView:self.view subViews:VarBindings(_tableView)
+                            metrics:VarBindings(_tableView)
+                        constraints:@[@"V:|[_tableView]|",
+                                      @"H:|[_tableView]|"]];
 
     [self initData];
 }
@@ -63,17 +69,24 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 }
 
 - (void)initData {
-    RLMResults<Sponsor *> *sponsorResult = [Sponsor allObjects];
+    RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
     self.tableView.hidden = YES;
-    NSLog(@"%@", sponsorResult);
+
     if (sponsorResult.count > 0) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+            RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
             [self transformRLMEventsArray:sponsorResult];
             
             dispatch_async(dispatch_get_main_queue(), ^(void) {
                 // hide the spinner or whatever
                 self.tableView.hidden = NO;
                 [self.tableView reloadData];
+                
+                [HTXAPI refreshSponsors:^(BOOL success) {
+                    if (success) {
+                        [self refreshData];
+                    }
+                }];
                 
             });
         });
@@ -84,12 +97,43 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     
 }
 
+- (void)refreshData {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
+        [self transformRLMEventsArray:sponsorResult];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [self.tableView reloadData];
+        });
+    });
+}
+
 - (void)transformRLMEventsArray:(RLMResults <Sponsor *> *)eventData {
+
+    NSMutableArray <NSMutableArray<Sponsor *> *> *sponsorArray = [[NSMutableArray alloc] init];
+    NSMutableArray *innerArray = [[NSMutableArray alloc] init];
     
+    for (Sponsor *sponsor in eventData) {
+        NSInteger i = 1;
+        if (i == [sponsor[@"level"] integerValue]) {
+            [innerArray addObject:sponsor];
+        } else {
+            i = [sponsor[@"level"] integerValue];
+            
+            [sponsorArray addObject:innerArray];
+            innerArray = [[NSMutableArray alloc] init];
+            [innerArray addObject:sponsor];
+        }
+    }
+    [sponsorArray addObject:innerArray];
+
+    self.sponsors = sponsorArray;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HTXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    NSLog(@"%@", self.sponsors[indexPath.row]);
+    [cell configWithSponsor:self.sponsors[indexPath.section][indexPath.row]];
     return cell;
 }
 

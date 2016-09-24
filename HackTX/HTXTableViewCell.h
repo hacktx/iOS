@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Sponsor;
+
 @interface HTXTableViewCell : UITableViewCell
+
+- (void)configWithSponsor:(Sponsor *)sponsor;
 
 @end

@@ -43,7 +43,7 @@
     [self sendRequest:nil toEndpoint:@"sponsors" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"[{\"name\":\"ForeverCard\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://forevercard.co\", \"level\": 1},{\"name\":\"Google\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://google.com\", \"level\": 2}]" dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [@"[{\"name\":\"ForeverCard\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://forevercard.co\", \"level\": 2},{\"name\":\"Google\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://google.com\", \"level\": 1}]" dataUsingEncoding:NSUTF8StringEncoding];
         id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         
         for (id object in json) {
@@ -66,11 +66,11 @@
 - (void)refreshEvents:(void(^)(NSDictionary *response))completion {
     [self sendRequest:nil toEndpoint:@"events.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"{\"serverID\": 1, \"name\": \"Jose\", \"desc\": \"swag bucks\", \"imageURL\": \"https://gogole.com\", \"startDate\": \"today\", \"endDate\": \"tomorrow\", \"location\":{\"building\": \"RLM\", \"level\": \"3\", \"room\": \"3.124\"}, \"speakers\":[{\"serverID\":32131, \"name\":\"Jason\",\"organization\":\"entefy\",\"desc\": \"10-year old\", \"imageURL\": \"https://facebook.com\"}]}" dataUsingEncoding: NSUTF8StringEncoding];
-        
+        NSData *data = [@"{\"serverID\": \"1\", \"name\": \"Jose\", \"desc\": \"swag bucks\", \"imageURL\": \"https://gogole.com\", \"startDate\": \"today\", \"endDate\": \"tomorrow\", \"location\":{\"building\": \"RLM\", \"level\": \"3\", \"room\": \"3.124\"}, \"speakers\":[{\"serverID\":32131, \"name\":\"Jason\",\"organization\":\"entefy\",\"desc\": \"10-year old\", \"imageURL\": \"https://facebook.com\"}]}" dataUsingEncoding: NSUTF8StringEncoding];
+
         [realm transactionWithBlock:^{
             id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            [Event createOrUpdateInRealm:realm withValue:json];
+//            [Event createOrUpdateInRealm:realm withValue:json];
         }];
 //        if (response[@"success"]) {
 //            for (id object in response[@"data"]) {
