@@ -11,4 +11,5 @@ target 'HackTX' do
   pod 'Realm'
   pod 'AFNetworking'
   pod 'FCAlertView'
+  pod 'ChameleonFramework'
 end

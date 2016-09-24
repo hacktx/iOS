@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E5410941E35FEC803EA8E2D /* libPods-HackTX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B67A442663439B9AD415E5F6 /* libPods-HackTX.a */; };
+		820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820B450A1D9624B1002A26BA /* SponsorTableViewCell.m */; };
+		820B450D1D9624B1002A26BA /* SponsorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820B450B1D9624B1002A26BA /* SponsorTableViewCell.xib */; };
 		8215AD7F1D8DBE3700377370 /* Sponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD7E1D8DBE3700377370 /* Sponsor.m */; };
 		8215AD831D8DC49F00377370 /* Announcement.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD821D8DC49F00377370 /* Announcement.m */; };
 		8215AD861D8DC53D00377370 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD851D8DC53D00377370 /* Location.m */; };
@@ -38,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
+		820B45091D9624B1002A26BA /* SponsorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorTableViewCell.h; sourceTree = "<group>"; };
+		820B450A1D9624B1002A26BA /* SponsorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorTableViewCell.m; sourceTree = "<group>"; };
+		820B450B1D9624B1002A26BA /* SponsorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorTableViewCell.xib; sourceTree = "<group>"; };
 		8215AD7D1D8DBE3700377370 /* Sponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sponsor.h; sourceTree = "<group>"; };
 		8215AD7E1D8DBE3700377370 /* Sponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sponsor.m; sourceTree = "<group>"; };
 		8215AD811D8DC49F00377370 /* Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Announcement.h; sourceTree = "<group>"; };
@@ -150,6 +155,9 @@
 			children = (
 				8215AD901D8DD26C00377370 /* SponsorViewController.h */,
 				8215AD911D8DD26C00377370 /* SponsorViewController.m */,
+				820B45091D9624B1002A26BA /* SponsorTableViewCell.h */,
+				820B450A1D9624B1002A26BA /* SponsorTableViewCell.m */,
+				820B450B1D9624B1002A26BA /* SponsorTableViewCell.xib */,
 			);
 			name = Sponsor;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820B450D1D9624B1002A26BA /* SponsorTableViewCell.xib in Resources */,
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
 				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
@@ -384,6 +393,7 @@
 				8215ADAF1D8E27F800377370 /* NSString+MD5.m in Sources */,
 				8215AD861D8DC53D00377370 /* Location.m in Sources */,
 				8215AD831D8DC49F00377370 /* Announcement.m in Sources */,
+				820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */,
 				82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */,
 				822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */,
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,

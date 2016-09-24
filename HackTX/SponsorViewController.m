@@ -7,12 +7,15 @@
 //
 
 #import "SponsorViewController.h"
+#import "SponsorTableViewCell.h"
 
-#import "HTXTableViewCell.h"
 #import "AutolayoutHelper.h"
+#import "UIColor+Palette.h"
 #import "FCAlertView.h"
 #import "Sponsor.h"
 #import "HTXAPI.h"
+
+#import <ChameleonFramework/Chameleon.h>
 
 @interface SponsorViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -29,7 +32,6 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -38,8 +40,13 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.tableFooterView = [UIView new];
     self.tableView.estimatedRowHeight = 40;
     self.tableView.allowsSelection = NO;
+    self.tableView.backgroundColor = [UIColor flatWhiteColor];
     
-    [self.tableView registerClass:[HTXTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, -35);
+    
+    
+    UINib *nib = [UINib nibWithNibName:@"SponsorTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
     
     [AutolayoutHelper configureView:self.view subViews:VarBindings(_tableView)
                             metrics:VarBindings(_tableView)
@@ -122,10 +129,24 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return headerView;
+}
+- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HTXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    NSLog(@"%@", self.sponsors[indexPath.row]);
-    [cell configWithSponsor:self.sponsors[indexPath.section][indexPath.row]];
+    SponsorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    
+    cell.name.text = self.sponsors[indexPath.section][indexPath.row].name;
+    cell.url.text = self.sponsors[indexPath.section][indexPath.row].website;
+    
+    cell.layer.cornerRadius = 5;
+    cell.layer.masksToBounds = true;
+    
     return cell;
 }
 

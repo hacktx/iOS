@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - FCAlertView (1.0.3)
   - Firebase (3.5.2):
     - Firebase/Core (= 3.5.2)
@@ -39,6 +42,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ChameleonFramework
   - FCAlertView
   - Firebase
   - MBProgressHUD (~> 1.0.0)
@@ -46,6 +50,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FCAlertView: d8faca861e6a7e5dc13ca5ec7d598a4b73276daa
   Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
@@ -56,6 +61,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
 
-PODFILE CHECKSUM: 7eeb2b661bca13413f5a31a247eae80d8c979bbc
+PODFILE CHECKSUM: 776c46c4e8bcad89996904f4241573b45d467231
 
 COCOAPODS: 1.0.1
