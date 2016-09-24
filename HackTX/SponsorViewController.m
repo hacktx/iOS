@@ -73,23 +73,17 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.hidden = YES;
 
     if (sponsorResult.count > 0) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-            RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
-            [self transformRLMEventsArray:sponsorResult];
-            
-            dispatch_async(dispatch_get_main_queue(), ^(void) {
-                // hide the spinner or whatever
-                self.tableView.hidden = NO;
-                [self.tableView reloadData];
-                
-                [HTXAPI refreshSponsors:^(BOOL success) {
-                    if (success) {
-                        [self refreshData];
-                    }
-                }];
-                
-            });
-        });
+        RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
+        [self transformRLMEventsArray:sponsorResult];
+        
+        self.tableView.hidden = NO;
+        [self.tableView reloadData];
+        
+        [HTXAPI refreshSponsors:^(BOOL success) {
+            if (success) {
+                [self refreshData];
+            }
+        }];
         
     } else {
         [self refresh];
@@ -98,13 +92,9 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 }
 
 - (void)refreshData {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-        RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
-        [self transformRLMEventsArray:sponsorResult];
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [self.tableView reloadData];
-        });
-    });
+    RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
+    [self transformRLMEventsArray:sponsorResult];
+    [self.tableView reloadData];
 }
 
 - (void)transformRLMEventsArray:(RLMResults <Sponsor *> *)eventData {
