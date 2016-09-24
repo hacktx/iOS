@@ -39,6 +39,8 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.estimatedRowHeight = 40;
     self.tableView.allowsSelection = NO;
     
+    [self.tableView registerClass:[HTXTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
+    
     [AutolayoutHelper configureView:self.view subViews:VarBindings(_tableView)
                             metrics:VarBindings(_tableView)
                         constraints:@[@"V:|[_tableView]|",
