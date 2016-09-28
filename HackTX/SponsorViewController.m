@@ -42,7 +42,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor flatWhiteColor];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, -35);
+//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, -35);
     
     
     UINib *nib = [UINib nibWithNibName:@"SponsorTableViewCell" bundle:nil];
