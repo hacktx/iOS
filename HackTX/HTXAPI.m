@@ -43,7 +43,7 @@
     [self sendRequest:nil toEndpoint:@"sponsors" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"[{\"name\":\"ForeverCard\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://forevercard.co\", \"level\": 2},{\"name\":\"Google\", \"logoImage\": \"https://forevercard.co\", \"website\": \"https://google.com\", \"level\": 1}]" dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [@"[{\"name\":\"ForeverCard\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercards.co\",\"level\":2},{\"name\":\"ForeverCard2\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercard3.co\",\"level\":2},{\"name\":\"ForeverCards\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercarde.co\",\"level\":2},{\"name\":\"Google\",\"logoImage\":\"https://forevercard1.co\",\"website\":\"https://googleq.com\",\"level\":1},{\"name\":\"Google\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://google5.com\",\"level\":1},{\"name\":\"Google3s\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://googlex.com\",\"level\":3}]" dataUsingEncoding:NSUTF8StringEncoding];
         id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         
         for (id object in json) {
