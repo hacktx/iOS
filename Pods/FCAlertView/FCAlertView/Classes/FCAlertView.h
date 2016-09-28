@@ -26,10 +26,11 @@
     
     // Customizations made to UI
     
-    NSArray *buttonTitles;
+    NSMutableArray *alertButtons;
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
+    NSString *alertType;
     
 }
 
@@ -55,6 +56,7 @@
 @property BOOL dismissOnOutsideTouch;
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
+@property BOOL avoidCustomImageTint;
 
 // Default Types of Alerts
 
@@ -66,9 +68,23 @@
 
 - (void) showAlertInView:(UIViewController *)view withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
 
+- (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
+- (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
+- (void)setAlertViewAttributes:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons;
+
 // Dismissing AlertView
 
 - (void) dismissAlertView;
+
+// Alert Action Block Method
+
+typedef void (^FCActionBlock)(void);
+@property (nonatomic, copy) FCActionBlock actionBlock;
+@property (nonatomic, copy) FCActionBlock doneBlock;
+- (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
+- (void)doneActionBlock:(FCActionBlock)action;
 
 // Color Schemes
 
@@ -92,7 +108,7 @@
 
 @protocol FCAlertViewDelegate <NSObject>
 @optional
-- (void)FCAlertView:(FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title;
+- (void)FCAlertView:( FCAlertView *)alertView clickedButtonIndex:(NSInteger)index buttonTitle:(NSString *)title;
 - (void)FCAlertViewDismissed:(FCAlertView *)alertView;
 - (void)FCAlertViewWillAppear:(FCAlertView *)alertView;
 - (void)FCAlertDoneButtonClicked:(FCAlertView *)alertView;

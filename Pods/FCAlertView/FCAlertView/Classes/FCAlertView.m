@@ -51,6 +51,8 @@
         
         // CUSTOMIZATIONS - Setting Default Customization Settings & Checks
         
+        alertButtons = [[NSMutableArray alloc] init];
+        
         _numberOfButtons = 0;
         _autoHideSeconds = 0;
         _cornerRadius = 18.0f;
@@ -70,6 +72,7 @@
     
 }
 
+#pragma mark - FCAlertView Checks
 #pragma mark - Customization Data Checkpoint
 
 - (void) checkCustomizationValid {
@@ -79,7 +82,7 @@
             _subTitle = @"You need to have a title or subtitle to use FCAlertView 😀";
     
     if (doneTitle == nil || [doneTitle isEqualToString:@""]) {
-        doneTitle = @"Ok";
+        doneTitle = @"OK";
     }
     
     if (_cornerRadius == 0.0f)
@@ -87,6 +90,24 @@
     
     if (vectorImage != nil)
         alertViewWithVector = 1;
+    
+}
+
+#pragma mark - Safety Close Check
+
+- (void) safetyCloseCheck {
+    
+    if (_hideDoneButton || _hideAllButtons) {
+        
+        if (_autoHideSeconds == 0) {
+            
+            _dismissOnOutsideTouch = YES;
+            
+            NSLog(@"Forced Dismiss on Outside Touch");
+            
+        }
+        
+    }
     
 }
 
@@ -118,6 +139,9 @@
     self.alpha = 0;
     
     // Adjusting AlertView Frames
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        defaultSpacing += 350;
     
     if (alertViewWithVector) // Frames for when AlertView contains an image
         alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
@@ -291,7 +315,7 @@
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width,
                                            45);
-        [otherButton setTitle:[buttonTitles objectAtIndex:0] forState:UIControlStateNormal];
+        [otherButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [otherButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         otherButton.tintColor = self.colorScheme;
@@ -308,7 +332,7 @@
         UIView *horizontalSeparator = [[UIView alloc] initWithFrame:CGRectMake(alertViewFrame.size.width/2 - 1,
                                                                                otherButton.frame.origin.y - 2,
                                                                                2,
-                                                                               45)];
+                                                                               47)];
         
         horizontalSeparator.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
         
@@ -338,7 +362,7 @@
                                            alertViewFrame.size.height - 45,
                                            alertViewFrame.size.width/2,
                                            45);
-        [firstButton setTitle:[buttonTitles objectAtIndex:0] forState:UIControlStateNormal];
+        [firstButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [firstButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         firstButton.tintColor = self.colorScheme;
@@ -357,13 +381,13 @@
                                             alertViewFrame.size.height - 45,
                                             alertViewFrame.size.width/2,
                                             45);
-        [secondButton setTitle:[buttonTitles objectAtIndex:1] forState:UIControlStateNormal];
+        [secondButton setTitle:[[alertButtons objectAtIndex:1] objectForKey:@"title"] forState:UIControlStateNormal];
         [secondButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
         secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         secondButton.tintColor = self.colorScheme;
         secondButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         secondButton.titleLabel.minimumScaleFactor = 0.8;
-        secondButton.tag = 0;
+        secondButton.tag = 1;
         
         UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
         if (_colorScheme == nil)
@@ -439,7 +463,13 @@
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(alertViewContents.frame.size.width/2 - 30.0f, -30.0f, 60.0f, 60.0f)] CGPath]];
     [circleLayer setFillColor:[UIColor whiteColor].CGColor];
     
-    UIButton *alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *alertViewVector;
+    
+    if (_avoidCustomImageTint && alertType.length == 0)
+        alertViewVector = [UIButton buttonWithType:UIButtonTypeCustom];
+    else
+        alertViewVector = [UIButton buttonWithType:UIButtonTypeSystem];
+    
     alertViewVector.frame = CGRectMake(alertViewContents.frame.size.width/2 - 15.0f,
                                        -15.0f,
                                        30.0f,
@@ -515,36 +545,69 @@
     vectorImage = [self loadImageFromResourceBundle:@"close-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatRed;
+    alertType = @"Warning";
 }
 
 - (void) makeAlertTypeCaution {
     vectorImage = [self loadImageFromResourceBundle:@"alert-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatOrange;
+    alertType = @"Caution";
 }
 
 - (void) makeAlertTypeSuccess {
     vectorImage = [self loadImageFromResourceBundle:@"checkmark-round.png"];
     alertViewWithVector = 1;
     self.colorScheme = self.flatGreen;
+    alertType = @"Success";
 }
 
 #pragma  mark - Presenting AlertView
 
 - (void) showAlertInView:(UIViewController *)view withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
     
+    [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    [view.view.window addSubview:self];
+    
+}
+
+- (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    [window addSubview:self];
+    
+}
+
+- (void) showAlertWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
+    
+    [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
+    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    [window addSubview:self];
+    [window bringSubviewToFront:self];
+    
+}
+
+- (void)setAlertViewAttributes:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons{
+    
     self.title = title;
     self.subTitle = subTitle;
-    buttonTitles = buttons;
-    _numberOfButtons = buttonTitles.count;
+    
+    for (int i = 0; i < buttons.count; i++) {
+        NSDictionary *btnDict = @{@"title" : [buttons objectAtIndex:i],
+                                  @"action" : @0};
+        [alertButtons addObject:btnDict];
+    }
+    
+    _numberOfButtons = alertButtons.count;
     doneTitle = done;
     
     if (!alertViewWithVector)
         vectorImage = image;
     
-    [self checkCustomizationValid];
+    // Checks prior to presenting View
     
-    [view.view.window addSubview:self];
+    [self checkCustomizationValid];
+    [self safetyCloseCheck];
     
 }
 
@@ -588,6 +651,30 @@
     
 }
 
+#pragma mark - Action Block Methods
+
+- (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action {
+    
+    if (alertButtons.count < 2) {
+        if (action != nil)
+            [alertButtons addObject:@{@"title" : title,
+                                      @"action" : action}];
+        else
+            [alertButtons addObject:@{@"title" : title,
+                                      @"action" : @0}];
+    }
+    
+    _numberOfButtons = alertButtons.count;
+    
+}
+
+- (void)doneActionBlock:(FCActionBlock)action {
+    
+    if (action != nil)
+        self.doneBlock = action;
+    
+}
+
 #pragma  mark - ACTIONS
 #pragma mark Button Selection
 
@@ -596,6 +683,16 @@
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
     UIButton *clickedButton = (UIButton*)sender;
+    
+    NSDictionary *btnDict = [alertButtons objectAtIndex:[sender tag]];
+    
+    if (btnDict != nil) {
+        if ([btnDict objectForKey:@"action"] != nil && ![[btnDict objectForKey:@"action"] isEqual:@0]) {
+            FCActionBlock block = [btnDict objectForKey:@"action"];
+            if (block)
+                block();
+        }
+    }
     
     if ([strongDelegate respondsToSelector:@selector(FCAlertView:clickedButtonIndex:buttonTitle:)]) {
         [strongDelegate FCAlertView:self clickedButtonIndex:[sender tag] buttonTitle:clickedButton.titleLabel.text];
@@ -606,6 +703,9 @@
 }
 
 - (void) donePressed {
+    
+    if (self.doneBlock)
+        self.doneBlock();
     
     id<FCAlertViewDelegate> strongDelegate = self.delegate;
     
