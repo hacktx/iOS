@@ -16,6 +16,10 @@
     self.name.font = [UIFont fontWithName:@"JosefinSans" size:20];
     self.url.font = [UIFont fontWithName:@"JosefinSans" size:20];
 
+    self.backgroundColor = [UIColor clearColor];
+    self.cardView.backgroundColor = [UIColor whiteColor];
+    self.cardView.layer.cornerRadius = 2.5;
+    
 //
 //    self.cardView.layer.masksToBounds = false;
 //    self.cardView.layer.cornerRadius = 5.0;
@@ -29,6 +33,8 @@
 
 
 -(void)layoutSubviews {
+    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(2.5, 10, 2.5, 10));
+
 //    [self updateShadowPath];
 }
 
