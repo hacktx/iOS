@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.name.font = [UIFont fontWithName:@"JosefinSans" size:20];
+    self.url.font = [UIFont fontWithName:@"JosefinSans" size:20];
+
 //
 //    self.cardView.layer.masksToBounds = false;
 //    self.cardView.layer.cornerRadius = 5.0;

@@ -24,6 +24,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google, Inc." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="AJF-cw-pTM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -31,13 +34,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="58" id="7XX-Wa-atH"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="topMargin" id="Mz2-GP-TPJ"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailingMargin" id="PXJ-fc-X1w"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="XY6-P1-yUG"/>
-                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="8" symbolic="YES" id="fc3-QB-TrA"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="pX6-4T-V48"/>
-                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" constant="12" id="pop-aK-pdF"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="10" id="5hp-N8-Fxp"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="40" id="API-v8-KaJ"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="O7r-e8-X4u"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailingMargin" id="d7y-ze-7c0"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="ewF-Ut-4bC"/>
+                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="9" id="iZr-4h-he3"/>
+                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" constant="10" id="rtg-th-PnR"/>
                         </constraints>
                     </view>
                 </subviews>
