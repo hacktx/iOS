@@ -28,12 +28,12 @@
                         alpha:1];
 }
 
-// Lighter Blue #cdd9e2 -> rgb (205,217,226)
+// Lighter Blue #EDF2F5 -> rgb (237,242,245)
 
 + (instancetype) htx_lightLightBlue {
-    return [self colorWithRed:205.f/255.f
-                        green:217.f/255.f
-                         blue:226.f/255.f
+    return [self colorWithRed:237.f/255.f
+                        green:242.f/255.f
+                         blue:245.f/255.f
                         alpha:1];
 }
 @end
