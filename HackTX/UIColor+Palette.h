@@ -10,5 +10,8 @@
 
 @interface UIColor(Palette)
 
++ (instancetype) htx_lightBlue;
++ (instancetype) htx_red;
++ (instancetype) htx_lightLightBlue;
 
 @end

@@ -3,36 +3,42 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.HackTX.sponsor" rowHeight="80" id="KGk-i7-Jjw" customClass="SponsorTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.HackTX.sponsor" rowHeight="70" id="KGk-i7-Jjw" customClass="SponsorTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="59"/>
+                <frame key="frameInset" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-24-HIe">
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
-                                <frame key="frameInset" minX="58" minY="8" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://google.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Uc-eJW">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Uc-eJW">
-                                <frame key="frameInset" minX="58" minY="31" width="17" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google, Inc." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="58" id="7XX-Wa-atH"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="topMargin" id="Mz2-GP-TPJ"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailingMargin" id="PXJ-fc-X1w"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="XY6-P1-yUG"/>
+                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="8" symbolic="YES" id="fc3-QB-TrA"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="pX6-4T-V48"/>
+                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" constant="12" id="pop-aK-pdF"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
@@ -47,7 +53,7 @@
                 <outlet property="name" destination="wHs-Gm-cDF" id="9fr-mQ-kBa"/>
                 <outlet property="url" destination="QtZ-Uc-eJW" id="FG7-3y-LKk"/>
             </connections>
-            <point key="canvasLocation" x="-26" y="127"/>
+            <point key="canvasLocation" x="-149" y="63"/>
         </tableViewCell>
     </objects>
 </document>

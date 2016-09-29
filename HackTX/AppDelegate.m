@@ -16,6 +16,8 @@
 #import "ScheduleViewController.h"
 #import "SponsorViewController.h"
 
+#import "UIColor+Palette.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -43,15 +45,22 @@
     
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:nil selectedImage:nil];
     vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:nil selectedImage:nil];;
-    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:nil selectedImage:nil];;
+    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
     vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:nil selectedImage:nil];;
     vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:nil selectedImage:nil];;
     
-    [[UITabBar appearance] setTintColor:[UIColor blueColor]];
+    [[UITabBar appearance] setTintColor:[UIColor htx_red]];
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController* navController = [[UINavigationController alloc]initWithRootViewController:_tabBarController];
-    navController.navigationBar.tintColor = [UIColor greenColor];
+    navController.navigationBar.barTintColor = [UIColor htx_lightBlue];
+    
+    UIImageView *headerImage = [[UIImageView alloc] init];
+    headerImage.contentMode = UIViewContentModeScaleAspectFit;
+    headerImage.frame = CGRectMake(0, 0, 38, 38);
+    headerImage.image = [UIImage imageNamed:@"htx_logo"];
+    
+    navController.navigationBar.topItem.titleView = headerImage;
     navController.navigationBar.translucent = NO;
     _window.rootViewController = navController;
     [_window makeKeyAndVisible];

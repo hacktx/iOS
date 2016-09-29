@@ -38,21 +38,15 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 40;
+    self.tableView.estimatedRowHeight = 70;
     self.tableView.allowsSelection = NO;
-    self.tableView.backgroundColor = [UIColor flatWhiteColor];
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, -35);
-    
+    self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
     
     UINib *nib = [UINib nibWithNibName:@"SponsorTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
     
-    [AutolayoutHelper configureView:self.view subViews:VarBindings(_tableView)
-                            metrics:VarBindings(_tableView)
-                        constraints:@[@"V:|[_tableView]|",
-                                      @"H:|[_tableView]|"]];
-
+    [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
+    
     [self initData];
 }
 
@@ -144,9 +138,9 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     cell.name.text = self.sponsors[indexPath.section][indexPath.row].name;
     cell.url.text = self.sponsors[indexPath.section][indexPath.row].website;
     
-    cell.layer.cornerRadius = 5;
-    cell.layer.masksToBounds = true;
-    
+//    cell.layer.cornerRadius = 5;
+//    cell.layer.masksToBounds = true;
+//    
     return cell;
 }
 
