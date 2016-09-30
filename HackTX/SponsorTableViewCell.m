@@ -33,9 +33,18 @@
 
 
 -(void)layoutSubviews {
-    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(2.5, 10, 2.5, 10));
+//    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(2.5, 10, 0, 10));
 
 //    [self updateShadowPath];
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.origin.x += 5;
+    frame.origin.y += 2.5;
+    
+    frame.size.width -= 2 * 5;
+    frame.size.height -= 2 * 2.5;
+    [super setFrame:frame];
 }
 
 - (void)updateShadowPath {

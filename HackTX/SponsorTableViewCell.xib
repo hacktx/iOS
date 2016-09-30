@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,20 +17,20 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-24-HIe">
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google, Inc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="q16-mT-cQw">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="dbE-Ft-pN4"/>
+                                    <constraint firstAttribute="width" constant="50" id="fzw-a0-4sl"/>
                                 </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="https://google.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Uc-eJW">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="q16-mT-cQw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Google, Inc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="JSP-is-ghj"/>
+                                    <constraint firstAttribute="height" constant="20" id="wDG-N3-PrY"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="https://google.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Uc-eJW">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,26 +38,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="9" id="2IF-1k-cwU"/>
-                            <constraint firstAttribute="width" constant="320" id="56t-HK-JDH"/>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="centerY" secondItem="wJ8-24-HIe" secondAttribute="centerY" id="8aL-vM-Hr3"/>
-                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" constant="13" id="HUi-yh-Gkf"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="Q2m-Ic-goC"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="q16-mT-cQw" secondAttribute="trailing" constant="15" id="bhC-Cr-QfJ"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailingMargin" id="esT-Y2-2DL"/>
-                            <constraint firstAttribute="height" constant="69" id="i0P-dD-e6D"/>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leadingMargin" id="il2-pn-Dnx"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="13" id="k7a-Ov-VWE"/>
-                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="3" id="pwW-ge-UYQ"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="tAw-8A-Q5v"/>
+                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" priority="749" constant="13" id="6SI-P0-bO4"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="12" id="6fn-Bx-RVk"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="HFB-Mc-GsC"/>
+                            <constraint firstItem="q16-mT-cQw" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="9" id="IEw-Gg-8C3"/>
+                            <constraint firstAttribute="trailing" secondItem="wHs-Gm-cDF" secondAttribute="trailing" constant="7" id="gxk-kN-T6C"/>
+                            <constraint firstItem="q16-mT-cQw" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="15" id="hBZ-tQ-07F"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="q16-mT-cQw" secondAttribute="trailing" constant="15" id="i6l-wa-CyU"/>
+                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="4" id="rdO-3g-YNj"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="rfO-UD-V97"/>
+                            <constraint firstItem="q16-mT-cQw" firstAttribute="centerY" secondItem="wJ8-24-HIe" secondAttribute="centerY" id="u8c-W6-d5e"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailing" id="I8S-Oy-VM0"/>
-                    <constraint firstItem="wJ8-24-HIe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cNe-qO-D3V"/>
-                    <constraint firstAttribute="bottom" secondItem="wJ8-24-HIe" secondAttribute="bottom" id="da7-pn-cgJ"/>
-                    <constraint firstItem="wJ8-24-HIe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jqU-c5-VU3"/>
+                    <constraint firstAttribute="trailing" secondItem="wJ8-24-HIe" secondAttribute="trailing" id="2mS-gi-shO"/>
+                    <constraint firstItem="wJ8-24-HIe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Qjz-wu-7VK"/>
+                    <constraint firstItem="wJ8-24-HIe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gY5-II-eqO"/>
+                    <constraint firstAttribute="bottom" secondItem="wJ8-24-HIe" secondAttribute="bottom" id="umu-Do-X0a"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
