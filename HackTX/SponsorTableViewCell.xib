@@ -20,10 +20,8 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="q16-mT-cQw">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Sj5-7X-dZb"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Woy-AP-xgx"/>
-                                    <constraint firstAttribute="width" constant="50" id="fzw-a0-4sl"/>
-                                    <constraint firstAttribute="width" secondItem="q16-mT-cQw" secondAttribute="height" multiplier="1:1" id="wHV-9p-6cK"/>
+                                    <constraint firstAttribute="width" constant="50" id="neD-jW-2cF"/>
+                                    <constraint firstAttribute="width" secondItem="q16-mT-cQw" secondAttribute="height" multiplier="1:1" id="uES-Sv-LUT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="https://google.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QtZ-Uc-eJW">
@@ -33,7 +31,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Google, Inc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHs-Gm-cDF">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="wDG-N3-PrY"/>
+                                    <constraint firstAttribute="height" constant="20" id="JLw-bL-Ict"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -42,16 +40,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" priority="749" constant="13" id="6SI-P0-bO4"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="12" id="6fn-Bx-RVk"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="HFB-Mc-GsC"/>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="9" id="IEw-Gg-8C3"/>
-                            <constraint firstAttribute="trailing" secondItem="wHs-Gm-cDF" secondAttribute="trailing" constant="7" id="gxk-kN-T6C"/>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="15" id="hBZ-tQ-07F"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="q16-mT-cQw" secondAttribute="trailing" constant="15" id="i6l-wa-CyU"/>
-                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="4" id="rdO-3g-YNj"/>
-                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="rfO-UD-V97"/>
-                            <constraint firstItem="q16-mT-cQw" firstAttribute="centerY" secondItem="wJ8-24-HIe" secondAttribute="centerY" id="u8c-W6-d5e"/>
+                            <constraint firstItem="q16-mT-cQw" firstAttribute="leading" secondItem="wJ8-24-HIe" secondAttribute="leading" constant="15" id="IBb-3p-gwJ"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="trailing" secondItem="QtZ-Uc-eJW" secondAttribute="trailing" id="Iyh-dQ-Hj3"/>
+                            <constraint firstAttribute="trailing" secondItem="wHs-Gm-cDF" secondAttribute="trailing" constant="7" id="J1o-Dc-fs3"/>
+                            <constraint firstItem="QtZ-Uc-eJW" firstAttribute="top" secondItem="wHs-Gm-cDF" secondAttribute="bottom" constant="4" id="Wi5-eH-bPO"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="QtZ-Uc-eJW" secondAttribute="leading" id="g5v-V1-GSt"/>
+                            <constraint firstAttribute="bottom" secondItem="QtZ-Uc-eJW" secondAttribute="bottom" constant="13" id="i5w-t7-Zap"/>
+                            <constraint firstAttribute="bottom" secondItem="q16-mT-cQw" secondAttribute="bottom" constant="11" id="nl2-7E-VGd"/>
+                            <constraint firstItem="q16-mT-cQw" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="9" id="rGN-63-trA"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="top" secondItem="wJ8-24-HIe" secondAttribute="top" constant="12" id="v3Z-Ff-Pg6"/>
+                            <constraint firstItem="wHs-Gm-cDF" firstAttribute="leading" secondItem="q16-mT-cQw" secondAttribute="trailing" constant="15" id="w7w-K7-G35"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -72,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_profile" width="25" height="25"/>
+        <image name="icon_profile" width="19" height="19"/>
     </resources>
 </document>

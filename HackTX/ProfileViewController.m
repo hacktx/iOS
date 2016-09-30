@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "AutolayoutHelper.h"
 #import "MBProgressHUD.h"
 #import "HTXConstants.h"
 
@@ -31,6 +32,9 @@
     [self.webView loadRequest:MLHAuthRequest];
     self.webView.frame = CGRectMake(self.view.frame.origin.x,self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
     [self.view addSubview:self.webView];
+    
+    [AutolayoutHelper configureView:self.view fillWithSubView:self.webView];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     // Do any additional setup after loading the view.
 }
@@ -60,6 +64,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         NSLog(@"Auth completed!");
         decisionHandler(WKNavigationActionPolicyCancel);
     } else {
+        NSLog(@"Nothing!");
         decisionHandler(WKNavigationActionPolicyAllow);
     }
 }

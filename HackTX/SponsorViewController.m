@@ -43,6 +43,9 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
     
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
+    
     UINib *nib = [UINib nibWithNibName:@"SponsorTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
     
