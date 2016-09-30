@@ -43,11 +43,11 @@
 
     _tabBarController.viewControllers =  @[vc1, vc2, vc3, vc4, vc5];
     
-    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:nil selectedImage:nil];
-    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:nil selectedImage:nil];;
+    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"icon_calendar"] selectedImage:nil];
+    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"icon_bell"] selectedImage:nil];
     vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
-    vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:nil selectedImage:nil];;
-    vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:nil selectedImage:nil];;
+    vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"icon_map"] selectedImage:nil];
+    vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
     
     [[UITabBar appearance] setTintColor:[UIColor htx_red]];
     
