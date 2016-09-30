@@ -43,12 +43,15 @@
     [self sendRequest:nil toEndpoint:@"sponsors" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"[{\"name\":\"ForeverCard\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercards.co\",\"level\":2},{\"name\":\"ForeverCard2\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercard3.co\",\"level\":2},{\"name\":\"ForeverCards\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://forevercarde.co\",\"level\":2},{\"name\":\"Google\",\"logoImage\":\"https://forevercard1.co\",\"website\":\"https://googleq.com\",\"level\":1},{\"name\":\"Google\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://google5.com\",\"level\":1},{\"name\":\"Google3s\",\"logoImage\":\"https://forevercard.co\",\"website\":\"https://googlex.com\",\"level\":3}]" dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"partners" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+
         id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
         
         for (id object in json) {
             Sponsor *newSponsor = [[Sponsor alloc] init];
-            newSponsor.serverID = [object[@"website"] MD5];
+            
+            newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
             newSponsor.name = object[@"name"];
             newSponsor.logoImage = object[@"logoImage"];
             newSponsor.website = object[@"website"];

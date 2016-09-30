@@ -9,6 +9,7 @@
 #import "SponsorViewController.h"
 #import "SponsorTableViewCell.h"
 
+#import "UIImageView+AFNetworking.h"
 #import "AutolayoutHelper.h"
 #import "UIColor+Palette.h"
 #import "FCAlertView.h"
@@ -105,11 +106,13 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     NSMutableArray <NSMutableArray<Sponsor *> *> *sponsorArray = [[NSMutableArray alloc] init];
     NSMutableArray *innerArray = [[NSMutableArray alloc] init];
     
+    NSInteger i = eventData[0].level;
+    
     for (Sponsor *sponsor in eventData) {
-        NSInteger i = 1;
+        
         if (i == [sponsor[@"level"] integerValue]) {
             [innerArray addObject:sponsor];
-        } else {
+        } else {            
             i = [sponsor[@"level"] integerValue];
             
             [sponsorArray addObject:innerArray];
@@ -137,6 +140,20 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     
     cell.name.text = self.sponsors[indexPath.section][indexPath.row].name;
     cell.url.text = self.sponsors[indexPath.section][indexPath.row].website;
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon_profile"];
+    
+    __weak SponsorTableViewCell *weakCell = cell;
+    NSURL *url = [NSURL URLWithString:self.sponsors[indexPath.section][indexPath.row].logoImage];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [cell.image setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.image.image = image;
+                                       
+                                   } failure:nil];
     
 //    cell.layer.cornerRadius = 5;
 //    cell.layer.masksToBounds = true;

@@ -46,6 +46,7 @@
 		82BAC6D91D9D1FC000BF62C0 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6CF1D9D1FC000BF62C0 /* JosefinSans-SemiBoldItalic.ttf */; };
 		82BAC6DA1D9D1FC000BF62C0 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6D01D9D1FC000BF62C0 /* JosefinSans-Thin.ttf */; };
 		82BAC6DB1D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6D11D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf */; };
+		82BFF6D71D9E662600DB2543 /* partners.json in Resources */ = {isa = PBXBuildFile; fileRef = 82BFF6D61D9E662600DB2543 /* partners.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		82BAC6CF1D9D1FC000BF62C0 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		82BAC6D01D9D1FC000BF62C0 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
 		82BAC6D11D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		82BFF6D61D9E662600DB2543 /* partners.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = partners.json; sourceTree = "<group>"; };
 		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 		822A4D951D779BCD00C65761 /* HackTX */ = {
 			isa = PBXGroup;
 			children = (
+				82BFF6D61D9E662600DB2543 /* partners.json */,
 				82BAC6DC1D9D1FC400BF62C0 /* Fonts */,
 				8215AD8D1D8DC88100377370 /* HTXAPI.h */,
 				8215AD8E1D8DC88100377370 /* HTXAPI.m */,
@@ -364,6 +367,7 @@
 				8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */,
 				82BAC6D31D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf in Resources */,
 				82BAC6D61D9D1FC000BF62C0 /* JosefinSans-LightItalic.ttf in Resources */,
+				82BFF6D71D9E662600DB2543 /* partners.json in Resources */,
 				82BAC6D81D9D1FC000BF62C0 /* JosefinSans-SemiBold.ttf in Resources */,
 				822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */,
 				82BAC6D21D9D1FC000BF62C0 /* JosefinSans-Bold.ttf in Resources */,

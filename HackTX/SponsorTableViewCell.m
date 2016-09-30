@@ -8,17 +8,24 @@
 
 #import "SponsorTableViewCell.h"
 
+#import "UIColor+Palette.h"
+
 @implementation SponsorTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.name.font = [UIFont fontWithName:@"JosefinSans" size:20];
-    self.url.font = [UIFont fontWithName:@"JosefinSans" size:20];
+    self.name.font = [UIFont fontWithName:@"JosefinSans" size:18];
+    self.url.font = [UIFont fontWithName:@"JosefinSans" size:18];
+    self.url.textColor = [UIColor htx_lightBlue];
 
     self.backgroundColor = [UIColor clearColor];
+    
     self.cardView.backgroundColor = [UIColor whiteColor];
     self.cardView.layer.cornerRadius = 2.5;
+    
+    self.image.layer.cornerRadius = 2.5;
+    self.image.clipsToBounds = YES;
     
 //
 //    self.cardView.layer.masksToBounds = false;
