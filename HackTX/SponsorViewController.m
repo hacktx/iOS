@@ -143,7 +143,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     
     cell.name.text = self.sponsors[indexPath.section][indexPath.row].name;
     cell.url.text = self.sponsors[indexPath.section][indexPath.row].website;
-    UIImage *placeholderImage = [UIImage imageNamed:@"icon_profile"];
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon_htx_not"];
     
     __weak SponsorTableViewCell *weakCell = cell;
     NSURL *url = [NSURL URLWithString:self.sponsors[indexPath.section][indexPath.row].logoImage];

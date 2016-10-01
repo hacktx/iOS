@@ -40,6 +40,14 @@
 
 
 -(void)layoutSubviews {
+    
+    [super layoutSubviews];
+
+//    CGRect boundsWithInsets = CGRectMake(self.bounds.origin.x + 5,
+//                                         self.bounds.origin.y + 2.5,
+//                                         self.bounds.size.width - 2 * 5,
+//                                         self.bounds.size.height - 2 * 2.5);
+//    [super setBounds:boundsWithInsets];
 //    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(2.5, 10, 0, 10));
 
 //    [self updateShadowPath];
