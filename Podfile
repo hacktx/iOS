@@ -12,4 +12,6 @@ target 'HackTX' do
   pod 'AFNetworking'
   pod 'FCAlertView'
   pod 'ChameleonFramework'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

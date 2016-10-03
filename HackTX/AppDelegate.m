@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 @import Firebase;
+@import GoogleMaps;
 
 #import "AnnouncementsViewController.h"
 #import "ProfileViewController.h"
@@ -30,6 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [GMSServices provideAPIKey:@"AIzaSyC8mM3hw_7LInrTqwnWQPSJmikX8O4LfeU"];
     [FIRApp configure];
     
     ScheduleViewController *vc1 = [[ScheduleViewController alloc] init];

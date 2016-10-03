@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 #import "HTXAPI.h"
 
 @interface MapViewController ()
@@ -14,6 +15,21 @@
 @end
 
 @implementation MapViewController
+
+- (void)loadView {
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:30.268915
+                                                            longitude:-97.740378
+                                                                 zoom:19];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView.settings.rotateGestures = NO;
+    self.view = mapView;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(30.268915, -97.740378);
+    marker.title = @"HackTX 2016";
+    marker.map = mapView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

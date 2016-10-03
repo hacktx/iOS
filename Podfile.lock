@@ -32,6 +32,13 @@ PODS:
   - FirebaseInstanceID (1.0.8)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleMaps (2.1.0):
+    - GoogleMaps/Maps (= 2.1.0)
+  - GoogleMaps/Base (2.1.0)
+  - GoogleMaps/Maps (2.1.0):
+    - GoogleMaps/Base (= 2.1.0)
+  - GooglePlaces (2.1.0):
+    - GoogleMaps/Base (= 2.1.0)
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
@@ -45,6 +52,8 @@ DEPENDENCIES:
   - ChameleonFramework
   - FCAlertView
   - Firebase
+  - GoogleMaps
+  - GooglePlaces
   - MBProgressHUD (~> 1.0.0)
   - Realm
 
@@ -56,11 +65,13 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 3f5358d9104adf159cc8d99b7b501e50099a39ad
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
+  GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Realm: 6dda421ae4b3e9a09742fc2cf4b876d459cbedcd
 
-PODFILE CHECKSUM: 776c46c4e8bcad89996904f4241573b45d467231
+PODFILE CHECKSUM: aac7be216466248b87e14f5f37b56593e6e7d800
 
 COCOAPODS: 1.0.1
