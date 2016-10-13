@@ -17,8 +17,11 @@
 #import "ScheduleViewController.h"
 #import "SponsorViewController.h"
 #import "HTXAPIKeyStore.h"
-
 #import "UIColor+Palette.h"
+
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -32,6 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [Fabric with:@[[Crashlytics class]]];
     [GMSServices provideAPIKey:[[HTXAPIKeyStore sharedHTXAPIKeyStore] getGMSKey]];
     [FIRApp configure];
     

@@ -16,16 +16,14 @@
     [super awakeFromNib];
     
     self.name.font = [UIFont fontWithName:@"JosefinSans" size:18];
-    self.url.font = [UIFont fontWithName:@"JosefinSans" size:18];
-    self.url.textColor = [UIColor htx_lightBlue];
+    self.desc.font = [UIFont fontWithName:@"JosefinSans" size:15];
+    self.time.font = [UIFont fontWithName:@"JosefinSans" size:15];
+    self.desc.textColor = [UIColor htx_lightBlue];
     
     self.backgroundColor = [UIColor clearColor];
     
     self.cardView.backgroundColor = [UIColor whiteColor];
     self.cardView.layer.cornerRadius = 2.5;
-    
-    self.image.layer.cornerRadius = 2.5;
-    self.image.clipsToBounds = YES;
     
     //
     //    self.cardView.layer.masksToBounds = false;

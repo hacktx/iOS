@@ -325,6 +325,7 @@
 				822A4D911D779BCD00C65761 /* Resources */,
 				78E6BCED18D9A22BCA539775 /* [CP] Embed Pods Frameworks */,
 				C7B6E33EEDB5E5FFC7EE5294 /* [CP] Copy Pods Resources */,
+				8221B2101DAF157700FB1BE1 /* Fabric - Run Script */,
 			);
 			buildRules = (
 			);
@@ -428,6 +429,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackTX/Pods-HackTX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8221B2101DAF157700FB1BE1 /* Fabric - Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric - Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 867b9bd547cc88317b3ba6c1d23b68632020aca5 c3d584fedb368d508fbc34feb97124a81493de480a85efba4a07dea65eb9b477";
 		};
 		C7B6E33EEDB5E5FFC7EE5294 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

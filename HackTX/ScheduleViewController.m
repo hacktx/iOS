@@ -36,7 +36,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 70;
+    self.tableView.estimatedRowHeight = 100;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
     
@@ -140,11 +140,16 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     return headerView;
 }
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
-    return 40;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    
+    cell.name.text = self.events[indexPath.section][indexPath.row].name;
+    cell.desc.text = self.events[indexPath.section][indexPath.row].desc;
+    cell.time.text = self.events[indexPath.section][indexPath.row].location.room;
+    
     return cell;
 }
 

@@ -14,4 +14,6 @@ target 'HackTX' do
   pod 'ChameleonFramework'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
