@@ -27,7 +27,8 @@
     self.image.layer.cornerRadius = 2.5;
     self.image.clipsToBounds = YES;
     
-//
+    self.url.userInteractionEnabled = YES;
+    
 //    self.cardView.layer.masksToBounds = false;
 //    self.cardView.layer.cornerRadius = 5.0;
 //    self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -37,7 +38,6 @@
 //
 //    [self updateShadowPath];
 }
-
 
 -(void)layoutSubviews {
     

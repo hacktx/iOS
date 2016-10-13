@@ -20,8 +20,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile" translatesAutoresizingMaskIntoConstraints="NO" id="q16-mT-cQw">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49.5" id="JnM-q7-eS7"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="49.5" id="d95-bF-e76"/>
                                     <constraint firstAttribute="width" secondItem="q16-mT-cQw" secondAttribute="height" multiplier="1:1" id="moZ-QN-Mdp"/>
                                 </constraints>
                             </imageView>

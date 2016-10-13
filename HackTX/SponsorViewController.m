@@ -36,10 +36,9 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = 70;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 70;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
     
