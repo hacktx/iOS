@@ -69,7 +69,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
                         andButtons:nil];
             [alert makeAlertTypeCaution];
             
-            NSLog(@"[HTX] Data refresh failed");
+            NSLog(@"[HTX] Sponsor refresh failed");
             
         }
     }];
@@ -81,7 +81,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
     if (sponsorResult.count > 0) {
         RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
-        [self transformRLMEventsArray:sponsorResult];
+        [self transformRLMArray:sponsorResult];
         
         self.tableView.hidden = NO;
         [self.tableView reloadData];
@@ -100,12 +100,11 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
 - (void)refreshData {
     RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
-    [self transformRLMEventsArray:sponsorResult];
+    [self transformRLMArray:sponsorResult];
     [self.tableView reloadData];
 }
 
-- (void)transformRLMEventsArray:(RLMResults <Sponsor *> *)eventData {
-
+- (void)transformRLMArray:(RLMResults <Sponsor *> *)eventData {
     NSMutableArray <NSMutableArray<Sponsor *> *> *sponsorArray = [[NSMutableArray alloc] init];
     NSMutableArray *innerArray = [[NSMutableArray alloc] init];
     
@@ -126,7 +125,6 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     [sponsorArray addObject:innerArray];
 
     self.sponsors = sponsorArray;
-
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -173,7 +171,6 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

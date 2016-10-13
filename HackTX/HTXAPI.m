@@ -24,7 +24,7 @@
     return self;
 }
 
-+ (void)refreshEvents:(void(^)(NSDictionary *response))completion {
++ (void)refreshEvents:(void(^)(BOOL success))completion {
     return [[[HTXAPI alloc] init] refreshEvents:completion];
 }
 
@@ -40,7 +40,7 @@
 }
 
 - (void)refreshSponsors:(void(^)(BOOL success))completion {
-    [self sendRequest:nil toEndpoint:@"sponsors" withType:@"GET" withCompletion:^(NSDictionary *response) {
+    [self sendRequest:nil toEndpoint:@"partners" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"partners" ofType:@"json"];
@@ -66,40 +66,39 @@
     }];
 }
 
-- (void)refreshEvents:(void(^)(NSDictionary *response))completion {
+- (void)refreshEvents:(void(^)(BOOL success))completion {
     [self sendRequest:nil toEndpoint:@"events.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        NSData *data = [@"{\"serverID\": \"1\", \"name\": \"Jose\", \"desc\": \"swag bucks\", \"imageURL\": \"https://gogole.com\", \"startDate\": \"today\", \"endDate\": \"tomorrow\", \"location\":{\"building\": \"RLM\", \"level\": \"3\", \"room\": \"3.124\"}, \"speakers\":[{\"serverID\":32131, \"name\":\"Jason\",\"organization\":\"entefy\",\"desc\": \"10-year old\", \"imageURL\": \"https://facebook.com\"}]}" dataUsingEncoding: NSUTF8StringEncoding];
 
-        [realm transactionWithBlock:^{
-            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-//            [Event createOrUpdateInRealm:realm withValue:json];
-        }];
-//        if (response[@"success"]) {
-//            for (id object in response[@"data"]) {
-//                
-//                //            Event *newEvent = [[Event alloc] init];
-//                //            newEvent.id = object[@"id"];
-//                //            newEvent.name = object[@"name"];
-//                //            newEvent.desc = object[@"desc"];
-//                //            newEvent.imageURL = object[@"imageURL"];
-//                //            newEvent.startDate = [NSDate dateWithTimeIntervalSince1970:object[@"startDate"]];
-//                //            newEvent.endDate = [NSDate dateWithTimeIntervalSince1970:object[@"endDate"]];
-//                //
-//                //            Location *newLocation = [[Location alloc] init];
-//                //            newLocation.building = object[@"location"][@"building"];
-//                //            newLocation.level = object[@"location"][@"level"];
-//                //            newLocation.room = object[@"location"][@"room"];
-//                //
-//                //            newEvent.location = newLocation;
-//                //
-//                
-//                [realm beginWriteTransaction];
-//                [Event createOrUpdateInRealm:realm withValue:object];
-//                [realm commitWriteTransaction];
-//            }
-//        }
-//        completion(response);
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
+        
+        if (response[@"success"]) {
+            for (id object in response[@"data"][@"data"]) {
+                Event *newEvent = [[Event alloc] init];
+                newEvent.serverID = [object[@"eventsList"][0][@"id"] stringValue];
+                newEvent.name = object[@"eventsList"][0][@"name"];
+                newEvent.desc = object[@"eventsList"][0][@"description"];
+                newEvent.imageURL = object[@"eventsList"][0][@"imageUrl"];
+                NSLog(@"%@", object[@"eventsList"][0][@"startDate"]);
+                NSLog(@"%@", [dateFormat dateFromString:object[@"eventsList"][0][@"startDate"]]);
+                newEvent.startDate = [dateFormat dateFromString:object[@"eventsList"][0][@"startDate"]];
+                newEvent.endDate = [dateFormat dateFromString:object[@"eventsList"][0][@"endDate"]];
+    
+                Location *newLocation = [[Location alloc] init];
+                newLocation.building = object[@"eventsList"][0][@"location"][@"building"];
+                newLocation.level = object[@"eventsList"][0][@"location"][@"level"];
+                newLocation.room = object[@"eventsList"][0][@"location"][@"room"];
+    
+                newEvent.location = newLocation;
+                              
+                [realm beginWriteTransaction];
+                [Event createOrUpdateInRealm:realm withValue:newEvent];
+                [realm commitWriteTransaction];
+            }
+            completion(YES);
+        }
+        
     }];
 }
 
@@ -107,19 +106,17 @@
          toEndpoint:(NSString *)endpoint
            withType:(NSString *)type
      withCompletion:(void(^)(NSDictionary *response))completion {
-    
-    NSString *requestURL = [NSString stringWithFormat:KHTXBaseURL, endpoint];
-    
+
+    NSString *requestURL = [kHTXBaseURL stringByAppendingString:endpoint];
+
     if ([type isEqualToString:@"GET"]) {
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer serializer];
         
         [manager GET:requestURL parameters:request progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-            NSLog(@"%@", responseObject);
             completion(@{@"success": @YES, @"data": responseObject});
         } failure:^(NSURLSessionTask *operation, NSError *error) {
-            NSLog(@"%@", error);
             completion(@{@"success": @NO, @"error": error});
         }];
         

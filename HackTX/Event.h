@@ -17,8 +17,8 @@
 @property NSString *desc;
 @property NSString *imageURL;
 // Swith this to NSDate
-@property NSString *startDate;
-@property NSString *endDate;
+@property NSDate *startDate;
+@property NSDate *endDate;
 @property Location *location;
 @property RLMArray<Speaker *><Speaker> *speakers;
 

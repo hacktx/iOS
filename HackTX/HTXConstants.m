@@ -11,4 +11,4 @@
 NSString *const kMLHAuthURL = @"https://my.mlh.io/oauth/authorize?client_id=%@&redirect_uri=%@&response_type=code";
 NSString *const kMLHClientId = @"52d076854f7bec4ef067bd54316fd4580509149f8e71a35bf5898bec59497916";
 NSString *const kMLHAuthRedirect = @"https://hacktx.com/test";
-NSString *const KHTXBaseURL = @"https://my.hacktx.com/api/";
+NSString *const kHTXBaseURL = @"https://joseb.me/hacktx/";

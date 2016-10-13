@@ -7,7 +7,10 @@
 //
 
 #import "ScheduleViewController.h"
-#import "HTXTableViewCell.h"
+#import "ScheduleTableViewCell.h"
+
+#import "AutolayoutHelper.h"
+#import "UIColor+Palette.h"
 #import "FCAlertView.h"
 #import "HTXAPI.h"
 #import "Event.h"
@@ -27,23 +30,30 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 40;
+    self.tableView.estimatedRowHeight = 70;
     self.tableView.allowsSelection = NO;
-    [_tableView registerClass:[HTXTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
+    self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
+    
+    UINib *nib = [UINib nibWithNibName:@"ScheduleTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
+    
+    [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
     
     [self initData];
 }
 
 - (void)refresh {
-    [HTXAPI refreshEvents:^(NSDictionary *response) {
-        if (response[@"status"]) {
+    [HTXAPI refreshEvents:^(BOOL success) {
+        if (success) {
             [self initData];
         } else {
             FCAlertView *alert = [[FCAlertView alloc] init];
@@ -56,37 +66,85 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
                         andButtons:nil];
             [alert makeAlertTypeCaution];
             
-            NSLog(@"[HTX] Data refresh failed");
+            NSLog(@"[HTX] Schedule refresh failed");
         }
     }];
 }
 
 - (void)initData {
-    RLMResults<Event *> *eventResult = [Event allObjects];
+    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
     self.tableView.hidden = YES;
 
     if (eventResult.count > 0) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-            [self transformRLMEventsArray:eventResult];
-            
-            dispatch_async(dispatch_get_main_queue(), ^(void) {
-                // hide the spinner or whatever
-                self.tableView.hidden = NO;
-                [self.tableView reloadData];
+        RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
 
-            });
-        });
+        [self transformRLMArray:eventResult];
+        
+        self.tableView.hidden = NO;
+        [self.tableView reloadData];
+        
+        [HTXAPI refreshSponsors:^(BOOL success) {
+            if (success) {
+                [self refreshData];
+            }
+        }];
         
     } else {
         [self refresh];
     }
 }
 
-- (void)transformRLMEventsArray:(RLMResults <Event *> *)eventData {
-
+- (void)refreshData {
+    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
+    [self transformRLMArray:eventResult];
+    [self.tableView reloadData];
 }
+
+
+- (void)transformRLMArray:(RLMResults <Event *> *)eventData {
+    NSMutableArray <NSMutableArray<Event *> *> *eventArray = [[NSMutableArray alloc] init];
+    NSMutableArray *innerArray = [[NSMutableArray alloc] init];
+    
+    NSInteger currentDay = [[NSCalendar currentCalendar] component:NSCalendarUnitDay fromDate:eventData[0].startDate];
+
+    for (Event *event in eventData) {
+        NSInteger testDay = [[NSCalendar currentCalendar] component:NSCalendarUnitDay fromDate:event.startDate];
+
+        if (currentDay == testDay) {
+            [innerArray addObject:event];
+        } else {
+            currentDay = testDay;
+            
+            [eventArray addObject:innerArray];
+            innerArray = [[NSMutableArray alloc] init];
+            [innerArray addObject:event];
+        }
+    }
+    [eventArray addObject:innerArray];
+    
+    self.events = eventArray;
+}
+
+- (NSInteger)getYear:(NSDate*)date
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+
+    NSInteger day = [components day];
+    
+    return day;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return headerView;
+}
+- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HTXTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     return cell;
 }
 

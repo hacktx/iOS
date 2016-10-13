@@ -16,6 +16,7 @@
 #import "MapViewController.h"
 #import "ScheduleViewController.h"
 #import "SponsorViewController.h"
+#import "HTXAPIKeyStore.h"
 
 #import "UIColor+Palette.h"
 
@@ -31,7 +32,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [GMSServices provideAPIKey:@"AIzaSyC8mM3hw_7LInrTqwnWQPSJmikX8O4LfeU"];
+    [GMSServices provideAPIKey:[[HTXAPIKeyStore sharedHTXAPIKeyStore] getGMSKey]];
     [FIRApp configure];
     
     ScheduleViewController *vc1 = [[ScheduleViewController alloc] init];

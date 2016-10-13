@@ -10,7 +10,7 @@
 
 @interface HTXAPI : NSObject
 
-+ (void)refreshEvents:(void(^)(NSDictionary *response))completion;
++ (void)refreshEvents:(void(^)(BOOL success))completion;
 + (void)refreshSponsors:(void(^)(BOOL success))completion;
 
 + (void)sendRequest:(NSDictionary *)request

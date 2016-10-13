@@ -22,6 +22,10 @@
 		8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */; };
 		8215ADAB1D8E230F00377370 /* HTXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215ADA91D8E230F00377370 /* HTXTableViewCell.m */; };
 		8215ADAF1D8E27F800377370 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215ADAE1D8E27F800377370 /* NSString+MD5.m */; };
+		8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */; };
+		8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */; };
+		8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B20A1DAF109B00FB1BE1 /* HTXAPIKeyStore.m */; };
+		8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */; };
 		822A4D981D779BCD00C65761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D971D779BCD00C65761 /* main.m */; };
 		822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D9A1D779BCD00C65761 /* AppDelegate.m */; };
 		822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA21D779BCD00C65761 /* Main.storyboard */; };
@@ -77,6 +81,12 @@
 		8215ADA91D8E230F00377370 /* HTXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXTableViewCell.m; sourceTree = "<group>"; };
 		8215ADAD1D8E27F700377370 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		8215ADAE1D8E27F800377370 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		8221B2041DAEF9D900FB1BE1 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		8221B2091DAF109B00FB1BE1 /* HTXAPIKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXAPIKeyStore.h; sourceTree = "<group>"; };
+		8221B20A1DAF109B00FB1BE1 /* HTXAPIKeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXAPIKeyStore.m; sourceTree = "<group>"; };
+		8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		822A4D931D779BCD00C65761 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822A4D971D779BCD00C65761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		822A4D991D779BCD00C65761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -168,6 +178,9 @@
 			children = (
 				822A4DB21D779DBD00C65761 /* ScheduleViewController.h */,
 				822A4DB31D779DBD00C65761 /* ScheduleViewController.m */,
+				8221B2041DAEF9D900FB1BE1 /* ScheduleTableViewCell.h */,
+				8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */,
+				8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -241,6 +254,8 @@
 				82BAC6DC1D9D1FC400BF62C0 /* Fonts */,
 				8215AD8D1D8DC88100377370 /* HTXAPI.h */,
 				8215AD8E1D8DC88100377370 /* HTXAPI.m */,
+				8221B2091DAF109B00FB1BE1 /* HTXAPIKeyStore.h */,
+				8221B20A1DAF109B00FB1BE1 /* HTXAPIKeyStore.m */,
 				8215ADAD1D8E27F700377370 /* NSString+MD5.h */,
 				8215ADAE1D8E27F800377370 /* NSString+MD5.m */,
 				822A4D991D779BCD00C65761 /* AppDelegate.h */,
@@ -275,6 +290,7 @@
 				82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */,
 				822E95171D7FF4EE00C0402E /* HTXConstants.h */,
 				822E95181D7FF4EE00C0402E /* HTXConstants.m */,
+				8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -363,6 +379,7 @@
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
 				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
+				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
 				8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */,
 				82BAC6D31D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf in Resources */,
@@ -374,6 +391,7 @@
 				82BAC6D41D9D1FC000BF62C0 /* JosefinSans-Italic.ttf in Resources */,
 				82BAC6D91D9D1FC000BF62C0 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
 				82BAC6DA1D9D1FC000BF62C0 /* JosefinSans-Thin.ttf in Resources */,
+				8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */,
 				82BAC6DB1D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +466,8 @@
 				820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */,
 				82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */,
 				822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */,
+				8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */,
+				8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */,
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,
 				8215AD891D8DC63F00377370 /* Event.m in Sources */,
 				822A4DC01D779DF100C65761 /* MapViewController.m in Sources */,
