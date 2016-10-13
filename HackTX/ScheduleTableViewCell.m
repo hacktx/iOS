@@ -15,10 +15,10 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.name.font = [UIFont fontWithName:@"JosefinSans" size:18];
-    self.desc.font = [UIFont fontWithName:@"JosefinSans" size:15];
-    self.time.font = [UIFont fontWithName:@"JosefinSans" size:15];
-    self.desc.textColor = [UIColor htx_lightBlue];
+    self.name.font = [UIFont fontWithName:@"JosefinSans" size:20];
+    self.desc.font = [UIFont fontWithName:@"JosefinSans" size:17];
+    self.time.font = [UIFont fontWithName:@"JosefinSans" size:17];
+
     
     self.backgroundColor = [UIColor clearColor];
     
