@@ -40,7 +40,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.allowsSelection = NO;
-    self.tableView.backgroundColor = [UIColor htx_lightLightBlue];
+    self.tableView.backgroundColor = [UIColor htx_white];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);

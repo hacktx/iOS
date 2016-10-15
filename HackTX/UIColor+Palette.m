@@ -28,12 +28,22 @@
                         alpha:1];
 }
 
-// Lighter Blue #EDF2F5 -> rgb (237,242,245)
+// White #EDF2F5 -> rgb (237,242,245)
 
-+ (instancetype) htx_lightLightBlue {
++ (instancetype) htx_white {
     return [self colorWithRed:237.f/255.f
                         green:242.f/255.f
                          blue:245.f/255.f
                         alpha:1];
 }
+
+// Lighter Blue #8AA8BC -> rgb (138,168,188)
+
++ (instancetype) htx_lighterBlue {
+    return [self colorWithRed:138.f/255.f
+                        green:168.f/255.f
+                         blue:188.f/255.f
+                        alpha:1];
+}
+
 @end

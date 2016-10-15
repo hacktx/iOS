@@ -12,6 +12,7 @@
 
 + (instancetype) htx_lightBlue;
 + (instancetype) htx_red;
-+ (instancetype) htx_lightLightBlue;
++ (instancetype) htx_white;
++ (instancetype) htx_lighterBlue;
 
 @end

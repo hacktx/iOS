@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UILabel *message;
+@property (nonatomic, retain) IBOutlet UIView *ticketView;
 
 @end

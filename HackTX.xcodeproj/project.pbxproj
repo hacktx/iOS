@@ -36,6 +36,7 @@
 		822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */; };
 		822A4DC01D779DF100C65761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBF1D779DF100C65761 /* MapViewController.m */; };
 		822E95191D7FF4EE00C0402E /* HTXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E95181D7FF4EE00C0402E /* HTXConstants.m */; };
+		82A3262C1DB2E2E30043E80E /* TicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A3262B1DB2E2E30043E80E /* TicketView.xib */; };
 		82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */; };
 		82BA003D1D8149B1006CA2C6 /* UIColor+Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA003C1D8149B1006CA2C6 /* UIColor+Palette.m */; };
 		82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA003F1D814ABA006CA2C6 /* CountdownView.m */; };
@@ -107,6 +108,7 @@
 		822A4DBF1D779DF100C65761 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		822E95171D7FF4EE00C0402E /* HTXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXConstants.h; sourceTree = "<group>"; };
 		822E95181D7FF4EE00C0402E /* HTXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXConstants.m; sourceTree = "<group>"; };
+		82A3262B1DB2E2E30043E80E /* TicketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
 		82BA00381D81492F006CA2C6 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		82BA003B1D8149B1006CA2C6 /* UIColor+Palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Palette.h"; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			children = (
 				82EAFC841DB200D50061C449 /* CheckInViewController.h */,
 				82EAFC851DB200D50061C449 /* CheckInViewController.m */,
+				82A3262B1DB2E2E30043E80E /* TicketView.xib */,
 				82EAFC861DB200D50061C449 /* CheckInViewController.xib */,
 			);
 			name = "Check In";
@@ -402,6 +405,7 @@
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
 				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
+				82A3262C1DB2E2E30043E80E /* TicketView.xib in Resources */,
 				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
