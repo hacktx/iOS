@@ -12,7 +12,7 @@
 @import GoogleMaps;
 
 #import "AnnouncementsViewController.h"
-#import "ProfileViewController.h"
+#import "CheckInViewController.h"
 #import "MapViewController.h"
 #import "ScheduleViewController.h"
 #import "SponsorViewController.h"
@@ -41,7 +41,7 @@
     
     ScheduleViewController *vc1 = [[ScheduleViewController alloc] init];
     AnnouncementsViewController *vc2 = [[AnnouncementsViewController alloc] init];
-    ProfileViewController *vc3 = [[ProfileViewController alloc] init];
+    CheckInViewController *vc3 = [[CheckInViewController alloc] init];
     MapViewController *vc4 = [[MapViewController alloc] init];
     SponsorViewController *vc5 = [[SponsorViewController alloc] init];
     
@@ -52,23 +52,24 @@
     
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"icon_calendar"] selectedImage:nil];
     vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"icon_bell"] selectedImage:nil];
-    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
+    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Check-In" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
     vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"icon_map"] selectedImage:nil];
     vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
     
     [[UITabBar appearance] setTintColor:[UIColor htx_red]];
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UINavigationController* navController = [[UINavigationController alloc]initWithRootViewController:_tabBarController];
-    navController.navigationBar.barTintColor = [UIColor htx_lightBlue];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:_tabBarController];
     
     UIImageView *headerImage = [[UIImageView alloc] init];
     headerImage.contentMode = UIViewContentModeScaleAspectFit;
     headerImage.frame = CGRectMake(0, 0, 38, 38);
     headerImage.image = [UIImage imageNamed:@"htx_logo"];
     
+    navController.navigationBar.barTintColor = [UIColor htx_lightBlue];
     navController.navigationBar.topItem.titleView = headerImage;
     navController.navigationBar.translucent = NO;
+    
     _window.rootViewController = navController;
     [_window makeKeyAndVisible];
     

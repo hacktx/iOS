@@ -34,7 +34,6 @@
 		822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DB01D779D8800C65761 /* GoogleService-Info.plist */; };
 		822A4DB41D779DBD00C65761 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB31D779DBD00C65761 /* ScheduleViewController.m */; };
 		822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */; };
-		822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB91D779DDA00C65761 /* ProfileViewController.m */; };
 		822A4DC01D779DF100C65761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBF1D779DF100C65761 /* MapViewController.m */; };
 		822E95191D7FF4EE00C0402E /* HTXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E95181D7FF4EE00C0402E /* HTXConstants.m */; };
 		82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */; };
@@ -51,6 +50,8 @@
 		82BAC6DA1D9D1FC000BF62C0 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6D01D9D1FC000BF62C0 /* JosefinSans-Thin.ttf */; };
 		82BAC6DB1D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6D11D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf */; };
 		82BFF6D71D9E662600DB2543 /* partners.json in Resources */ = {isa = PBXBuildFile; fileRef = 82BFF6D61D9E662600DB2543 /* partners.json */; };
+		82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EAFC851DB200D50061C449 /* CheckInViewController.m */; };
+		82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EAFC861DB200D50061C449 /* CheckInViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,8 +101,6 @@
 		822A4DB31D779DBD00C65761 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		822A4DB51D779DD100C65761 /* AnnouncementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementsViewController.h; sourceTree = "<group>"; };
 		822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementsViewController.m; sourceTree = "<group>"; };
-		822A4DB81D779DDA00C65761 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		822A4DB91D779DDA00C65761 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		822A4DBE1D779DF100C65761 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		822A4DBF1D779DF100C65761 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		822E95171D7FF4EE00C0402E /* HTXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXConstants.h; sourceTree = "<group>"; };
@@ -123,6 +122,9 @@
 		82BAC6D01D9D1FC000BF62C0 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
 		82BAC6D11D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		82BFF6D61D9E662600DB2543 /* partners.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = partners.json; sourceTree = "<group>"; };
+		82EAFC841DB200D50061C449 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
+		82EAFC851DB200D50061C449 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
+		82EAFC861DB200D50061C449 /* CheckInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
 		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,15 +222,6 @@
 			name = Announcement;
 			sourceTree = "<group>";
 		};
-		8215AD971D8DD2DC00377370 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				822A4DB81D779DDA00C65761 /* ProfileViewController.h */,
-				822A4DB91D779DDA00C65761 /* ProfileViewController.m */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
 		822A4D8A1D779BCD00C65761 = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +258,7 @@
 				8215AD941D8DD2B300377370 /* Sponsor */,
 				8215AD951D8DD2BA00377370 /* Map */,
 				8215AD961D8DD2D100377370 /* Announcement */,
-				8215AD971D8DD2DC00377370 /* Profile */,
+				82EAFC891DB200DB0061C449 /* Check In */,
 				8215ADA81D8E230F00377370 /* HTXTableViewCell.h */,
 				8215ADA91D8E230F00377370 /* HTXTableViewCell.m */,
 				82BA003E1D814ABA006CA2C6 /* CountdownView.h */,
@@ -310,6 +303,16 @@
 				82BAC6D11D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		82EAFC891DB200DB0061C449 /* Check In */ = {
+			isa = PBXGroup;
+			children = (
+				82EAFC841DB200D50061C449 /* CheckInViewController.h */,
+				82EAFC851DB200D50061C449 /* CheckInViewController.m */,
+				82EAFC861DB200D50061C449 /* CheckInViewController.xib */,
+			);
+			name = "Check In";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +384,7 @@
 				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
 				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
+				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
 				8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */,
 				82BAC6D31D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf in Resources */,
@@ -480,7 +484,6 @@
 				8215AD831D8DC49F00377370 /* Announcement.m in Sources */,
 				820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */,
 				82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */,
-				822A4DBA1D779DDA00C65761 /* ProfileViewController.m in Sources */,
 				8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */,
 				8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */,
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,
@@ -489,6 +492,7 @@
 				82BA003D1D8149B1006CA2C6 /* UIColor+Palette.m in Sources */,
 				8215AD8C1D8DC70F00377370 /* Speaker.m in Sources */,
 				8215AD921D8DD26C00377370 /* SponsorViewController.m in Sources */,
+				82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */,
 				8215AD9E1D8DD37B00377370 /* AnnouncementTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

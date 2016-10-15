@@ -125,8 +125,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.events = eventArray;
 }
 
-- (NSInteger)getYear:(NSDate*)date
-{
+- (NSInteger)getYear:(NSDate *)date {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
 
     NSInteger day = [components day];

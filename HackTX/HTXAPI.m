@@ -24,6 +24,10 @@
     return self;
 }
 
++ (void)fetchPass:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion {
+    return [[[HTXAPI alloc] init] fetchPass:email withCompletion:completion];
+}
+
 + (void)refreshEvents:(void(^)(BOOL success))completion {
     return [[[HTXAPI alloc] init] refreshEvents:completion];
 }
@@ -37,6 +41,14 @@
            withType:(NSString *)type
      withCompletion:(void(^)(NSDictionary *response))completion {
     return [[[HTXAPI alloc] init] sendRequest:request toEndpoint:endpoint withType:type withCompletion:completion];
+}
+
+- (void)fetchPass:(NSString *)email
+   withCompletion:(void(^)(NSDictionary *data))completion {
+    [self sendRequest:@{@"email": email} toEndpoint:@"pass" withType:@"GET" withCompletion:^(NSDictionary *response) {
+        NSLog(@"%@", response);
+        completion(@{});
+    }];
 }
 
 - (void)refreshSponsors:(void(^)(BOOL success))completion {
