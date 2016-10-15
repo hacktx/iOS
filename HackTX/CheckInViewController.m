@@ -8,11 +8,15 @@
 
 #import "CheckInViewController.h"
 #import "UIColor+Palette.h"
+#import "Hacker.h"
 #import "HTXAPI.h"
 
 @interface CheckInViewController () <UITextFieldDelegate>
 
 @property (nonatomic, retain) CAGradientLayer *gradient;
+@property (nonatomic, retain) NSString *hackerEmail;
+@property (nonatomic, retain) UIView *ticketView;
+@property (nonatomic, retain) Hacker *currentHacker;
 
 @end
 
@@ -21,15 +25,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [tap setCancelsTouchesInView:NO];
-    [self.view addGestureRecognizer:tap];
     
     self.emailInput.delegate = self;
-    [self styleView];
+    [self setupView];
 }
 
 -(void)dismissKeyboard {
@@ -38,26 +36,61 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard];
+    self.hackerEmail = textField.text;
     
-    [HTXAPI fetchPass:textField.text withCompletion:^(NSDictionary *data) {
-        if (data[@"success"]) {
+    [HTXAPI fetchPass:self.hackerEmail withCompletion:^(NSDictionary *response) {
+        if ([response[@"data"][@"email"] isEqualToString:self.hackerEmail]) {
+
+            Hacker *newHacker = [[Hacker alloc] init];
+            newHacker.name = response[@"data"][@"name"];
+            newHacker.email = response[@"data"][@"email"];
+            newHacker.school = response[@"data"][@"school"];
             
+            RLMRealm *realm = [RLMRealm defaultRealm];
+            [realm beginWriteTransaction];
+            [realm addObject:newHacker];
+            [realm commitWriteTransaction];
+            
+            NSLog(@"%@", response[@"data"]);
         }
     }];
 
     return YES;
 }
-- (void)styleView {
-    
-    self.message.textColor = [UIColor htx_lightLightBlue];
-    self.emailInput.textColor = [UIColor htx_lightLightBlue];
+
+- (void)setupView {
     
     self.gradient = [CAGradientLayer layer];
-    
     self.gradient.frame = self.view.bounds;
-
     self.gradient.colors = [NSArray arrayWithObjects:(id)[UIColor htx_lightBlue].CGColor, (id)[UIColor htx_lightLightBlue].CGColor, nil];
+    
     [self.view.layer insertSublayer:self.gradient atIndex:0];
+    
+    RLMResults<Hacker *> *hackers = [Hacker allObjects];
+    
+    if (hackers.count > 0) {
+        self.currentHacker = hackers[0];
+        
+        self.message.hidden = YES;
+        self.emailInput.hidden = YES;
+        
+    } else {
+        
+        self.ticketView.hidden = YES;
+        
+        self.message.hidden = NO;
+        self.emailInput.hidden = NO;
+        self.message.textColor = [UIColor htx_lightLightBlue];
+        self.emailInput.textColor = [UIColor htx_lightLightBlue];
+    
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        [tap setCancelsTouchesInView:NO];
+        [self.view addGestureRecognizer:tap];
+    }
+    
+    
 
 }
 

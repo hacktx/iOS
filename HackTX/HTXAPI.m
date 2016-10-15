@@ -45,9 +45,8 @@
 
 - (void)fetchPass:(NSString *)email
    withCompletion:(void(^)(NSDictionary *data))completion {
-    [self sendRequest:@{@"email": email} toEndpoint:@"pass" withType:@"GET" withCompletion:^(NSDictionary *response) {
-        NSLog(@"%@", response);
-        completion(@{});
+    [self sendRequest:@{@"email": email} toEndpoint:@"pass.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
+        completion(response);
     }];
 }
 
