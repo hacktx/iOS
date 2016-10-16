@@ -11,6 +11,7 @@
 
 #import "AutolayoutHelper.h"
 #import "UIColor+Palette.h"
+#import "SVProgressHUD.h"
 #import "Announcement.h"
 #import "FCAlertView.h"
 #import "HTXAPI.h"
@@ -73,12 +74,12 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
 
 - (void)initData {
     self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
-    self.tableView.hidden = YES;
+    [SVProgressHUD show];
     
     if (self.announcements.count > 0) {
         self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
         
-        self.tableView.hidden = NO;
+        [SVProgressHUD dismiss];
         [self.tableView reloadData];
         
         [HTXAPI refreshAnnouncements:^(BOOL success) {
