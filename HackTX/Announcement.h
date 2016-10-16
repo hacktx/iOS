@@ -10,6 +10,7 @@
 
 @interface Announcement : RLMObject
 
+@property NSString *serverID;
 @property NSString *text;
 @property NSDate *timestamp;
 

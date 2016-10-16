@@ -12,6 +12,7 @@
 
 + (void)fetchPass:(NSString *)email withPassData:(void(^)(NSData *data))passData;
 + (void)fetchHacker:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion;
++ (void)refreshAnnouncements:(void(^)(BOOL success))completion;
 + (void)refreshEvents:(void(^)(BOOL success))completion;
 + (void)refreshSponsors:(void(^)(BOOL success))completion;
 

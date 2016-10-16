@@ -10,6 +10,7 @@
 #import "HTXConstants.h"
 #import "AFNetworking.h"
 #import "NSString+MD5.h"
+#import "Announcement.h"
 #import "Sponsor.h"
 #import "Event.h"
 
@@ -30,6 +31,10 @@
 
 + (void)fetchHacker:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion {
     return [[[HTXAPI alloc] init] fetchHacker:email withCompletion:completion];
+}
+
++ (void)refreshAnnouncements:(void(^)(BOOL success))completion {
+    return [[[HTXAPI alloc] init] refreshAnnouncements:completion];
 }
 
 + (void)refreshEvents:(void(^)(BOOL success))completion {
@@ -65,6 +70,30 @@
    withCompletion:(void(^)(NSDictionary *data))completion {
     [self sendRequest:@{@"email": email} toEndpoint:@"pass.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
         completion(response);
+    }];
+}
+
+- (void)refreshAnnouncements:(void(^)(BOOL success))completion {
+    [self sendRequest:nil toEndpoint:@"announcements" withType:@"GET" withCompletion:^(NSDictionary *response) {
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
+        
+        if (response[@"success"]) {
+            for (id object in response[@"data"][@"data"]) {
+                Announcement *newAnnouncement = [[Announcement alloc] init];
+                
+                newAnnouncement.serverID = [NSString stringWithFormat:@"%@%@", [object[@"text"] MD5], [object[@"timestamp"] MD5]];
+                newAnnouncement.text = object[@"text"];
+                newAnnouncement.timestamp = [dateFormat dateFromString:object[@"timestamp"]];
+                
+                [realm beginWriteTransaction];
+                [realm addOrUpdateObject:newAnnouncement];
+                [realm commitWriteTransaction];
+            }
+            completion(YES);
+        }
     }];
 }
 
@@ -109,8 +138,6 @@
                 newEvent.name = object[@"eventsList"][0][@"name"];
                 newEvent.desc = object[@"eventsList"][0][@"description"];
                 newEvent.imageURL = object[@"eventsList"][0][@"imageUrl"];
-                NSLog(@"%@", object[@"eventsList"][0][@"startDate"]);
-                NSLog(@"%@", [dateFormat dateFromString:object[@"eventsList"][0][@"startDate"]]);
                 newEvent.startDate = [dateFormat dateFromString:object[@"eventsList"][0][@"startDate"]];
                 newEvent.endDate = [dateFormat dateFromString:object[@"eventsList"][0][@"endDate"]];
     

@@ -10,6 +10,10 @@
 
 @implementation Announcement
 
++ (NSString *)primaryKey {
+    return @"serverID";
+}
+
 // Specify default values for properties
 
 //+ (NSDictionary *)defaultPropertyValues

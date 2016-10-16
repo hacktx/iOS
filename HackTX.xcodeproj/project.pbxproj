@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E5410941E35FEC803EA8E2D /* libPods-HackTX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B67A442663439B9AD415E5F6 /* libPods-HackTX.a */; };
+		8200AD711DB3577400D4EE11 /* AnnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8200AD6F1DB3577400D4EE11 /* AnnouncementTableViewCell.m */; };
+		8200AD721DB3577400D4EE11 /* AnnouncementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8200AD701DB3577400D4EE11 /* AnnouncementTableViewCell.xib */; };
 		820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820B450A1D9624B1002A26BA /* SponsorTableViewCell.m */; };
 		820B450D1D9624B1002A26BA /* SponsorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820B450B1D9624B1002A26BA /* SponsorTableViewCell.xib */; };
 		8215AD7F1D8DBE3700377370 /* Sponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD7E1D8DBE3700377370 /* Sponsor.m */; };
@@ -17,9 +19,6 @@
 		8215AD8C1D8DC70F00377370 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD8B1D8DC70F00377370 /* Speaker.m */; };
 		8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD8E1D8DC88100377370 /* HTXAPI.m */; };
 		8215AD921D8DD26C00377370 /* SponsorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD911D8DD26C00377370 /* SponsorViewController.m */; };
-		8215AD9A1D8DD36000377370 /* AnnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD991D8DD36000377370 /* AnnouncementTableViewController.m */; };
-		8215AD9E1D8DD37B00377370 /* AnnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD9C1D8DD37B00377370 /* AnnouncementTableViewCell.m */; };
-		8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */; };
 		8215ADAF1D8E27F800377370 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215ADAE1D8E27F800377370 /* NSString+MD5.m */; };
 		8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */; };
 		8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */; };
@@ -56,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.release.xcconfig"; sourceTree = "<group>"; };
+		8200AD6E1DB3577400D4EE11 /* AnnouncementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewCell.h; sourceTree = "<group>"; };
+		8200AD6F1DB3577400D4EE11 /* AnnouncementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewCell.m; sourceTree = "<group>"; };
+		8200AD701DB3577400D4EE11 /* AnnouncementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewCell.xib; sourceTree = "<group>"; };
 		820B45091D9624B1002A26BA /* SponsorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorTableViewCell.h; sourceTree = "<group>"; };
 		820B450A1D9624B1002A26BA /* SponsorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorTableViewCell.m; sourceTree = "<group>"; };
 		820B450B1D9624B1002A26BA /* SponsorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SponsorTableViewCell.xib; sourceTree = "<group>"; };
@@ -73,11 +75,6 @@
 		8215AD8E1D8DC88100377370 /* HTXAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXAPI.m; sourceTree = "<group>"; };
 		8215AD901D8DD26C00377370 /* SponsorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SponsorViewController.h; sourceTree = "<group>"; };
 		8215AD911D8DD26C00377370 /* SponsorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SponsorViewController.m; sourceTree = "<group>"; };
-		8215AD981D8DD36000377370 /* AnnouncementTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewController.h; sourceTree = "<group>"; };
-		8215AD991D8DD36000377370 /* AnnouncementTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewController.m; sourceTree = "<group>"; };
-		8215AD9B1D8DD37B00377370 /* AnnouncementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewCell.h; sourceTree = "<group>"; };
-		8215AD9C1D8DD37B00377370 /* AnnouncementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewCell.m; sourceTree = "<group>"; };
-		8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewCell.xib; sourceTree = "<group>"; };
 		8215ADAD1D8E27F700377370 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		8215ADAE1D8E27F800377370 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		8221B2041DAEF9D900FB1BE1 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
@@ -215,13 +212,11 @@
 		8215AD961D8DD2D100377370 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
-				8215AD981D8DD36000377370 /* AnnouncementTableViewController.h */,
-				8215AD991D8DD36000377370 /* AnnouncementTableViewController.m */,
-				8215AD9B1D8DD37B00377370 /* AnnouncementTableViewCell.h */,
-				8215AD9C1D8DD37B00377370 /* AnnouncementTableViewCell.m */,
-				8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */,
 				822A4DB51D779DD100C65761 /* AnnouncementsViewController.h */,
 				822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */,
+				8200AD6E1DB3577400D4EE11 /* AnnouncementTableViewCell.h */,
+				8200AD6F1DB3577400D4EE11 /* AnnouncementTableViewCell.m */,
+				8200AD701DB3577400D4EE11 /* AnnouncementTableViewCell.xib */,
 			);
 			name = Announcement;
 			sourceTree = "<group>";
@@ -395,7 +390,7 @@
 				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
-				8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */,
+				8200AD721DB3577400D4EE11 /* AnnouncementTableViewCell.xib in Resources */,
 				82BAC6D31D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf in Resources */,
 				82BAC6D61D9D1FC000BF62C0 /* JosefinSans-LightItalic.ttf in Resources */,
 				82BFF6D71D9E662600DB2543 /* partners.json in Resources */,
@@ -485,13 +480,13 @@
 				82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */,
 				8215AD7F1D8DBE3700377370 /* Sponsor.m in Sources */,
 				822A4DB41D779DBD00C65761 /* ScheduleViewController.m in Sources */,
-				8215AD9A1D8DD36000377370 /* AnnouncementTableViewController.m in Sources */,
 				822A4D981D779BCD00C65761 /* main.m in Sources */,
 				8215ADAF1D8E27F800377370 /* NSString+MD5.m in Sources */,
 				8215AD861D8DC53D00377370 /* Location.m in Sources */,
 				8215AD831D8DC49F00377370 /* Announcement.m in Sources */,
 				820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */,
 				8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */,
+				8200AD711DB3577400D4EE11 /* AnnouncementTableViewCell.m in Sources */,
 				8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */,
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,
 				8215AD891D8DC63F00377370 /* Event.m in Sources */,
@@ -501,7 +496,6 @@
 				8215AD8C1D8DC70F00377370 /* Speaker.m in Sources */,
 				8215AD921D8DD26C00377370 /* SponsorViewController.m in Sources */,
 				82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */,
-				8215AD9E1D8DD37B00377370 /* AnnouncementTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
