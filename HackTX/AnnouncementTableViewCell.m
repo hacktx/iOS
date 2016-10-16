@@ -28,6 +28,7 @@
     self.cardView.layer.shadowOffset = CGSizeMake(0.0, .25);
     self.cardView.layer.shadowRadius = 1.0;
     self.cardView.layer.shadowOpacity = 0.2;
+    
 
 }
 

@@ -21,7 +21,7 @@
 @interface SponsorViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIActivityIndicatorView *loadingView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray<NSArray<Sponsor *> *> *sponsors;
 
 @end
@@ -42,6 +42,10 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.allowsSelection = YES;
     self.tableView.backgroundColor = [UIColor htx_white];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView setRefreshControl:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(hardRefresh) forControlEvents:UIControlEventValueChanged];
+    
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
     
@@ -51,6 +55,35 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
     
     [self initData];
+}
+
+- (void)hardRefresh {
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm deleteObjects:[Sponsor allObjects]];
+    [realm commitWriteTransaction];
+    
+    [HTXAPI refreshSponsors:^(BOOL success) {
+        if (success) {
+            [self.refreshControl endRefreshing];
+            [self refreshData];
+        } else {
+            [self.refreshControl endRefreshing];
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Network error"
+                      withSubtitle:@"There was an error fetching the sponsors, please try again later. 😥"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
+            
+            NSLog(@"[HTX] Sponsor refresh failed");
+        }
+    }];
 }
 
 - (void)refresh {

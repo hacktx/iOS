@@ -19,6 +19,7 @@
 @interface AnnouncementsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) RLMResults<Announcement *> *announcements;
 
 @end
@@ -40,6 +41,10 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView setRefreshControl:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(hardRefresh) forControlEvents:UIControlEventValueChanged];
+    
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
     
@@ -50,6 +55,35 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
     
     [self initData];
     
+}
+
+- (void)hardRefresh {
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm deleteObjects:[Announcement allObjects]];
+    [realm commitWriteTransaction];
+    
+    [HTXAPI refreshAnnouncements:^(BOOL success) {
+        if (success) {
+            [self.refreshControl endRefreshing];
+            [self refreshData];
+        } else {
+            [self.refreshControl endRefreshing];
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Network error"
+                      withSubtitle:@"There was an error fetching the announcements, please try again later. 😥"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
+            
+            NSLog(@"[HTX] Announcements refresh failed");
+        }
+    }];
 }
 
 - (void)refresh {
