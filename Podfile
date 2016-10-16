@@ -16,4 +16,5 @@ target 'HackTX' do
   pod 'GooglePlaces'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'SVProgressHUD'
 end

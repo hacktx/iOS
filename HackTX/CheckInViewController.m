@@ -9,8 +9,11 @@
 #import "CheckInViewController.h"
 #import "UIColor+Palette.h"
 #import "AutolayoutHelper.h"
+#import "SVProgressHUD.h"
 #import "Hacker.h"
 #import "HTXAPI.h"
+
+@import PassKit;
 
 @interface CheckInViewController () <UITextFieldDelegate>
 
@@ -29,7 +32,6 @@
     
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [[NSBundle mainBundle] loadNibNamed:@"TicketView" owner:self options:nil];
     
     self.emailInput.delegate = self;
     [self setupView];
@@ -39,7 +41,7 @@
     [self dismissKeyboard];
     self.hackerEmail = textField.text;
     
-    [HTXAPI fetchPass:self.hackerEmail withCompletion:^(NSDictionary *response) {
+    [HTXAPI fetchHacker:self.hackerEmail withCompletion:^(NSDictionary *response) {
         if ([response[@"data"][@"email"] isEqualToString:self.hackerEmail]) {
 
             Hacker *newHacker = [[Hacker alloc] init];
@@ -53,6 +55,7 @@
             [realm commitWriteTransaction];
             
             [self updateView];
+            [self showPass];
         }
     }];
 
@@ -60,22 +63,39 @@
 }
 
 
+- (void)showPass {
+    [SVProgressHUD show];
+    [HTXAPI fetchPass:self.hackerEmail withPassData:^(NSData *data) {
+        [SVProgressHUD dismiss];
+        PKPass *pass = [[PKPass alloc] initWithData:data error:nil];
+        PKAddPassesViewController *passVC = [[[PKAddPassesViewController alloc] init] initWithPass:pass];
+        [self presentViewController:passVC animated:YES completion:nil];
+    }];
+}
+
 - (void)updateView {
     RLMResults<Hacker *> *hackers = [Hacker allObjects];
     
     if (hackers.count > 0) {
-        self.message.hidden = YES;
+        self.hackerEmail = hackers[0].email;
+        
+        self.header.text = @"You are all set, Jose!";
+        self.message.text = @"Add the pass to your wallet, and show it to a volunteer when checking in.";
+        self.addToWallet.hidden = NO;
         self.emailInput.hidden = YES;
         
-        [self.view addSubview:self.ticketView];
-        [AutolayoutHelper configureView:self.view fillWithSubView:self.ticketView];
+        [self.addToWallet addTarget:self action:@selector(showPass) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view removeGestureRecognizer:self.tap];
 
         
     } else {
+        self.header.text = @"Welcome to HackTX!";
+        self.message.text = @"Enter the email you used during registration to fetch your ticket.";
+        
         self.message.hidden = NO;
         self.emailInput.hidden = NO;
+        self.addToWallet.hidden = YES;
         
         self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
         
@@ -94,6 +114,7 @@
     [self.view.layer insertSublayer:self.gradient atIndex:0];
     
     self.message.textColor = [UIColor htx_white];
+    self.header.textColor = [UIColor htx_white];
     self.emailInput.tintColor = [UIColor htx_white];
     self.emailInput.textColor = [UIColor htx_white];
     

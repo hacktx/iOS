@@ -24,8 +24,12 @@
     return self;
 }
 
-+ (void)fetchPass:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion {
-    return [[[HTXAPI alloc] init] fetchPass:email withCompletion:completion];
++ (void)fetchPass:(NSString *)email withPassData:(void(^)(NSData *data))passData {
+    return [[[HTXAPI alloc] init] fetchPass:email withPassData:passData];
+}
+
++ (void)fetchHacker:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion {
+    return [[[HTXAPI alloc] init] fetchHacker:email withCompletion:completion];
 }
 
 + (void)refreshEvents:(void(^)(BOOL success))completion {
@@ -44,6 +48,20 @@
 }
 
 - (void)fetchPass:(NSString *)email
+     withPassData:(void(^)(NSData *data))passData {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:@"https://joseb.me/hacktx/gen_pass.php" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
+        passData(responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"%% %@", error);
+    }];
+
+}
+
+- (void)fetchHacker:(NSString *)email
    withCompletion:(void(^)(NSDictionary *data))completion {
     [self sendRequest:@{@"email": email} toEndpoint:@"pass.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
         completion(response);

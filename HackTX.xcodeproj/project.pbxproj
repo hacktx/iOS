@@ -20,7 +20,6 @@
 		8215AD9A1D8DD36000377370 /* AnnouncementTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD991D8DD36000377370 /* AnnouncementTableViewController.m */; };
 		8215AD9E1D8DD37B00377370 /* AnnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215AD9C1D8DD37B00377370 /* AnnouncementTableViewCell.m */; };
 		8215AD9F1D8DD37B00377370 /* AnnouncementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */; };
-		8215ADAB1D8E230F00377370 /* HTXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215ADA91D8E230F00377370 /* HTXTableViewCell.m */; };
 		8215ADAF1D8E27F800377370 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215ADAE1D8E27F800377370 /* NSString+MD5.m */; };
 		8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */; };
 		8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */; };
@@ -36,10 +35,8 @@
 		822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */; };
 		822A4DC01D779DF100C65761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBF1D779DF100C65761 /* MapViewController.m */; };
 		822E95191D7FF4EE00C0402E /* HTXConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E95181D7FF4EE00C0402E /* HTXConstants.m */; };
-		82A3262C1DB2E2E30043E80E /* TicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A3262B1DB2E2E30043E80E /* TicketView.xib */; };
 		82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */; };
 		82BA003D1D8149B1006CA2C6 /* UIColor+Palette.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA003C1D8149B1006CA2C6 /* UIColor+Palette.m */; };
-		82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BA003F1D814ABA006CA2C6 /* CountdownView.m */; };
 		82BAC6D21D9D1FC000BF62C0 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6C81D9D1FC000BF62C0 /* JosefinSans-Bold.ttf */; };
 		82BAC6D31D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6C91D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf */; };
 		82BAC6D41D9D1FC000BF62C0 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 82BAC6CA1D9D1FC000BF62C0 /* JosefinSans-Italic.ttf */; };
@@ -81,8 +78,6 @@
 		8215AD9B1D8DD37B00377370 /* AnnouncementTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementTableViewCell.h; sourceTree = "<group>"; };
 		8215AD9C1D8DD37B00377370 /* AnnouncementTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementTableViewCell.m; sourceTree = "<group>"; };
 		8215AD9D1D8DD37B00377370 /* AnnouncementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementTableViewCell.xib; sourceTree = "<group>"; };
-		8215ADA81D8E230F00377370 /* HTXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXTableViewCell.h; sourceTree = "<group>"; };
-		8215ADA91D8E230F00377370 /* HTXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXTableViewCell.m; sourceTree = "<group>"; };
 		8215ADAD1D8E27F700377370 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		8215ADAE1D8E27F800377370 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		8221B2041DAEF9D900FB1BE1 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
@@ -108,13 +103,10 @@
 		822A4DBF1D779DF100C65761 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		822E95171D7FF4EE00C0402E /* HTXConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXConstants.h; sourceTree = "<group>"; };
 		822E95181D7FF4EE00C0402E /* HTXConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXConstants.m; sourceTree = "<group>"; };
-		82A3262B1DB2E2E30043E80E /* TicketView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
 		82BA00381D81492F006CA2C6 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		82BA003B1D8149B1006CA2C6 /* UIColor+Palette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Palette.h"; sourceTree = "<group>"; };
 		82BA003C1D8149B1006CA2C6 /* UIColor+Palette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Palette.m"; sourceTree = "<group>"; };
-		82BA003E1D814ABA006CA2C6 /* CountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownView.h; sourceTree = "<group>"; };
-		82BA003F1D814ABA006CA2C6 /* CountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownView.m; sourceTree = "<group>"; };
 		82BAC6C81D9D1FC000BF62C0 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
 		82BAC6C91D9D1FC000BF62C0 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		82BAC6CA1D9D1FC000BF62C0 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -255,9 +247,10 @@
 		822A4D951D779BCD00C65761 /* HackTX */ = {
 			isa = PBXGroup;
 			children = (
+				822A4D961D779BCD00C65761 /* Supporting Files */,
+				82BAC6DC1D9D1FC400BF62C0 /* Fonts */,
 				82D303C71DB23BB2003C98ED /* HackTX.entitlements */,
 				82BFF6D61D9E662600DB2543 /* partners.json */,
-				82BAC6DC1D9D1FC400BF62C0 /* Fonts */,
 				8215AD8D1D8DC88100377370 /* HTXAPI.h */,
 				8215AD8E1D8DC88100377370 /* HTXAPI.m */,
 				8221B2091DAF109B00FB1BE1 /* HTXAPIKeyStore.h */,
@@ -272,10 +265,6 @@
 				8215AD951D8DD2BA00377370 /* Map */,
 				8215AD961D8DD2D100377370 /* Announcement */,
 				82EAFC891DB200DB0061C449 /* Check In */,
-				8215ADA81D8E230F00377370 /* HTXTableViewCell.h */,
-				8215ADA91D8E230F00377370 /* HTXTableViewCell.m */,
-				82BA003E1D814ABA006CA2C6 /* CountdownView.h */,
-				82BA003F1D814ABA006CA2C6 /* CountdownView.m */,
 				82BA003B1D8149B1006CA2C6 /* UIColor+Palette.h */,
 				82BA003C1D8149B1006CA2C6 /* UIColor+Palette.m */,
 				822A4DA21D779BCD00C65761 /* Main.storyboard */,
@@ -283,7 +272,6 @@
 				822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */,
 				822A4DAA1D779BCD00C65761 /* Info.plist */,
 				822A4DB01D779D8800C65761 /* GoogleService-Info.plist */,
-				822A4D961D779BCD00C65761 /* Supporting Files */,
 			);
 			path = HackTX;
 			sourceTree = "<group>";
@@ -323,7 +311,6 @@
 			children = (
 				82EAFC841DB200D50061C449 /* CheckInViewController.h */,
 				82EAFC851DB200D50061C449 /* CheckInViewController.m */,
-				82A3262B1DB2E2E30043E80E /* TicketView.xib */,
 				82EAFC861DB200D50061C449 /* CheckInViewController.xib */,
 			);
 			name = "Check In";
@@ -405,7 +392,6 @@
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
 				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
-				82A3262C1DB2E2E30043E80E /* TicketView.xib in Resources */,
 				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
@@ -495,7 +481,6 @@
 			files = (
 				822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */,
 				822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */,
-				8215ADAB1D8E230F00377370 /* HTXTableViewCell.m in Sources */,
 				822E95191D7FF4EE00C0402E /* HTXConstants.m in Sources */,
 				82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */,
 				8215AD7F1D8DBE3700377370 /* Sponsor.m in Sources */,
@@ -506,7 +491,6 @@
 				8215AD861D8DC53D00377370 /* Location.m in Sources */,
 				8215AD831D8DC49F00377370 /* Announcement.m in Sources */,
 				820B450C1D9624B1002A26BA /* SponsorTableViewCell.m in Sources */,
-				82BA00401D814ABA006CA2C6 /* CountdownView.m in Sources */,
 				8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */,
 				8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */,
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,

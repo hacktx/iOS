@@ -51,6 +51,7 @@ PODS:
   - Realm (2.0.2):
     - Realm/Headers (= 2.0.2)
   - Realm/Headers (2.0.2)
+  - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - GooglePlaces
   - MBProgressHUD (~> 1.0.0)
   - Realm
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -81,7 +83,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: b0f4000d133b99451e8d0dc2d4c0157813612ef7
+PODFILE CHECKSUM: fc09cdb7b8e3c2223d7bbe726f02676910f43dc7
 
 COCOAPODS: 1.0.1

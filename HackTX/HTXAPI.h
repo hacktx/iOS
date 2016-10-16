@@ -10,7 +10,8 @@
 
 @interface HTXAPI : NSObject
 
-+ (void)fetchPass:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion;
++ (void)fetchPass:(NSString *)email withPassData:(void(^)(NSData *data))passData;
++ (void)fetchHacker:(NSString *)email withCompletion:(void(^)(NSDictionary *data))completion;
 + (void)refreshEvents:(void(^)(BOOL success))completion;
 + (void)refreshSponsors:(void(^)(BOOL success))completion;
 
