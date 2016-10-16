@@ -22,7 +22,7 @@
 
 @end
 
-static NSString *reuseIdentifier = @"com.HackTX.announcements";
+static NSString *reuseIdentifier = @"com.HackTX.announcement";
 
 @implementation AnnouncementsViewController
 
@@ -32,17 +32,17 @@ static NSString *reuseIdentifier = @"com.HackTX.announcements";
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 85;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 100;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
     
-    UINib *nib = [UINib nibWithNibName:@"AnnouncementTableviewCell" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:@"AnnouncementTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:reuseIdentifier];
     
     [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
@@ -72,11 +72,11 @@ static NSString *reuseIdentifier = @"com.HackTX.announcements";
 }
 
 - (void)initData {
-    self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:YES];
+    self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
     self.tableView.hidden = YES;
     
     if (self.announcements.count > 0) {
-        self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:YES];
+        self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
         
         self.tableView.hidden = NO;
         [self.tableView reloadData];
@@ -93,35 +93,25 @@ static NSString *reuseIdentifier = @"com.HackTX.announcements";
 }
 
 - (void)refreshData {
-    self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:YES];
+    self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
     [self.tableView reloadData];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor clearColor];
-    return headerView;
-}
-
-- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AnnouncementTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.dateStyle = NSDateFormatterNoStyle;
+          
     cell.text.text = self.announcements[indexPath.row].text;
-    cell.time.text = self.announcements[indexPath.row].text;
+    cell.time.text = [formatter stringFromDate:self.announcements[indexPath.row].timestamp];
     
     return cell;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.announcements.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.announcements.count;
 }
 
 - (void)didReceiveMemoryWarning {

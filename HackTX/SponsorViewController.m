@@ -39,7 +39,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.rowHeight = 70;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.allowsSelection = NO;
+    self.tableView.allowsSelection = YES;
     self.tableView.backgroundColor = [UIColor htx_white];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
@@ -135,6 +135,12 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     return 40;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSURL *sponsorURL = [NSURL URLWithString:self.sponsors[indexPath.section][indexPath.row].website];
+    [[UIApplication sharedApplication] openURL:sponsorURL];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SponsorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     
@@ -155,9 +161,6 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
                                        
                                    } failure:nil];
     
-//    cell.layer.cornerRadius = 5;
-//    cell.layer.masksToBounds = true;
-//    
     return cell;
 }
 

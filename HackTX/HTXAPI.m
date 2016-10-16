@@ -74,19 +74,19 @@
 }
 
 - (void)refreshAnnouncements:(void(^)(BOOL success))completion {
-    [self sendRequest:nil toEndpoint:@"announcements" withType:@"GET" withCompletion:^(NSDictionary *response) {
+    [self sendRequest:nil toEndpoint:@"announcements.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
-        
+
         if (response[@"success"]) {
-            for (id object in response[@"data"][@"data"]) {
+            for (id object in response[@"data"]) {
                 Announcement *newAnnouncement = [[Announcement alloc] init];
                 
-                newAnnouncement.serverID = [NSString stringWithFormat:@"%@%@", [object[@"text"] MD5], [object[@"timestamp"] MD5]];
+                newAnnouncement.serverID = [NSString stringWithFormat:@"%@%@", [object[@"text"] MD5], [object[@"ts"] MD5]];
                 newAnnouncement.text = object[@"text"];
-                newAnnouncement.timestamp = [dateFormat dateFromString:object[@"timestamp"]];
+                newAnnouncement.timestamp = [dateFormat dateFromString:object[@"ts"]];
                 
                 [realm beginWriteTransaction];
                 [realm addOrUpdateObject:newAnnouncement];
