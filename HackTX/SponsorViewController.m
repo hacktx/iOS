@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "AutolayoutHelper.h"
 #import "UIColor+Palette.h"
+#import "SVProgressHUD.h"
 #import "FCAlertView.h"
 #import "Sponsor.h"
 #import "HTXAPI.h"
@@ -109,13 +110,13 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
 - (void)initData {
     RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
-    self.tableView.hidden = YES;
+    [SVProgressHUD show];
 
     if (sponsorResult.count > 0) {
         RLMResults<Sponsor *> *sponsorResult = [[Sponsor allObjects] sortedResultsUsingProperty:@"level" ascending:YES];
         [self transformRLMArray:sponsorResult];
         
-        self.tableView.hidden = NO;
+        [SVProgressHUD dismiss];
         [self.tableView reloadData];
         
         [HTXAPI refreshSponsors:^(BOOL success) {
@@ -179,7 +180,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     
     cell.name.text = self.sponsors[indexPath.section][indexPath.row].name;
     cell.url.text = self.sponsors[indexPath.section][indexPath.row].website;
-    UIImage *placeholderImage = [UIImage imageNamed:@"icon_htx_not"];
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon_htx"];
     
     __weak SponsorTableViewCell *weakCell = cell;
     NSURL *url = [NSURL URLWithString:self.sponsors[indexPath.section][indexPath.row].logoImage];

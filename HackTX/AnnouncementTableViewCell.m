@@ -14,9 +14,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    
-//    self.name.font = [UIFont fontWithName:@"JosefinSans" size:18];
-//    self.url.font = [UIFont fontWithName:@"JosefinSans" size:18];
+
     self.time.textColor = [UIColor htx_red];
     
     self.backgroundColor = [UIColor clearColor];

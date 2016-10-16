@@ -11,6 +11,7 @@
 
 #import "AutolayoutHelper.h"
 #import "UIColor+Palette.h"
+#import "SVProgressHUD.h"
 #import "FCAlertView.h"
 #import "HTXAPI.h"
 #import "Event.h"
@@ -18,7 +19,7 @@
 @interface ScheduleViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIActivityIndicatorView *loadingView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray<NSArray<Event *> *> *events;
 
 @end
@@ -36,9 +37,13 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 100;
+    self.tableView.estimatedRowHeight = 85;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView setRefreshControl:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(hardRefresh) forControlEvents:UIControlEventValueChanged];
     
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
@@ -49,6 +54,36 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
     
     [self initData];
+}
+
+- (void)hardRefresh {
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    [realm deleteObjects:[Event allObjects]];
+    [realm commitWriteTransaction];
+    
+    [HTXAPI refreshEvents:^(BOOL success) {
+        if (success) {
+            [self.refreshControl endRefreshing];
+            [self refreshData];
+        } else {
+            [self.refreshControl endRefreshing];
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Network error"
+                      withSubtitle:@"There was an error fetching the schedule, please try again later. 😥"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
+            
+            NSLog(@"[HTX] Schedule refresh failed");
+        }
+    }];
+    
 }
 
 - (void)refresh {
@@ -73,14 +108,14 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 
 - (void)initData {
     RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
-    self.tableView.hidden = YES;
+    [SVProgressHUD show];
 
     if (eventResult.count > 0) {
         RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
 
         [self transformRLMArray:eventResult];
         
-        self.tableView.hidden = NO;
+        [SVProgressHUD dismiss];
         [self.tableView reloadData];
         
         [HTXAPI refreshSponsors:^(BOOL success) {
