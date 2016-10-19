@@ -111,7 +111,7 @@
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         if ([response[@"success"] boolValue]){
-            for (id object in response[@"data"][@"data"]) {
+            for (id object in response[@"data"]) {
                 Sponsor *newSponsor = [[Sponsor alloc] init];
                 
                 newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
@@ -140,24 +140,27 @@
         
         if ([response[@"success"] boolValue]) {
             for (id object in response[@"data"][@"data"]) {
-                Event *newEvent = [[Event alloc] init];
-                newEvent.serverID = [object[@"eventsList"][0][@"id"] stringValue];
-                newEvent.name = object[@"eventsList"][0][@"name"];
-                newEvent.desc = object[@"eventsList"][0][@"description"];
-                newEvent.imageURL = object[@"eventsList"][0][@"imageUrl"];
-                newEvent.startDate = [dateFormat dateFromString:object[@"eventsList"][0][@"startDate"]];
-                newEvent.endDate = [dateFormat dateFromString:object[@"eventsList"][0][@"endDate"]];
-    
-                Location *newLocation = [[Location alloc] init];
-                newLocation.building = object[@"eventsList"][0][@"location"][@"building"];
-                newLocation.level = object[@"eventsList"][0][@"location"][@"level"];
-                newLocation.room = object[@"eventsList"][0][@"location"][@"room"];
-    
-                newEvent.location = newLocation;
-                              
-                [realm beginWriteTransaction];
-                [Event createOrUpdateInRealm:realm withValue:newEvent];
-                [realm commitWriteTransaction];
+                
+                for (id eventObject in object[@"eventsList"]) {
+                    Event *newEvent = [[Event alloc] init];
+                    newEvent.serverID = [eventObject[@"id"] stringValue];
+                    newEvent.name = eventObject[@"name"];
+                    newEvent.desc = eventObject[@"description"];
+                    newEvent.imageURL = eventObject[@"imageUrl"];
+                    newEvent.startDate = [dateFormat dateFromString:eventObject[@"startDate"]];
+                    newEvent.endDate = [dateFormat dateFromString:eventObject[@"endDate"]];
+                    
+                    Location *newLocation = [[Location alloc] init];
+                    newLocation.building = eventObject[@"location"][@"building"];
+                    newLocation.level = eventObject[@"location"][@"level"];
+                    newLocation.room = eventObject[@"location"][@"room"];
+                    
+                    newEvent.location = newLocation;
+                    
+                    [realm beginWriteTransaction];
+                    [Event createOrUpdateInRealm:realm withValue:newEvent];
+                    [realm commitWriteTransaction];
+                }
             }
             completion(YES);
         } else {

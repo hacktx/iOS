@@ -181,9 +181,17 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle = NSDateFormatterShortStyle;
+    formatter.dateStyle = NSDateFormatterNoStyle;
+    
+    NSString *startTS = [formatter stringFromDate:self.events[indexPath.section][indexPath.row].startDate];
+    NSString *endTS =[formatter stringFromDate:self.events[indexPath.section][indexPath.row].endDate];
+    
     cell.name.text = self.events[indexPath.section][indexPath.row].name;
     cell.desc.text = self.events[indexPath.section][indexPath.row].desc;
-    cell.time.text = self.events[indexPath.section][indexPath.row].location.room;
+    cell.location.text = self.events[indexPath.section][indexPath.row].location.room;
+    cell.time.text = [NSString stringWithFormat:@"%@ - %@", startTS, endTS];
     
     return cell;
 }

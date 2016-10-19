@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *desc;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 

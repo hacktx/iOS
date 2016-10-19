@@ -16,6 +16,7 @@
     [super awakeFromNib];
     
     self.name.textColor = [UIColor htx_red];
+    self.location.textColor = [UIColor htx_lightBlue];
     
     self.backgroundColor = [UIColor clearColor];
     
