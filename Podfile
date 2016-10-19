@@ -6,7 +6,8 @@ target 'HackTX' do
   # use_frameworks!
 
   # Pods for HackTX
-  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'Realm'
   pod 'AFNetworking'

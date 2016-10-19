@@ -8,7 +8,13 @@
 
 #import "AppDelegate.h"
 
+#if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+@import UserNotifications;
+#endif
+
 @import Firebase;
+@import FirebaseInstanceID;
+@import FirebaseMessaging;
 @import GoogleMaps;
 
 #import "AnnouncementsViewController.h"
@@ -23,7 +29,9 @@
 #import <Crashlytics/Crashlytics.h>
 
 
-@interface AppDelegate ()
+#if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
+#endif
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
@@ -38,6 +46,32 @@
     [Fabric with:@[[Crashlytics class]]];
     [GMSServices provideAPIKey:[[HTXAPIKeyStore sharedHTXAPIKeyStore] getGMSKey]];
     [FIRApp configure];
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
+        UIUserNotificationType allNotificationTypes =
+        (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+        UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    } else {
+        // iOS 10 or later
+        #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
+        UNAuthorizationOptions authOptions =
+        UNAuthorizationOptionAlert
+        | UNAuthorizationOptionSound
+        | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter]
+         requestAuthorizationWithOptions:authOptions
+         completionHandler:^(BOOL granted, NSError * _Nullable error) {
+         }
+         ];
+        
+        // For iOS 10 display notification (sent via APNS)
+        [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+        #endif
+    }
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     ScheduleViewController *vc1 = [[ScheduleViewController alloc] init];
     AnnouncementsViewController *vc2 = [[AnnouncementsViewController alloc] init];
@@ -75,6 +109,9 @@
     
 
     return YES;
+}
+
+- (void)FIRPushConfig {
 }
 
 

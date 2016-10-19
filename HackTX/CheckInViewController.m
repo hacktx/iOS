@@ -79,7 +79,7 @@
     if (hackers.count > 0) {
         self.hackerEmail = hackers[0].email;
         
-        self.header.text = @"You are all set, Jose!";
+        self.header.text = [NSString stringWithFormat:@"You are all set, %@", hackers[0].name];
         self.message.text = @"Add the pass to your wallet, and show it to a volunteer when checking in.";
         self.addToWallet.hidden = NO;
         self.emailInput.hidden = YES;

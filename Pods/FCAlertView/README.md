@@ -18,7 +18,7 @@ FCAlertView is a Flat Customizable AlertView, written in Objective C
 
 #Swift
 
-For the swift version of FCAlertView, [click here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writting the swift library.
+For the swift version of FCAlertView, [Click Here](https://github.com/k9101/FCAlertView). Credits to [Kris Penney](https://github.com/k9101) for writting the swift library.
 
 #Installation
 
@@ -86,7 +86,7 @@ You can also present your FCAlertView using the following:
             andButtons:nil];
 ```    
 
-## Base Customizations 
+# Base Customizations 
 
 - **Title (NSString):** You can leave the Title as ```nil``` or Give it an ```NSString```.
 
@@ -116,7 +116,7 @@ Alternatively, you can add buttons to FCAlertView with action block like so:
 }];
 ```
 
-## Extra Customizations 
+# Extra Customizations 
 
 This section includes all the tiny details that you can customize your alert with, which makes FCAlertView very customizable. Or leave it as is and enjoy the simplicity. 
 
@@ -241,6 +241,42 @@ alert.hideAllButtons = YES;
 
 Please note that hiding Done/Dismiss Button and/or Hiding All Buttons would trigger a safety close mechanism by forcing Close on Outside Touch to stay ON.
 
+## New Customizations (after V1.1.0)
+### Blur Background
+
+Simply adds a blur to the background of the window/view behind the alertview:
+
+```Objective-C
+alert.blurBackground = 1;
+```
+
+### Bounce/Natural Animations
+
+Adds more natural animations to the alertview, such as reactive bounce buttons and more. Add this line:
+
+```Objective-C
+alert.bounceAnimations = 1;
+```
+### Adding TextFields
+
+Simply add a single textfield to your alert, by adding this line and get the returned text when any of the AlertView's buttons are pressed:
+
+```Objective-C
+[alert addTextFieldWithPlaceholder:@"Email Address" andTextReturnBlock:^(NSString *text) {
+    NSLog(@"The Email Address is: %@", text); // Do what you'd like with the text returned from the field
+}];
+```
+
+### Sounds
+
+Add the following line to play an audio when the alert opens, simply pass it the name of your audiofile:
+
+```Objective-C
+[alert setAlertSoundWithFileName:@"Ding.mp3"];
+```
+
+**Note:** It's best to add these Frameworks to your project for this to work: ```AVFoundation``` and ```AudioToolbox```.
+
 # Button Actions
 
 To add actions to your buttons, if you're not adding buttons with action blocks, you have to first delegate your FCAlertView with your view, and then add a helper method which will detect button touches. Here's how you can add an alert with buttons and perform actions:
@@ -336,23 +372,22 @@ and setting the delegate of your FCAlertView, as such:
 
 FCAlertView is an ongoing project with the goal of becoming the most used custom AlertView for iOS. Improvements and changes are on the way, and here are some of the things that are coming soon with it:
 
-- Swift Friendly
-- Adding TextFields
-- More Custom Animations
-- Blur Background 
-- Alert Sounds 
-- Big and Beautiful Full Screen Alerts
+- Swift Friendly ✓
+- Adding TextFields ✓
+- Blur Background ✓
+- Frame Customizations ✓
+- Alert Sounds ✓
 - Landscape Orientation
-- Frame Customizations
+- More Custom Animations
 - More Types of Alerts (including Progress Types)
 - iPad Friendly Alerts
-- Improved Button Highlight and Customizations
+- Improved Button Highlighting and Customizations
 - Something Missing? Email your suggestion [here](mailto:nima6tahami@gmail.com)
 
 About FCAlertView
 -----------------
 
-FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView beacuse I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
+FCAlertView is a fully customizable and beautifully designed AlertView. I designed FCAlertView because I've always wanted to have access to change the different attributes of the default UIAlertView. Design wise, FCAlertView is similar looking to the default AlertView, however, as you start customizing it for your specific need, you realize it can do a lot more while looking flat and sharp. 
 
 FCAlertView lets you do things such as specify the number of buttons, the color scheme of the view, adding a small image to it, hide the view after a certain time, and more. A full description of how to customize FCAlertView to fit your alert can be found on http://github.com/nimati/FCAlertView.
 

@@ -91,6 +91,8 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
         if (success) {
             [self initData];
         } else {
+            [self.refreshControl endRefreshing];
+            [SVProgressHUD dismiss];
             FCAlertView *alert = [[FCAlertView alloc] init];
             
             [alert showAlertInView:self
@@ -130,6 +132,15 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
 - (void)refreshData {
     self.announcements = [[Announcement allObjects] sortedResultsUsingProperty:@"timestamp" ascending:NO];
     [self.tableView reloadData];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return headerView;
+}
+- (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

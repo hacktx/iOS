@@ -91,6 +91,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
         if (success) {
             [self initData];
         } else {
+            [SVProgressHUD dismiss];
             FCAlertView *alert = [[FCAlertView alloc] init];
             
             [alert showAlertInView:self

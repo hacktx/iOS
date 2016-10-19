@@ -52,6 +52,7 @@
         // CUSTOMIZATIONS - Setting Default Customization Settings & Checks
         
         alertButtons = [[NSMutableArray alloc] init];
+        alertTextFields = [[NSMutableArray alloc] init];
         
         _numberOfButtons = 0;
         _autoHideSeconds = 0;
@@ -61,8 +62,8 @@
         _hideAllButtons = NO;
         _hideDoneButton = NO;
         
-        defaultSpacing = 105.0f;
-        defaultHeight = 200.0f;
+        defaultSpacing = [self configureAVWidth];
+        defaultHeight = [self configureAVHeight];
         
         [self checkCustomizationValid];
         
@@ -70,6 +71,52 @@
     
     return self;
     
+}
+
+#pragma mark - Frame Configuration
+
+- (CGFloat) configureAVWidth {
+    
+    if (_customSpacing == 0) {
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        {
+            CGSize result = [[UIScreen mainScreen] bounds].size;
+            if(result.height == 480)
+            {
+                // iPhone Classic
+                return 55.0f;
+                
+            }
+            if(result.height == 568)
+            {
+                // iPhone 5
+                return 65.0f;
+                
+            }
+            if (result.height == 736)
+            {
+                // iPhone 6/7 Plus
+                return 130.0f;
+            }
+            else
+            {
+                return 105.0f;
+            }
+            
+        }
+    } else {
+        return _customSpacing;
+    }
+    
+}
+
+- (CGFloat) configureAVHeight {
+    
+    if (_customHeight == 0) {
+        return 200.0f;
+    } else {
+        return _customHeight;
+    }
 }
 
 #pragma mark - FCAlertView Checks
@@ -126,11 +173,17 @@
     if (_dismissOnOutsideTouch && isPointInsideBackview && !isPointInsideAlertView)
         [self dismissAlertView];
     
+    if (alertTextFields.count > 0 && isPointInsideBackview && !isPointInsideAlertView)
+        [self endEditing:YES];
+    
 }
 
 #pragma mark - Drawing AlertView
 
 - (void)drawRect:(CGRect)rect {
+    
+    defaultSpacing = [self configureAVWidth];
+    defaultHeight = [self configureAVHeight];
     
     CGSize result = [[UIScreen mainScreen] bounds].size;
     
@@ -179,6 +232,17 @@
                                         result.width - defaultSpacing,
                                         alertViewFrame.size.height - 50 + 140);
     }
+    
+    if (alertTextFields.count > 0)
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    result.width - defaultSpacing,
+                                    alertViewFrame.size.height + 40);
+    else
+        alertViewFrame = CGRectMake(self.frame.size.width/2 - ((result.width - defaultSpacing)/2),
+                                    self.frame.size.height/2 - ((alertViewFrame.size.height - 50 + 140)/2),
+                                    result.width - defaultSpacing,
+                                    alertViewFrame.size.height);
     
     // Setting Up Contents of AlertView
     
@@ -253,6 +317,8 @@
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
     descriptionLabel.adjustsFontSizeToFitWidth = YES;
     
+    descriptionLabelFrames = descriptionLabel.frame;
+    
     if (_title == nil) {
         descriptionLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
     }
@@ -264,6 +330,27 @@
                                                                          alertViewFrame.size.width,
                                                                          2)];
     separatorLineView.backgroundColor = [UIColor colorWithWhite:100.0f/255.0f alpha:1.0]; // set color as you want.
+    
+    // TEXTFIELD VIEW - Section with TextField
+    
+    if (alertTextFields.count > 0) {
+        
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(12.5, descriptionLabel.frame.size.height + descriptionLabel.frame.origin.y + 3, alertViewFrame.size.width - 25, 40)];
+        
+        _textField.layer.cornerRadius = 3.0f;
+        _textField.layer.masksToBounds = YES;
+        _textField.layer.borderColor = [[UIColor colorWithWhite:217.0f/255.0f alpha:1.0] CGColor];
+        _textField.layer.borderWidth = 1.0f;
+        _textField.delegate = self;
+        _textField.placeholder = [[alertTextFields firstObject] objectForKey:@"placeholder"];
+
+        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+        _textField.leftView = paddingView;
+        _textField.leftViewMode = UITextFieldViewModeAlways;
+        
+        [alertView addSubview:_textField];
+        
+    }
     
     // BUTTON(S) VIEW - Section containing all Buttons
     
@@ -280,6 +367,8 @@
                                       45);
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
+        [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:18.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil)
             doneButton.tintColor = [UIColor whiteColor];
@@ -300,6 +389,8 @@
                                       45);
         [doneButton setTitle:doneTitle forState:UIControlStateNormal];
         [doneButton addTarget:self action:@selector(donePressed) forControlEvents:UIControlEventTouchUpInside];
+        [doneButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [doneButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         doneButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightMedium];
         if (_colorScheme != nil)
             doneButton.tintColor = [UIColor whiteColor];
@@ -317,6 +408,8 @@
                                            45);
         [otherButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [otherButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
+        [otherButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [otherButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         otherButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         otherButton.tintColor = self.colorScheme;
         otherButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -364,6 +457,8 @@
                                            45);
         [firstButton setTitle:[[alertButtons objectAtIndex:0] objectForKey:@"title"] forState:UIControlStateNormal];
         [firstButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
+        [firstButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [firstButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         firstButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         firstButton.tintColor = self.colorScheme;
         firstButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -383,6 +478,8 @@
                                             45);
         [secondButton setTitle:[[alertButtons objectAtIndex:1] objectForKey:@"title"] forState:UIControlStateNormal];
         [secondButton addTarget:self action:@selector(handleButton:) forControlEvents:UIControlEventTouchUpInside];
+        [secondButton addTarget:self action:@selector(btnTouched) forControlEvents:UIControlEventTouchDown];
+        [secondButton addTarget:self action:@selector(btnReleased) forControlEvents:UIControlEventTouchDragExit];
         secondButton.titleLabel.font = [UIFont systemFontOfSize:16.0f weight:UIFontWeightRegular];
         secondButton.tintColor = self.colorScheme;
         secondButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -511,6 +608,21 @@
     [self.layer setShadowRadius:10.0f];
     [self.layer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
     
+    if (_bounceAnimations) {
+        
+        UIInterpolatingMotionEffect *horizontalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        horizontalMotionEffect.minimumRelativeValue = @(-22.5);
+        horizontalMotionEffect.maximumRelativeValue = @(22.5);
+        
+        UIInterpolatingMotionEffect *verticalMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        verticalMotionEffect.minimumRelativeValue = @(-22.5);
+        verticalMotionEffect.maximumRelativeValue = @(22.5);
+        
+        [alertViewContents addMotionEffect:horizontalMotionEffect];
+        [alertViewContents addMotionEffect:verticalMotionEffect];
+        
+    }
+    
     [self showAlertView];
     
 }
@@ -562,9 +674,34 @@
     alertType = @"Success";
 }
 
+#pragma mark - Play Sound with Alert
+
+- (void) setAlertSoundWithFileName:(NSString *)filename {
+    
+    NSString *soundFilePath = [NSString stringWithFormat:@"%@/%@",
+                               [[NSBundle mainBundle] resourcePath], filename];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL
+                                                     error:nil];
+    player.numberOfLoops = 0;
+    
+}
+
 #pragma  mark - Presenting AlertView
 
 - (void) showAlertInView:(UIViewController *)view withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    // Blur Effect
+    
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = view.view.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [view.view addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     [view.view.window addSubview:self];
@@ -572,6 +709,18 @@
 }
 
 - (void) showAlertInWindow:(UIWindow *)window withTitle:(NSString *)title withSubtitle:(NSString *)subTitle withCustomImage:(UIImage *)image withDoneButtonTitle:(NSString *)done andButtons:(NSArray *)buttons {
+    
+    // Blur Effect
+    
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = window.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     [window addSubview:self];
@@ -582,6 +731,18 @@
     
     [self setAlertViewAttributes:title withSubtitle:subTitle withCustomImage:image withDoneButtonTitle:done andButtons:buttons];
     UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+    
+    // Blur Effect
+    if (_blurBackground && NSClassFromString(@"UIVisualEffectView") != nil) {
+        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        backgroundVisualEffectView.frame = window.bounds;
+        _alertBackground.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
+        [window addSubview:backgroundVisualEffectView];
+    }
+    
+    // Adding Alert
+    
     [window addSubview:self];
     [window bringSubviewToFront:self];
     
@@ -623,12 +784,23 @@
     
     [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.alpha = 1;
-        alertViewContents.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        if (_bounceAnimations)
+            alertViewContents.transform = CGAffineTransformMakeScale(0.95, 0.95);
+        else
+            alertViewContents.transform = CGAffineTransformMakeScale(1.0, 1.0);
     } completion:^(BOOL finished) {
+        if (_bounceAnimations)
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                alertViewContents.transform = CGAffineTransformMakeScale(1.00, 1.00);
+            } completion:nil];
         if (self.autoHideSeconds != 0) {
             [self performSelector:@selector(dismissAlertView) withObject:nil afterDelay:self.autoHideSeconds];
         }
     }];
+
+    // Playing Sound for Alert (when there is one)
+    
+    [player play];
     
 }
 
@@ -636,6 +808,7 @@
     
     [UIView animateWithDuration:0.175 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.alpha = 0;
+        backgroundVisualEffectView.alpha = 0;
         alertViewContents.transform = CGAffineTransformMakeScale(0.9, 0.9);
     } completion:^(BOOL finished) {
         
@@ -645,6 +818,7 @@
             [strongDelegate FCAlertViewDismissed:self];
         }
         
+        [backgroundVisualEffectView removeFromSuperview];
         [self removeFromSuperview];
         
     }];
@@ -698,7 +872,29 @@
         [strongDelegate FCAlertView:self clickedButtonIndex:[sender tag] buttonTitle:clickedButton.titleLabel.text];
     }
     
+    // Rertun Text from TextField to Block
+    
+    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
+    if (textReturnBlock)
+        textReturnBlock(_textField.text);
+    
     [self dismissAlertView];
+    
+}
+
+#pragma mark - Button Actions
+
+- (void) btnTouched {
+    
+    if (_bounceAnimations) {
+        
+        [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.alpha = 1;
+            if (_bounceAnimations)
+                alertViewContents.transform = CGAffineTransformMakeScale(0.95, 0.95);
+        }completion:nil];
+        
+    }
     
 }
 
@@ -713,7 +909,88 @@
         [strongDelegate FCAlertDoneButtonClicked:self];
     }
     
+    FCTextReturnBlock textReturnBlock = [[alertTextFields firstObject] objectForKey:@"action"];
+    NSString *textF = _textField.text;
+    if (textReturnBlock)
+        textReturnBlock(_textField.text);
+    
     [self dismissAlertView];
+    
+}
+
+- (void) btnReleased {
+    
+    if (_bounceAnimations) {
+        
+        [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            alertViewContents.transform = CGAffineTransformMakeScale(1.05, 1.05);
+        }completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                alertViewContents.transform = CGAffineTransformMakeScale(1.00, 1.00);
+            }completion:nil];
+        }];
+        
+    }
+    
+}
+
+#pragma mark - TEXT FIELD METHODS
+#pragma mark - Text Field Begin Editing
+
+#pragma mark - Adding Alert TextField Block Method
+
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn {
+    
+    if (textReturn != nil)
+        [alertTextFields addObject:@{@"placeholder" : placeholder,
+                                     @"action" : textReturn}];
+    else
+        [alertTextFields addObject:@{@"placeholder" : placeholder,
+                                     @"action" : @0}];
+    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    currentAVCFrames = alertViewContents.frame;
+    
+    [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
+                                             currentAVCFrames.origin.y - 80,
+                                             currentAVCFrames.size.width,
+                                             currentAVCFrames.size.height);
+    } completion:nil];
+    
+}
+
+#pragma mark - Text Field End Editing
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    
+    NSString *text = textField.text;
+    
+    [UIView animateWithDuration:0.30 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        alertViewContents.frame = CGRectMake(currentAVCFrames.origin.x,
+                                             currentAVCFrames.origin.y,
+                                             currentAVCFrames.size.width,
+                                             currentAVCFrames.size.height);
+    } completion:nil];
+    
+}
+
+#pragma mark - Text Field Returned
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField endEditing:YES];
+    
+}
+
+#pragma mark - Text Field Changed
+
+-(void)textChanged:(UITextField *)textField
+{
+    
     
 }
 

@@ -58,7 +58,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    [manager GET:@"https://joseb.me/hacktx/gen_pass.php" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
+    [manager GET:@"https://hacktx.joseb.me/pass" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
         passData(responseObject);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"%% %@", error);
@@ -68,19 +68,26 @@
 
 - (void)fetchHacker:(NSString *)email
    withCompletion:(void(^)(NSDictionary *data))completion {
-    [self sendRequest:@{@"email": email} toEndpoint:@"pass.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
-        completion(response);
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager GET:@"https://hacktx.joseb.me/checkin" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
+        completion(@{@"success": @YES, @"data": responseObject});
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        completion(@{@"success": @NO, @"error": error});
     }];
+    
 }
 
 - (void)refreshAnnouncements:(void(^)(BOOL success))completion {
-    [self sendRequest:nil toEndpoint:@"announcements.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
-        
+    [self sendRequest:nil toEndpoint:@"announcements" withType:@"GET" withCompletion:^(NSDictionary *response) {
+
         RLMRealm *realm = [RLMRealm defaultRealm];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
 
-        if (response[@"success"]) {
+        if ([response[@"success"] boolValue]) {
             for (id object in response[@"data"]) {
                 Announcement *newAnnouncement = [[Announcement alloc] init];
                 
@@ -93,6 +100,8 @@
                 [realm commitWriteTransaction];
             }
             completion(YES);
+        } else {
+            completion(NO);
         }
     }];
 }
@@ -101,37 +110,35 @@
     [self sendRequest:nil toEndpoint:@"partners" withType:@"GET" withCompletion:^(NSDictionary *response) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"partners" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-
-        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        
-        for (id object in json) {
-            Sponsor *newSponsor = [[Sponsor alloc] init];
-            
-            newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
-            newSponsor.name = object[@"name"];
-            newSponsor.logoImage = object[@"logoImage"];
-            newSponsor.website = object[@"website"];
-            newSponsor.level = [object[@"level"] integerValue];
-            
-            [realm beginWriteTransaction];
-            [realm addOrUpdateObject:newSponsor];
-            [realm commitWriteTransaction];
+        if ([response[@"success"] boolValue]){
+            for (id object in response[@"data"][@"data"]) {
+                Sponsor *newSponsor = [[Sponsor alloc] init];
+                
+                newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
+                newSponsor.name = object[@"name"];
+                newSponsor.logoImage = object[@"logoImage"];
+                newSponsor.website = object[@"website"];
+                newSponsor.level = [object[@"level"] integerValue];
+                
+                [realm beginWriteTransaction];
+                [realm addOrUpdateObject:newSponsor];
+                [realm commitWriteTransaction];
+            }
+            completion(YES);
+        } else {
+            completion(NO);
         }
-        
-        completion(YES);
     }];
 }
 
 - (void)refreshEvents:(void(^)(BOOL success))completion {
-    [self sendRequest:nil toEndpoint:@"events.php" withType:@"GET" withCompletion:^(NSDictionary *response) {
+    [self sendRequest:nil toEndpoint:@"schedule" withType:@"GET" withCompletion:^(NSDictionary *response) {
 
         RLMRealm *realm = [RLMRealm defaultRealm];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
         
-        if (response[@"success"]) {
+        if ([response[@"success"] boolValue]) {
             for (id object in response[@"data"][@"data"]) {
                 Event *newEvent = [[Event alloc] init];
                 newEvent.serverID = [object[@"eventsList"][0][@"id"] stringValue];
@@ -153,6 +160,8 @@
                 [realm commitWriteTransaction];
             }
             completion(YES);
+        } else {
+            completion(NO);
         }
         
     }];

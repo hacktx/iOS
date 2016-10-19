@@ -29,7 +29,6 @@
 		822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA21D779BCD00C65761 /* Main.storyboard */; };
 		822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA51D779BCD00C65761 /* Assets.xcassets */; };
 		822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */; };
-		822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DB01D779D8800C65761 /* GoogleService-Info.plist */; };
 		822A4DB41D779DBD00C65761 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB31D779DBD00C65761 /* ScheduleViewController.m */; };
 		822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DB61D779DD100C65761 /* AnnouncementsViewController.m */; };
 		822A4DC01D779DF100C65761 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4DBF1D779DF100C65761 /* MapViewController.m */; };
@@ -51,6 +50,7 @@
 		82D303D11DB24084003C98ED /* Hacker.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D303D01DB24084003C98ED /* Hacker.m */; };
 		82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EAFC851DB200D50061C449 /* CheckInViewController.m */; };
 		82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EAFC861DB200D50061C449 /* CheckInViewController.xib */; };
+		82F3C16B1DB71BAC004F96FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +91,6 @@
 		822A4DA51D779BCD00C65761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		822A4DA81D779BCD00C65761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		822A4DAA1D779BCD00C65761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		822A4DB01D779D8800C65761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		822A4DB21D779DBD00C65761 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		822A4DB31D779DBD00C65761 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		822A4DB51D779DD100C65761 /* AnnouncementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementsViewController.h; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		82EAFC841DB200D50061C449 /* CheckInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInViewController.h; sourceTree = "<group>"; };
 		82EAFC851DB200D50061C449 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		82EAFC861DB200D50061C449 /* CheckInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
+		82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,7 +266,7 @@
 				822A4DA51D779BCD00C65761 /* Assets.xcassets */,
 				822A4DA71D779BCD00C65761 /* LaunchScreen.storyboard */,
 				822A4DAA1D779BCD00C65761 /* Info.plist */,
-				822A4DB01D779D8800C65761 /* GoogleService-Info.plist */,
+				82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */,
 			);
 			path = HackTX;
 			sourceTree = "<group>";
@@ -385,7 +385,6 @@
 				820B450D1D9624B1002A26BA /* SponsorTableViewCell.xib in Resources */,
 				82BAC6D71D9D1FC000BF62C0 /* JosefinSans-Regular.ttf in Resources */,
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
-				822A4DB11D779D8800C65761 /* GoogleService-Info.plist in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
 				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
@@ -402,6 +401,7 @@
 				82BAC6DA1D9D1FC000BF62C0 /* JosefinSans-Thin.ttf in Resources */,
 				8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */,
 				82BAC6DB1D9D1FC000BF62C0 /* JosefinSans-ThinItalic.ttf in Resources */,
+				82F3C16B1DB71BAC004F96FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +620,7 @@
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -634,7 +634,7 @@
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

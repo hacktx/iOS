@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @protocol FCAlertViewDelegate;
 
-@interface FCAlertView : UIView {
+@interface FCAlertView : UIView <UITextFieldDelegate> {
+    
+    // Blur
+    
+    UIVisualEffectView *backgroundVisualEffectView;
     
     // Default UI adjustments
     
@@ -27,11 +34,22 @@
     // Customizations made to UI
     
     NSMutableArray *alertButtons;
+    NSMutableArray *alertTextFields;
     NSInteger alertViewWithVector;
     NSString *doneTitle;
     UIImage *vectorImage;
     NSString *alertType;
     
+    // Frames
+    
+    CGRect alertViewFrame;
+    CGRect currentAVCFrames;
+    CGRect descriptionLabelFrames;
+    
+    // Alert AudioPlayer
+    
+    AVAudioPlayer *player;
+
 }
 
 // Delegate
@@ -47,7 +65,14 @@
 
 @property (nonatomic, retain) UIView *alertBackground;
 
+// AlertView TextView
+
+@property (nonatomic, retain) UITextField *textField;
+
 // AlertView Customizations
+
+@property CGFloat customHeight;
+@property CGFloat customSpacing;
 
 @property NSInteger numberOfButtons;
 @property NSInteger autoHideSeconds;
@@ -57,12 +82,18 @@
 @property BOOL hideAllButtons;
 @property BOOL hideDoneButton;
 @property BOOL avoidCustomImageTint;
+@property BOOL blurBackground;
+@property BOOL bounceAnimations;
 
 // Default Types of Alerts
 
 - (void) makeAlertTypeWarning;
 - (void) makeAlertTypeCaution;
 - (void) makeAlertTypeSuccess;
+
+// Play Sound with Alert
+
+- (void) setAlertSoundWithFileName:(NSString *)filename;
 
 // Presenting AlertView
 
@@ -85,6 +116,12 @@ typedef void (^FCActionBlock)(void);
 @property (nonatomic, copy) FCActionBlock doneBlock;
 - (void)addButton:(NSString *)title withActionBlock:(FCActionBlock)action;
 - (void)doneActionBlock:(FCActionBlock)action;
+
+// Alert TextField Block Method
+
+typedef void (^FCTextReturnBlock)(NSString *text);
+@property (nonatomic, copy) FCTextReturnBlock textReturnBlock;
+- (void)addTextFieldWithPlaceholder:(NSString *)placeholder andTextReturnBlock:(FCTextReturnBlock)textReturn;
 
 // Color Schemes
 
