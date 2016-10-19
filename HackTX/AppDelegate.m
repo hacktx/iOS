@@ -112,7 +112,6 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    NSLog(@"Hooray! I'm registered!");
     [[FIRMessaging messaging] subscribeToTopic:@"/topics/iOS"];
     [[FIRMessaging messaging] subscribeToTopic:@"/topics/announcements"];
     [[FIRMessaging messaging] subscribeToTopic:@"/topics/hacktx"];

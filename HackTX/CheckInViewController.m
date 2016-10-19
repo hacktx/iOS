@@ -10,6 +10,7 @@
 #import "UIColor+Palette.h"
 #import "AutolayoutHelper.h"
 #import "SVProgressHUD.h"
+#import "FCAlertView.h"
 #import "Hacker.h"
 #import "HTXAPI.h"
 
@@ -58,6 +59,32 @@
             
             [self updateView];
             [self showPass];
+        } else if (![response[@"response"] boolValue]) {
+            
+            [SVProgressHUD dismiss];
+            
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Sorry"
+                      withSubtitle:@"We could not find your email. If you believe this is an error, ask a friendly volunteer. 🙂"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
+            
+        } else {
+            [SVProgressHUD dismiss];
+            
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Network error"
+                      withSubtitle:@"There was an error checking you in, please try again later. 😥"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
         }
     }];
 

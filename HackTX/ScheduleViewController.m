@@ -37,7 +37,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 85;
+    self.tableView.estimatedRowHeight = 90;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
     
@@ -108,11 +108,11 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 }
 
 - (void)initData {
-    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
+    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"startDate" ascending:YES];
     [SVProgressHUD show];
 
     if (eventResult.count > 0) {
-        RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
+        RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"startDate" ascending:YES];
 
         [self transformRLMArray:eventResult];
         
@@ -131,7 +131,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 }
 
 - (void)refreshData {
-    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"serverID" ascending:YES];
+    RLMResults<Event *> *eventResult = [[Event allObjects] sortedResultsUsingProperty:@"startDate" ascending:YES];
     [self transformRLMArray:eventResult];
     [self.tableView reloadData];
 }
@@ -145,12 +145,12 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 
     for (Event *event in eventData) {
         NSInteger testDay = [[NSCalendar currentCalendar] component:NSCalendarUnitDay fromDate:event.startDate];
-
+        
         if (currentDay == testDay) {
             [innerArray addObject:event];
         } else {
             currentDay = testDay;
-            
+
             [eventArray addObject:innerArray];
             innerArray = [[NSMutableArray alloc] init];
             [innerArray addObject:event];
