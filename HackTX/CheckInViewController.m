@@ -39,6 +39,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self dismissKeyboard];
+    [SVProgressHUD show];
     self.hackerEmail = textField.text;
     
     [HTXAPI fetchHacker:self.hackerEmail withCompletion:^(NSDictionary *response) {
@@ -53,6 +54,7 @@
             [realm beginWriteTransaction];
             [realm addObject:newHacker];
             [realm commitWriteTransaction];
+            [SVProgressHUD dismiss];
             
             [self updateView];
             [self showPass];
@@ -64,7 +66,9 @@
 
 
 - (void)showPass {
+    
     [SVProgressHUD show];
+    
     [HTXAPI fetchPass:self.hackerEmail withPassData:^(NSData *data) {
         [SVProgressHUD dismiss];
         PKPass *pass = [[PKPass alloc] initWithData:data error:nil];

@@ -139,7 +139,7 @@
         [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
         
         if ([response[@"success"] boolValue]) {
-            for (id object in response[@"data"][@"data"]) {
+            for (id object in response[@"data"]) {
                 
                 for (id eventObject in object[@"eventsList"]) {
                     Event *newEvent = [[Event alloc] init];
