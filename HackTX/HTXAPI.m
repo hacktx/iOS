@@ -107,27 +107,31 @@
 }
 
 - (void)refreshSponsors:(void(^)(BOOL success))completion {
-    [self sendRequest:nil toEndpoint:@"partners" withType:@"GET" withCompletion:^(NSDictionary *response) {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager GET:@"https://hacktx.joseb.me/sponsors" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
-        if ([response[@"success"] boolValue]){
-            for (id object in response[@"data"]) {
-                Sponsor *newSponsor = [[Sponsor alloc] init];
-                
-                newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
-                newSponsor.name = object[@"name"];
-                newSponsor.logoImage = object[@"logoImage"];
-                newSponsor.website = object[@"website"];
-                newSponsor.level = [object[@"level"] integerValue];
-                
-                [realm beginWriteTransaction];
-                [realm addOrUpdateObject:newSponsor];
-                [realm commitWriteTransaction];
-            }
-            completion(YES);
-        } else {
-            completion(NO);
+        
+        for (id object in responseObject) {
+            Sponsor *newSponsor = [[Sponsor alloc] init];
+            
+            newSponsor.serverID = [NSString stringWithFormat:@"%@%@", [object[@"website"] MD5], [object[@"name"] MD5]];
+            newSponsor.name = object[@"name"];
+            newSponsor.logoImage = object[@"logoImage"];
+            newSponsor.website = object[@"website"];
+            newSponsor.level = [object[@"level"] integerValue];
+            
+            [realm beginWriteTransaction];
+            [realm addOrUpdateObject:newSponsor];
+            [realm commitWriteTransaction];
         }
+        completion(YES);
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        completion(NO);
     }];
 }
 

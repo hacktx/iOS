@@ -37,7 +37,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 90;
+    self.tableView.estimatedRowHeight = 80;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
     
@@ -175,7 +175,7 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     return headerView;
 }
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
+    return 40;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -188,10 +188,22 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     NSString *startTS = [formatter stringFromDate:self.events[indexPath.section][indexPath.row].startDate];
     NSString *endTS =[formatter stringFromDate:self.events[indexPath.section][indexPath.row].endDate];
     
-    cell.name.text = self.events[indexPath.section][indexPath.row].name;
-    cell.desc.text = self.events[indexPath.section][indexPath.row].desc;
+    NSString *description;
+    
+    if ([self.events[indexPath.section][indexPath.row].desc length] == 0) {
+         description = [NSString stringWithFormat:@"%@", self.events[indexPath.section][indexPath.row].name];
+    } else {
+         description = [NSString stringWithFormat:@"%@ | %@", self.events[indexPath.section][indexPath.row].name, self.events[indexPath.section][indexPath.row].desc];
+    }
+
+    cell.desc.text = description;
     cell.location.text = self.events[indexPath.section][indexPath.row].location.room;
-    cell.time.text = [NSString stringWithFormat:@"%@ - %@", startTS, endTS];
+    
+    if ([startTS isEqualToString:endTS]) {
+        cell.time.text = [NSString stringWithFormat:@"%@", startTS];
+    } else {
+        cell.time.text = [NSString stringWithFormat:@"%@ - %@", startTS, endTS];
+    }
     
     return cell;
 }
