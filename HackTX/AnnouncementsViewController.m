@@ -61,12 +61,6 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
 
 - (void)hardRefresh {
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    [realm deleteObjects:[Announcement allObjects]];
-    [realm commitWriteTransaction];
-    
     [HTXAPI refreshAnnouncements:^(BOOL success) {
         if (success) {
             [self.refreshControl endRefreshing];

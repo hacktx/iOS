@@ -60,12 +60,6 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 
 - (void)hardRefresh {
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    [realm deleteObjects:[Sponsor allObjects]];
-    [realm commitWriteTransaction];
-    
     [HTXAPI refreshSponsors:^(BOOL success) {
         if (success) {
             [self.refreshControl endRefreshing];

@@ -61,12 +61,6 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
 
 - (void)hardRefresh {
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    [realm beginWriteTransaction];
-    [realm deleteObjects:[Event allObjects]];
-    [realm commitWriteTransaction];
-    
     [HTXAPI refreshEvents:^(BOOL success) {
         if (success) {
             [self.refreshControl endRefreshing];

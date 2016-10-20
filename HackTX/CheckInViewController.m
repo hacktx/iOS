@@ -98,9 +98,23 @@
     
     [HTXAPI fetchPass:self.hackerEmail withPassData:^(NSData *data) {
         [SVProgressHUD dismiss];
-        PKPass *pass = [[PKPass alloc] initWithData:data error:nil];
-        PKAddPassesViewController *passVC = [[[PKAddPassesViewController alloc] init] initWithPass:pass];
-        [self presentViewController:passVC animated:YES completion:nil];
+
+        if ([PKAddPassesViewController canAddPasses]) {
+            PKPass *pass = [[PKPass alloc] initWithData:data error:nil];
+            PKAddPassesViewController *passVC = [[[PKAddPassesViewController alloc] init] initWithPass:pass];
+            [self presentViewController:passVC animated:YES completion:nil];
+        } else {
+            FCAlertView *alert = [[FCAlertView alloc] init];
+            
+            [alert showAlertInView:self
+                         withTitle:@"Sorry"
+                      withSubtitle:@"Apple Wallet is not compatible with this device. Sorry about that. 🙁"
+                   withCustomImage:nil
+               withDoneButtonTitle:@"Okay"
+                        andButtons:nil];
+            [alert makeAlertTypeCaution];
+        }
+        
     }];
 }
 
