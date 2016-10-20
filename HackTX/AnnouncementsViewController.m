@@ -54,6 +54,8 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
     [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
     
     [self initData];
+    [self.tableView layoutIfNeeded];
+    [self.tableView reloadData];
     
 }
 

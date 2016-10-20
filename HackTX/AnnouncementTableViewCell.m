@@ -30,6 +30,19 @@
 
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.text.preferredMaxLayoutWidth = self.text.frame.size.width;
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.text.preferredMaxLayoutWidth = self.text.frame.size.width;
+    });
+}
+
 - (void)setFrame:(CGRect)frame {
     frame.origin.x += 7.5;
     frame.origin.y += 4;

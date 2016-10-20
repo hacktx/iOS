@@ -35,9 +35,9 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.estimatedRowHeight = 80;
     self.tableView.allowsSelection = NO;
     self.tableView.backgroundColor = [UIColor htx_white];
     
@@ -54,6 +54,9 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
     [AutolayoutHelper configureView:self.view fillWithSubView:self.tableView];
     
     [self initData];
+    [self.tableView layoutIfNeeded];
+    [self.tableView reloadData];
+
 }
 
 - (void)hardRefresh {
