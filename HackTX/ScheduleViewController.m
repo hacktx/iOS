@@ -202,6 +202,9 @@ static NSString *reuseIdentifier = @"com.HackTX.schedule";
         cell.time.text = [NSString stringWithFormat:@"%@ - %@", startTS, endTS];
     }
     
+    [cell updateConstraintsIfNeeded];
+    cell.desc.preferredMaxLayoutWidth = cell.desc.frame.size.width;
+    
     return cell;
 }
 

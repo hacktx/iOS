@@ -14,6 +14,9 @@
 #import "Hacker.h"
 #import "HTXAPI.h"
 
+#import <Crashlytics/Crashlytics.h>
+
+
 @import PassKit;
 
 @interface CheckInViewController () <UITextFieldDelegate>
@@ -46,6 +49,9 @@
     [HTXAPI fetchHacker:self.hackerEmail withCompletion:^(NSDictionary *response) {
         if ([response[@"data"][@"email"] isEqualToString:self.hackerEmail]) {
 
+            [Answers logCustomEventWithName:@"Checked In"
+                           customAttributes:@{}];
+            
             Hacker *newHacker = [[Hacker alloc] init];
             newHacker.name = response[@"data"][@"name"];
             newHacker.email = response[@"data"][@"email"];
@@ -103,6 +109,8 @@
             PKPass *pass = [[PKPass alloc] initWithData:data error:nil];
             PKAddPassesViewController *passVC = [[[PKAddPassesViewController alloc] init] initWithPass:pass];
             [self presentViewController:passVC animated:YES completion:nil];
+            [Answers logCustomEventWithName:@"Added Pass"
+                           customAttributes:@{}];
         } else {
             FCAlertView *alert = [[FCAlertView alloc] init];
             

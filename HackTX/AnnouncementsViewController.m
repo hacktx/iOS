@@ -149,6 +149,9 @@ static NSString *reuseIdentifier = @"com.HackTX.announcement";
     cell.text.text = self.announcements[indexPath.row].text;
     cell.time.text = [formatter stringFromDate:self.announcements[indexPath.row].timestamp];
     
+    [cell updateConstraintsIfNeeded];
+    cell.text.preferredMaxLayoutWidth = cell.text.frame.size.width;
+    
     return cell;
 }
 

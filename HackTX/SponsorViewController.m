@@ -17,7 +17,7 @@
 #import "Sponsor.h"
 #import "HTXAPI.h"
 
-#import <ChameleonFramework/Chameleon.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface SponsorViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -167,6 +167,10 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSURL *sponsorURL = [NSURL URLWithString:self.sponsors[indexPath.section][indexPath.row].website];
+    
+    [Answers logCustomEventWithName:@"Partner Click"
+                   customAttributes:@{@"partner": self.sponsors[indexPath.section][indexPath.row].name}];
+                                      
     [[UIApplication sharedApplication] openURL:sponsorURL];
 }
 

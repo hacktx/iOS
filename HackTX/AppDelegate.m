@@ -88,7 +88,7 @@
     vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"icon_bell"] selectedImage:nil];
     vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Check-In" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
     vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"icon_map"] selectedImage:nil];
-    vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Sponsors" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
+    vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Partners" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
     
     [[UITabBar appearance] setTintColor:[UIColor htx_red]];
     
@@ -107,6 +107,13 @@
     _window.rootViewController = navController;
     [_window makeKeyAndVisible];
     
+    if (launchOptions != nil) {
+        // Launched from push notification
+        NSDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if ([notification count] != 0) {
+            [self.tabBarController setSelectedIndex:1];
+        }
+    }
 
     return YES;
 }
