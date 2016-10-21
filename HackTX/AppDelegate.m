@@ -30,7 +30,7 @@
 
 
 #if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-@interface AppDelegate () <UNUserNotificationCenterDelegate>
+@interface AppDelegate () <UNUserNotificationCenterDelegate, FIRMessagingDelegate>
 #endif
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -45,7 +45,6 @@
     
     [Fabric with:@[[Crashlytics class]]];
     [GMSServices provideAPIKey:[[HTXAPIKeyStore sharedHTXAPIKeyStore] getGMSKey]];
-    [FIRApp configure];
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
         UIUserNotificationType allNotificationTypes =
@@ -68,8 +67,12 @@
         
         // For iOS 10 display notification (sent via APNS)
         [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+//        [[FIRMessaging messaging] setRemoteMessageDelegate:self];
         #endif
     }
+    
+    [FIRApp configure];
+    
     
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     
@@ -118,11 +121,39 @@
     return YES;
 }
 
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    //[AVOSCloud handleRemoteNotificationsWithDeviceToken:deviceToken];
+    dispatch_queue_t myQueue = dispatch_queue_create("firebase_topics", NULL);
+    
+    dispatch_async(myQueue, ^{
+        NSArray *topics = @[@"/topics/announcements", @"/topics/hacktx", @"/topics/ios", @"/topics/debug"];
+        
+        for (NSString *topic in topics) {
+            [[FIRMessaging messaging] subscribeToTopic:topic];
+            [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:4.0]];
+        }
+
+    });
+
+}
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
-    [[FIRMessaging messaging] subscribeToTopic:@"/topics/iOS"];
-    [[FIRMessaging messaging] subscribeToTopic:@"/topics/announcements"];
-    [[FIRMessaging messaging] subscribeToTopic:@"/topics/hacktx"];
-    [[FIRMessaging messaging] subscribeToTopic:@"/topics/debug"];
+    dispatch_queue_t myQueue = dispatch_queue_create("firebase_topics", NULL);
+    
+    dispatch_async(myQueue, ^{
+        NSArray *topics = @[@"/topics/announcements", @"/topics/hacktx", @"/topics/ios", @"/topics/debug"];
+        
+        for (NSString *topic in topics) {
+            [[FIRMessaging messaging] subscribeToTopic:topic];
+            [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:4.0]];
+        }
+        
+    });
+
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler
+{
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

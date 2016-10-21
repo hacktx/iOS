@@ -40,7 +40,7 @@
 		<true/>
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>HackTX or one of it's dependencies needs access to your Photos</string>
+	<string>HackTX or one of it&apos;s dependencies needs access to your Photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>JosefinSans-Italic.ttf</string>
@@ -89,5 +89,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<true/>
 </dict>
 </plist>
