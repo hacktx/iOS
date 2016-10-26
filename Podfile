@@ -1,15 +1,21 @@
 # Uncomment this line to define a global platform for your project
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-use_frameworks!
+platform :ios, '9.0'
 
 target 'HackTX' do
-	pod 'Google/Analytics', '~> 1.0.0'
-	pod 'Alamofire', '~> 2.0'
-	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-	pod 'RSBarcodes_Swift', :git => 'https://github.com/yeahdongcn/RSBarcodes_Swift.git', :branch => 'Swift2.0'
+  # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
 
+  # Pods for HackTX
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'Realm'
+  pod 'AFNetworking'
+  pod 'FCAlertView'
+  pod 'ChameleonFramework'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'SVProgressHUD'
 end
-
-
-
