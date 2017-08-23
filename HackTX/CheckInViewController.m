@@ -45,85 +45,109 @@
     [self dismissKeyboard];
     [SVProgressHUD show];
     self.hackerEmail = textField.text;
+    RLMResults<Hacker *> *hackers = [Hacker allObjects];
     
-    [HTXAPI fetchHacker:self.hackerEmail withCompletion:^(NSDictionary *response) {
-        if ([response[@"data"][@"email"] isEqualToString:self.hackerEmail]) {
+//    [HTXAPI fetchHacker:self.hackerEmail withCompletion:^(NSDictionary *response) {
+//        if ([response[@"data"][@"email"] isEqualToString:self.hackerEmail]) {
 
-            [Answers logCustomEventWithName:@"Checked In"
-                           customAttributes:@{}];
+    [Answers logCustomEventWithName:@"Checked In" customAttributes:@{}];
             
-            Hacker *newHacker = [[Hacker alloc] init];
-            newHacker.name = response[@"data"][@"name"];
-            newHacker.email = response[@"data"][@"email"];
-            newHacker.school = response[@"data"][@"school"];
+    Hacker *newHacker = [[Hacker alloc] init];
+//            newHacker.name = response[@"data"][@"name"];
+    newHacker.email = self.hackerEmail;
+//            newHacker.school = response[@"data"][@"school"];
+//            
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObjects:hackers];
+    [realm commitWriteTransaction];
+    
+    if(![self.hackerEmail  isEqual: @""]){
+        [realm beginWriteTransaction];
+        [realm addObject:newHacker];
+        [realm commitWriteTransaction];
+    }
+    
+    [SVProgressHUD dismiss];
             
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [realm addObject:newHacker];
-            [realm commitWriteTransaction];
-            [SVProgressHUD dismiss];
-            
-            [self updateView];
-            [self showPass];
-        } else if (![response[@"response"] boolValue]) {
-            
-            [SVProgressHUD dismiss];
-            
-            FCAlertView *alert = [[FCAlertView alloc] init];
-            
-            [alert showAlertInView:self
-                         withTitle:@"Sorry"
-                      withSubtitle:@"We could not find your email. If you believe this is an error, ask a friendly volunteer. 🙂"
-                   withCustomImage:nil
-               withDoneButtonTitle:@"Okay"
-                        andButtons:nil];
-            [alert makeAlertTypeCaution];
-            
-        } else {
-            [SVProgressHUD dismiss];
-            
-            FCAlertView *alert = [[FCAlertView alloc] init];
-            
-            [alert showAlertInView:self
-                         withTitle:@"Network error"
-                      withSubtitle:@"There was an error checking you in, please try again later. 😥"
-                   withCustomImage:nil
-               withDoneButtonTitle:@"Okay"
-                        andButtons:nil];
-            [alert makeAlertTypeCaution];
-        }
-    }];
+    [self updateView];
+//        } else if (![response[@"response"] boolValue]) {
+//            
+//            [SVProgressHUD dismiss];
+//            
+//            FCAlertView *alert = [[FCAlertView alloc] init];
+//            
+//            [alert showAlertInView:self
+//                         withTitle:@"Sorry"
+//                      withSubtitle:@"We could not find your email. If you believe this is an error, ask a friendly volunteer. 🙂"
+//                   withCustomImage:nil
+//               withDoneButtonTitle:@"Okay"
+//                        andButtons:nil];
+//            [alert makeAlertTypeCaution];
+    
+//        } else {
+//            [SVProgressHUD dismiss];
+//            
+//            FCAlertView *alert = [[FCAlertView alloc] init];
+//            
+//            [alert showAlertInView:self
+//                         withTitle:@"Network error"
+//                      withSubtitle:@"There was an error checking you in, please try again later. 😥"
+//                   withCustomImage:nil
+//               withDoneButtonTitle:@"Okay"
+//                        andButtons:nil];
+//            [alert makeAlertTypeCaution];
+//        }
+//    }];
 
     return YES;
 }
 
 
-- (void)showPass {
+- (void)setQRCode:(NSString *)qrValue {
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     
-    [SVProgressHUD show];
+    [filter setDefaults];
     
-    [HTXAPI fetchPass:self.hackerEmail withPassData:^(NSData *data) {
-        [SVProgressHUD dismiss];
+    NSData *data = [qrValue dataUsingEncoding:NSUTF8StringEncoding];
+    [filter setValue:data forKey:@"inputMessage"];
+    
+    CIImage *outputImage = [filter outputImage];
+    
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef cgImage = [context createCGImage:outputImage
+                                       fromRect:[outputImage extent]];
+    
+    UIImage *image = [UIImage imageWithCGImage:cgImage
+                                         scale:1.
+                                   orientation:UIImageOrientationUp];
+    
+    // Resize without interpolating
+    UIImage *resized = [self resizeImage:image
+                             withQuality:kCGInterpolationNone
+                                    rate:5.0];
+    
+    self.qrCodeImageView.image = resized;
+    
+    CGImageRelease(cgImage);
+}
 
-        if ([PKAddPassesViewController canAddPasses]) {
-            PKPass *pass = [[PKPass alloc] initWithData:data error:nil];
-            PKAddPassesViewController *passVC = [[[PKAddPassesViewController alloc] init] initWithPass:pass];
-            [self presentViewController:passVC animated:YES completion:nil];
-            [Answers logCustomEventWithName:@"Added Pass"
-                           customAttributes:@{}];
-        } else {
-            FCAlertView *alert = [[FCAlertView alloc] init];
-            
-            [alert showAlertInView:self
-                         withTitle:@"Sorry"
-                      withSubtitle:@"Apple Wallet is not compatible with this device. Sorry about that. 🙁"
-                   withCustomImage:nil
-               withDoneButtonTitle:@"Okay"
-                        andButtons:nil];
-            [alert makeAlertTypeCaution];
-        }
-        
-    }];
+- (UIImage *)resizeImage:(UIImage *)image
+             withQuality:(CGInterpolationQuality)quality
+                    rate:(CGFloat)rate
+{
+    UIImage *resized = nil;
+    CGFloat width = image.size.width * rate;
+    CGFloat height = image.size.height * rate;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, quality);
+    [image drawInRect:CGRectMake(0, 0, width, height)];
+    resized = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resized;
 }
 
 - (void)updateView {
@@ -131,13 +155,16 @@
     
     if (hackers.count > 0) {
         self.hackerEmail = hackers[0].email;
+        self.emailInput.text = self.hackerEmail;
+        [self setQRCode:self.hackerEmail];
         
-        self.header.text = [NSString stringWithFormat:@"You are all set, %@", hackers[0].name];
-        self.message.text = @"Add the pass to your wallet and show it to a volunteer when checking in.";
-        self.addToWallet.hidden = NO;
-        self.emailInput.hidden = YES;
+        self.header.text = [NSString stringWithFormat:@"You are all set!"];
+        self.message.text = @"Show this QR Code to a volunteer when checking in.";
+        self.addToWallet.hidden = YES;
+        self.emailInput.hidden = NO;
+        self.qrCodeImageView.hidden = NO;
         
-        [self.addToWallet addTarget:self action:@selector(showPass) forControlEvents:UIControlEventTouchUpInside];
+        //[self.addToWallet addTarget:self action:@selector(showPass) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view removeGestureRecognizer:self.tap];
 
@@ -149,6 +176,7 @@
         self.message.hidden = NO;
         self.emailInput.hidden = NO;
         self.addToWallet.hidden = YES;
+        self.qrCodeImageView.hidden = YES;
         
         self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
         

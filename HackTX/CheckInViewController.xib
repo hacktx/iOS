@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +15,7 @@
                 <outlet property="emailInput" destination="gSD-DV-CKp" id="ScP-wA-oYk"/>
                 <outlet property="header" destination="Int-gn-bEz" id="P6E-gu-WgT"/>
                 <outlet property="message" destination="WwQ-Sh-2xz" id="K8x-Bq-Vlc"/>
+                <outlet property="qrCodeImageView" destination="PV4-lK-xxY" id="tZQ-vc-G5e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,6 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSD-DV-CKp">
+                    <rect key="frame" x="16" y="125" width="343" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="WTv-cX-6XR"/>
                     </constraints>
@@ -29,16 +34,27 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="go"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the email you used during registration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwQ-Sh-2xz">
+                    <rect key="frame" x="16" y="175" width="343" height="24"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to HackTX!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Int-gn-bEz">
+                    <rect key="frame" x="16" y="64" width="343" height="21"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76J-zs-fC5" customClass="PKAddPassButton"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76J-zs-fC5" customClass="PKAddPassButton">
+                    <rect key="frame" x="16" y="105" width="343" height="50"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PV4-lK-xxY">
+                    <rect key="frame" x="62" y="249" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="HUh-xn-dLl"/>
+                        <constraint firstAttribute="width" constant="250" id="UrM-fJ-dWy"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -53,9 +69,11 @@
                 <constraint firstItem="WwQ-Sh-2xz" firstAttribute="top" secondItem="Int-gn-bEz" secondAttribute="bottom" constant="90" id="lMJ-o0-DqT"/>
                 <constraint firstItem="76J-zs-fC5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="maB-sC-LT6"/>
                 <constraint firstItem="76J-zs-fC5" firstAttribute="top" secondItem="Int-gn-bEz" secondAttribute="bottom" constant="20" id="nVC-hm-FDj"/>
+                <constraint firstItem="PV4-lK-xxY" firstAttribute="top" secondItem="WwQ-Sh-2xz" secondAttribute="bottom" constant="50" id="oYB-Wk-3Eq"/>
                 <constraint firstItem="Int-gn-bEz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="taU-HC-Ycr"/>
                 <constraint firstAttribute="trailing" secondItem="76J-zs-fC5" secondAttribute="trailing" constant="16" id="ttd-BU-Xuu"/>
                 <constraint firstItem="gSD-DV-CKp" firstAttribute="leading" secondItem="WwQ-Sh-2xz" secondAttribute="leading" id="vrq-DZ-JWa"/>
+                <constraint firstItem="PV4-lK-xxY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yuz-Cr-Fxm"/>
             </constraints>
             <point key="canvasLocation" x="36.5" y="54.5"/>
         </view>

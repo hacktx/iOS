@@ -23,7 +23,6 @@
 		8221B2071DAEF9D900FB1BE1 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B2051DAEF9D900FB1BE1 /* ScheduleTableViewCell.m */; };
 		8221B2081DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */; };
 		8221B20B1DAF109B00FB1BE1 /* HTXAPIKeyStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8221B20A1DAF109B00FB1BE1 /* HTXAPIKeyStore.m */; };
-		8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */; };
 		822A4D981D779BCD00C65761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D971D779BCD00C65761 /* main.m */; };
 		822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A4D9A1D779BCD00C65761 /* AppDelegate.m */; };
 		822A4DA41D779BCD00C65761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822A4DA21D779BCD00C65761 /* Main.storyboard */; };
@@ -51,6 +50,7 @@
 		82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EAFC851DB200D50061C449 /* CheckInViewController.m */; };
 		82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EAFC861DB200D50061C449 /* CheckInViewController.xib */; };
 		82F3C16B1DB71BAC004F96FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */; };
+		83420EE61F15C75F002AA404 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83420EE51F15C75F002AA404 /* APIKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +82,6 @@
 		8221B2061DAEF9D900FB1BE1 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		8221B2091DAF109B00FB1BE1 /* HTXAPIKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTXAPIKeyStore.h; sourceTree = "<group>"; };
 		8221B20A1DAF109B00FB1BE1 /* HTXAPIKeyStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTXAPIKeyStore.m; sourceTree = "<group>"; };
-		8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		822A4D931D779BCD00C65761 /* HackTX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackTX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822A4D971D779BCD00C65761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		822A4D991D779BCD00C65761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		82EAFC851DB200D50061C449 /* CheckInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckInViewController.m; sourceTree = "<group>"; };
 		82EAFC861DB200D50061C449 /* CheckInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
 		82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		83420EE51F15C75F002AA404 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = APIKeys.plist; sourceTree = "<group>"; };
 		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,12 +274,12 @@
 		822A4D961D779BCD00C65761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83420EE51F15C75F002AA404 /* APIKeys.plist */,
 				822A4D971D779BCD00C65761 /* main.m */,
 				82BA00381D81492F006CA2C6 /* AutolayoutHelper.h */,
 				82BA00391D81492F006CA2C6 /* AutolayoutHelper.m */,
 				822E95171D7FF4EE00C0402E /* HTXConstants.h */,
 				822E95181D7FF4EE00C0402E /* HTXConstants.m */,
-				8221B20E1DAF11FF00FB1BE1 /* APIKeys.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -341,7 +341,7 @@
 		822A4D8B1D779BCD00C65761 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = HackTX;
 				TargetAttributes = {
 					822A4D921D779BCD00C65761 = {
@@ -383,10 +383,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				820B450D1D9624B1002A26BA /* SponsorTableViewCell.xib in Resources */,
+				83420EE61F15C75F002AA404 /* APIKeys.plist in Resources */,
 				82BAC6D71D9D1FC000BF62C0 /* JosefinSans-Regular.ttf in Resources */,
 				822A4DA91D779BCD00C65761 /* LaunchScreen.storyboard in Resources */,
 				82BAC6D51D9D1FC000BF62C0 /* JosefinSans-Light.ttf in Resources */,
-				8221B20F1DAF11FF00FB1BE1 /* APIKeys.plist in Resources */,
 				82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */,
 				822A4DA61D779BCD00C65761 /* Assets.xcassets in Resources */,
 				8200AD721DB3577400D4EE11 /* AnnouncementTableViewCell.xib in Resources */,
@@ -539,6 +539,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -587,6 +588,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -620,7 +622,7 @@
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -634,7 +636,7 @@
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *header;
 
 @property (weak, nonatomic) IBOutlet UIButton *addToWallet;
+@property (nonatomic, weak) IBOutlet UIImageView *qrCodeImageView;
 
 @end
