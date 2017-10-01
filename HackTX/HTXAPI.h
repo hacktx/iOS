@@ -15,6 +15,7 @@
 + (void)refreshAnnouncements:(void(^)(BOOL success))completion;
 + (void)refreshEvents:(void(^)(BOOL success))completion;
 + (void)refreshSponsors:(void(^)(BOOL success))completion;
++ (void)refreshTweets:(void(^)(BOOL success))completion;
 
 + (void)sendRequest:(NSDictionary *)request
          toEndpoint:(NSString *)endpoint

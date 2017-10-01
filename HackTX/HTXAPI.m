@@ -13,6 +13,7 @@
 #import "Announcement.h"
 #import "Sponsor.h"
 #import "Event.h"
+#import "Tweet.h"
 
 
 @implementation HTXAPI
@@ -43,6 +44,10 @@
 
 + (void)refreshSponsors:(void(^)(BOOL success))completion {
     return [[[HTXAPI alloc] init] refreshSponsors:completion];
+}
+
++ (void)refreshTweets:(void(^)(BOOL success))completion {
+    return [[[HTXAPI alloc] init] refreshTweets:completion];
 }
 
 + (void)sendRequest:(NSDictionary *)request
@@ -163,6 +168,37 @@
                     
                     [realm beginWriteTransaction];
                     [Event createOrUpdateInRealm:realm withValue:newEvent];
+                    [realm commitWriteTransaction];
+                }
+            }
+            completion(YES);
+        } else {
+            completion(NO);
+        }
+        
+    }];
+}
+
+- (void)refreshTweets:(void(^)(BOOL success))completion {
+    [self sendRequest:nil toEndpoint:@"tweets" withType:@"GET" withCompletion:^(NSDictionary *response) {
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd kk:mm:ss"];
+        
+        if ([response[@"success"] boolValue]) {
+            for (id object in response[@"data"]) {
+                
+                for (id tweetObject in object[@"tweetList"]) {
+                    Tweet *newTweet = [[Tweet alloc] init];
+                    newTweet.serverID = [tweetObject[@"id"] stringValue];
+                    newTweet.tweeterName = tweetObject[@"tweeterName"];
+                    newTweet.tweetDesc = tweetObject[@"tweetDescription"];
+                    newTweet.imageURL = tweetObject[@"imageUrl"];
+                    newTweet.tweetTime = [dateFormat dateFromString:tweetObject[@"tweetTime"]];
+                    
+                    [realm beginWriteTransaction];
+                    [Tweet createOrUpdateInRealm:realm withValue:newTweet];
                     [realm commitWriteTransaction];
                 }
             }

@@ -51,6 +51,9 @@
 		82EAFC881DB200D50061C449 /* CheckInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82EAFC861DB200D50061C449 /* CheckInViewController.xib */; };
 		82F3C16B1DB71BAC004F96FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */; };
 		83420EE61F15C75F002AA404 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83420EE51F15C75F002AA404 /* APIKeys.plist */; };
+		83ABE8581F80A37C00E8F77F /* TwitterFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ABE8571F80A37C00E8F77F /* TwitterFeedViewController.m */; };
+		83ABE85B1F80A48C00E8F77F /* TwitterFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ABE85A1F80A48C00E8F77F /* TwitterFeedTableViewCell.m */; };
+		83ABE85F1F80A67500E8F77F /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ABE85E1F80A67500E8F77F /* Tweet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +125,12 @@
 		82EAFC861DB200D50061C449 /* CheckInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckInViewController.xib; sourceTree = "<group>"; };
 		82F3C16A1DB71BAC004F96FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83420EE51F15C75F002AA404 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = APIKeys.plist; sourceTree = "<group>"; };
+		83ABE8571F80A37C00E8F77F /* TwitterFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedViewController.m; sourceTree = "<group>"; };
+		83ABE8591F80A3BD00E8F77F /* TwitterFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterFeedViewController.h; sourceTree = "<group>"; };
+		83ABE85A1F80A48C00E8F77F /* TwitterFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterFeedTableViewCell.m; sourceTree = "<group>"; };
+		83ABE85D1F80A4AF00E8F77F /* TwitterFeedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterFeedTableViewCell.h; sourceTree = "<group>"; };
+		83ABE85E1F80A67500E8F77F /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		83ABE8601F80A68200E8F77F /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		B67A442663439B9AD415E5F6 /* libPods-HackTX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackTX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackTX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackTX/Pods-HackTX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +181,8 @@
 				8215AD8B1D8DC70F00377370 /* Speaker.m */,
 				82D303CF1DB24084003C98ED /* Hacker.h */,
 				82D303D01DB24084003C98ED /* Hacker.m */,
+				83ABE85E1F80A67500E8F77F /* Tweet.m */,
+				83ABE8601F80A68200E8F77F /* Tweet.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -242,6 +253,7 @@
 		822A4D951D779BCD00C65761 /* HackTX */ = {
 			isa = PBXGroup;
 			children = (
+				83ABE84C1F80840900E8F77F /* TwitterFeed */,
 				822A4D961D779BCD00C65761 /* Supporting Files */,
 				82BAC6DC1D9D1FC400BF62C0 /* Fonts */,
 				82D303C71DB23BB2003C98ED /* HackTX.entitlements */,
@@ -311,6 +323,17 @@
 			name = "Check In";
 			sourceTree = "<group>";
 		};
+		83ABE84C1F80840900E8F77F /* TwitterFeed */ = {
+			isa = PBXGroup;
+			children = (
+				83ABE8571F80A37C00E8F77F /* TwitterFeedViewController.m */,
+				83ABE8591F80A3BD00E8F77F /* TwitterFeedViewController.h */,
+				83ABE85A1F80A48C00E8F77F /* TwitterFeedTableViewCell.m */,
+				83ABE85D1F80A4AF00E8F77F /* TwitterFeedTableViewCell.h */,
+			);
+			name = TwitterFeed;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -347,6 +370,7 @@
 					822A4D921D779BCD00C65761 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 245X4K2U9R;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -476,6 +500,7 @@
 			files = (
 				822A4D9B1D779BCD00C65761 /* AppDelegate.m in Sources */,
 				822A4DB71D779DD100C65761 /* AnnouncementsViewController.m in Sources */,
+				83ABE85F1F80A67500E8F77F /* Tweet.m in Sources */,
 				822E95191D7FF4EE00C0402E /* HTXConstants.m in Sources */,
 				82BA003A1D81492F006CA2C6 /* AutolayoutHelper.m in Sources */,
 				8215AD7F1D8DBE3700377370 /* Sponsor.m in Sources */,
@@ -491,11 +516,13 @@
 				8215AD8F1D8DC88100377370 /* HTXAPI.m in Sources */,
 				8215AD891D8DC63F00377370 /* Event.m in Sources */,
 				822A4DC01D779DF100C65761 /* MapViewController.m in Sources */,
+				83ABE8581F80A37C00E8F77F /* TwitterFeedViewController.m in Sources */,
 				82D303D11DB24084003C98ED /* Hacker.m in Sources */,
 				82BA003D1D8149B1006CA2C6 /* UIColor+Palette.m in Sources */,
 				8215AD8C1D8DC70F00377370 /* Speaker.m in Sources */,
 				8215AD921D8DD26C00377370 /* SponsorViewController.m in Sources */,
 				82EAFC871DB200D50061C449 /* CheckInViewController.m in Sources */,
+				83ABE85B1F80A48C00E8F77F /* TwitterFeedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,12 +645,16 @@
 			baseConfigurationReference = DDE9620564A4ACF2DB3BFB7E /* Pods-HackTX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HackTX/HackTX.entitlements;
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackTX/HackTX-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -632,12 +663,15 @@
 			baseConfigurationReference = 099214E83B6739C941439E79 /* Pods-HackTX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HackTX/HackTX.entitlements;
 				DEVELOPMENT_TEAM = 245X4K2U9R;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HackTX/HackTX-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
