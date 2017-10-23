@@ -58,9 +58,9 @@ PODS:
   - GoogleUtilities (1.3.2):
     - GoogleSymbolUtilities (~> 1.1)
   - MBProgressHUD (1.0.0)
-  - Realm (2.0.2):
-    - Realm/Headers (= 2.0.2)
-  - Realm/Headers (2.0.2)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -74,7 +74,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - MBProgressHUD (~> 1.0.0)
-  - Realm
+  - Realm (~> 2.8.1)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -95,9 +95,9 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 5e97ee0504e715c4312054d413cb726e8ffdd610
+PODFILE CHECKSUM: 259e718fc15a6a6278f848f8b7b563cf2d436b11
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1

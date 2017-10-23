@@ -9,7 +9,7 @@ target 'HackTX' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'MBProgressHUD', '~> 1.0.0'
-  pod 'Realm'
+  pod 'Realm', '~> 2.8.1'
   pod 'AFNetworking'
   pod 'FCAlertView'
   pod 'ChameleonFramework'
