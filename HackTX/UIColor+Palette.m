@@ -46,4 +46,44 @@
                         alpha:1];
 }
 
+
+
+
+
+
++ (instancetype) htx17_darkBlue {
+    return [self colorWithRed:51.f/255.f
+                        green:0.f/255.f
+                         blue:128.f/255.f
+                        alpha:1];
+}
+
++ (instancetype) htx17_lightBlue {
+    return [self colorWithRed:187.f/255.f
+                        green:185.f/255.f
+                         blue:234.f/255.f
+                        alpha:1];
+}
+
++ (instancetype) htx17_pink {
+    return [self colorWithRed:255.f/255.f
+                        green:8.f/255.f
+                         blue:99.f/255.f
+                        alpha:1];
+}
+
++ (instancetype) htx17_darkOrange {
+    return [self colorWithRed:255.f/255.f
+                        green:93.f/255.f
+                         blue:71.f/255.f
+                        alpha:1];
+}
+
++ (instancetype) htx17_lightOrange {
+    return [self colorWithRed:255.f/255.f
+                        green:150.f/255.f
+                         blue:46.f/255.f
+                        alpha:1];
+}
+
 @end

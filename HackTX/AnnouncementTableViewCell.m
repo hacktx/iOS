@@ -15,7 +15,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-    self.time.textColor = [UIColor htx_red];
+    self.time.textColor = [UIColor htx17_darkOrange];
     
     self.backgroundColor = [UIColor clearColor];
     

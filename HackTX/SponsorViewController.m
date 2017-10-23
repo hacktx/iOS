@@ -41,7 +41,7 @@ static NSString *reuseIdentifier = @"com.HackTX.sponsor";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.allowsSelection = YES;
-    self.tableView.backgroundColor = [UIColor htx_white];
+    self.tableView.backgroundColor = [UIColor htx17_darkBlue];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView setRefreshControl:self.refreshControl];

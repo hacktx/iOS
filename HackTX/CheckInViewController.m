@@ -190,7 +190,7 @@
 - (void)setupView {
     self.gradient = [CAGradientLayer layer];
     self.gradient.frame = self.view.bounds;
-    self.gradient.colors = [NSArray arrayWithObjects:(id)[UIColor htx_lightBlue].CGColor, (id)[UIColor htx_lighterBlue].CGColor, nil];
+    self.gradient.colors = [NSArray arrayWithObjects:(id)[UIColor htx17_darkBlue].CGColor, (id)[UIColor htx17_darkBlue].CGColor, nil];
 
     [self.view.layer insertSublayer:self.gradient atIndex:0];
     

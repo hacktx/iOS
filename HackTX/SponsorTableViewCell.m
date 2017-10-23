@@ -15,11 +15,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.url.textColor = [UIColor htx_lightBlue];
+    self.url.textColor = [UIColor blackColor];
 
     self.backgroundColor = [UIColor clearColor];
     
-    self.cardView.backgroundColor = [UIColor whiteColor];
+    self.cardView.backgroundColor = [UIColor htx17_lightBlue];
     self.cardView.layer.cornerRadius = 2.5;
     self.cardView.layer.masksToBounds = NO;
     self.cardView.layer.shadowColor = [UIColor blackColor].CGColor;

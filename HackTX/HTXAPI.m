@@ -77,7 +77,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [manager GET:@"https://hacktx.joseb.me/checkin" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
+    [manager GET:@"https://pepper-prod.herokuapp.com/api/" parameters:@{@"email": email} progress:nil success:^(NSURLSessionTask *task, NSData *responseObject) {
         completion(@{@"success": @YES, @"data": responseObject});
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         completion(@{@"success": @NO, @"error": error});
@@ -116,7 +116,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [manager GET:@"https://hacktx.joseb.me/sponsors" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [manager GET:@"https://my.hacktx.com/api/partners" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         RLMRealm *realm = [RLMRealm defaultRealm];
         

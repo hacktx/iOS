@@ -369,7 +369,7 @@
 				TargetAttributes = {
 					822A4D921D779BCD00C65761 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 245X4K2U9R;
+						DevelopmentTeam = QV77V7B3H5;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -647,7 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HackTX/HackTX.entitlements;
-				DEVELOPMENT_TEAM = 245X4K2U9R;
+				DEVELOPMENT_TEAM = QV77V7B3H5;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;
@@ -665,7 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HackTX/HackTX.entitlements;
-				DEVELOPMENT_TEAM = 245X4K2U9R;
+				DEVELOPMENT_TEAM = QV77V7B3H5;
 				INFOPLIST_FILE = HackTX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HackTX;

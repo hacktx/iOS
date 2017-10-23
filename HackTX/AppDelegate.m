@@ -82,19 +82,17 @@
     CheckInViewController *vc3 = [[CheckInViewController alloc] init];
     MapViewController *vc4 = [[MapViewController alloc] init];
     SponsorViewController *vc5 = [[SponsorViewController alloc] init];
-    TwitterFeedViewController *vc6 = [[TwitterFeedViewController alloc] init];
     
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.tabBar.translucent = NO;
 
-    _tabBarController.viewControllers =  @[vc1, vc2, vc3, vc4, vc5, vc6];
+    _tabBarController.viewControllers =  @[vc1, vc2, vc3, vc4, vc5];
     
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Schedule" image:[UIImage imageNamed:@"icon_calendar"] selectedImage:nil];
     vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Updates" image:[UIImage imageNamed:@"icon_bell"] selectedImage:nil];
     vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Check-In" image:[UIImage imageNamed:@"icon_profile"] selectedImage:nil];
     vc4.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"icon_map"] selectedImage:nil];
     vc5.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Partners" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
-    vc6.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Tweets" image:[UIImage imageNamed:@"icon_heart"] selectedImage:nil];
     
     [[UITabBar appearance] setTintColor:[UIColor htx_red]];
     
@@ -106,7 +104,7 @@
     headerImage.frame = CGRectMake(0, 0, 38, 38);
     headerImage.image = [UIImage imageNamed:@"htx_logo"];
     
-    navController.navigationBar.barTintColor = [UIColor htx_lightBlue];
+    navController.navigationBar.barTintColor = [UIColor htx17_darkBlue];
     navController.navigationBar.topItem.titleView = headerImage;
     navController.navigationBar.translucent = NO;
     
